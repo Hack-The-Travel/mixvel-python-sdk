@@ -7,7 +7,8 @@ from .models import (
     Offer, OfferItem, Order, OrderItem,
     OriginDest, PaxJourney, PaxSegment, Price,
     RbdAvail, Service, ServiceOfferAssociations, Tax,
-    TaxSummary, TransportDepArrival, ValidatingParty,
+    TaxSummary, Ticket, TicketDocInfo, TransportDepArrival,
+    ValidatingParty,
 )
 from .models import (
     AirShoppingResponse, OrderViewResponse,
@@ -47,8 +48,12 @@ def parse_order_view_response(resp):
     """
     mix_order = parse_mix_order(resp.find("./Response/MixOrder"))
     data_lists = parse_data_lists(resp.find("./Response/DataLists"))
+    ticket_doc_info = map(
+        lambda doc: parse_ticket_doc_info(doc),
+        resp.findall("./Response/TicketDocInfo")
+    )
 
-    return OrderViewResponse(mix_order, data_lists)
+    return OrderViewResponse(mix_order, data_lists, ticket_doc_info=ticket_doc_info)
 
 def parse_amount(elm):
     """Parses AmountType.
@@ -375,6 +380,18 @@ def parse_tax_summary(elm):
         if elm.find("./TotalTaxAmount") is not None else None
 
     return TaxSummary(taxes, total_tax_amount=total_tax_amount)
+
+def parse_ticket(elm):
+    ticket_number = elm.find("./TicketNumber").text
+    return Ticket(ticket_number)
+
+def parse_ticket_doc_info(elm):
+    pax_ref_id = elm.find("./PaxRefID").text
+    tickets = map(
+        lambda ticket: parse_ticket(ticket),
+        elm.findall("./Ticket")
+    )
+    return TicketDocInfo(pax_ref_id, tickets)
 
 def parse_transport_dep_arrival(elm):
     """Parse TransportDepArrivalType.
