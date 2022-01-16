@@ -32,7 +32,7 @@ class OrderViewResponse:
         :param data_lists: data lists
         :type data_lists: DataLists
         :param ticket_doc_info: ticket doc info
-        :type ticket_doc_info: List[TicketDocInfo] or None
+        :type ticket_doc_info: list[TicketDocInfo] or None
         """
         self.mix_order = mix_order
         self.data_lists = data_lists
@@ -505,19 +505,6 @@ class TaxSummary:
         self.total_tax_amount = total_tax_amount
 
 
-class TicketDocInfo:
-    def __init__(self, pax_ref_id, tickets):
-        """TicketDocInfo.
-
-        :param pax_ref_id: pax ref ID
-        :type pax_ref_id: str
-        :param tickets: tickets
-        :type tickets: List[Ticket]
-        """
-        self.pax_ref_id = pax_ref_id
-        self.ticket = tickets
-
-
 class Ticket:
     def __init__(self, ticket_number):
         """Ticket.
@@ -526,6 +513,19 @@ class Ticket:
         :type ticket_number: str
         """
         self.TicketNumber = ticket_number
+
+
+class TicketDocInfo:
+    def __init__(self, pax_ref_id, tickets):
+        """TicketDocInfo.
+
+        :param pax_ref_id: pax ref ID
+        :type pax_ref_id: str
+        :param tickets: tickets
+        :type tickets: list[Ticket]
+        """
+        self.pax_ref_id = pax_ref_id
+        self.ticket = tickets
 
 
 class TransportDepArrival:
