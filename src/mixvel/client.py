@@ -1,11 +1,18 @@
 # -*- coding: utf-8 -*-
+import datetime
+from jinja2 import Environment, FileSystemLoader
 from lxml import etree
+import os
 import requests
+import uuid
 
 from .utils import lxml_remove_namespace
 
 PROD_GATEWAY = "https://api-test.mixvel.com"
 TEST_GATEWAY = "https://api-test.mixvel.com"
+
+here = os.path.dirname(os.path.abspath(__file__))
+
 
 class Client:
     def __init__(self,
@@ -19,6 +26,22 @@ class Client:
         """
         self.gateway = gateway
         self.verify_ssl = verify_ssl
+
+    def prepare_request(self, template, context):
+        """Constructs request.
+
+        :param template: template file name
+        :type template: str
+        :param context: values for template rendering
+        :type context: dict
+        :return: text of template
+        :rtype: str
+        """
+        context["message_id"] = uuid.uuid4()
+        context["time_sent"] = datetime.datetime.utcnow()
+        template_env = Environment(loader=FileSystemLoader(os.path.join(here, 'templates')))
+        request_template = template_env.get_template(template)
+        return request_template.render(context)
 
     def request(self, endpoint,
                 message_id=None):
