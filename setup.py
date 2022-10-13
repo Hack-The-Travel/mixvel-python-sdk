@@ -11,6 +11,7 @@ packages = ["mixvel"]
 
 requires = [
     "lxml==3.7.2",
+    "requests>=2.21.0, <3",
 ]
 
 test_requirements = [
