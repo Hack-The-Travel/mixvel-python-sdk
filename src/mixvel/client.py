@@ -17,7 +17,7 @@ here = os.path.dirname(os.path.abspath(__file__))
 
 
 class Client:
-    def __init__(self,
+    def __init__(self, login, password, structure_unit_id,
                  gateway=PROD_GATEWAY, verify_ssl=True):
         """MixVel API Client.
 
@@ -26,6 +26,9 @@ class Client:
         :param verify_ssl: (optional) controls whether we verify the server's SSL certificate, defaults to True
         :type verify_ssl: bool
         """
+        self.login = login
+        self.password = password
+        self.structure_unit_id = structure_unit_id
         self.gateway = gateway
         self.verify_ssl = verify_ssl
 
@@ -45,7 +48,7 @@ class Client:
         request_template = template_env.get_template(template)
         return request_template.render(context)
 
-    def request(self, endpoint, context):
+    def __request(self, endpoint, context):
         """Constructs and executes request.
 
         :param endpoint: method endpoint, e.g. "/api/Accounts/login"
@@ -83,3 +86,20 @@ class Client:
             ))
 
         return resp.find(".//Body/AppData/")
+
+    def auth(self):
+        """Logins to MixVel API.
+
+        :return: auth token
+        :rtype: str
+        """
+        context = {
+            "login": self.login,
+            "password": self.password,
+            "structure_unit_id": self.structure_unit_id,
+        }
+        resp = self.__request("/api/Accounts/login", context)
+        token = resp.find("./Token").text
+        self.token = token
+
+        return token
