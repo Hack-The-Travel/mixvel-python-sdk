@@ -75,7 +75,7 @@ class Client:
         r.raise_for_status()
         resp = etree.fromstring(self.recv)
         lxml_remove_namespace(resp)
-        err = resp.find("./Body/Error")
+        err = resp.find(".//Error")
         if err is not None:
             raise IOError("{type}: {code}".format(
                 type=err.find("./ErrorType").text,
