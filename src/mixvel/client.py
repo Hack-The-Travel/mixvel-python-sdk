@@ -36,8 +36,14 @@ class Client:
         r = requests.post(url,
             headers=headers, verify=self.verify_ssl)
         self.recv = r.content
-        print(r.content)
         r.raise_for_status()
         resp = etree.fromstring(self.recv)
         lxml_remove_namespace(resp)
+        err = resp.find("./Body/Error")
+        if err is not None:
+            msg = "{type}: {code}".format(
+                type=err.find("./ErrorType").text,
+                code=err.find("./Code").text
+            )
+            raise IOError(msg)
         return resp.find(".//Body/AppData/")
