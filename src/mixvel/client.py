@@ -27,7 +27,7 @@ class Client:
         self.gateway = gateway
         self.verify_ssl = verify_ssl
 
-    def prepare_request(self, template, context):
+    def __prepare_request(self, template, context):
         """Constructs request.
 
         :param template: template file name
@@ -43,11 +43,13 @@ class Client:
         request_template = template_env.get_template(template)
         return request_template.render(context)
 
-    def request(self, endpoint,
-                message_id=None):
-        """Sends request.
+    def request(self, endpoint, context):
+        """Constructs and executes request.
 
-        :type correlation_token: uuid.UUID or None
+        :param endpoint: method endpoint, e.g. "/api/Accounts/login"
+        :type endpoint: str
+        :param context: request variables.
+        :type context: dict
         :return: content of response `Body` node.
         :rtype: lxml.etree._Element
         """
@@ -55,18 +57,25 @@ class Client:
         headers = {
             "Content-Type": "application/xml",
         }
+        template = {
+            "/api/Accounts/login": "accounts_login.xml",
+        }.get(endpoint, None)
+        if template is None:
+            raise ValueError("Unknown endpoint: {}".format(endpoint))
+        data = self.__prepare_request(template, context)
+        self.sent = data
         self.recv = None
         r = requests.post(url,
-            headers=headers, verify=self.verify_ssl)
+            data=data, headers=headers, verify=self.verify_ssl)
         self.recv = r.content
         r.raise_for_status()
         resp = etree.fromstring(self.recv)
         lxml_remove_namespace(resp)
         err = resp.find("./Body/Error")
         if err is not None:
-            msg = "{type}: {code}".format(
+            raise IOError("{type}: {code}".format(
                 type=err.find("./ErrorType").text,
                 code=err.find("./Code").text
-            )
-            raise IOError(msg)
+            ))
+
         return resp.find(".//Body/AppData/")
