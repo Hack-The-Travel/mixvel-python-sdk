@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 from jinja2 import Environment, FileSystemLoader
+import logging
 from lxml import etree
 import os
 import requests
@@ -11,6 +12,7 @@ from .utils import lxml_remove_namespace
 PROD_GATEWAY = "https://api-test.mixvel.com"
 TEST_GATEWAY = "https://api-test.mixvel.com"
 
+log = logging.getLogger(__name__)
 here = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -64,10 +66,12 @@ class Client:
             raise ValueError("Unknown endpoint: {}".format(endpoint))
         data = self.__prepare_request(template, context)
         self.sent = data
+        log.info(self.sent)
         self.recv = None
         r = requests.post(url,
             data=data, headers=headers, verify=self.verify_ssl)
         self.recv = r.content
+        log.info(self.recv)
         r.raise_for_status()
         resp = etree.fromstring(self.recv)
         lxml_remove_namespace(resp)
