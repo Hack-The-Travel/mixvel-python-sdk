@@ -30,11 +30,11 @@ class Client:
     def __prepare_request(self, template, context):
         """Constructs request.
 
-        :param template: template file name
+        :param template: file name of request template
         :type template: str
-        :param context: values for template rendering
+        :param context: values for request template rendering
         :type context: dict
-        :return: text of template
+        :return: text of rendered request
         :rtype: str
         """
         context["message_id"] = uuid.uuid4()
