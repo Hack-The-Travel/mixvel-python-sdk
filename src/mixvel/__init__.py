@@ -4,4 +4,5 @@ from .__version__ import (
     __author__, __author_email__,
 )
 
+from . import utils
 from .client import Client
