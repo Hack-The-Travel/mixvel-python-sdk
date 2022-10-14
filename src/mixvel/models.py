@@ -7,6 +7,16 @@ mixvel.models
 This module contains the primary objects.
 """
 
+class AnonymousPassenger:
+    def __init__(self, ptc):
+        """Anonymous passenger.
+
+        :param ptc: passenger type code, e.g. "ADT", "CNN", etc.
+        :param ptc: str
+        """
+        self.ptc = ptc
+
+
 class Leg:
     def __init__(self, origin, destination, departure,
                  cabin="Economy"):
