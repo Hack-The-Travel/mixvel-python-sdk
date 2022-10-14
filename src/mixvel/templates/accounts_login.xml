@@ -1,4 +1,4 @@
-{% extends '_base.xml' %}
+{% extends "_base.xml" %}
 
 {% block request %}
 <a:Auth xmlns:a="https://www.mixvel.com/API/XSD/mixvel_auth/1_01">
