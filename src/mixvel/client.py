@@ -7,6 +7,9 @@ import os
 import requests
 import uuid
 
+from ._internal_utils import (
+    is_login_endpoint, request_template,
+)
 from .utils import lxml_remove_namespace
 
 PROD_GATEWAY = "https://api-test.mixvel.com"
@@ -63,14 +66,11 @@ class Client:
         headers = {
             "Content-Type": "application/xml",
         }
-        if endpoint != "/api/Accounts/login":
+        if not is_login_endpoint(endpoint):
             if not self.token:
                 self.auth()
             headers["Authorization"] = "Bearer {token}".format(token=self.token)
-        template = {
-            "/api/Accounts/login": "accounts_login.xml",
-            "/api/Order/airshopping": "order_airshopping.xml",
-        }.get(endpoint, None)
+        template = request_template(endpoint)
         if template is None:
             raise ValueError("Unknown endpoint: {}".format(endpoint))
         data = self.__prepare_request(template, context)
