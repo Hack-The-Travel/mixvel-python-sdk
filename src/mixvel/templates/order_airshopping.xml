@@ -1,0 +1,34 @@
+{% extends "_base.xml" %}
+
+{% block request %}
+<shop:Mixvel_AirShoppingRQ xmlns:shop="https://www.mixvel.com/API/XSD/Mixvel_AirShoppingRQ/1_01">
+    <Request>
+        <FlightRequest>
+            <FlightRequestOriginDestinationsCriteria>
+                <OriginDestCriteria>
+                    <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                        <PrefLevel>
+                            <PrefLevelCode>Required</PrefLevelCode>
+                        </PrefLevel>
+                    </CabinType>
+                    <DestArrivalCriteria>
+                        <IATA_LocationCode>MOW</IATA_LocationCode>
+                    </DestArrivalCriteria>
+                    <OriginDepCriteria>
+                        <DateRangeStart>2021-06-01</DateRangeStart>
+                        <DateRangeEnd>2021-06-01</DateRangeEnd>
+                        <IATA_LocationCode>AER</IATA_LocationCode>
+                    </OriginDepCriteria>
+                </OriginDestCriteria>
+            </FlightRequestOriginDestinationsCriteria>
+        </FlightRequest>
+        <Paxs>
+            <Pax>
+                <PaxID>Pax-1</PaxID>
+                <PTC>ADT</PTC>
+            </Pax>
+        </Paxs>
+    </Request>
+</shop:Mixvel_AirShoppingRQ>
+{% endblock %}
