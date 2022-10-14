@@ -108,11 +108,21 @@ class Client:
 
         return token
 
-    def airshopping(self):
+    def airshopping(self, itinerary, paxes):
+        """Executes air shopping request.
+
+        :param itinerary: itinerary
+        :type itinerary: list[Leg]
+        :param paxes: paxes
+        :type paxes: list[AnonymousPassenger]
+        """
         if not self.token:
             self.auth()
 
-        context = {}
+        context = {
+            "itinerary": itinerary,
+            "paxes": paxes,
+        }
         resp = self.__request("/api/Order/airshopping", context)
 
-        return "kek"
+        return []
