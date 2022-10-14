@@ -63,7 +63,9 @@ class Client:
         headers = {
             "Content-Type": "application/xml",
         }
-        if self.token:
+        if endpoint != "/api/Accounts/login":
+            if not self.token:
+                self.auth()
             headers["Authorization"] = "Bearer {token}".format(token=self.token)
         template = {
             "/api/Accounts/login": "accounts_login.xml",
@@ -116,9 +118,6 @@ class Client:
         :param paxes: paxes
         :type paxes: list[AnonymousPassenger]
         """
-        if not self.token:
-            self.auth()
-
         context = {
             "itinerary": itinerary,
             "paxes": paxes,
