@@ -7,6 +7,9 @@ from .__version__ import (
 from . import utils
 from .client import PROD_GATEWAY, TEST_GATEWAY
 from .client import Client
+from .models import (
+    AnonymousPassenger, Leg,
+)
 
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
