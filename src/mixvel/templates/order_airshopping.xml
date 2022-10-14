@@ -5,29 +5,33 @@
     <Request>
         <FlightRequest>
             <FlightRequestOriginDestinationsCriteria>
+                {% for leg in itinerary %}
                 <OriginDestCriteria>
                     <CabinType>
-                        <CabinTypeCode>Economy</CabinTypeCode>
+                        <CabinTypeCode>{{ leg.cabin }}</CabinTypeCode>
                         <PrefLevel>
                             <PrefLevelCode>Required</PrefLevelCode>
                         </PrefLevel>
                     </CabinType>
                     <DestArrivalCriteria>
-                        <IATA_LocationCode>MOW</IATA_LocationCode>
+                        <IATA_LocationCode>{{ leg.destination }}</IATA_LocationCode>
                     </DestArrivalCriteria>
                     <OriginDepCriteria>
-                        <DateRangeStart>2021-06-01</DateRangeStart>
-                        <DateRangeEnd>2021-06-01</DateRangeEnd>
-                        <IATA_LocationCode>AER</IATA_LocationCode>
+                        <DateRangeStart>{{ leg.departure.strftime("%Y-%m-%d") }}</DateRangeStart>
+                        <DateRangeEnd>{{ leg.departure.strftime("%Y-%m-%d") }}</DateRangeEnd>
+                        <IATA_LocationCode>{{ leg.origin }}</IATA_LocationCode>
                     </OriginDepCriteria>
                 </OriginDestCriteria>
+                {% endfor %}
             </FlightRequestOriginDestinationsCriteria>
         </FlightRequest>
         <Paxs>
+            {% for pax in paxes %}
             <Pax>
-                <PaxID>Pax-1</PaxID>
-                <PTC>ADT</PTC>
+                <PaxID>Pax-{{ loop.index }}</PaxID>
+                <PTC>pax.ptc</PTC>
             </Pax>
+            {% endfor %}
         </Paxs>
     </Request>
 </shop:Mixvel_AirShoppingRQ>
