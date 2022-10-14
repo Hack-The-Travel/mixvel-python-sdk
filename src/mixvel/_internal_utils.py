@@ -13,7 +13,7 @@ def is_login_endpoint(endpoint):
     :type endpoint: str
     :rtype: bool
     """
-    return e == "/api/Accounts/login"
+    return endpoint == "/api/Accounts/login"
 
 
 def request_template(endpoint):
