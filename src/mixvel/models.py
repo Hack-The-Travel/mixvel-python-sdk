@@ -7,6 +7,9 @@ mixvel.models
 This module contains the primary objects.
 """
 
+import datetime
+
+
 class AnonymousPassenger:
     def __init__(self, ptc):
         """Anonymous passenger.
