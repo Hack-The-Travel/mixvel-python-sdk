@@ -26,4 +26,5 @@ def request_template(endpoint):
     return {
         "/api/Accounts/login": "accounts_login.xml",
         "/api/Order/airshopping": "order_airshopping.xml",
+        "/api/Order/cancel": "order_cancel.xml",
     }.get(endpoint, None)

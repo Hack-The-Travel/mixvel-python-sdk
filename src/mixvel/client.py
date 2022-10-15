@@ -125,3 +125,17 @@ class Client:
         resp = self.__request("/api/Order/airshopping", context)
 
         return []
+    
+    def cancel(self, order_id):
+        """Cancels order.
+
+        :param order_id: order id
+        :type order_id: str
+        :rtype: bool
+        """
+        context = {
+            "order_id": order_id,
+        }
+        resp = self.__request("/api/Order/cancel", context)
+
+        return True
