@@ -1,0 +1,55 @@
+{% extends "_base.xml" %}
+
+{% block request %}
+<m:Mixvel_OrderCreateRQ xmlns:m="https://www.mixvel.com/API/XSD/Mixvel_OrderCreateRQ/1_01">
+    <Request>
+        <CreateOrder>
+            <SelectedOffer>
+                <OfferRefID>4b238bb3-e98b-43d2-a216-b52daf2c4d68</OfferRefID>
+                <SelectedOfferItem>
+                    <OfferItemRefID>b767acb7-ab61-4da3-aa4e-b02b87010ddc</OfferItemRefID>
+                    <PaxRefID>Pax-1</PaxRefID>
+                </SelectedOfferItem>
+            </SelectedOffer>
+        </CreateOrder>
+        <DataLists>
+            <ContactInfoList>
+                <ContactInfo>
+                    <ContactInfoID>Contact-1</ContactInfoID>
+                    <EmailAddress>
+                        <ContactTypeText>personal</ContactTypeText>
+                        <EmailAddressText>s.n.ivanov@gmail.com</EmailAddressText>
+                    </EmailAddress>
+                    <Phone>
+                        <ContactTypeText>personal</ContactTypeText>
+                        <PhoneNumber>+79202457834</PhoneNumber>
+                    </Phone>
+                </ContactInfo>
+            </ContactInfoList>
+            <PaxList>
+                <Pax>
+                    <AgeMeasure>33</AgeMeasure>
+                    <ContactInfoRefID>Contact-1</ContactInfoRefID>
+                    <IdentityDoc>
+                        <ExpiryDate>2040-04-12</ExpiryDate>
+                        <IdentityDocID>7001456395</IdentityDocID>
+                        <IdentityDocTypeCode>PS</IdentityDocTypeCode>
+                        <IssueDate>2005-04-12</IssueDate>
+                        <IssuingCountryCode>RU</IssuingCountryCode>
+                        <Surname>Ivanov</Surname>
+                    </IdentityDoc>
+                    <Individual>
+                        <Birthdate>1991-04-12</Birthdate>
+                        <GenderCode>M</GenderCode>
+                        <GivenName>Sergey</GivenName>
+                        <MiddleName>Nikolaevich</MiddleName>
+                        <Surname>Ivanov</Surname>
+                    </Individual>
+                    <PaxID>Pax-1</PaxID>
+                    <PTC>ADT</PTC>
+                </Pax>
+            </PaxList>
+        </DataLists>
+    </Request>
+</m:Mixvel_OrderCreateRQ>
+{% endblock %}
