@@ -123,7 +123,22 @@ class Client:
         resp = self.__request("/api/Order/airshopping", context)
 
         return []
-    
+
+
+    def create_order(self, paxes):
+        """Creates order.
+
+        :param paxes: passengers
+        :type paxes: list[Passenger]
+        """
+        context = {
+            "paxes": paxes,
+        }
+        resp = self.__request("/api/Order/create", context)
+
+        return None
+
+
     def cancel_order(self, order_id):
         """Cancels order.
 
