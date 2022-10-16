@@ -93,3 +93,23 @@ class Leg:
         self.destination = destination
         self.departure = departure
         self.cabin = cabin
+
+
+class Passenger:
+    def __init__(self, individual, doc,
+                 phone=None, email=None):
+        """Passenger.
+
+        :param individual: individual
+        :type individual: Individual
+        :param doc: identity document
+        :type doc: IdentityDocument
+        :param email: (optional) contact email
+        :param email: str or None
+        :param phone: (optional) contact phone number
+        :param phone: str or None
+        """
+        self.individual = individual
+        self.doc = doc
+        self.email = email
+        self.phone = phone
