@@ -124,7 +124,7 @@ class Client:
 
         return []
     
-    def cancel(self, order_id):
+    def cancel_order(self, order_id):
         """Cancels order.
 
         :param order_id: order id
