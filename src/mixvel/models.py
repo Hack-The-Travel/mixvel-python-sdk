@@ -20,6 +20,19 @@ class AnonymousPassenger:
         self.ptc = ptc
 
 
+class Contact:
+    def __init__(self, email, phone):
+        """Contact information.
+
+        :param email: (optional) contact email
+        :param email: str or None
+        :param phone: (optional) contact phone number
+        :param phone: str or None
+        """
+        self.email = email
+        self.phone = phone
+
+
 class IdentityDocument:
     def __init__(self, doc_id, type_code, issuing_country_code, expiry_date):
         """Identity document.
