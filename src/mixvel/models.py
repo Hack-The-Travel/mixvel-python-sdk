@@ -39,7 +39,7 @@ class IdentityDocument:
         self.expiry_date = expiry_date
 
 
-class Individual():
+class Individual:
     def __init__(self, given_name, middle_name, surname,
                  gender, birthdate):
         """Individual.
