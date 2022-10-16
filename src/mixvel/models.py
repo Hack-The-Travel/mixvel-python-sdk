@@ -20,6 +20,25 @@ class AnonymousPassenger:
         self.ptc = ptc
 
 
+class IdentityDocument:
+    def __init__(self, doc_id, type_code, issuing_country_code, expiry_date):
+        """Identity document.
+
+        :param doc_id: document ID
+        :type doc_id: str
+        :param type_code: document type code, e.g. "PS"
+        :type type_code: str
+        :param issuing_country_code: issuing country code, e.g. "RU"
+        :type issuing_country_code: str
+        :param expiry_date: document expiry date
+        :type expiry_date: datetime.date
+        """
+        self.doc_id = doc_id
+        self.type_code = type_code
+        self.issuing_country_code = issuing_country_code
+        self.expiry_date = expiry_date
+
+
 class Individual():
     def __init__(self, given_name, middle_name, surname,
                  gender, birthdate):
