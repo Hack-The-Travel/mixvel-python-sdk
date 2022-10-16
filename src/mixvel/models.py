@@ -82,11 +82,13 @@ class Leg:
         self.cabin = cabin
 
 
-class Passenger:
-    def __init__(self, individual, doc,
+class Passenger(AnonymousPassenger):
+    def __init__(self, ptc, individual, doc,
                  phone=None, email=None):
         """Passenger.
 
+        :param ptc: passenger type code, e.g. "ADT", "CNN", etc.
+        :param ptc: str
         :param individual: individual
         :type individual: Individual
         :param doc: identity document
@@ -96,6 +98,7 @@ class Passenger:
         :param phone: (optional) contact phone number
         :param phone: str or None
         """
+        AnonymousPassenger.__init__(self, ptc)
         self.individual = individual
         self.doc = doc
         self.email = email
