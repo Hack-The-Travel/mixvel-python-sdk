@@ -34,7 +34,7 @@ class Individual():
         :param gender: gender, possible values: "M", "F"
         :type gender: str
         :param birthdate: birthdate
-        :type birthdate: datetime.datetime
+        :type birthdate: datetime.date
         """
         self.given_name = given_name
         self.middle_name = middle_name
@@ -52,8 +52,8 @@ class Leg:
         :type origin: str
         :param destination: destination
         :type destination: str
-        :param departure: departure datetime
-        :type departure: datetime.datetime
+        :param departure: departure date
+        :type departure: datetime.date
         :param cabin: (optional) cabin, default is "Economy"
         :type cabin: str
         """
