@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 """
-mixvel._internal_utils
+mixvel.endpoint
 ~~~~~~~~~~~~~~
-Provides utility functions that are consumed internally by mixvel.
+Provides internal functions for working with MixVel API endpoints.
 """
 
 def is_login_endpoint(endpoint):
