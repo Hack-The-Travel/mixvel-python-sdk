@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 
-from mixvel.utils import lxml_remove_namespace
+from mixvel.utils import lxml_remove_namespaces
 
 from lxml import etree
 
@@ -17,5 +17,5 @@ def load_response(resp_path,
     if not clean_appdata:
         return resp
 
-    lxml_remove_namespace(resp)
+    lxml_remove_namespaces(resp)
     return resp.find('.//Body/AppData/')

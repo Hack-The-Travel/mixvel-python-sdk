@@ -11,7 +11,7 @@ from lxml import objectify
 from lxml import etree
 
 
-def lxml_remove_namespace(root):
+def lxml_remove_namespaces(root):
     """Removes all namespaces and prefixes from lxml object.
 
     Links:

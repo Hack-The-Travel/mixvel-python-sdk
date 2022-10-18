@@ -10,7 +10,7 @@ import uuid
 from mixvel.parsers import is_cancel_success
 
 from .endpoint import is_login_endpoint, request_template
-from .utils import lxml_remove_namespace
+from .utils import lxml_remove_namespaces
 
 PROD_GATEWAY = "https://api-test.mixvel.com"
 TEST_GATEWAY = "https://api-test.mixvel.com"
@@ -83,7 +83,7 @@ class Client:
         log.info(self.recv)
         r.raise_for_status()
         resp = etree.fromstring(self.recv)
-        lxml_remove_namespace(resp)
+        lxml_remove_namespaces(resp)
         err = resp.find(".//Error")
         if err is not None:
             raise IOError("{type}: {code}".format(
