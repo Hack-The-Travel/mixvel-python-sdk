@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MixEnv:Envelope xmlns:MixEnv="https://www.mixvel.com/API/XSD/mixvel_envelope/1_06">
+	<Header/>
+	<Body>
+		<MessageInfo MessageId="703423d1-595c-49f5-98c2-5dcabe950276" ReplyTo="79b67a26-6fc3-41e3-8ac4-14e0ac0245c8" TimeSent="2020-11-25T13:37:48Z" />
+		<AppData>
+			<o:Mixvel_OrderCancelRS xmlns:o="https://www.mixvel.com/API/XSD/Mixvel_OrderCancelRS/1_00">
+				<Response>
+					<MixOrderRef>
+						<MixOrderID>00001-210317-MA1234</MixOrderID>
+						<Order>
+							<OrderID>06031-200201-OAA003</OrderID>
+							<OperationStatus>Success</OperationStatus>
+						</Order>
+					</MixOrderRef>
+				</Response>
+			</o:Mixvel_OrderCancelRS>
+		</AppData>
+	</Body>
+</MixEnv:Envelope>
