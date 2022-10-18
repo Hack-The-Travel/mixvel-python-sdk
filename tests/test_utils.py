@@ -12,7 +12,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 class TestUtils:
     @pytest.mark.parametrize('response_file_path', [
-        os.path.join(here, 'responses/accounts/', 'login.xml'),
+        os.path.join(here, 'responses/accounts/', 'login_error.xml'),
     ])
     def test_lxml_remove_namespace(self, response_file_path):
         response = etree.parse(response_file_path)
