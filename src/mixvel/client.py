@@ -7,6 +7,8 @@ import os
 import requests
 import uuid
 
+from mixvel.parsers import is_cancel_success
+
 from .endpoint import is_login_endpoint, request_template
 from .utils import lxml_remove_namespace
 
@@ -178,4 +180,4 @@ class Client:
         }
         resp = self.__request("/api/Order/cancel", context)
 
-        return True
+        return is_cancel_success(resp)
