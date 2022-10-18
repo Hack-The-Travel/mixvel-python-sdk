@@ -7,7 +7,7 @@ import os
 import requests
 import uuid
 
-from ._endpoint import is_login_endpoint, request_template
+from .endpoint import is_login_endpoint, request_template
 from .utils import lxml_remove_namespace
 
 PROD_GATEWAY = "https://api-test.mixvel.com"
