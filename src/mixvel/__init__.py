@@ -9,7 +9,7 @@ from .client import PROD_GATEWAY, TEST_GATEWAY
 from .client import Client
 from .models import (
     AnonymousPassenger, IdentityDocument, Individual, Leg,
-    Passenger,
+    MixOrder, Passenger,
 )
 from . import parsers
 

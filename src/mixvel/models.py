@@ -82,6 +82,22 @@ class Leg:
         self.cabin = cabin
 
 
+class MixOrder:
+    def __init__(self, mix_order_id, booking_id, time_limit):
+        """MixOrder.
+
+        :param mix_order_id: mix order id
+        :type mix_order_id: str
+        :param booking_id: airline pnr record locator
+        :type booking_id: str
+        :param time_limit: ticketing time limit
+        :type time_limit: datetime.datetime
+        """
+        self.mix_order_id = mix_order_id
+        self.booking_id = booking_id
+        self.time_limit = time_limit
+
+
 class Passenger(AnonymousPassenger):
     def __init__(self, ptc, individual, doc,
                  phone=None, email=None):
