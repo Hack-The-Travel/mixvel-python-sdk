@@ -6,11 +6,11 @@ import pytest
 
 
 class TestUtils:
-    @pytest.mark.parametrize('resp_path', [
-        'responses/accounts/login_error.xml',
+    @pytest.mark.parametrize("resp_path", [
+        "responses/accounts/login_error.xml",
     ])
     def test_lxml_remove_namespace(self, resp_path):
         resp = load_response(resp_path, clean_appdata=False)
-        assert resp.find('.//AuthResponse') is None
+        assert resp.find(".//AuthResponse") is None
         lxml_remove_namespaces(resp)
-        assert resp.find('.//AuthResponse') is not None
+        assert resp.find(".//AuthResponse") is not None

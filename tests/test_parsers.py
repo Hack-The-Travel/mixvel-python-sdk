@@ -6,8 +6,8 @@ import pytest
 
 
 class TestParsers:
-    @pytest.mark.parametrize('resp_path', [
-        'responses/order/cancel_success.xml',
+    @pytest.mark.parametrize("resp_path", [
+        "responses/order/cancel_success.xml",
     ])
     def test_is_cancel_success(self, resp_path):
         resp = load_response(resp_path)
