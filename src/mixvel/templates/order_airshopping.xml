@@ -28,7 +28,7 @@
         <Paxs>
             {% for pax in paxes %}
             <Pax>
-                <PaxID>Pax-{{ loop.index }}</PaxID>
+                <PaxID>{{ pax.pax_id }}</PaxID>
                 <PTC>{{ pax.ptc }}</PTC>
             </Pax>
             {% endfor %}
