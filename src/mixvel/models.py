@@ -11,12 +11,15 @@ import datetime
 
 
 class AnonymousPassenger:
-    def __init__(self, ptc):
+    def __init__(self, pax_id, ptc):
         """Anonymous passenger.
 
+        :param pax_id: passenger id
+        :type pax_id: str
         :param ptc: passenger type code, e.g. "ADT", "CNN", etc.
         :param ptc: str
         """
+        self.pax_id = pax_id
         self.ptc = ptc
 
 
@@ -99,23 +102,25 @@ class MixOrder:
 
 
 class Passenger(AnonymousPassenger):
-    def __init__(self, ptc, individual, doc,
+    def __init__(self, pax_id, ptc, individual, doc,
                  phone=None, email=None):
         """Passenger.
 
+        :param pax_id: passenger id
+        :type pax_id: str
         :param ptc: passenger type code, e.g. "ADT", "CNN", etc.
         :param ptc: str
         :param individual: individual
         :type individual: Individual
         :param doc: identity document
         :type doc: IdentityDocument
-        :param email: (optional) contact email
-        :param email: str or None
         :param phone: (optional) contact phone number
         :param phone: str or None
+        :param email: (optional) contact email
+        :param email: str or None
         """
-        AnonymousPassenger.__init__(self, ptc)
+        AnonymousPassenger.__init__(self, pax_id, ptc)
         self.individual = individual
         self.doc = doc
-        self.email = email
         self.phone = phone
+        self.email = email
