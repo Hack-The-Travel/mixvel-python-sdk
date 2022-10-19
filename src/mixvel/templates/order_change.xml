@@ -4,7 +4,7 @@
 <o:Mixvel_OrderChangeRQ xmlns:o="https://www.mixvel.com/API/XSD/Mixvel_OrderChangeRQ/1_00">
     <Request>
         <MixOrder>
-            <MixOrderID>{{ order_id }}</MixOrderID>
+            <MixOrderID>{{ mix_order_id }}</MixOrderID>
         </MixOrder>
         <PaymentFunctions>
             <PaymentProcessingDetails>

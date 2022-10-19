@@ -5,7 +5,7 @@
     <Request>
         <OrderFilterCriteria>
             <MixOrder>
-                <MixOrderID>{{ order_id }}</MixOrderID>
+                <MixOrderID>{{ mix_order_id }}</MixOrderID>
             </MixOrder>
         </OrderFilterCriteria>
     </Request>
