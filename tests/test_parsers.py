@@ -38,7 +38,7 @@ class TestParsers:
 
         assert got.mix_order_id == mix_order.mix_order_id
         assert got.total_amount.amount == mix_order.total_amount.amount
-        assert got.total_amount.currency == mix_order.total_amount.currency
+        assert got.total_amount.cur_code == mix_order.total_amount.cur_code
 
         # orders
         assert len(got.orders) == len(mix_order.orders)
@@ -46,7 +46,7 @@ class TestParsers:
             assert got.orders[i].order_id == mix_order.orders[i].order_id
             assert got.orders[i].deposit_timelimit == mix_order.orders[i].deposit_timelimit
             assert got.orders[i].total_amount.amount == mix_order.orders[i].total_amount.amount
-            assert got.orders[i].total_amount.currency == mix_order.orders[i].total_amount.currency
+            assert got.orders[i].total_amount.cur_code == mix_order.orders[i].total_amount.cur_code
 
             # booking_refs
             assert len(got.orders[i].booking_refs) == len(mix_order.orders[i].booking_refs)

@@ -11,16 +11,16 @@ import datetime
 
 
 class Amount:
-    def __init__(self, amount, currency):
+    def __init__(self, amount, cur_code):
         """Amount.
 
         :param amount: amount
         :type amount: int
-        :param currency: currency
-        :type currency: str
+        :param cur_code: currency code
+        :type cur_code: str
         """
         self.amount = amount
-        self.currency = currency
+        self.cur_code = cur_code
 
 
 class AnonymousPassenger:
