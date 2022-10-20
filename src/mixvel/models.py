@@ -125,7 +125,7 @@ class MixOrder:
 
 
 class Order:
-    def __init__(self, order_id, booking_refs, deposit_timelimit):
+    def __init__(self, order_id, booking_refs, deposit_timelimit, total_amount):
         """Order.
         
         :param order_id: order id
@@ -134,10 +134,13 @@ class Order:
         :type booking_refs: list[Booking]
         :param deposit_timelimit: ticketing time limit
         :type deposit_timelimit: datetime.datetime
+        :param total_amount: total amount
+        :type total_amount: Amount
         """
         self.order_id = order_id
         self.booking_refs = booking_refs
         self.deposit_timelimit = deposit_timelimit
+        self.total_amount = total_amount
 
 
 class Passenger(AnonymousPassenger):
