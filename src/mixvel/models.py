@@ -10,6 +10,19 @@ This module contains the primary objects.
 import datetime
 
 
+class Amount:
+    def __init__(self, amount, currency):
+        """Amount.
+
+        :param amount: amount
+        :type amount: int
+        :param currency: currency
+        :type currency: str
+        """
+        self.amount = amount
+        self.currency = currency
+
+
 class AnonymousPassenger:
     def __init__(self, pax_id, ptc):
         """Anonymous passenger.
