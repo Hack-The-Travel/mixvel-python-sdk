@@ -125,19 +125,19 @@ class MixOrder:
 
 
 class Order:
-    def __init__(self, order_id, booking_refs, relevance_datetime):
+    def __init__(self, order_id, booking_refs, deposit_timelimit):
         """Order.
         
         :param order_id: order id
         :type order_id: str
         :param booking_refs: lit of bookings
         :type booking_refs: list[Booking]
-        :param relevance_datetime: ticketing time limit
-        :type relevance_datetime: datetime.datetime
+        :param deposit_timelimit: ticketing time limit
+        :type deposit_timelimit: datetime.datetime
         """
         self.order_id = order_id
         self.booking_refs = booking_refs
-        self.relevance_datetime = relevance_datetime
+        self.deposit_timelimit = deposit_timelimit
 
 
 class Passenger(AnonymousPassenger):
