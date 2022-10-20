@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import datetime
 
-from .models import MixOrder
+from .models import (
+    AnonymousPassenger, MixOrder,
+)
 
 
 def parse_order_view(resp):
@@ -12,8 +14,20 @@ def parse_order_view(resp):
     :rtype: MixOrder
     """
     mix_order_id = resp.find("./Response/MixOrder/MixOrderID").text
-    booking_id = resp.find("./Response/MixOrder/Order/BookingRef/BookingID").text
-    time_limit = resp.find("./Response/MixOrder/Order/DepositTimeLimitDateTime").text
+
+    paxes = []
+    pax_list_node = resp.find("./Response/DataLists/PaxList")
+    for pax_node in pax_list_node:
+        paxes.append(
+            AnonymousPassenger(
+                pax_node.find("./PaxID").text,
+                pax_node.find("./PTC").text
+            )
+        )
+
+    order_node = resp.find("./Response/MixOrder/Order")
+    booking_id = order_node.find("./BookingRef/BookingID").text
+    time_limit = order_node.find("./DepositTimeLimitDateTime").text
     time_limit = datetime.datetime.strptime(time_limit, "%Y-%m-%dT%H:%M:%S")
 
     return MixOrder(mix_order_id, booking_id, time_limit)
