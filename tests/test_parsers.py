@@ -2,15 +2,25 @@
 import datetime
 
 from .utils import load_response
-from mixvel.parsers import is_cancel_success, parse_order_view
+from mixvel.parsers import parse_amount, is_cancel_success, parse_order_view
 from mixvel.models import (
     Amount, Booking, MixOrder, Order
 )
 
+from lxml import etree
 import pytest
 
 
 class TestParsers:
+    @pytest.mark.parametrize("xml_data,amount,cur_code", [
+        ('<TotalAmount CurCode="RUB">6538.00</TotalAmount>', 653800, "RUB"),
+    ])
+    def test_parse_amount(self, xml_data, amount, cur_code):
+        got = parse_amount(etree.fromstring(xml_data))
+        assert got.amount == amount
+        assert got.cur_code == cur_code
+
+
     @pytest.mark.parametrize("resp_path", [
         "responses/order/cancel_success.xml",
     ])

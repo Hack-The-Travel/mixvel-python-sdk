@@ -7,14 +7,17 @@ from .models import (
 )
 
 
-def parse_amount(s):
-    """Parses amount string to int.
+def parse_amount(elm):
+    """Parses AmountType.
 
-    :param s: amount string
-    :type s: str
-    :rtype: int
+    :param elm: AmountType element
+    :type elm: lxml.etree._Element
+    :rtype: Amount
     """
-    return int(s.replace(".", ""))
+    return Amount(
+        int(elm.text.replace(".", "")),
+        elm.get("CurCode")
+    )
 
 
 def parse_order_view(resp):
@@ -25,10 +28,7 @@ def parse_order_view(resp):
     :rtype: MixOrder
     """
     mix_order_id = resp.find("./Response/MixOrder/MixOrderID").text
-    total_amount = Amount(
-        parse_amount(resp.find("./Response/MixOrder/TotalAmount").text),
-        resp.find("./Response/MixOrder/TotalAmount").get("CurCode")
-    )
+    total_amount = parse_amount(resp.find("./Response/MixOrder/TotalAmount"))
 
     paxes = []
     pax_list_node = resp.find("./Response/DataLists/PaxList")
@@ -44,10 +44,7 @@ def parse_order_view(resp):
     orders_node = resp.findall("./Response/MixOrder/Order")
     for order_node in orders_node:
         order_id = order_node.find("./OrderID").text
-        amount = Amount(
-            parse_amount(order_node.find("./TotalPrice/TotalAmount").text),
-            order_node.find("./TotalPrice/TotalAmount").get("CurCode")
-        )
+        amount = parse_amount(order_node.find("./TotalPrice/TotalAmount"))
 
         booking_refs = []
         booking_list_node = order_node.findall("./BookingRef")
