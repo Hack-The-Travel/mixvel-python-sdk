@@ -14,6 +14,7 @@ import pytest
 class TestParsers:
     @pytest.mark.parametrize("xml_data,amount,cur_code", [
         ('<TotalAmount CurCode="RUB">6538.00</TotalAmount>', 653800, "RUB"),
+        ('<TotalAmount CurCode="RUB">3269.00</TotalAmount>', 326900, "RUB"),
     ])
     def test_parse_amount(self, xml_data, amount, cur_code):
         got = parse_amount(etree.fromstring(xml_data))
