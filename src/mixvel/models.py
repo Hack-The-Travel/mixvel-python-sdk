@@ -36,6 +36,16 @@ class AnonymousPassenger:
         self.ptc = ptc
 
 
+class Booking:
+    def __init__(self, booking_id):
+        """Booking.
+
+        :param booking_id: booking id
+        :type booking_id: str
+        """
+        self.booking_id = booking_id
+
+
 class IdentityDocument:
     def __init__(self, doc_id, type_code, issuing_country_code, expiry_date):
         """Identity document.
@@ -99,19 +109,35 @@ class Leg:
 
 
 class MixOrder:
-    def __init__(self, mix_order_id, booking_id, time_limit):
+    def __init__(self, mix_order_id, orders, total_amount):
         """MixOrder.
 
         :param mix_order_id: mix order id
         :type mix_order_id: str
-        :param booking_id: airline pnr record locator
-        :type booking_id: str
-        :param time_limit: ticketing time limit
-        :type time_limit: datetime.datetime
+        :param orders: list of orders
+        :type orders: list[Order]
+        :param total_amount: total amount
+        :type total_amount: Amount
         """
         self.mix_order_id = mix_order_id
-        self.booking_id = booking_id
-        self.time_limit = time_limit
+        self.orders = orders
+        self.total_amount = total_amount
+
+
+class Order:
+    def __init__(self, order_id, booking_refs, relevance_datetime):
+        """Order.
+        
+        :param order_id: order id
+        :type order_id: str
+        :param booking_refs: lit of bookings
+        :type booking_refs: list[Booking]
+        :param relevance_datetime: ticketing time limit
+        :type relevance_datetime: datetime.datetime
+        """
+        self.order_id = order_id
+        self.booking_refs = booking_refs
+        self.relevance_datetime = relevance_datetime
 
 
 class Passenger(AnonymousPassenger):

@@ -8,8 +8,9 @@ from . import utils
 from .client import PROD_GATEWAY, TEST_GATEWAY
 from .client import Client
 from .models import (
-    Amount, AnonymousPassenger, IdentityDocument, Individual, Leg,
-    MixOrder, Passenger,
+    Amount, AnonymousPassenger, Booking, IdentityDocument,
+    Individual, Leg, MixOrder, Order,
+    Passenger,
 )
 from . import parsers
 
