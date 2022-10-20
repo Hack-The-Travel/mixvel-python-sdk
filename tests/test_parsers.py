@@ -3,7 +3,9 @@ import datetime
 
 from .utils import load_response
 from mixvel.parsers import is_cancel_success, parse_order_view
-from mixvel.models import MixOrder
+from mixvel.models import (
+    Amount, Booking, MixOrder, Order
+)
 
 import pytest
 
@@ -17,14 +19,30 @@ class TestParsers:
         assert is_cancel_success(resp)
 
     def test_parse_order_view(self):
-        order = MixOrder(
+        mix_order = MixOrder(
             "00999-210624-MEE0458",  # mix order id
-            "04G82X",  # booking id
-            datetime.datetime(2021, 9, 23, 0, 40, 0)  # ttl
+            [
+                Order(
+                    "00999-210624-OEE0459",
+                    [
+                        Booking("04G82X"),
+                    ],
+                    datetime.datetime(2021, 9, 23, 0, 40, 0),  # tttl
+                ),
+            ],
+            Amount(653800, "RUB")  # total amount
         )
         resp = load_response("responses/order/view.xml")
         got = parse_order_view(resp)
 
-        assert got.mix_order_id == order.mix_order_id
-        assert got.booking_id == order.booking_id
-        assert got.time_limit == order.time_limit
+        assert got.mix_order_id == mix_order.mix_order_id
+        assert len(got.orders) == len(mix_order.orders)
+        for i in range(len(got.orders)):
+            assert got.orders[i].order_id == mix_order.orders[i].order_id
+            assert got.orders[i].deposit_timelimit == mix_order.orders[i].deposit_timelimit
+            assert len(got.orders[i].booking_refs) == len(mix_order.orders[i].booking_refs)
+            for j in range(len(got.orders[i].booking_refs)):
+                assert got.orders[i].booking_refs[j].booking_id \
+                    == mix_order.orders[i].booking_refs[j].booking_id
+        assert got.total_amount.amount == mix_order.total_amount.amount
+        assert got.total_amount.currency == mix_order.total_amount.currency
