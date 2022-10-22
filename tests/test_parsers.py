@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 
-from .utils import load_response
+from .utils import parse_xml, parse_xml_response
 from mixvel._parsers import (
     is_cancel_success, parse_order_view,
 )
@@ -27,17 +27,18 @@ class TestParsers:
         "responses/order/cancel_success.xml",
     ])
     def test_is_cancel_success(self, resp_path):
-        resp = load_response(resp_path)
+        resp = parse_xml_response(resp_path)
         assert is_cancel_success(resp)
 
     @pytest.mark.parametrize("resp_path", [
         "responses/order/view.xml",
     ])
     def test_parse_order_view(self, resp_path):
-        resp = load_response(resp_path)
+        resp = parse_xml_response(resp_path)
         got = parse_order_view(resp)
         assert isinstance(got, OrderViewResponse)
         assert isinstance(got.mix_order, MixOrder)
+
 
 class TestTypeParsers:
     @pytest.mark.parametrize("model_path,want", [
@@ -51,7 +52,7 @@ class TestTypeParsers:
         ),
     ])
     def test_parse_amount(self, model_path, want):
-        elm = load_response(model_path, clean_appdata=False).getroot()
+        elm = parse_xml(model_path).getroot()
         got = parse_amount(elm)
         assert got.amount == want.amount
         assert got.cur_code == want.cur_code
@@ -63,7 +64,7 @@ class TestTypeParsers:
         ),
     ])
     def test_parse_booking(self, model_path, want):
-        elm = load_response(model_path, clean_appdata=False).getroot()
+        elm = parse_xml(model_path).getroot()
         got = parse_booking(elm)
         assert got.booking_id == want.booking_id
 
@@ -74,7 +75,7 @@ class TestTypeParsers:
         ),
     ])
     def test_parse_fare_componentl(self, model_path, want):
-        elm = load_response(model_path, clean_appdata=False)
+        elm = parse_xml(model_path)
         got = parse_fare_component(elm)
         assert got.fare_basis_code == want.fare_basis_code
         assert isinstance(got.price, Price)
@@ -86,7 +87,7 @@ class TestTypeParsers:
         ),
     ])
     def test_parse_fare_detail(self, model_path, want):
-        elm = load_response(model_path, clean_appdata=False)
+        elm = parse_xml(model_path)
         got = parse_fare_detail(elm)
         assert isinstance(got.fare_components[0], FareComponent)
         assert got.pax_ref_id == want.pax_ref_id
@@ -98,7 +99,7 @@ class TestTypeParsers:
         ),
     ])
     def test_parse_mix_order(self, model_path, want):
-        elm = load_response(model_path, clean_appdata=False).getroot()
+        elm = parse_xml(model_path).getroot()
         got = parse_mix_order(elm)
         assert got.mix_order_id == want.mix_order_id
         assert isinstance(got.orders[0], Order)
@@ -116,7 +117,7 @@ class TestTypeParsers:
         ),
     ])
     def test_parse_order(self, model_path, want):
-        elm = load_response(model_path, clean_appdata=False)
+        elm = parse_xml(model_path)
         got = parse_order(elm)
         assert got.order_id == want.order_id
         assert isinstance(got.booking_refs[0], Booking)
@@ -134,7 +135,7 @@ class TestTypeParsers:
         ),
     ])
     def test_parse_order_item(self, model_path, want):
-        elm = load_response(model_path, clean_appdata=False)
+        elm = parse_xml(model_path)
         got = parse_order_item(elm)
         assert got.order_item_id == want.order_item_id
         assert isinstance(got.fare_details[0], FareDetail)
@@ -147,7 +148,7 @@ class TestTypeParsers:
         ),
     ])
     def test_parse_price(self, model_path, want):
-        elm = load_response(model_path, clean_appdata=False)
+        elm = parse_xml(model_path)
         got = parse_price(elm)
         assert got.total_amount.amount == want.total_amount.amount
 
@@ -158,7 +159,7 @@ class TestTypeParsers:
         ),
     ])
     def test_parse_tax(self, model_path, want):
-        elm = load_response(model_path, clean_appdata=False)
+        elm = parse_xml(model_path)
         got = parse_tax(elm)
         assert got.amount.amount == want.amount.amount
         assert got.amount.cur_code == want.amount.cur_code
