@@ -9,7 +9,7 @@ class TestUtils:
     @pytest.mark.parametrize("resp_path", [
         "responses/accounts/login_error.xml",
     ])
-    def test_lxml_remove_namespace(self, resp_path):
+    def test_lxml_remove_namespaces(self, resp_path):
         resp = parse_xml(resp_path)
         assert resp.find(".//AuthResponse") is None
         lxml_remove_namespaces(resp)
