@@ -155,11 +155,14 @@ class MixOrder:
 
 
 class Order:
-    def __init__(self, order_id, booking_refs, deposit_timelimit, total_price):
+    def __init__(self, order_id, order_items, booking_refs,
+                 deposit_timelimit, total_price):
         """Order.
         
         :param order_id: order id
         :type order_id: str
+        :param order_items: list of order items
+        :type order_items: list[OrderItem]
         :param booking_refs: lit of bookings
         :type booking_refs: list[Booking]
         :param deposit_timelimit: ticketing time limit
@@ -168,6 +171,7 @@ class Order:
         :type total_price: Amount
         """
         self.order_id = order_id
+        self.order_items = order_items
         self.booking_refs = booking_refs
         self.deposit_timelimit = deposit_timelimit
         self.total_price = total_price

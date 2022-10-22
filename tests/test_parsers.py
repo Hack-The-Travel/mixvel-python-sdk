@@ -110,7 +110,8 @@ class TestTypeParsers:
             "models/order.xml",
             Order(
                 "00999-210624-OEE0459",
-                [],
+                [],  # order_items
+                [],  # booking_refs
                 datetime.datetime(2021, 9, 23, 0, 40, 0),
                 Price([], Amount(653800, "RUB")),
             ),
@@ -120,6 +121,7 @@ class TestTypeParsers:
         elm = parse_xml(model_path)
         got = parse_order(elm)
         assert got.order_id == want.order_id
+        assert isinstance(got.order_items[0], OrderItem)
         assert isinstance(got.booking_refs[0], Booking)
         assert got.deposit_timelimit == want.deposit_timelimit
         assert isinstance(got.total_price, Price)
