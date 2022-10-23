@@ -10,8 +10,10 @@ from .client import Client
 from .models import (
     Amount, AnonymousPassenger, Booking, FareComponent,
     FareDetail, IdentityDocument, Individual, Leg,
-    MixOrder, Order, OrderItem, Passenger,
-    Price, SelectedOffer, SelectedOfferItem, Tax,
+    MixOrder, Offer, OfferItem, Order,
+    OrderItem, Passenger, Price, SelectedOffer,
+    SelectedOfferItem, Service, ServiceOfferAssociation, Tax,
+    ValidatingParty,
 )  # types
 from .models import (
     OrderViewResponse,

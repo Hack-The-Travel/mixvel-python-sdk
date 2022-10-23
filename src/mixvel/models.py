@@ -154,6 +154,39 @@ class MixOrder:
         self.total_amount = total_amount
 
 
+class Offer:
+    def __init__(self, offer_id, offer_items):
+        """Offer.
+
+        :param offer_id: offer id
+        :type offer_id: str
+        :param offer_items: list of offer items
+        :type offer_items: list[OfferItem]
+        """
+        self.offer_id = offer_id
+        self.offer_items = offer_items
+
+
+class OfferItem:
+    def __init__(self, offer_item_id, price, services,
+                 fare_details=None):
+        """Offer item.
+
+        :param offer_item_id: offer item id
+        :type offer_item_id: str
+        :param price: price
+        :type price: Price
+        :param services: list of services
+        :type service: list[Service]
+        :param fare_details: (optional) fare details
+        :type fare_details: list[FareDetail] or None
+        """
+        self.offer_item_id = offer_item_id
+        self.price = price
+        self.services = services
+        self.fare_details = fare_details
+
+
 class Order:
     def __init__(self, order_id, order_items, booking_refs,
                  deposit_timelimit, total_price):
@@ -257,6 +290,37 @@ class SelectedOfferItem:
         self.pax_ref_id = pax_ref_id
 
 
+class Service:
+    def __init__(self, service_id, pax_ref_ids, service_offer_associations,
+                 validating_party_ref_id=None, validating_party=None, pax_types=None):
+        """Service.
+        
+        :param service_id: service id
+        :type service_id: str
+        :param pax_ref_ids: list of passenger reference ids
+        :type pax_ref_ids: list[str]
+        :param service_offer_associations: list of service offer associations
+        :type service_offer_associations: list[ServiceOfferAssociation]
+        :param validating_party_ref_id: (optional) validating party reference id
+        :type validating_party_ref_id: str or None
+        :param validating_party: (optional) validating party
+        :type validating_party: ValidatingParty or None
+        :param pax_types: (optional) list of pax types
+        :type pax_types: list[Passenger] or None
+        """
+        self.service_id = service_id
+        self.pax_ref_ids = pax_ref_ids
+        self.service_offer_associations = service_offer_associations
+        self.validating_party_ref_id = validating_party_ref_id
+        self.validating_party = validating_party
+        self.pax_types = pax_types
+
+
+class ServiceOfferAssociation:
+    def __init__(self):
+        pass
+
+
 class Tax:
     def __init__(self, amount, tax_code):
         """Tax.
@@ -268,3 +332,8 @@ class Tax:
         """
         self.amount = amount
         self.tax_code = tax_code
+
+
+class ValidatingParty:
+    def __init__(self):
+        pass
