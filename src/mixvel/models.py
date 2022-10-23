@@ -231,6 +231,32 @@ class Price:
         self.total_amount = total_amount
 
 
+class SelectedOffer:
+    def __init__(self, offer_ref_id, selected_offer_items):
+        """Selected offer.
+
+        :param offer_ref_id: offer reference id
+        :type offer_ref_id: str
+        :param selected_offer_items: list of selected offer items
+        :type selected_offer_items: list[SelectedOfferItem]
+        """
+        self.offer_ref_id = offer_ref_id
+        self.selected_offer_items = selected_offer_items
+
+
+class SelectedOfferItem:
+    def __init__(self, offer_item_ref_id, pax_ref_id):
+        """Selected offer item.
+        
+        :param offer_item_ref_id: offer item reference id
+        :type offer_item_ref_id: str
+        :param pax_ref_id: passenger reference id
+        :type pax_ref_id: str
+        """
+        self.offer_item_ref_id = offer_item_ref_id
+        self.pax_ref_id = pax_ref_id
+
+
 class Tax:
     def __init__(self, amount, tax_code):
         """Tax.
