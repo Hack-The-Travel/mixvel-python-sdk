@@ -7,7 +7,7 @@ from mixvel._parsers import (
 )
 from mixvel._parsers import (
     parse_amount, parse_booking, parse_fare_component, parse_fare_detail,
-    parse_mix_order, parse_order_item, parse_order, parse_price,
+    parse_mix_order, parse_offer_item, parse_order_item, parse_order, parse_price,
     parse_service, parse_service_offer_associations, parse_tax,
 )
 from mixvel.models import (
@@ -15,7 +15,7 @@ from mixvel.models import (
 )
 from mixvel.models import (
     Amount, Booking, FareComponent, FareDetail,
-    MixOrder, Order, OrderItem, Price,
+    MixOrder, OfferItem, Order, OrderItem, Price,
     Service, ServiceOfferAssociations, Tax,
 )
 
@@ -104,6 +104,26 @@ class TestTypeParsers:
         assert got.mix_order_id == want.mix_order_id
         assert isinstance(got.orders[0], Order)
         assert isinstance(got.total_amount, Amount)
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/offer_item.xml",
+            OfferItem(
+                "ca280e53-1dd1-4d7b-9b57-d1a45b364f29",  # offer_item_id
+                Price([], Amount(332400, "RUB")),  # price
+                [],  # services
+                fare_details=[]  # fare_details
+            ),
+        ),
+    ])
+    def test_parse_offer_item(self, model_path, want):
+        elm = parse_xml(model_path)
+        got = parse_offer_item(elm)
+        assert got.offer_item_id == want.offer_item_id
+        assert isinstance(got.price, Price)
+        assert isinstance(got.services[0], Service)
+        assert isinstance(got.fare_details[0], FareDetail)
+
 
     @pytest.mark.parametrize("model_path,want", [
         (

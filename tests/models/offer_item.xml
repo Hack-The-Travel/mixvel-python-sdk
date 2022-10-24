@@ -1,0 +1,160 @@
+<OfferItem>
+    <FareDetail>
+        <FareComponent>
+            <CabinType>
+                <CabinTypeCode>Economy</CabinTypeCode>
+            </CabinType>
+            <FareBasisCode>TECONALL</FareBasisCode>
+            <FareRule>
+                <Remark>
+                    <RemarkText>0001</RemarkText>
+                </Remark>
+            </FareRule>
+            <PaxSegmentRefID>075272fa-3653-4cf3-a680-0d5b032d7ce4</PaxSegmentRefID>
+            <Price>
+                <BaseAmount CurCode="RUB">3049.00</BaseAmount>
+                <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                <TaxSummary>
+                    <Tax>
+                        <Amount CurCode="RUB">90.00</Amount>
+                        <TaxCode>YR</TaxCode>
+                    </Tax>
+                    <Tax>
+                        <Amount CurCode="RUB">185.00</Amount>
+                        <TaxCode>ZZ</TaxCode>
+                    </Tax>
+                    <Tax>
+                        <Amount CurCode="RUB">30.00</Amount>
+                        <QualifierCode>6</QualifierCode>
+                        <TaxCode>VAT Fare</TaxCode>
+                    </Tax>
+                    <Tax>
+                        <Amount CurCode="RUB">61.67</Amount>
+                        <QualifierCode>6</QualifierCode>
+                        <TaxCode>VAT ZZ</TaxCode>
+                    </Tax>
+                    <TotalTaxAmount CurCode="RUB">275.00</TotalTaxAmount>
+                </TaxSummary>
+                <TotalAmount CurCode="RUB">3324.00</TotalAmount>
+            </Price>
+            <PriceClassRefID>204bebad-eb04-4854-b430-e0f340374936</PriceClassRefID>
+            <RBD>
+                <RBD_Code>T</RBD_Code>
+                <Availability>9</Availability>
+            </RBD>
+        </FareComponent>
+        <FareComponent>
+            <CabinType>
+                <CabinTypeCode>Economy</CabinTypeCode>
+            </CabinType>
+            <FareBasisCode>TECONALL</FareBasisCode>
+            <FareRule>
+                <Remark>
+                    <RemarkText>0001</RemarkText>
+                </Remark>
+            </FareRule>
+            <PaxSegmentRefID>ce6596ac-15e2-4e68-9f6b-d9543db0e067</PaxSegmentRefID>
+            <Price>
+                <BaseAmount CurCode="RUB">3049.00</BaseAmount>
+                <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                <TaxSummary>
+                    <Tax>
+                        <Amount CurCode="RUB">120.00</Amount>
+                        <TaxCode>RI</TaxCode>
+                    </Tax>
+                    <Tax>
+                        <Amount CurCode="RUB">185.00</Amount>
+                        <TaxCode>ZZ</TaxCode>
+                    </Tax>
+                    <Tax>
+                        <Amount CurCode="RUB">90.00</Amount>
+                        <TaxCode>YR</TaxCode>
+                    </Tax>
+                    <TotalTaxAmount CurCode="RUB">395.00</TotalTaxAmount>
+                </TaxSummary>
+                <TotalAmount CurCode="RUB">3444.00</TotalAmount>
+            </Price>
+            <PriceClassRefID>204bebad-eb04-4854-b430-e0f340374936</PriceClassRefID>
+            <RBD>
+                <RBD_Code>T</RBD_Code>
+                <Availability>9</Availability>
+            </RBD>
+        </FareComponent>
+        <PaxRefID>Pax-1</PaxRefID>
+        <PaxRefID>Pax-2</PaxRefID>
+        <Price>
+            <BaseAmount CurCode="RUB">6098.00</BaseAmount>
+            <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+            <TaxSummary>
+                <Tax>
+                    <Amount CurCode="RUB">180.00</Amount>
+                    <TaxCode>YR</TaxCode>
+                </Tax>
+                <Tax>
+                    <Amount CurCode="RUB">370.00</Amount>
+                    <TaxCode>ZZ</TaxCode>
+                </Tax>
+                <Tax>
+                    <Amount CurCode="RUB">30.00</Amount>
+                    <QualifierCode>6</QualifierCode>
+                    <TaxCode>VAT Fare</TaxCode>
+                </Tax>
+                <Tax>
+                    <Amount CurCode="RUB">61.67</Amount>
+                    <QualifierCode>6</QualifierCode>
+                    <TaxCode>VAT ZZ</TaxCode>
+                </Tax>
+                <Tax>
+                    <Amount CurCode="RUB">120.00</Amount>
+                    <TaxCode>RI</TaxCode>
+                </Tax>
+                <TotalTaxAmount CurCode="RUB">670.00</TotalTaxAmount>
+            </TaxSummary>
+            <TotalAmount CurCode="RUB">6768.00</TotalAmount>
+        </Price>
+    </FareDetail>
+    <MandatoryInd>true</MandatoryInd>
+    <OfferItemID>ca280e53-1dd1-4d7b-9b57-d1a45b364f29</OfferItemID>
+    <Price>
+        <BaseAmount CurCode="RUB">12196.00</BaseAmount>
+        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+        <TaxSummary>
+            <Tax>
+                <Amount CurCode="RUB">360.00</Amount>
+                <TaxCode>YR</TaxCode>
+            </Tax>
+            <Tax>
+                <Amount CurCode="RUB">740.00</Amount>
+                <TaxCode>ZZ</TaxCode>
+            </Tax>
+            <Tax>
+                <Amount CurCode="RUB">60.00</Amount>
+                <QualifierCode>6</QualifierCode>
+                <TaxCode>VAT Fare</TaxCode>
+            </Tax>
+            <Tax>
+                <Amount CurCode="RUB">123.34</Amount>
+                <QualifierCode>6</QualifierCode>
+                <TaxCode>VAT ZZ</TaxCode>
+            </Tax>
+            <Tax>
+                <Amount CurCode="RUB">240.00</Amount>
+                <TaxCode>RI</TaxCode>
+            </Tax>
+            <TotalTaxAmount CurCode="RUB">1340.00</TotalTaxAmount>
+        </TaxSummary>
+        <TotalAmount CurCode="RUB">13536.00</TotalAmount>
+    </Price>
+    <Service>
+        <PaxRefID>Pax-1</PaxRefID>
+        <PaxRefID>Pax-2</PaxRefID>
+        <ValidatingPartyRefID>7036ae6a-a67e-4986-a6f6-60465a7beadc</ValidatingPartyRefID>
+        <ServiceAssociations>
+            <PaxJourneyRef>
+                <PaxJourneyRefID>9f79533d-8366-42b5-8fbe-87a5e249cfce</PaxJourneyRefID>
+                <PaxJourneyRefID>4399df0b-1e67-4f85-957e-103eda94b503</PaxJourneyRefID>
+            </PaxJourneyRef>
+        </ServiceAssociations>
+        <ServiceID>fd45bc97-0e26-48bd-aa2a-7c49672e604a</ServiceID>
+    </Service>
+</OfferItem>

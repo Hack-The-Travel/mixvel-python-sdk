@@ -3,7 +3,7 @@ import datetime
 
 from .models import (
     Amount, AnonymousPassenger, Booking, FareComponent,
-    FareDetail, MixOrder, Order, OrderItem,
+    FareDetail, MixOrder, OfferItem, Order, OrderItem,
     Price, Service, ServiceOfferAssociations, Tax,
 )
 from .models import (
@@ -99,6 +99,28 @@ def parse_mix_order(elm):
     total_amount = parse_amount(elm.find("./TotalAmount"))
 
     return MixOrder(mix_order_id, orders, total_amount)
+
+
+def parse_offer_item(elm):
+    """Parse OfferItemType.
+    
+    :param elm: OfferItemType element
+    :type elm: lxml.etree._Element
+    :rtype: OfferItem
+    """
+    offer_item_id = elm.find("./OfferItemID").text
+    price = parse_price(elm.find("./Price"))
+    services = map(
+        lambda service: parse_service(service),
+        elm.findall("./Service")
+    )
+    fare_details = map(
+        lambda fare_detail: parse_fare_detail(fare_detail),
+        elm.findall("./FareDetail")
+    )
+
+    return OfferItem(offer_item_id, price, services,
+        fare_details=fare_details)
 
 
 def parse_order(elm):
