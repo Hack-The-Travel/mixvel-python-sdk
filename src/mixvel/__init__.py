@@ -8,15 +8,15 @@ from . import utils
 from .client import PROD_GATEWAY, TEST_GATEWAY
 from .client import Client
 from .models import (
-    Amount, AnonymousPassenger, Booking, FareComponent,
-    FareDetail, IdentityDocument, Individual, Leg,
-    MixOrder, Offer, OfferItem, Order,
-    OrderItem, Passenger, Price, RbdAvail,
-    SelectedOffer, SelectedOfferItem, Service, ServiceOfferAssociations,
-    Tax, ValidatingParty,
+    Amount, AnonymousPassenger, Booking, DataLists,
+    FareComponent, FareDetail, IdentityDocument, Individual,
+    Leg, MixOrder, Offer, OfferItem,
+    Order, OrderItem, Passenger, Price,
+    RbdAvail, SelectedOffer, SelectedOfferItem, Service,
+    ServiceOfferAssociations, Tax, ValidatingParty,
 )  # types
 from .models import (
-    OrderViewResponse,
+    AirShoppingResponse, OrderViewResponse,
 )  # responses
 
 # Set default logging handler to avoid "No handler found" warnings.

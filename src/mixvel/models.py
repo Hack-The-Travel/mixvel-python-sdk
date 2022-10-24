@@ -10,6 +10,19 @@ This module contains the primary objects.
 import datetime
 
 
+class AirShoppingResponse:
+    def __init__(self, data_lists, offers):
+        """Air Shopping Response
+        
+        :param data_lists: data lists
+        :type data_lists: DataLists
+        :param offers: list of offers
+        :type offers: list[Offer]
+        """
+        self.data_lists = data_lists
+        self.offers = offers
+
+
 class OrderViewResponse:
     def __init__(self, mix_order):
         self.mix_order = mix_order
@@ -49,6 +62,11 @@ class Booking:
         :type booking_id: str
         """
         self.booking_id = booking_id
+
+
+class DataLists:
+    def __init__(self):
+        pass
 
 
 class FareComponent:
