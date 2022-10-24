@@ -123,8 +123,11 @@ def parse_offer(elm):
         elm.findall("./OfferItem")
     )
     owner_code = elm.find("./OwnerCode").text
+    timelimit = elm.find("./OfferExpirationTimeLimitDateTime").text
+    timelimit = timelimit.split(".")[0].rstrip('Z')
+    timelimit = datetime.datetime.strptime(timelimit, "%Y-%m-%dT%H:%M:%S")
 
-    return Offer(offer_id, offer_items, owner_code)
+    return Offer(offer_id, offer_items, owner_code, timelimit)
 
 def parse_offer_item(elm):
     """Parse OfferItemType.

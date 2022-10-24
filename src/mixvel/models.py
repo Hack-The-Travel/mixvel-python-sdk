@@ -176,7 +176,8 @@ class MixOrder:
 
 
 class Offer:
-    def __init__(self, offer_id, offer_items, owner_code):
+    def __init__(self, offer_id, offer_items, owner_code,
+        offer_expiration_timelimit_datetime):
         """Offer.
 
         :param offer_id: offer id
@@ -185,10 +186,13 @@ class Offer:
         :type offer_items: list[OfferItem]
         :param owner_code: owner code
         :type owner_code: str
+        :param offer_expiration_timelimit_datetime: offer expiration timelimit datetime, in UTC
+        :type offer_expiration_timelimit_datetime: datetime.datetime
         """
         self.offer_id = offer_id
         self.offer_items = offer_items
         self.owner_code = owner_code 
+        self.offer_expiration_timelimit_datetime = offer_expiration_timelimit_datetime
 
 
 class OfferItem:
