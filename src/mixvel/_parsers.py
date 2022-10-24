@@ -67,6 +67,21 @@ def parse_booking(elm):
     """
     return Booking(elm.find("./BookingID").text)
 
+def parse_data_lists(elm):
+    """Parse DataListsType.
+
+    :param elm: DataListsType element
+    :type elm: lxml.etree._Element
+    :rtype: DataLists
+    """
+    validating_party_list = map(
+        lambda validating_party: parse_validating_party(validating_party),
+        elm.findall("./ValidatingPartyList/ValidatingParty")
+    )
+    return DataLists(
+        validating_party_list=validating_party_list
+    )
+
 def parse_fare_component(elm):
     """Parse FareComponentType.
 

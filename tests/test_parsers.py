@@ -6,19 +6,19 @@ from mixvel._parsers import (
     is_cancel_success, parse_air_shopping_response, parse_order_view,
 )
 from mixvel._parsers import (
-    parse_amount, parse_booking, parse_fare_component, parse_fare_detail,
-    parse_mix_order, parse_offer, parse_offer_item, parse_order_item,
-    parse_order, parse_price, parse_rbd_avail, parse_service,
-    parse_service_offer_associations, parse_tax, parse_validating_party,
+    parse_amount, parse_booking, parse_data_lists, parse_fare_component,
+    parse_fare_detail, parse_mix_order, parse_offer, parse_offer_item,
+    parse_order_item, parse_order, parse_price, parse_rbd_avail,
+    parse_service, parse_service_offer_associations, parse_tax, parse_validating_party,
 )
 from mixvel.models import (
     OrderViewResponse,
 )
 from mixvel.models import (
-    Amount, Booking, FareComponent, FareDetail,
-    MixOrder, Offer, OfferItem, Order,
-    OrderItem, Price, RbdAvail, Service,
-    ServiceOfferAssociations, Tax, ValidatingParty,
+    Amount, Booking, DataLists, FareComponent,
+    FareDetail, MixOrder, Offer, OfferItem,
+    Order, OrderItem, Price, RbdAvail,
+    Service, ServiceOfferAssociations, Tax, ValidatingParty,
 )
 
 import pytest
@@ -77,6 +77,17 @@ class TestTypeParsers:
         elm = parse_xml(model_path).getroot()
         got = parse_booking(elm)
         assert got.booking_id == want.booking_id
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/data_lists.xml",
+            DataLists(),
+        ),
+    ])
+    def test_parse_data_lists(self, model_path, want):
+        elm = parse_xml(model_path).getroot()
+        got = parse_data_lists(elm)
+        assert isinstance(got.validating_party_list[0], ValidatingParty)
 
     @pytest.mark.parametrize("model_path,want", [
         (
