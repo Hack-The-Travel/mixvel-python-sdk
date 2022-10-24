@@ -394,5 +394,5 @@ class ValidatingParty:
         :param validating_party_code: validating party code
         :type validating_party_code: str
         """
-        self.validatingPartyID = validating_party_id
+        self.validating_party_id = validating_party_id
         self.validating_party_code = validating_party_code
