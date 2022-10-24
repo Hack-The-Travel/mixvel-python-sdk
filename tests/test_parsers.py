@@ -8,8 +8,9 @@ from mixvel._parsers import (
 from mixvel._parsers import (
     parse_amount, parse_booking, parse_data_lists, parse_fare_component,
     parse_fare_detail, parse_mix_order, parse_offer, parse_offer_item,
-    parse_order_item, parse_order, parse_price, parse_rbd_avail,
-    parse_service, parse_service_offer_associations, parse_tax, parse_validating_party,
+    parse_order_item, parse_order, parse_origin_dest, parse_price,
+    parse_rbd_avail, parse_service, parse_service_offer_associations, parse_tax,
+    parse_validating_party,
 )
 from mixvel.models import (
     AirShoppingResponse, OrderViewResponse,
@@ -17,8 +18,9 @@ from mixvel.models import (
 from mixvel.models import (
     Amount, Booking, DataLists, FareComponent,
     FareDetail, MixOrder, Offer, OfferItem,
-    Order, OrderItem, Price, RbdAvail,
-    Service, ServiceOfferAssociations, Tax, ValidatingParty,
+    Order, OrderItem, OriginDest, Price,
+    RbdAvail, Service, ServiceOfferAssociations, Tax,
+    ValidatingParty,
 )
 
 import pytest
@@ -209,6 +211,32 @@ class TestTypeParsers:
         assert got.order_item_id == want.order_item_id
         assert isinstance(got.fare_details[0], FareDetail)
         assert isinstance(got.price, Price)
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/origin_dest.xml",
+            OriginDest(
+                "AER",  # origin_code
+                "LED",  # dest_code
+                origin_dest_id="1bf06365-48f6-466e-a971-8a3b2a232928",
+                pax_journey_ref_ids=[
+                    "9f79533d-8366-42b5-8fbe-87a5e249cfce",
+                    "ca76d826-725d-4ae0-a606-053b8a40b5c4",
+                    "94be4cd4-c9b0-42d2-be5b-9775830c668f",
+                ]
+            ),
+        ),
+    ])
+    def test_parse_origin_dest(self, model_path, want):
+        elm = parse_xml(model_path)
+        got = parse_origin_dest(elm)
+        assert got.origin_code == want.origin_code
+        assert got.dest_code == want.dest_code
+        assert got.origin_dest_id == want.origin_dest_id
+        assert len(got.pax_journey_ref_ids) == len(want.pax_journey_ref_ids)
+        for i in range(len(got.pax_journey_ref_ids)):
+            assert got.pax_journey_ref_ids[i] == want.pax_journey_ref_ids[i]
+
 
     @pytest.mark.parametrize("model_path,want", [
         (

@@ -4,9 +4,9 @@ import datetime
 from .models import (
     Amount, AnonymousPassenger, Booking, DataLists,
     FareComponent, FareDetail, MixOrder, Offer,
-    OfferItem, Order, OrderItem, Price,
-    RbdAvail, Service, ServiceOfferAssociations, Tax,
-    ValidatingParty,
+    OfferItem, Order, OrderItem, OriginDest,
+    Price, RbdAvail, Service, ServiceOfferAssociations,
+    Tax, ValidatingParty,
 )
 from .models import (
     AirShoppingResponse, OrderViewResponse,
@@ -202,6 +202,26 @@ def parse_order_item(elm):
     price = parse_price(elm.find("./Price"))
 
     return OrderItem(order_item_id, fare_details, price)
+
+def parse_origin_dest(elm):
+    """Parses OriginDestType.
+
+    :param elm: OriginDestType element
+    :type elm: lxml.etree._Element
+    :rtype: OriginDest
+    """
+    origin_code = elm.find("./OriginCode").text
+    dest_code = elm.find("./DestCode").text
+    origin_dest_id = elm.find("./OriginDestID").text \
+        if elm.find("./OriginDestID") is not None else None
+    pax_journey_ref_ids = map(
+        lambda ref_id: ref_id.text,
+        elm.findall("./PaxJourneyRefID")
+    )
+
+    return OriginDest(origin_code, dest_code,
+        origin_dest_id=origin_dest_id, pax_journey_ref_ids=pax_journey_ref_ids)
+
 
 def parse_price(elm):
     """Parses PriceType.
