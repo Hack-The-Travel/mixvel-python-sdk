@@ -295,7 +295,7 @@ class SelectedOfferItem:
 
 class Service:
     def __init__(self, service_id, pax_ref_ids, service_offer_associations,
-                 validating_party_ref_id=None, validating_party=None, pax_types=None):
+                 validating_party_ref_id=None, validating_party_type=None, pax_types=None):
         """Service.
         
         :param service_id: service id
@@ -306,8 +306,8 @@ class Service:
         :type service_offer_associations: list[ServiceOfferAssociation]
         :param validating_party_ref_id: (optional) validating party reference id
         :type validating_party_ref_id: str or None
-        :param validating_party: (optional) validating party
-        :type validating_party: ValidatingParty or None
+        :param validating_party_type: (optional) validating party type
+        :type validating_party_type: ValidatingParty or None
         :param pax_types: (optional) list of pax types
         :type pax_types: list[Passenger] or None
         """
@@ -315,7 +315,7 @@ class Service:
         self.pax_ref_ids = pax_ref_ids
         self.service_offer_associations = service_offer_associations
         self.validating_party_ref_id = validating_party_ref_id
-        self.validating_party = validating_party
+        self.validating_party_type = validating_party_type
         self.pax_types = pax_types
 
 
