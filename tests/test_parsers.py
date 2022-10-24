@@ -12,7 +12,7 @@ from mixvel._parsers import (
     parse_service, parse_service_offer_associations, parse_tax, parse_validating_party,
 )
 from mixvel.models import (
-    OrderViewResponse,
+    AirShoppingResponse, OrderViewResponse,
 )
 from mixvel.models import (
     Amount, Booking, DataLists, FareComponent,
@@ -38,6 +38,7 @@ class TestParsers:
     def test_parse_air_shopping_response(self, resp_path):
         resp = parse_xml_response(resp_path)
         got = parse_air_shopping_response(resp)
+        assert isinstance(got, AirShoppingResponse)
         assert isinstance(got.data_lists, DataLists)
         assert isinstance(got.offers[0], Offer)
 
