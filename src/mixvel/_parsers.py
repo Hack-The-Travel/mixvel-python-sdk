@@ -2,13 +2,13 @@
 import datetime
 
 from .models import (
-    Amount, AnonymousPassenger, Booking, FareComponent,
-    FareDetail, MixOrder, Offer, OfferItem,
-    Order, OrderItem, Price, RbdAvail,
-    Service, ServiceOfferAssociations, Tax,
+    Amount, AnonymousPassenger, Booking, DataLists,
+    FareComponent, FareDetail, MixOrder, Offer,
+    OfferItem, Order, OrderItem, Price,
+    RbdAvail, Service, ServiceOfferAssociations, Tax,
 )
 from .models import (
-    OrderViewResponse,
+    AirShoppingResponse, OrderViewResponse,
 )
 
 
@@ -20,6 +20,19 @@ def is_cancel_success(resp):
     :rtype: bool
     """
     return all([s == "Success" for s in resp.xpath(".//OperationStatus/text()")])
+
+def parse_air_shopping_response(resp):
+    """Parse air shopping response.
+    
+    :rtype: AirShoppingResponse
+    """
+    data_lists = DataLists()
+    offers = map(
+        lambda offer: parse_offer(offer),
+        resp.findall("./Response/OffersGroup/CarrierOffers/Offer")
+    )
+
+    return AirShoppingResponse(data_lists, offers)
 
 def parse_order_view(resp):
     """Parses order view response.
