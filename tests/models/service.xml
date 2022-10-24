@@ -1,0 +1,12 @@
+<Service>
+    <PaxRefID>Pax-1</PaxRefID>
+    <PaxRefID>Pax-2</PaxRefID>
+    <ValidatingPartyRefID>7036ae6a-a67e-4986-a6f6-60465a7beadc</ValidatingPartyRefID>
+    <ServiceAssociations>
+        <PaxJourneyRef>
+            <PaxJourneyRefID>9f79533d-8366-42b5-8fbe-87a5e249cfce</PaxJourneyRefID>
+            <PaxJourneyRefID>4399df0b-1e67-4f85-957e-103eda94b503</PaxJourneyRefID>
+        </PaxJourneyRef>
+    </ServiceAssociations>
+    <ServiceID>fd45bc97-0e26-48bd-aa2a-7c49672e604a</ServiceID>
+</Service>

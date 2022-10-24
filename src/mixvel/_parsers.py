@@ -4,7 +4,7 @@ import datetime
 from .models import (
     Amount, AnonymousPassenger, Booking, FareComponent,
     FareDetail, MixOrder, Order, OrderItem,
-    Price, ServiceOfferAssociations, Tax,
+    Price, Service, ServiceOfferAssociations, Tax,
 )
 from .models import (
     OrderViewResponse,
@@ -153,6 +153,20 @@ def parse_price(elm):
 
     return Price(taxes, total_amount)
 
+def parse_service(elm):
+    """Parse ServiceType.
+    
+    :param elm: Service element
+    :type elm: lxml.etree._Element
+    """
+    service_id = elm.find("./ServiceID").text
+    pax_ref_ids = map(lambda ref_id: ref_id.text, elm.findall("./PaxRefID"))
+    service_associations = parse_service_offer_associations(elm.find("./ServiceAssociations"))
+    validating_party_ref_id = elm.find("./ValidatingPartyRefID").text \
+        if elm.find("./ValidatingPartyRefID") is not None else None
+
+    return Service(service_id, pax_ref_ids, service_associations,
+        validating_party_ref_id=validating_party_ref_id, validating_party_type=None, pax_types=None)
 
 def parse_service_offer_associations(elm):
     """Parse ServiceOfferAssociationsType.
