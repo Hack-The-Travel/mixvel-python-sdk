@@ -267,6 +267,18 @@ class Price:
         self.total_amount = total_amount
 
 
+class RbdAvail:
+    def __init__(self, rbd_code, availability=None):
+        """RBD Availability.
+
+        :param rbd_code: RBD code
+        :type rbd_code: str
+        :param availability: (optional) availability
+        :type availability: int or None
+        """
+        self.rbd_code = rbd_code
+        self.availability = availability
+
 class SelectedOffer:
     def __init__(self, offer_ref_id, selected_offer_items):
         """Selected offer.

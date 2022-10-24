@@ -11,9 +11,9 @@ from .models import (
     Amount, AnonymousPassenger, Booking, FareComponent,
     FareDetail, IdentityDocument, Individual, Leg,
     MixOrder, Offer, OfferItem, Order,
-    OrderItem, Passenger, Price, SelectedOffer,
-    SelectedOfferItem, Service, ServiceOfferAssociations, Tax,
-    ValidatingParty,
+    OrderItem, Passenger, Price, RbdAvail,
+    SelectedOffer, SelectedOfferItem, Service, ServiceOfferAssociations,
+    Tax, ValidatingParty,
 )  # types
 from .models import (
     OrderViewResponse,
