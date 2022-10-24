@@ -8,7 +8,7 @@ from mixvel._parsers import (
 from mixvel._parsers import (
     parse_amount, parse_booking, parse_fare_component, parse_fare_detail,
     parse_mix_order, parse_order_item, parse_order, parse_price,
-    parse_tax,
+    parse_service_offer_associations, parse_tax,
 )
 from mixvel.models import (
     OrderViewResponse,
@@ -16,7 +16,7 @@ from mixvel.models import (
 from mixvel.models import (
     Amount, Booking, FareComponent, FareDetail,
     MixOrder, Order, OrderItem, Price,
-    Tax,
+    ServiceOfferAssociations, Tax,
 )
 
 import pytest
@@ -153,6 +153,22 @@ class TestTypeParsers:
         elm = parse_xml(model_path)
         got = parse_price(elm)
         assert got.total_amount.amount == want.total_amount.amount
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/service_offer_associations.xml",
+            ServiceOfferAssociations(pax_journey_ref_ids=[
+                "94be4cd4-c9b0-42d2-be5b-9775830c668f",
+                "54728d42-73b5-42e9-8fb5-4b7982e294d0",
+            ]),
+        ),
+    ])
+    def test_parse_price(self, model_path, want):
+        elm = parse_xml(model_path)
+        got = parse_service_offer_associations(elm)
+        assert len(want.pax_journey_ref_ids) == len(got.pax_journey_ref_ids)
+        for i in range(len(want.pax_journey_ref_ids)):
+            got.pax_journey_ref_ids[i] == want.pax_journey_ref_ids[i]
 
     @pytest.mark.parametrize("model_path,want", [
         (
