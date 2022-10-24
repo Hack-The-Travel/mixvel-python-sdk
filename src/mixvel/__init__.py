@@ -12,7 +12,7 @@ from .models import (
     FareDetail, IdentityDocument, Individual, Leg,
     MixOrder, Offer, OfferItem, Order,
     OrderItem, Passenger, Price, SelectedOffer,
-    SelectedOfferItem, Service, ServiceOfferAssociation, Tax,
+    SelectedOfferItem, Service, ServiceOfferAssociations, Tax,
     ValidatingParty,
 )  # types
 from .models import (

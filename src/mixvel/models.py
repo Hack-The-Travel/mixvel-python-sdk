@@ -302,8 +302,8 @@ class Service:
         :type service_id: str
         :param pax_ref_ids: list of passenger reference ids
         :type pax_ref_ids: list[str]
-        :param service_associations: list of service offer associations
-        :type service_associations: list[ServiceOfferAssociation]
+        :param service_associations: service offer associations
+        :type service_associations: ServiceOfferAssociations
         :param validating_party_ref_id: (optional) validating party reference id
         :type validating_party_ref_id: str or None
         :param validating_party_type: (optional) validating party type
@@ -319,9 +319,9 @@ class Service:
         self.pax_types = pax_types
 
 
-class ServiceOfferAssociation:
+class ServiceOfferAssociations:
     def __init__(self, pax_journey_ref_ids=None):
-        """ServiceOfferAssociation.
+        """ServiceOfferAssociations.
 
         :param pax_journey_ref_ids: (optional) pax journey reference ids
         :type pax_journey_ref_ids: list[str] or None
