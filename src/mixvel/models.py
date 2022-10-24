@@ -155,16 +155,19 @@ class MixOrder:
 
 
 class Offer:
-    def __init__(self, offer_id, offer_items):
+    def __init__(self, offer_id, offer_items, owner_code):
         """Offer.
 
         :param offer_id: offer id
         :type offer_id: str
         :param offer_items: list of offer items
         :type offer_items: list[OfferItem]
+        :param owner_code: owner code
+        :type owner_code: str
         """
         self.offer_id = offer_id
         self.offer_items = offer_items
+        self.owner_code = owner_code 
 
 
 class OfferItem:
