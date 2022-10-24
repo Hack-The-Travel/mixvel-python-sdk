@@ -3,12 +3,14 @@ import datetime
 
 from .models import (
     Amount, AnonymousPassenger, Booking, FareComponent,
-    FareDetail, MixOrder, OfferItem, Order, OrderItem,
-    Price, Service, ServiceOfferAssociations, Tax,
+    FareDetail, MixOrder, Offer, OfferItem,
+    Order, OrderItem, Price, Service,
+    ServiceOfferAssociations, Tax,
 )
 from .models import (
     OrderViewResponse,
 )
+
 
 def is_cancel_success(resp):
     """Checks if cancel order request was successful.
@@ -18,7 +20,6 @@ def is_cancel_success(resp):
     :rtype: bool
     """
     return all([s == "Success" for s in resp.xpath(".//OperationStatus/text()")])
-
 
 def parse_order_view(resp):
     """Parses order view response.
@@ -30,7 +31,6 @@ def parse_order_view(resp):
     mix_order = parse_mix_order(resp.find("./Response/MixOrder"))
 
     return OrderViewResponse(mix_order)
-
 
 def parse_amount(elm):
     """Parses AmountType.
@@ -44,7 +44,6 @@ def parse_amount(elm):
         elm.get("CurCode")
     )
 
-
 def parse_booking(elm):
     """Parses BookingType.
 
@@ -53,7 +52,6 @@ def parse_booking(elm):
     :rtype: Booking
     """
     return Booking(elm.find("./BookingID").text)
-
 
 def parse_fare_component(elm):
     """Parses FareComponentType.
@@ -66,7 +64,6 @@ def parse_fare_component(elm):
         elm.find("./FareBasisCode").text,
         parse_price(elm.find("./Price"))
     )
-
 
 def parse_fare_detail(elm):
     """Parses FareDetailType.
@@ -84,7 +81,6 @@ def parse_fare_detail(elm):
 
     return FareDetail(fare_components, pax_ref_id)
 
-
 def parse_mix_order(elm):
     """Parses MixOrderType.
 
@@ -100,6 +96,21 @@ def parse_mix_order(elm):
 
     return MixOrder(mix_order_id, orders, total_amount)
 
+def parse_offer(elm):
+    """Parse OfferType.
+
+    :param elm: OfferType element
+    :type elm: lxml.etree._Element
+    :rtype: OfferItem
+    """
+    offer_id = elm.find("./OfferID").text
+    offer_items = map(
+        lambda offer_item: parse_offer_item(offer_item),
+        elm.findall("./OfferItem")
+    )
+    owner_code = elm.find("./OwnerCode").text
+
+    return Offer(offer_id, offer_items, owner_code)
 
 def parse_offer_item(elm):
     """Parse OfferItemType.
@@ -121,7 +132,6 @@ def parse_offer_item(elm):
 
     return OfferItem(offer_item_id, price, services,
         fare_details=fare_details)
-
 
 def parse_order(elm):
     """Parses OrderType.
@@ -159,7 +169,6 @@ def parse_order_item(elm):
     price = parse_price(elm.find("./Price"))
 
     return OrderItem(order_item_id, fare_details, price)
-
 
 def parse_price(elm):
     """Parses PriceType.
