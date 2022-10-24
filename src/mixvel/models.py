@@ -65,8 +65,13 @@ class Booking:
 
 
 class DataLists:
-    def __init__(self):
-        pass
+    def __init__(self, validating_party_list=None):
+        """Data lists.
+        
+        :param validating_party_list: (optional) list of validating parties
+        :type validating_party_list: list[ValidatingParty] or None
+        """
+        self.validating_party_list = validating_party_list
 
 
 class FareComponent:
@@ -381,5 +386,13 @@ class Tax:
 
 
 class ValidatingParty:
-    def __init__(self):
-        pass
+    def __init__(self, validating_party_id, validating_party_code):
+        """Validating party.
+        
+        :param validating_party_id: validating party id
+        :type validating_party_id: str
+        :param validating_party_code: validating party code
+        :type validating_party_code: str
+        """
+        self.validatingPartyID = validating_party_id
+        self.validating_party_code = validating_party_code
