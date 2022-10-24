@@ -38,6 +38,7 @@ class TestParsers:
     def test_parse_air_shopping_response(self, resp_path):
         resp = parse_xml_response(resp_path)
         got = parse_air_shopping_response(resp)
+        assert isinstance(got.data_lists, DataLists)
         assert isinstance(got.offers[0], Offer)
 
     @pytest.mark.parametrize("resp_path", [
