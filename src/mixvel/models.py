@@ -55,11 +55,14 @@ class FareComponent:
     """Fare component.
     :param fare_basis_code: fare basis code
     :type fare_basis_code: str
+    :param rbd: RBD
+    :type rbd: RbdAvail
     :param price: price
     :type price: Price
     """
-    def __init__(self, fare_basis_code, price):
+    def __init__(self, fare_basis_code, rbd, price):
         self.fare_basis_code = fare_basis_code
+        self.rbd = rbd
         self.price = price
 
 
@@ -278,6 +281,7 @@ class RbdAvail:
         """
         self.rbd_code = rbd_code
         self.availability = availability
+
 
 class SelectedOffer:
     def __init__(self, offer_ref_id, selected_offer_items):

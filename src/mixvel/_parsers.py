@@ -54,16 +54,17 @@ def parse_booking(elm):
     return Booking(elm.find("./BookingID").text)
 
 def parse_fare_component(elm):
-    """Parses FareComponentType.
+    """Parse FareComponentType.
 
     :param elm: FareComponentType element
     :type elm: lxml.etree._Element
     :rtype: FareComponent
     """
-    return FareComponent(
-        elm.find("./FareBasisCode").text,
-        parse_price(elm.find("./Price"))
-    )
+    fare_basis_code = elm.find("./FareBasisCode").text
+    rbd = parse_rbd_avail(elm.find("./RBD"))
+    price = parse_price(elm.find("./Price"))
+
+    return FareComponent(fare_basis_code, rbd, price)
 
 def parse_fare_detail(elm):
     """Parses FareDetailType.

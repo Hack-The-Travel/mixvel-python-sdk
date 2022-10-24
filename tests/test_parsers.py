@@ -73,13 +73,18 @@ class TestTypeParsers:
     @pytest.mark.parametrize("model_path,want", [
         (
             "models/fare_component.xml",
-            FareComponent("RPROWRF", Price([], Amount(326900, "RUB"))),
+            FareComponent(
+                "RPROWRF",  # fare_basis_code
+                RbdAvail("A"),  # rbd
+                Price([], Amount(326900, "RUB"))  # price
+            ),
         ),
     ])
     def test_parse_fare_componentl(self, model_path, want):
         elm = parse_xml(model_path)
         got = parse_fare_component(elm)
         assert got.fare_basis_code == want.fare_basis_code
+        assert isinstance(got.rbd, RbdAvail)
         assert isinstance(got.price, Price)
 
     @pytest.mark.parametrize("model_path,want", [
