@@ -4,8 +4,8 @@ import datetime
 from .models import (
     Amount, AnonymousPassenger, Booking, FareComponent,
     FareDetail, MixOrder, Offer, OfferItem,
-    Order, OrderItem, Price, Service,
-    ServiceOfferAssociations, Tax,
+    Order, OrderItem, Price, RbdAvail,
+    Service, ServiceOfferAssociations, Tax,
 )
 from .models import (
     OrderViewResponse,
@@ -184,10 +184,23 @@ def parse_price(elm):
 
     return Price(taxes, total_amount)
 
+def parse_rbd_avail(elm):
+    """Parse Rbd_Avail_Type.
+    
+    :param elm: Rbd_Avail_Type element
+    :type elm: lxml.etree._Element
+    :rtype: RbdAvail
+    """
+    rbd_code = elm.find("./RBD_Code").text
+    availability = int(elm.find("Availability").text) \
+        if elm.find("Availability") is not None else None
+
+    return RbdAvail(rbd_code, availability=availability)
+
 def parse_service(elm):
     """Parse ServiceType.
     
-    :param elm: Service element
+    :param elm: ServiceType element
     :type elm: lxml.etree._Element
     :rtype: Service
     """

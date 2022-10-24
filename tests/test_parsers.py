@@ -8,8 +8,8 @@ from mixvel._parsers import (
 from mixvel._parsers import (
     parse_amount, parse_booking, parse_fare_component, parse_fare_detail,
     parse_mix_order, parse_offer, parse_offer_item, parse_order_item,
-    parse_order, parse_price, parse_service, parse_service_offer_associations,
-    parse_tax,
+    parse_order, parse_price, parse_rbd_avail, parse_service,
+    parse_service_offer_associations, parse_tax,
 )
 from mixvel.models import (
     OrderViewResponse,
@@ -17,8 +17,8 @@ from mixvel.models import (
 from mixvel.models import (
     Amount, Booking, FareComponent, FareDetail,
     MixOrder, Offer, OfferItem, Order,
-    OrderItem, Price, Service, ServiceOfferAssociations,
-    Tax,
+    OrderItem, Price, RbdAvail, Service,
+    ServiceOfferAssociations, Tax,
 )
 
 import pytest
@@ -191,6 +191,18 @@ class TestTypeParsers:
         elm = parse_xml(model_path)
         got = parse_price(elm)
         assert got.total_amount.amount == want.total_amount.amount
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/rbd_avail.xml",
+            RbdAvail("A", availability=9),
+        ),
+    ])
+    def test_rbd_avail(self, model_path, want):
+        elm = parse_xml(model_path)
+        got = parse_rbd_avail(elm)
+        assert got.rbd_code == want.rbd_code
+        assert got.availability == want.availability
 
     @pytest.mark.parametrize("model_path,want", [
         (
