@@ -180,6 +180,7 @@ def parse_service(elm):
     
     :param elm: Service element
     :type elm: lxml.etree._Element
+    :rtype: Service
     """
     service_id = elm.find("./ServiceID").text
     pax_ref_ids = map(lambda ref_id: ref_id.text, elm.findall("./PaxRefID"))
@@ -195,6 +196,7 @@ def parse_service_offer_associations(elm):
 
     :param elm: ServiceOfferAssociations element
     :type elm: lxml.etree._Element
+    :rtype: ServiceOfferAssociations
     """
     pax_journey_ref_ids = map(
         lambda ref_id: ref_id.text,
