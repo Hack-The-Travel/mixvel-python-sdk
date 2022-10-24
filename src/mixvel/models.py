@@ -320,8 +320,13 @@ class Service:
 
 
 class ServiceOfferAssociation:
-    def __init__(self):
-        pass
+    def __init__(self, pax_journey_ref_ids=None):
+        """ServiceOfferAssociation.
+
+        :param pax_journey_ref_ids: (optional) pax journey reference ids
+        :type pax_journey_ref_ids: list[str] or None
+        """
+        self.pax_journey_ref_ids = pax_journey_ref_ids
 
 
 class Tax:
