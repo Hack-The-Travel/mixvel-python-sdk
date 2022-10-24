@@ -163,7 +163,7 @@ class TestTypeParsers:
             ]),
         ),
     ])
-    def test_parse_price(self, model_path, want):
+    def test_parse_service_offer_associations(self, model_path, want):
         elm = parse_xml(model_path)
         got = parse_service_offer_associations(elm)
         assert len(want.pax_journey_ref_ids) == len(got.pax_journey_ref_ids)
