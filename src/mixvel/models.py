@@ -65,12 +65,15 @@ class Booking:
 
 
 class DataLists:
-    def __init__(self, validating_party_list=None):
+    def __init__(self, origin_dest_list=None, validating_party_list=None):
         """Data lists.
         
+        :param origin_dest_list: list of origin destinations
+        :type origin_dest_list: list[OriginDest]
         :param validating_party_list: (optional) list of validating parties
         :type validating_party_list: list[ValidatingParty] or None
         """
+        self.origin_dest_list = origin_dest_list
         self.validating_party_list = validating_party_list
 
 
@@ -257,6 +260,26 @@ class OrderItem:
         self.order_item_id = order_item_id
         self.fare_details = fare_details
         self.price = price
+
+
+class OriginDest:
+    def __init__(self, origin_code, dest_code,
+        origin_dest_id=None, pax_journey_ref_ids=None):
+        """OriginDest.
+        
+        :param origin_code: origin code
+        :type origin_code: str
+        :param dest_code: destination code
+        :type dest_code: str
+        :param origin_dest_id: (optional) origin destination id
+        :type origin_dest_id: str or None
+        :param pax_journey_ref_ids: (optional) list of passenger journey reference ids
+        :type pax_journey_ref_ids: list[str] or None
+        """
+        self.origin_code = origin_code
+        self.dest_code = dest_code
+        self.origin_dest_id = origin_dest_id
+        self.pax_journey_ref_ids = pax_journey_ref_ids
 
 
 class Passenger(AnonymousPassenger):
