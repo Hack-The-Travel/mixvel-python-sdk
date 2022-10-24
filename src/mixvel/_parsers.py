@@ -6,6 +6,7 @@ from .models import (
     FareComponent, FareDetail, MixOrder, Offer,
     OfferItem, Order, OrderItem, Price,
     RbdAvail, Service, ServiceOfferAssociations, Tax,
+    ValidatingParty,
 )
 from .models import (
     AirShoppingResponse, OrderViewResponse,
@@ -257,3 +258,15 @@ def parse_tax(elm):
         parse_amount(elm.find("./Amount")),
         elm.find("./TaxCode").text
     )
+
+def parse_validating_party(elm):
+    """Parse ValidatingPartyType.
+    
+    :param elm: ValidatingPartyType element
+    :type elm: lxml.etree._Element
+    :rtype: ValidatingParty
+    """
+    validating_party_id = elm.find("./ValidatingPartyID").text
+    validating_party_code = elm.find("./ValidatingPartyCode").text
+
+    return ValidatingParty(validating_party_id, validating_party_code)

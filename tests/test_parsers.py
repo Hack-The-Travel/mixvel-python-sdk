@@ -9,7 +9,7 @@ from mixvel._parsers import (
     parse_amount, parse_booking, parse_fare_component, parse_fare_detail,
     parse_mix_order, parse_offer, parse_offer_item, parse_order_item,
     parse_order, parse_price, parse_rbd_avail, parse_service,
-    parse_service_offer_associations, parse_tax,
+    parse_service_offer_associations, parse_tax, parse_validating_party,
 )
 from mixvel.models import (
     OrderViewResponse,
@@ -18,7 +18,7 @@ from mixvel.models import (
     Amount, Booking, FareComponent, FareDetail,
     MixOrder, Offer, OfferItem, Order,
     OrderItem, Price, RbdAvail, Service,
-    ServiceOfferAssociations, Tax,
+    ServiceOfferAssociations, Tax, ValidatingParty,
 )
 
 import pytest
@@ -269,3 +269,15 @@ class TestTypeParsers:
         assert got.amount.amount == want.amount.amount
         assert got.amount.cur_code == want.amount.cur_code
         assert got.tax_code == want.tax_code
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/validating_party__DP.xml",
+            ValidatingParty("7036ae6a-a67e-4986-a6f6-60465a7beadc", "DP"),
+        ),
+    ])
+    def test_parse_validating_party(self, model_path, want):
+        elm = parse_xml(model_path)
+        got = parse_validating_party(elm)
+        assert got.validating_party_id == want.validating_party_id
+        assert got.validating_party_code == want.validating_party_code
