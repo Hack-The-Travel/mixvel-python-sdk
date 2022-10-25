@@ -6,7 +6,7 @@ from .models import (
     FareComponent, FareDetail, MixOrder, Offer,
     OfferItem, Order, OrderItem, OriginDest,
     PaxJourney, Price, RbdAvail, Service,
-    ServiceOfferAssociations, Tax, ValidatingParty,
+    ServiceOfferAssociations, Tax, TransportDepArrival, ValidatingParty,
 )
 from .models import (
     AirShoppingResponse, OrderViewResponse,
@@ -314,6 +314,19 @@ def parse_tax(elm):
         parse_amount(elm.find("./Amount")),
         elm.find("./TaxCode").text
     )
+
+def parse_transport_dep_arrival(elm):
+    """Parse TransportDepArrivalType.
+    
+    :param elm: TransportDepArrivalType element
+    :type elm: lxml.etree._Element
+    :rtype: TransportDepArrival
+    """
+    location_code = elm.find("./IATA_LocationCode").text
+    scheduled = elm.find("./AircraftScheduledDateTime").text
+    scheduled = datetime.datetime.strptime(scheduled, "%Y-%m-%dT%H:%M:%S")
+
+    return TransportDepArrival(location_code, scheduled)
 
 def parse_validating_party(elm):
     """Parse ValidatingPartyType.

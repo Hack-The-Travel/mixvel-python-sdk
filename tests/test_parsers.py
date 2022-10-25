@@ -10,7 +10,7 @@ from mixvel._parsers import (
     parse_fare_detail, parse_mix_order, parse_offer, parse_offer_item,
     parse_order_item, parse_order, parse_origin_dest, parse_pax_journey,
     parse_price, parse_rbd_avail, parse_service, parse_service_offer_associations,
-    parse_tax, parse_validating_party,
+    parse_tax, parse_transport_dep_arrival, parse_validating_party,
 )
 from mixvel.models import (
     AirShoppingResponse, OrderViewResponse,
@@ -20,7 +20,7 @@ from mixvel.models import (
     FareDetail, MixOrder, Offer, OfferItem,
     Order, OrderItem, OriginDest, PaxJourney,
     Price, RbdAvail, Service, ServiceOfferAssociations,
-    Tax, ValidatingParty,
+    Tax, TransportDepArrival, ValidatingParty,
 )
 
 import pytest
@@ -324,6 +324,28 @@ class TestTypeParsers:
         assert got.amount.amount == want.amount.amount
         assert got.amount.cur_code == want.amount.cur_code
         assert got.tax_code == want.tax_code
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/transport_dep_arrival.xml",
+            TransportDepArrival(
+                "LED",  # iata_location_code
+                datetime.datetime(2022, 12, 3, 7, 50, 0),  # aircraft_scheduled_datetime
+            ),
+        ),
+        (
+            "models/transport_dep_arrival__null_terminal.xml",
+            TransportDepArrival(
+                "AER",  # iata_location_code
+                datetime.datetime(2022, 12, 3, 12, 45, 0),  # aircraft_scheduled_datetime
+            ),
+        ),
+    ])
+    def test_parse_transport_dep_arrival(self, model_path, want):
+        elm = parse_xml(model_path)
+        got = parse_transport_dep_arrival(elm)
+        got.iata_location_code == want.iata_location_code
+        got.aircraft_scheduled_datetime == want.aircraft_scheduled_datetime
 
     @pytest.mark.parametrize("model_path,want", [
         (
