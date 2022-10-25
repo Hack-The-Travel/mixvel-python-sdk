@@ -6,21 +6,23 @@ from mixvel._parsers import (
     is_cancel_success, parse_air_shopping_response, parse_order_view,
 )
 from mixvel._parsers import (
-    parse_amount, parse_booking, parse_data_lists, parse_dated_marketing_segment, parse_fare_component,
-    parse_fare_detail, parse_mix_order, parse_offer, parse_offer_item,
-    parse_order_item, parse_order, parse_origin_dest, parse_pax_journey,
-    parse_price, parse_rbd_avail, parse_service, parse_service_offer_associations,
-    parse_tax, parse_transport_dep_arrival, parse_validating_party,
+    parse_amount, parse_booking, parse_data_lists, parse_dated_marketing_segment,
+    parse_fare_component, parse_fare_detail, parse_mix_order, parse_offer,
+    parse_offer_item, parse_order_item, parse_order, parse_origin_dest,
+    parse_pax_journey, parse_pax_segment, parse_price, parse_rbd_avail,
+    parse_service, parse_service_offer_associations, parse_tax, parse_transport_dep_arrival,
+    parse_validating_party,
 )
 from mixvel.models import (
     AirShoppingResponse, OrderViewResponse,
 )
 from mixvel.models import (
-    Amount, Booking, DataLists, DatedMarketingSegment, FareComponent,
-    FareDetail, MixOrder, Offer, OfferItem,
-    Order, OrderItem, OriginDest, PaxJourney,
-    Price, RbdAvail, Service, ServiceOfferAssociations,
-    Tax, TransportDepArrival, ValidatingParty,
+    Amount, Booking, DataLists, DatedMarketingSegment,
+    FareComponent, FareDetail, MixOrder, Offer,
+    OfferItem, Order, OrderItem, OriginDest,
+    PaxJourney, PaxSegment, Price, RbdAvail,
+    Service, ServiceOfferAssociations, Tax, TransportDepArrival,
+    ValidatingParty,
 )
 
 import pytest
@@ -267,6 +269,31 @@ class TestTypeParsers:
         got = parse_pax_journey(elm)
         assert got.pax_journey_id == want.pax_journey_id
         assert got.pax_segment_ref_id == want.pax_segment_ref_id
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/pax_segment.xml",
+            PaxSegment(
+                "ce6596ac-15e2-4e68-9f6b-d9543db0e067",  # pax_segment_id
+                TransportDepArrival(
+                    "LED",
+                    datetime.datetime(2022, 12, 3, 7, 50, 0),
+                ),  # dep
+                TransportDepArrival(
+                    "AER",
+                    datetime.datetime(2022, 12, 3, 12, 45, 0),
+                ),  # arrival
+                DatedMarketingSegment("DP", "312"),  # marketing_carrier_info
+            ),
+        ),
+    ])
+    def test_parse_pax_segment(self, model_path, want):
+        elm = parse_xml(model_path)
+        got = parse_pax_segment(elm)
+        assert got.pax_segment_id == want.pax_segment_id
+        assert isinstance(got.dep, TransportDepArrival)
+        assert isinstance(got.arrival, TransportDepArrival)
+        assert isinstance(got.marketing_carrier_info, DatedMarketingSegment)
 
     @pytest.mark.parametrize("model_path,want", [
         (

@@ -3,10 +3,11 @@ import datetime
 
 from .models import (
     Amount, AnonymousPassenger, Booking, DataLists,
-    DatedMarketingSegment, FareComponent, FareDetail, MixOrder, Offer,
-    OfferItem, Order, OrderItem, OriginDest,
-    PaxJourney, Price, RbdAvail, Service,
-    ServiceOfferAssociations, Tax, TransportDepArrival, ValidatingParty,
+    DatedMarketingSegment, FareComponent, FareDetail, MixOrder,
+    Offer, OfferItem, Order, OrderItem,
+    OriginDest, PaxJourney, PaxSegment, Price,
+    RbdAvail, Service, ServiceOfferAssociations, Tax,
+    TransportDepArrival, ValidatingParty,
 )
 from .models import (
     AirShoppingResponse, OrderViewResponse,
@@ -255,6 +256,21 @@ def parse_pax_journey(elm):
     pax_segment_ref_id = elm.find("./PaxSegmentRefID").text
 
     return PaxJourney(pax_journey_id, pax_segment_ref_id)
+
+def parse_pax_segment(elm):
+    """Parse PaxSegmentType.
+    
+    :param elm: PaxSegmentType element
+    :type elm: lxml.etree._Element
+    :rtype: PaxSegment
+    """
+    pax_segment_id = elm.find("./PaxSegmentID").text
+    dep = parse_transport_dep_arrival(elm.find("./Dep"))
+    arrival = parse_transport_dep_arrival(elm.find("./Arrival"))
+    marketing_carrier_info = \
+        parse_dated_marketing_segment(elm.find("./MarketingCarrierInfo"))
+
+    return PaxSegment(pax_segment_id, dep, arrival, marketing_carrier_info)
 
 def parse_price(elm):
     """Parses PriceType.
