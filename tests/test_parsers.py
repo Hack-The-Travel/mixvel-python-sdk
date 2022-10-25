@@ -285,7 +285,7 @@ class TestTypeParsers:
             RbdAvail("A", availability=9),
         ),
     ])
-    def test_rbd_avail(self, model_path, want):
+    def test_parse_rbd_avail(self, model_path, want):
         elm = parse_xml(model_path)
         got = parse_rbd_avail(elm)
         assert got.rbd_code == want.rbd_code

@@ -104,7 +104,6 @@ def parse_dated_marketing_segment(elm):
 
     return DatedMarketingSegment(carrier_code, flight_number)
 
-
 def parse_fare_component(elm):
     """Parse FareComponentType.
 
