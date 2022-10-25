@@ -8,9 +8,9 @@ from mixvel._parsers import (
 from mixvel._parsers import (
     parse_amount, parse_booking, parse_data_lists, parse_fare_component,
     parse_fare_detail, parse_mix_order, parse_offer, parse_offer_item,
-    parse_order_item, parse_order, parse_origin_dest, parse_price,
-    parse_rbd_avail, parse_service, parse_service_offer_associations, parse_tax,
-    parse_validating_party,
+    parse_order_item, parse_order, parse_origin_dest, parse_pax_journey,
+    parse_price, parse_rbd_avail, parse_service, parse_service_offer_associations,
+    parse_tax, parse_validating_party,
 )
 from mixvel.models import (
     AirShoppingResponse, OrderViewResponse,
@@ -18,9 +18,9 @@ from mixvel.models import (
 from mixvel.models import (
     Amount, Booking, DataLists, FareComponent,
     FareDetail, MixOrder, Offer, OfferItem,
-    Order, OrderItem, OriginDest, Price,
-    RbdAvail, Service, ServiceOfferAssociations, Tax,
-    ValidatingParty,
+    Order, OrderItem, OriginDest, PaxJourney,
+    Price, RbdAvail, Service, ServiceOfferAssociations,
+    Tax, ValidatingParty,
 )
 
 import pytest
@@ -237,6 +237,20 @@ class TestTypeParsers:
         for i in range(len(got.pax_journey_ref_ids)):
             assert got.pax_journey_ref_ids[i] == want.pax_journey_ref_ids[i]
 
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/pax_journey.xml",
+            PaxJourney(
+                "0248fd86-53a1-4eb7-aedb-acb09ad7f38e",  # pax_journey_id
+                "fafd5965-b743-4494-b72b-614c580fc502"  # pax_segment_ref_id
+            ),
+        ),
+    ])
+    def test_parse_pax_journey(self, model_path, want):
+        elm = parse_xml(model_path)
+        got = parse_pax_journey(elm)
+        assert got.pax_journey_id == want.pax_journey_id
+        assert got.pax_segment_ref_id == want.pax_segment_ref_id
 
     @pytest.mark.parametrize("model_path,want", [
         (

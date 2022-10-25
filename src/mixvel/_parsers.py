@@ -5,8 +5,8 @@ from .models import (
     Amount, AnonymousPassenger, Booking, DataLists,
     FareComponent, FareDetail, MixOrder, Offer,
     OfferItem, Order, OrderItem, OriginDest,
-    Price, RbdAvail, Service, ServiceOfferAssociations,
-    Tax, ValidatingParty,
+    PaxJourney, Price, RbdAvail, Service,
+    ServiceOfferAssociations, Tax, ValidatingParty,
 )
 from .models import (
     AirShoppingResponse, OrderViewResponse,
@@ -222,6 +222,17 @@ def parse_origin_dest(elm):
     return OriginDest(origin_code, dest_code,
         origin_dest_id=origin_dest_id, pax_journey_ref_ids=pax_journey_ref_ids)
 
+def parse_pax_journey(elm):
+    """Parses PaxJourneyType.
+    
+    :param elm: PaxJourneyType element
+    :type elm: lxml.etree._Element
+    :rtype: PaxJourney
+    """
+    pax_journey_id = elm.find("./PaxJourneyID").text
+    pax_segment_ref_id = elm.find("./PaxSegmentRefID").text
+
+    return PaxJourney(pax_journey_id, pax_segment_ref_id)
 
 def parse_price(elm):
     """Parses PriceType.
