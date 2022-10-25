@@ -74,11 +74,21 @@ def parse_data_lists(elm):
     :type elm: lxml.etree._Element
     :rtype: DataLists
     """
+    origin_dest_list = map(
+        lambda elm: parse_origin_dest(elm),
+        elm.findall("./OriginDestList/OriginDest")
+    )
+    pax_journey_list = map(
+        lambda elm: parse_pax_journey(elm),
+        elm.findall("./PaxJourneyList/PaxJourney")
+    )
     validating_party_list = map(
         lambda validating_party: parse_validating_party(validating_party),
         elm.findall("./ValidatingPartyList/ValidatingParty")
     )
     return DataLists(
+        origin_dest_list=origin_dest_list,
+        pax_journey_list=pax_journey_list,
         validating_party_list=validating_party_list
     )
 
