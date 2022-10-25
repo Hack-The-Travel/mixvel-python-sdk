@@ -3,7 +3,7 @@ import datetime
 
 from .models import (
     Amount, AnonymousPassenger, Booking, DataLists,
-    FareComponent, FareDetail, MixOrder, Offer,
+    DatedMarketingSegment, FareComponent, FareDetail, MixOrder, Offer,
     OfferItem, Order, OrderItem, OriginDest,
     PaxJourney, Price, RbdAvail, Service,
     ServiceOfferAssociations, Tax, TransportDepArrival, ValidatingParty,
@@ -91,6 +91,19 @@ def parse_data_lists(elm):
         pax_journey_list=pax_journey_list,
         validating_party_list=validating_party_list
     )
+
+def parse_dated_marketing_segment(elm):
+    """Parse DatedMarketingSegmentType.
+    
+    :param elm: DatedMarketingSegmentType element
+    :type elm: lxml.etree._Element
+    :rtype: DatedMarketingSegment
+    """
+    carrier_code = elm.find("./CarrierDesigCode").text
+    flight_number = elm.find("./MarketingCarrierFlightNumberText").text
+
+    return DatedMarketingSegment(carrier_code, flight_number)
+
 
 def parse_fare_component(elm):
     """Parse FareComponentType.

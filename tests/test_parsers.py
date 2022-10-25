@@ -6,7 +6,7 @@ from mixvel._parsers import (
     is_cancel_success, parse_air_shopping_response, parse_order_view,
 )
 from mixvel._parsers import (
-    parse_amount, parse_booking, parse_data_lists, parse_fare_component,
+    parse_amount, parse_booking, parse_data_lists, parse_dated_marketing_segment, parse_fare_component,
     parse_fare_detail, parse_mix_order, parse_offer, parse_offer_item,
     parse_order_item, parse_order, parse_origin_dest, parse_pax_journey,
     parse_price, parse_rbd_avail, parse_service, parse_service_offer_associations,
@@ -16,7 +16,7 @@ from mixvel.models import (
     AirShoppingResponse, OrderViewResponse,
 )
 from mixvel.models import (
-    Amount, Booking, DataLists, FareComponent,
+    Amount, Booking, DataLists, DatedMarketingSegment, FareComponent,
     FareDetail, MixOrder, Offer, OfferItem,
     Order, OrderItem, OriginDest, PaxJourney,
     Price, RbdAvail, Service, ServiceOfferAssociations,
@@ -92,6 +92,22 @@ class TestTypeParsers:
         elm = parse_xml(model_path).getroot()
         got = parse_data_lists(elm)
         assert isinstance(got.validating_party_list[0], ValidatingParty)
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/dated_marketing_segment.xml",
+            DatedMarketingSegment(
+                "DP",  # carrier_desig_code
+                "313"  # marketing_carrier_flight_number_text
+            ),
+        ),
+    ])
+    def test_parse_dated_marketing_segment(self, model_path, want):
+        elm = parse_xml(model_path).getroot()
+        got = parse_dated_marketing_segment(elm)
+        got.carrier_desig_code == want.carrier_desig_code
+        got.marketing_carrier_flight_number_text \
+            == want.marketing_carrier_flight_number_text
 
     @pytest.mark.parametrize("model_path,want", [
         (
