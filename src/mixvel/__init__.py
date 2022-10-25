@@ -9,12 +9,12 @@ from .client import PROD_GATEWAY, TEST_GATEWAY
 from .client import Client
 from .models import (
     Amount, AnonymousPassenger, Booking, DataLists,
-    FareComponent, FareDetail, IdentityDocument, Individual,
+    DatedMarketingSegment, FareComponent, FareDetail, IdentityDocument, Individual,
     Leg, MixOrder, Offer, OfferItem,
     Order, OrderItem, OriginDest, Passenger,
-    PaxJourney, Price, RbdAvail, SelectedOffer,
-    SelectedOfferItem, Service, ServiceOfferAssociations, Tax,
-    ValidatingParty,
+    PaxJourney, PaxSegment, Price, RbdAvail,
+    SelectedOffer, SelectedOfferItem, Service, ServiceOfferAssociations,
+    Tax, TransportDepArrival, ValidatingParty,
 )  # types
 from .models import (
     AirShoppingResponse, OrderViewResponse,

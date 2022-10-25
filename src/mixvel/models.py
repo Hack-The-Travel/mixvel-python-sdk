@@ -65,7 +65,7 @@ class Booking:
 
 
 class DataLists:
-    def __init__(self, origin_dest_list=None, pax_journey_list=None,
+    def __init__(self, origin_dest_list=None, pax_journey_list=None, pax_segment_list=None,
         validating_party_list=None):
         """Data lists.
         
@@ -73,12 +73,29 @@ class DataLists:
         :type origin_dest_list: list[OriginDest]
         :param pax_journey_list: list of passenger journeys
         :type pax_journey_list: list[PaxJourney]
+        :param pax_segment_list: list of pax segments
+        :type pax_segment_list: list[PaxSegment]
         :param validating_party_list: (optional) list of validating parties
         :type validating_party_list: list[ValidatingParty] or None
         """
         self.origin_dest_list = origin_dest_list
         self.pax_journey_list = pax_journey_list
+        self.pax_segment_list = pax_segment_list
         self.validating_party_list = validating_party_list
+
+
+class DatedMarketingSegment:
+    def __init__(self, carrier_desig_code, marketing_carrier_flight_number_text):
+        """Dated marketing segment.
+        
+        :param carrier_desig_code: carrier designator code
+        :type carrier_desig_code: str
+        :param marketing_carrier_flight_number_text: marketing carrier flight number
+        :type marketing_carrier_flight_number_text: str
+        """
+        self.carrier_desig_code = carrier_desig_code
+        self.marketing_carrier_flight_number_text \
+            = marketing_carrier_flight_number_text
 
 
 class FareComponent:
@@ -324,6 +341,25 @@ class PaxJourney:
         self.pax_segment_ref_id = pax_segment_ref_id
 
 
+class PaxSegment:
+    def __init__(self, pax_segment_id, dep, arrival, marketing_carrier_info):
+        """PaxSegment.
+        
+        :param pax_segment_id: passenger segment id
+        :type pax_segment_id: str
+        :param dep: departure
+        :type dep: TransportDepArrival
+        :param arrival: arrival
+        :type arrival: TransportDepArrival
+        :param marketing_carrier_info: marketing carrier info
+        :type marketing_carrier_info: DatedMarketingSegment
+        """
+        self.pax_segment_id = pax_segment_id
+        self.dep = dep
+        self.arrival = arrival
+        self.marketing_carrier_info = marketing_carrier_info
+
+
 class Price:
     def __init__(self, taxes, total_amount):
         """Price.
@@ -423,6 +459,19 @@ class Tax:
         """
         self.amount = amount
         self.tax_code = tax_code
+
+
+class TransportDepArrival:
+    def __init__(self, iata_location_code, aircraft_scheduled_datetime):
+        """TransportDepArrival.
+        
+        :param iata_location_code: IATA location code
+        :type iata_location_code: str
+        :param aircraft_scheduled_datetime: aircraft scheduled datetime
+        :type aircraft_scheduled_datetime: datetime.datetime
+        """
+        self.iata_location_code = iata_location_code
+        self.aircraft_scheduled_datetime = aircraft_scheduled_datetime
 
 
 class ValidatingParty:
