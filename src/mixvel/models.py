@@ -65,15 +65,19 @@ class Booking:
 
 
 class DataLists:
-    def __init__(self, origin_dest_list=None, validating_party_list=None):
+    def __init__(self, origin_dest_list=None, pax_journey_list=None,
+        validating_party_list=None):
         """Data lists.
         
         :param origin_dest_list: list of origin destinations
         :type origin_dest_list: list[OriginDest]
+        :param pax_journey_list: list of passenger journeys
+        :type pax_journey_list: list[PaxJourney]
         :param validating_party_list: (optional) list of validating parties
         :type validating_party_list: list[ValidatingParty] or None
         """
         self.origin_dest_list = origin_dest_list
+        self.pax_journey_list = pax_journey_list
         self.validating_party_list = validating_party_list
 
 
@@ -305,6 +309,19 @@ class Passenger(AnonymousPassenger):
         self.doc = doc
         self.phone = phone
         self.email = email
+
+
+class PaxJourney:
+    def __init__(self, pax_journey_id, pax_segment_ref_id):
+        """PaxJourney.
+        
+        :param pax_journey_id: passenger journey id
+        :type pax_journey_id: str
+        :param pax_segment_ref_id: passenger segment reference id
+        :type pax_segment_ref_id: str
+        """
+        self.pax_journey_id = pax_journey_id
+        self.pax_segment_ref_id = pax_segment_ref_id
 
 
 class Price:

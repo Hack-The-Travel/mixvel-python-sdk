@@ -12,8 +12,9 @@ from .models import (
     FareComponent, FareDetail, IdentityDocument, Individual,
     Leg, MixOrder, Offer, OfferItem,
     Order, OrderItem, OriginDest, Passenger,
-    Price, RbdAvail, SelectedOffer, SelectedOfferItem,
-    Service, ServiceOfferAssociations, Tax, ValidatingParty,
+    PaxJourney, Price, RbdAvail, SelectedOffer,
+    SelectedOfferItem, Service, ServiceOfferAssociations, Tax,
+    ValidatingParty,
 )  # types
 from .models import (
     AirShoppingResponse, OrderViewResponse,
