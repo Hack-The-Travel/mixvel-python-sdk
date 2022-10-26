@@ -24,7 +24,15 @@ class AirShoppingResponse:
 
 
 class OrderViewResponse:
-    def __init__(self, mix_order):
+    def __init__(self, data_lists, mix_order):
+        """Order View Response.
+        
+        :param data_lists: data lists
+        :type data_lists: DataLists
+        :param mix_order: mix order
+        :type mix_order: MixOrder
+        """
+        self.data_lists = data_lists
         self.mix_order = mix_order
 
 
