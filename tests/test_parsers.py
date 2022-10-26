@@ -55,6 +55,7 @@ class TestParsers:
         got = parse_order_view_response(resp)
         assert isinstance(got, OrderViewResponse)
         assert isinstance(got.mix_order, MixOrder)
+        assert isinstance(got.data_lists, DataLists)
 
 
 class TestTypeParsers:
