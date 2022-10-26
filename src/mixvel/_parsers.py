@@ -36,7 +36,7 @@ def parse_air_shopping_response(resp):
 
     return AirShoppingResponse(data_lists, offers)
 
-def parse_order_view(resp):
+def parse_order_view_response(resp):
     """Parses order view response.
     
     :param resp: text of Mixvel_OrderCancelRS
