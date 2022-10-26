@@ -8,7 +8,7 @@ import requests
 import uuid
 
 from mixvel._parsers import (
-    is_cancel_success, parse_air_shopping_response, parse_order_view,
+    is_cancel_success, parse_air_shopping_response, parse_order_view_response,
 )
 from mixvel.models import (
     Passenger, SelectedOffer,
@@ -150,7 +150,7 @@ class Client:
         }
         resp = self.__request("/api/Order/create", context)
 
-        return parse_order_view(resp)
+        return parse_order_view_response(resp)
 
     def retrieve_order(self, mix_order_id):
         """Retrieves order.
