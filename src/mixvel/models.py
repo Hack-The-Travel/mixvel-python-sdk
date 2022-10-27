@@ -11,16 +11,16 @@ import datetime
 
 
 class AirShoppingResponse:
-    def __init__(self, data_lists, offers):
+    def __init__(self, offers, data_lists):
         """Air Shopping Response
         
-        :param data_lists: data lists
-        :type data_lists: DataLists
         :param offers: list of offers
         :type offers: list[Offer]
+        :param data_lists: data lists
+        :type data_lists: DataLists
         """
-        self.data_lists = data_lists
         self.offers = offers
+        self.data_lists = data_lists
 
 
 class OrderViewResponse:
