@@ -295,7 +295,8 @@ def parse_price(elm):
     :type elm: lxml.etree._Element
     :rtype: Price
     """
-    tax_summary = parse_tax_summary(elm.find("./TaxSummary"))
+    tax_summary = parse_tax_summary(elm.find("./TaxSummary")) \
+        if elm.find("./TaxSummary") is not None else TaxSummary([])
     total_amount = parse_amount(elm.find("./TotalAmount"))
 
     return Price(tax_summary, total_amount)

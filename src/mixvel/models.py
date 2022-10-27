@@ -387,6 +387,15 @@ class Price:
         :param total_amount: total amount
         :type total_amount: Amount
         """
+        # Note.
+        # Swagger sample contains of Price element
+        # without TaxSummary node
+        # 
+        # <Price>
+		#     <TotalAmount CurCode="RUB">12316</TotalAmount>
+		# </Price>
+        # 
+        # It doesn't conflict with the MixVel openapi specification.
         self.tax_summary = tax_summary
         self.total_amount = total_amount
 
