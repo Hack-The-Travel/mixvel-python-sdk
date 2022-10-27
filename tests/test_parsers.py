@@ -37,8 +37,8 @@ class TestParsers:
         assert is_cancel_success(resp)
 
     @pytest.mark.parametrize("resp_path", [
-        "responses/order/airshopping__RT_2ADT1CNN.xml",
-        "responses/order/airshopping__with_stop.xml",
+        "responses/order/air_shopping__RT_2ADT1CNN.xml",
+        "responses/order/air_shopping__with_stop.xml",
     ])
     def test_parse_air_shopping_response(self, resp_path):
         resp = parse_xml_response(resp_path)
