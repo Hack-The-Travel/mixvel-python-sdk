@@ -37,7 +37,7 @@ class TestParsers:
         assert is_cancel_success(resp)
 
     @pytest.mark.parametrize("resp_path", [
-        "responses/order/air_shopping.xml",
+        "responses/order/air_shopping__from_swagger.xml",
         "responses/order/air_shopping__RT_2ADT1CNN.xml",
         "responses/order/air_shopping__with_stop.xml",
     ])
@@ -45,8 +45,8 @@ class TestParsers:
         resp = parse_xml_response(resp_path)
         got = parse_air_shopping_response(resp)
         assert isinstance(got, AirShoppingResponse)
-        assert isinstance(got.data_lists, DataLists)
         assert isinstance(got.offers[0], Offer)
+        assert isinstance(got.data_lists, DataLists)
 
     @pytest.mark.parametrize("resp_path", [
         "responses/order/view.xml",
