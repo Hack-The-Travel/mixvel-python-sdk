@@ -9,7 +9,11 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 packages = ["mixvel"]
 
-requires = []
+requires = [
+    "jinja2>=2.9.0, <=2.10",
+    "lxml==3.7.2",
+    "requests>=2.21.0, <3",
+]
 
 test_requirements = [
     "pytest==4.6.11",
