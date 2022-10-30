@@ -1,14 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<MixEnv:Envelope xmlns:MixEnv="https://www.mixvel.com/API/XSD/mixvel_envelope/1_06">
-    <Header />
-    <Body id="ID1">
-        <MessageInfo MessageId="{{ message_id }}" TimeSent="{{ time_sent.strftime('%Y-%m-%dT%H:%M:%SZ') }}" />
-        <AppData>
-            <a:Auth xmlns:a="https://www.mixvel.com/API/XSD/mixvel_auth/1_01">
-                <Login>{{ login }}</Login>
-                <Password>{{ password }}</Password>
-                <StructureUnitID>{{ structure_unit_id }}</StructureUnitID>
-            </a:Auth>
-        </AppData>
-    </Body>
-</MixEnv:Envelope>
+{% extends "_base.xml" %}
+
+{% block request %}
+<a:Auth xmlns:a="https://www.mixvel.com/API/XSD/mixvel_auth/1_01">
+    <Login>{{ login }}</Login>
+    <Password>{{ password }}</Password>
+    <StructureUnitID>{{ structure_unit_id }}</StructureUnitID>
+</a:Auth>
+{% endblock %}

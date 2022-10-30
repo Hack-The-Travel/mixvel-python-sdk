@@ -1,0 +1,38 @@
+{% extends "_base.xml" %}
+
+{% block request %}
+<shop:Mixvel_AirShoppingRQ xmlns:shop="https://www.mixvel.com/API/XSD/Mixvel_AirShoppingRQ/1_01">
+    <Request>
+        <FlightRequest>
+            <FlightRequestOriginDestinationsCriteria>
+                {% for leg in itinerary %}
+                <OriginDestCriteria>
+                    <CabinType>
+                        <CabinTypeCode>{{ leg.cabin }}</CabinTypeCode>
+                        <PrefLevel>
+                            <PrefLevelCode>Required</PrefLevelCode>
+                        </PrefLevel>
+                    </CabinType>
+                    <DestArrivalCriteria>
+                        <IATA_LocationCode>{{ leg.destination }}</IATA_LocationCode>
+                    </DestArrivalCriteria>
+                    <OriginDepCriteria>
+                        <DateRangeStart>{{ leg.departure.strftime("%Y-%m-%d") }}</DateRangeStart>
+                        <DateRangeEnd>{{ leg.departure.strftime("%Y-%m-%d") }}</DateRangeEnd>
+                        <IATA_LocationCode>{{ leg.origin }}</IATA_LocationCode>
+                    </OriginDepCriteria>
+                </OriginDestCriteria>
+                {% endfor %}
+            </FlightRequestOriginDestinationsCriteria>
+        </FlightRequest>
+        <Paxs>
+            {% for pax in paxes %}
+            <Pax>
+                <PaxID>Pax-{{ loop.index }}</PaxID>
+                <PTC>{{ pax.ptc }}</PTC>
+            </Pax>
+            {% endfor %}
+        </Paxs>
+    </Request>
+</shop:Mixvel_AirShoppingRQ>
+{% endblock %}

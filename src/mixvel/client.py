@@ -29,6 +29,7 @@ class Client:
         self.login = login
         self.password = password
         self.structure_unit_id = structure_unit_id
+        self.token = ""
         self.gateway = gateway
         self.verify_ssl = verify_ssl
 
@@ -62,8 +63,11 @@ class Client:
         headers = {
             "Content-Type": "application/xml",
         }
+        if self.token:
+            headers["Authorization"] = "Bearer {token}".format(token=self.token)
         template = {
             "/api/Accounts/login": "accounts_login.xml",
+            "/api/Order/airshopping": "order_airshopping.xml",
         }.get(endpoint, None)
         if template is None:
             raise ValueError("Unknown endpoint: {}".format(endpoint))
@@ -103,3 +107,22 @@ class Client:
         self.token = token
 
         return token
+
+    def airshopping(self, itinerary, paxes):
+        """Executes air shopping request.
+
+        :param itinerary: itinerary
+        :type itinerary: list[Leg]
+        :param paxes: paxes
+        :type paxes: list[AnonymousPassenger]
+        """
+        if not self.token:
+            self.auth()
+
+        context = {
+            "itinerary": itinerary,
+            "paxes": paxes,
+        }
+        resp = self.__request("/api/Order/airshopping", context)
+
+        return []
