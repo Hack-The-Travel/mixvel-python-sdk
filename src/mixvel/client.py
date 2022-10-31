@@ -139,6 +139,18 @@ class Client:
         return None
 
 
+    def retrieve_order(self, order_id):
+        """Retrieves order.
+
+        :param order_id: order id
+        :type order_id: str
+        """
+        context = {
+            "order_id": order_id,
+        }
+        resp = self.__request("/api/Order/retrieve", context)
+
+
     def change_order(self, order_id, amount):
         """Issues tickets.
 
