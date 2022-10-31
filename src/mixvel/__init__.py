@@ -8,7 +8,8 @@ from . import utils
 from .client import PROD_GATEWAY, TEST_GATEWAY
 from .client import Client
 from .models import (
-    AnonymousPassenger, Leg,
+    AnonymousPassenger, IdentityDocument, Individual, Leg,
+    Passenger,
 )
 
 # Set default logging handler to avoid "No handler found" warnings.

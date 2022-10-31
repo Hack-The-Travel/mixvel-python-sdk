@@ -7,9 +7,7 @@ import os
 import requests
 import uuid
 
-from ._internal_utils import (
-    is_login_endpoint, request_template,
-)
+from ._endpoint import is_login_endpoint, request_template
 from .utils import lxml_remove_namespace
 
 PROD_GATEWAY = "https://api-test.mixvel.com"
@@ -125,8 +123,23 @@ class Client:
         resp = self.__request("/api/Order/airshopping", context)
 
         return []
-    
-    def cancel(self, order_id):
+
+
+    def create_order(self, paxes):
+        """Creates order.
+
+        :param paxes: passengers
+        :type paxes: list[Passenger]
+        """
+        context = {
+            "paxes": paxes,
+        }
+        resp = self.__request("/api/Order/create", context)
+
+        return None
+
+
+    def cancel_order(self, order_id):
         """Cancels order.
 
         :param order_id: order id
