@@ -139,6 +139,21 @@ class Client:
         return None
 
 
+    def change_order(self, order_id, amount):
+        """Issues tickets.
+
+        :param order_id: order id
+        :type order_id: str
+        :param amount: amount
+        :type amount: int
+        """
+        context = {
+            "order_id": order_id,
+            "amount": amount,
+        }
+        resp = self.__request("/api/Order/change", context)
+
+
     def cancel_order(self, order_id):
         """Cancels order.
 
