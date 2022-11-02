@@ -4,7 +4,7 @@
 <m:Mixvel_OrderCancelRQ xmlns:m="https://www.mixvel.com/API/XSD/Mixvel_OrderCancelRQ/1_01">
     <Request>
         <MixOrder>
-            <MixOrderID>{{ order_id }}</MixOrderID>
+            <MixOrderID>{{ mix_order_id }}</MixOrderID>
         </MixOrder>
     </Request>
 </m:Mixvel_OrderCancelRQ>

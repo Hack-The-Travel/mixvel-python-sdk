@@ -141,42 +141,42 @@ class Client:
         return None
 
 
-    def retrieve_order(self, order_id):
+    def retrieve_order(self, mix_order_id):
         """Retrieves order.
 
-        :param order_id: order id
-        :type order_id: str
+        :param mix_order_id: aggregated order id
+        :type mix_order_id: str
         """
         context = {
-            "order_id": order_id,
+            "mix_order_id": mix_order_id,
         }
         resp = self.__request("/api/Order/retrieve", context)
 
 
-    def change_order(self, order_id, amount):
+    def change_order(self, mix_order_id, amount):
         """Issues tickets.
 
-        :param order_id: order id
-        :type order_id: str
+        :param mix_order_id: aggregated order id
+        :type mix_order_id: str
         :param amount: amount
         :type amount: int
         """
         context = {
-            "order_id": order_id,
+            "mix_order_id": mix_order_id,
             "amount": amount,
         }
         resp = self.__request("/api/Order/change", context)
 
 
-    def cancel_order(self, order_id):
+    def cancel_order(self, mix_order_id):
         """Cancels order.
 
-        :param order_id: order id
-        :type order_id: str
+        :param mix_order_id: order id
+        :type mix_order_id: str
         :rtype: bool
         """
         context = {
-            "order_id": order_id,
+            "mix_order_id": mix_order_id,
         }
         resp = self.__request("/api/Order/cancel", context)
 
