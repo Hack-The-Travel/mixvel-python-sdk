@@ -1,21 +1,16 @@
 # -*- coding: utf-8 -*-
-import os
+from .utils import load_response
+from mixvel.utils import lxml_remove_namespaces
 
 import pytest
-from lxml import etree
-
-from mixvel.utils import lxml_remove_namespace
-
-
-here = os.path.abspath(os.path.dirname(__file__))
 
 
 class TestUtils:
-    @pytest.mark.parametrize('response_file_path', [
-        os.path.join(here, 'responses/accounts/', 'login.xml'),
+    @pytest.mark.parametrize('resp_path', [
+        'responses/accounts/login_error.xml',
     ])
-    def test_lxml_remove_namespace(self, response_file_path):
-        response = etree.parse(response_file_path)
-        assert response.find('.//AuthResponse') is None
-        lxml_remove_namespace(response)
-        assert response.find('.//AuthResponse') is not None
+    def test_lxml_remove_namespace(self, resp_path):
+        resp = load_response(resp_path, clean_appdata=False)
+        assert resp.find('.//AuthResponse') is None
+        lxml_remove_namespaces(resp)
+        assert resp.find('.//AuthResponse') is not None

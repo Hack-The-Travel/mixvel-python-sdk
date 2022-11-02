@@ -11,6 +11,7 @@ from .models import (
     AnonymousPassenger, IdentityDocument, Individual, Leg,
     Passenger,
 )
+from . import parsers
 
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
