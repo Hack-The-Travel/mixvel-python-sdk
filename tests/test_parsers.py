@@ -6,8 +6,9 @@ from mixvel._parsers import (
     is_cancel_success, parse_order_view,
 )
 from mixvel._parsers import (
-    parse_amount, parse_fare_component, parse_fare_detail, parse_order_item,
-    parse_price, parse_tax,
+    parse_amount, parse_booking, parse_fare_component, parse_fare_detail,
+    parse_mix_order, parse_order_item, parse_order, parse_price,
+    parse_tax,
 )  # type parsers
 from mixvel.models import (
     Amount, Booking, FareComponent, FareDetail,
@@ -53,8 +54,8 @@ class TestParsers:
         for i in range(len(got.orders)):
             assert got.orders[i].order_id == mix_order.orders[i].order_id
             assert got.orders[i].deposit_timelimit == mix_order.orders[i].deposit_timelimit
-            assert got.orders[i].total_amount.amount == mix_order.orders[i].total_amount.amount
-            assert got.orders[i].total_amount.cur_code == mix_order.orders[i].total_amount.cur_code
+            assert got.orders[i].total_price.amount == mix_order.orders[i].total_price.amount
+            assert got.orders[i].total_price.cur_code == mix_order.orders[i].total_price.cur_code
 
             # booking_refs
             assert len(got.orders[i].booking_refs) == len(mix_order.orders[i].booking_refs)
@@ -82,6 +83,17 @@ class TestTypeParsers:
 
     @pytest.mark.parametrize("model_path,want", [
         (
+            "models/booking.xml",
+            Booking("04G82X"),
+        ),
+    ])
+    def test_parse_booking(self, model_path, want):
+        elm = load_response(model_path, clean_appdata=False).getroot()
+        got = parse_booking(elm)
+        assert got.booking_id == want.booking_id
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
             "models/fare_component.xml",
             FareComponent("RPROWRF", Price([], Amount(326900, "RUB"))),
         ),
@@ -103,6 +115,38 @@ class TestTypeParsers:
         got = parse_fare_detail(elm)
         assert isinstance(got.fare_components[0], FareComponent)
         assert got.pax_ref_id == want.pax_ref_id
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/mix_order.xml",
+            MixOrder("00999-210624-MEE0458", [], Amount(653800, "RUB")),
+        ),
+    ])
+    def test_parse_mix_order(self, model_path, want):
+        elm = load_response(model_path, clean_appdata=False).getroot()
+        got = parse_mix_order(elm)
+        assert got.mix_order_id == want.mix_order_id
+        assert isinstance(got.orders[0], Order)
+        assert isinstance(got.total_amount, Amount)
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/order.xml",
+            Order(
+                "00999-210624-OEE0459",
+                [],
+                datetime.datetime(2021, 9, 23, 0, 40, 0),
+                Price([], Amount(653800, "RUB")),
+            ),
+        ),
+    ])
+    def test_parse_order(self, model_path, want):
+        elm = load_response(model_path, clean_appdata=False)
+        got = parse_order(elm)
+        assert got.order_id == want.order_id
+        assert isinstance(got.booking_refs[0], Booking)
+        assert got.deposit_timelimit == want.deposit_timelimit
+        assert isinstance(got.total_price, Price)
 
     @pytest.mark.parametrize("model_path,want", [
         (

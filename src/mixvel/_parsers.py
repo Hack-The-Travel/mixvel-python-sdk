@@ -71,6 +71,16 @@ def parse_amount(elm):
     )
 
 
+def parse_booking(elm):
+    """Parses BookingType.
+
+    :param elm: BookingType element
+    :type elm: lxml.etree._Element
+    :rtype: Booking
+    """
+    return Booking(elm.find("./BookingID").text)
+
+
 def parse_fare_component(elm):
     """Parses FareComponentType.
 
@@ -100,6 +110,39 @@ def parse_fare_detail(elm):
 
     return FareDetail(fare_components, pax_ref_id)
 
+
+def parse_mix_order(elm):
+    """Parses MixOrderType.
+
+    :param elm: MixOrderType element
+    :type elm: lxml.etree._Element
+    :rtype: MixOrder
+    """
+    mix_order_id = elm.find("./MixOrderID").text
+    orders = []
+    for order_node in elm.findall("./Order"):
+        orders.append(parse_order(order_node))
+    total_amount = parse_amount(elm.find("./TotalAmount"))
+
+    return MixOrder(mix_order_id, orders, total_amount)
+
+
+def parse_order(elm):
+    """Parses OrderType.
+
+    :param elm: OrderType element
+    :type elm: lxml.etree._Element
+    :rtype: Order
+    """
+    order_id = elm.find("./OrderID").text
+    booking_refs = []
+    for booking_ref_node in elm.findall("./BookingRef"):
+        booking_refs.append(parse_booking(booking_ref_node))
+    timelimit = elm.find("./DepositTimeLimitDateTime").text
+    timelimit = datetime.datetime.strptime(timelimit, "%Y-%m-%dT%H:%M:%S")
+    total_price = parse_price(elm.find("./TotalPrice"))
+
+    return Order(order_id, booking_refs, timelimit, total_price)
 
 def parse_order_item(elm):
     """Parses OrderItemType.
