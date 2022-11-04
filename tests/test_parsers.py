@@ -2,9 +2,11 @@
 import datetime
 
 from .utils import load_response
-from mixvel.parsers import parse_amount, is_cancel_success, parse_order_view
+from mixvel._parsers import (
+    parse_amount, is_cancel_success, parse_order_view,
+)
 from mixvel.models import (
-    Amount, Booking, MixOrder, Order
+    Amount, Booking, MixOrder, Order,
 )
 
 from lxml import etree
@@ -20,7 +22,6 @@ class TestParsers:
         got = parse_amount(etree.fromstring(xml_data))
         assert got.amount == amount
         assert got.cur_code == cur_code
-
 
     @pytest.mark.parametrize("resp_path", [
         "responses/order/cancel_success.xml",

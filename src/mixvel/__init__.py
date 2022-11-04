@@ -12,7 +12,6 @@ from .models import (
     Individual, Leg, MixOrder, Order,
     Passenger,
 )
-from . import parsers
 
 # Set default logging handler to avoid "No handler found" warnings.
 import logging

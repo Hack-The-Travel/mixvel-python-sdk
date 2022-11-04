@@ -7,7 +7,7 @@ import os
 import requests
 import uuid
 
-from mixvel.parsers import is_cancel_success
+from mixvel._parsers import is_cancel_success
 
 from .endpoint import is_login_endpoint, request_template
 from .utils import lxml_remove_namespaces
