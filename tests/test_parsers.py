@@ -4,9 +4,11 @@ import datetime
 from .utils import load_response
 from mixvel._parsers import (
     parse_amount, is_cancel_success, parse_order_view,
+    parse_price,
 )
 from mixvel.models import (
     Amount, Booking, MixOrder, Order,
+    Tax,
 )
 
 from lxml import etree
@@ -65,3 +67,17 @@ class TestParsers:
             for j in range(len(got.orders[i].booking_refs)):
                 assert got.orders[i].booking_refs[j].booking_id \
                     == mix_order.orders[i].booking_refs[j].booking_id
+
+    @pytest.mark.parametrize("xml_data,first_tax", [
+        (
+            '<Price><TaxSummary><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>RI</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YR</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YQ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>ZZ</TaxCode></Tax></TaxSummary><TotalAmount CurCode="RUB">3269.00</TotalAmount></Price>',
+            Tax(Amount(0, None), "RI"),
+        ),
+    ])
+    def test_parse_price(self, xml_data, first_tax):
+        got = parse_price(etree.fromstring(xml_data))
+        assert len(got.taxes) == 4
+        for tax in got.taxes:
+            assert tax.amount.amount == first_tax.amount.amount
+            assert tax.amount.cur_code == first_tax.amount.cur_code
+            break

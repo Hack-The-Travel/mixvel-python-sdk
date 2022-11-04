@@ -10,7 +10,7 @@ from .client import Client
 from .models import (
     Amount, AnonymousPassenger, Booking, IdentityDocument,
     Individual, Leg, MixOrder, Order,
-    Passenger,
+    Passenger, Price, Tax,
 )
 
 # Set default logging handler to avoid "No handler found" warnings.

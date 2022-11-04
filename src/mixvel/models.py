@@ -17,7 +17,7 @@ class Amount:
         :param amount: amount
         :type amount: int
         :param cur_code: currency code
-        :type cur_code: str
+        :type cur_code: str or None
         """
         self.amount = amount
         self.cur_code = cur_code
@@ -166,3 +166,14 @@ class Passenger(AnonymousPassenger):
         self.doc = doc
         self.phone = phone
         self.email = email
+
+
+class Price():
+    def __init__(self, taxes):
+        self.taxes = taxes
+
+
+class Tax():
+    def __init__(self, amount, code):
+        self.amount = amount
+        self.code = code

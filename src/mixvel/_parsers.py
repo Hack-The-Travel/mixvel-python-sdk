@@ -3,8 +3,18 @@ import datetime
 
 from .models import (
     Amount, AnonymousPassenger, Booking, MixOrder,
-    Order,
+    Order, Price, Tax,
 )
+
+
+def is_cancel_success(resp):
+    """Checks if cancel order request was successful.
+
+    :param resp: text of Mixvel_OrderCancelRS
+    :type resp: lxml.etree._Element
+    :rtype: bool
+    """
+    return all([s == "Success" for s in resp.xpath(".//OperationStatus/text()")])
 
 
 def parse_amount(elm):
@@ -60,11 +70,20 @@ def parse_order_view(resp):
     return MixOrder(mix_order_id, orders, total_amount)
 
 
-def is_cancel_success(resp):
-    """Checks if cancel order request was successful.
+def parse_price(elm):
+    """Parses PriceType.
 
-    :param resp: text of Mixvel_OrderCancelRS
-    :type resp: lxml.etree._Element
-    :rtype: bool
+    :param elm: PriceType element
+    :type elm: lxml.etree._Element
+    :rtype: Price
     """
-    return all([s == "Success" for s in resp.xpath(".//OperationStatus/text()")])
+    taxes = []
+    for tax_node in elm.findall("./TaxSummary/Tax"):
+        taxes.append(
+            Tax(
+                parse_amount(tax_node.find("./Amount")),
+                'tax_node.find("./TaxCode").text'
+            )
+        )
+
+    return Price(taxes)
