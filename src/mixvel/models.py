@@ -209,7 +209,7 @@ class Passenger(AnonymousPassenger):
         self.email = email
 
 
-class Price():
+class Price:
     def __init__(self, taxes, total_amount):
         """Price.
         
@@ -222,7 +222,7 @@ class Price():
         self.total_amount = total_amount
 
 
-class Tax():
+class Tax:
     def __init__(self, amount, tax_code):
         """Tax.
         
