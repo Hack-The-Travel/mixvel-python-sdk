@@ -54,7 +54,7 @@
                         <MiddleName>{{ pax.individual.middle_name }}</MiddleName>
                         <Surname>{{ pax.individual.surname }}</Surname>
                     </Individual>
-                    <PaxID>Pax-{{ loop.index }}</PaxID>
+                    <PaxID>{{ pax.pax_id }}</PaxID>
                     <PTC>{{ pax.ptc }}</PTC>
                 </Pax>
                 {% endfor %}
