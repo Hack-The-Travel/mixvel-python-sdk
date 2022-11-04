@@ -77,6 +77,7 @@ def parse_price(elm):
     :type elm: lxml.etree._Element
     :rtype: Price
     """
+    total_amount = parse_amount(elm.find("./TotalAmount"))
     taxes = []
     for tax_node in elm.findall("./TaxSummary/Tax"):
         taxes.append(
@@ -86,4 +87,4 @@ def parse_price(elm):
             )
         )
 
-    return Price(taxes)
+    return Price(taxes, total_amount)

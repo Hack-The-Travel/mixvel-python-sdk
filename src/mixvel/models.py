@@ -169,11 +169,26 @@ class Passenger(AnonymousPassenger):
 
 
 class Price():
-    def __init__(self, taxes):
+    def __init__(self, taxes, total_amount):
+        """Price.
+        
+        :param taxes: list of taxes
+        :type taxes: list[Tax]
+        :param total_amount: total amount
+        :type total_amount: Amount
+        """
         self.taxes = taxes
+        self.total_amount = total_amount
 
 
 class Tax():
     def __init__(self, amount, code):
+        """Tax.
+        
+        :param amount: amount
+        :type amount: Amount
+        :param code: tax code
+        :type code: str
+        """
         self.amount = amount
         self.code = code

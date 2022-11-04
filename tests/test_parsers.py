@@ -68,16 +68,17 @@ class TestParsers:
                 assert got.orders[i].booking_refs[j].booking_id \
                     == mix_order.orders[i].booking_refs[j].booking_id
 
-    @pytest.mark.parametrize("xml_data,first_tax", [
+    @pytest.mark.parametrize("xml_data,first_tax,total_amount", [
         (
             '<Price><TaxSummary><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>RI</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YR</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YQ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>ZZ</TaxCode></Tax></TaxSummary><TotalAmount CurCode="RUB">3269.00</TotalAmount></Price>',
-            Tax(Amount(0, None), "RI"),
+            Tax(Amount(0, None), "RI"), Amount(326900, "RUB")
         ),
     ])
-    def test_parse_price(self, xml_data, first_tax):
+    def test_parse_price(self, xml_data, first_tax, total_amount):
         got = parse_price(etree.fromstring(xml_data))
         assert len(got.taxes) == 4
         for tax in got.taxes:
             assert tax.amount.amount == first_tax.amount.amount
             assert tax.amount.cur_code == first_tax.amount.cur_code
             break
+        assert got.total_amount.amount == total_amount.amount
