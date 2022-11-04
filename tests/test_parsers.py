@@ -11,20 +11,10 @@ from mixvel.models import (
     MixOrder, Order, Price, Tax,
 )
 
-from lxml import etree
 import pytest
 
 
 class TestParsers:
-    @pytest.mark.parametrize("xml_data,amount,cur_code", [
-        ('<TotalAmount CurCode="RUB">6538.00</TotalAmount>', 653800, "RUB"),
-        ('<TotalAmount CurCode="RUB">3269.00</TotalAmount>', 326900, "RUB"),
-    ])
-    def test_parse_amount(self, xml_data, amount, cur_code):
-        got = parse_amount(etree.fromstring(xml_data))
-        assert got.amount == amount
-        assert got.cur_code == cur_code
-
     @pytest.mark.parametrize("resp_path", [
         "responses/order/cancel_success.xml",
     ])
@@ -68,40 +58,55 @@ class TestParsers:
                 assert got.orders[i].booking_refs[j].booking_id \
                     == mix_order.orders[i].booking_refs[j].booking_id
 
-    @pytest.mark.parametrize("xml_data,first_tax,total_amount", [
+
+class TestTypeParsers:
+    @pytest.mark.parametrize("model_path,want", [
         (
-            '<Price><TaxSummary><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>RI</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YR</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YQ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>ZZ</TaxCode></Tax></TaxSummary><TotalAmount CurCode="RUB">3269.00</TotalAmount></Price>',
-            Tax(Amount(0, None), "RI"), Amount(326900, "RUB")
+            "models/amount_1.xml",
+            Amount(653800, "RUB"),
+        ),
+        (
+            "models/amount_2.xml",
+            Amount(326900, "RUB"),
         ),
     ])
-    def test_parse_price(self, xml_data, first_tax, total_amount):
-        got = parse_price(etree.fromstring(xml_data))
-        assert len(got.taxes) == 4
-        for tax in got.taxes:
-            assert tax.amount.amount == first_tax.amount.amount
-            assert tax.amount.cur_code == first_tax.amount.cur_code
-            break
-        assert got.total_amount.amount == total_amount.amount
+    def test_parse_amount(self, model_path, want):
+        elm = load_response(model_path, clean_appdata=False).getroot()
+        got = parse_amount(elm)
+        assert got.amount == want.amount
+        assert got.cur_code == want.cur_code
 
-    @pytest.mark.parametrize("xml_data,want", [
+    @pytest.mark.parametrize("model_path,want", [
         (
-            '<FareComponent><CabinType><CabinTypeCode>Economy</CabinTypeCode></CabinType><FareBasisCode>RPROWRF</FareBasisCode><FareRule><RuleCode>PRR1</RuleCode></FareRule><PaxSegmentRefID>2b8e572b-f9d5-4045-8986-1ddd88f2bb66</PaxSegmentRefID><Price><TaxSummary><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YR</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YQ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>ZZ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>RI</TaxCode></Tax></TaxSummary><TotalAmount CurCode="RUB">3269.00</TotalAmount></Price><RBD><RBD_Code>R</RBD_Code></RBD></FareComponent>',
+            "models/fare_component.xml",
             FareComponent("RPROWRF", Price([], Amount(326900, "RUB"))),
         ),
     ])
-    def test_parse_fare_componentl(self, xml_data, want):
-        got = parse_fare_component(etree.fromstring(xml_data))
+    def test_parse_fare_componentl(self, model_path, want):
+        elm = load_response(model_path, clean_appdata=False)
+        got = parse_fare_component(elm)
         assert got.fare_basis_code == want.fare_basis_code
         assert isinstance(got.price, Price)
 
-
-    @pytest.mark.parametrize("xml_data,want", [
+    @pytest.mark.parametrize("model_path,want", [
         (
-            '<FareDetail><FareComponent><CabinType><CabinTypeCode>Economy</CabinTypeCode></CabinType><FareBasisCode>RPROWRF</FareBasisCode><FareRule><RuleCode>PRR1</RuleCode></FareRule><PaxSegmentRefID>2b8e572b-f9d5-4045-8986-1ddd88f2bb66</PaxSegmentRefID><Price><TaxSummary><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YR</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YQ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>ZZ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>RI</TaxCode></Tax></TaxSummary><TotalAmount CurCode="RUB">3269.00</TotalAmount></Price><RBD><RBD_Code>R</RBD_Code></RBD></FareComponent><PaxRefID>Pax-1</PaxRefID></FareDetail>',
+            "models/fare_detail.xml",
             FareDetail([], "Pax-1"),
         ),
     ])
-    def test_parse_fare_detail(self, xml_data, want):
-        got = parse_fare_detail(etree.fromstring(xml_data))
+    def test_parse_fare_detail(self, model_path, want):
+        elm = load_response(model_path, clean_appdata=False)
+        got = parse_fare_detail(elm)
         assert isinstance(got.fare_components[0], FareComponent)
         assert got.pax_ref_id == want.pax_ref_id
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/price.xml",
+            Price([], Amount(326900, "RUB")),
+        ),
+    ])
+    def test_parse_price(self, model_path, want):
+        elm = load_response(model_path, clean_appdata=False)
+        got = parse_price(elm)
+        assert got.total_amount.amount == want.total_amount.amount

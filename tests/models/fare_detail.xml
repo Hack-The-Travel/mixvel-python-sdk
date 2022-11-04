@@ -1,0 +1,41 @@
+<FareDetail>
+    <FareComponent>
+        <CabinType>
+            <CabinTypeCode>Economy</CabinTypeCode>
+        </CabinType>
+        <FareBasisCode>RPROWRF</FareBasisCode>
+        <FareRule>
+            <RuleCode>PRR1</RuleCode>
+        </FareRule>
+        <PaxSegmentRefID>2b8e572b-f9d5-4045-8986-1ddd88f2bb66</PaxSegmentRefID>
+        <Price>
+            <TaxSummary>
+                <Tax>
+                    <Amount>0</Amount>
+                    <QualifierCode>aircompany</QualifierCode>
+                    <TaxCode>YR</TaxCode>
+                </Tax>
+                <Tax>
+                    <Amount>0</Amount>
+                    <QualifierCode>aircompany</QualifierCode>
+                    <TaxCode>YQ</TaxCode>
+                </Tax>
+                <Tax>
+                    <Amount>0</Amount>
+                    <QualifierCode>aircompany</QualifierCode>
+                    <TaxCode>ZZ</TaxCode>
+                </Tax>
+                <Tax>
+                    <Amount>0</Amount>
+                    <QualifierCode>aircompany</QualifierCode>
+                    <TaxCode>RI</TaxCode>
+                </Tax>
+            </TaxSummary>
+            <TotalAmount CurCode="RUB">3269.00</TotalAmount>
+        </Price>
+        <RBD>
+            <RBD_Code>R</RBD_Code>
+        </RBD>
+    </FareComponent>
+    <PaxRefID>Pax-1</PaxRefID>
+</FareDetail>
