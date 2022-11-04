@@ -10,6 +10,11 @@ This module contains the primary objects.
 import datetime
 
 
+class OrderViewResponse:
+    def __init__(self, mix_order):
+        self.mix_order = mix_order
+
+
 class Amount:
     def __init__(self, amount, cur_code):
         """Amount.

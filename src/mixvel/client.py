@@ -7,7 +7,9 @@ import os
 import requests
 import uuid
 
-from mixvel._parsers import is_cancel_success
+from mixvel._parsers import (
+    is_cancel_success, parse_order_view,
+)
 
 from .endpoint import is_login_endpoint, request_template
 from .utils import lxml_remove_namespaces
@@ -126,32 +128,33 @@ class Client:
 
         return []
 
-
     def create_order(self, paxes):
         """Creates order.
 
         :param paxes: passengers
         :type paxes: list[Passenger]
+        :rtype: OrderViewResponse
         """
         context = {
             "paxes": paxes,
         }
         resp = self.__request("/api/Order/create", context)
 
-        return None
-
+        return parse_order_view(resp)
 
     def retrieve_order(self, mix_order_id):
         """Retrieves order.
 
         :param mix_order_id: aggregated order id
         :type mix_order_id: str
+        :rtype: OrderViewResponse
         """
         context = {
             "mix_order_id": mix_order_id,
         }
         resp = self.__request("/api/Order/retrieve", context)
 
+        return parse_order_view(resp)
 
     def change_order(self, mix_order_id, amount):
         """Issues tickets.
@@ -166,7 +169,6 @@ class Client:
             "amount": amount,
         }
         resp = self.__request("/api/Order/change", context)
-
 
     def cancel_order(self, mix_order_id):
         """Cancels order.

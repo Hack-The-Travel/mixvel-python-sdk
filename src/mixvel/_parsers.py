@@ -6,7 +6,9 @@ from .models import (
     FareDetail, MixOrder, Order, OrderItem,
     Price, Tax,
 )
-
+from .models import (
+    OrderViewResponse,
+)
 
 def is_cancel_success(resp):
     """Checks if cancel order request was successful.
@@ -23,39 +25,11 @@ def parse_order_view(resp):
     
     :param resp: text of Mixvel_OrderCancelRS
     :type resp: lxml.etree._Element
-    :rtype: MixOrder
+    :rtype: OrderViewResponse
     """
-    mix_order_id = resp.find("./Response/MixOrder/MixOrderID").text
-    total_amount = parse_amount(resp.find("./Response/MixOrder/TotalAmount"))
+    mix_order = parse_mix_order(resp.find("./Response/MixOrder"))
 
-    paxes = []
-    pax_list_node = resp.find("./Response/DataLists/PaxList")
-    for pax_node in pax_list_node:
-        paxes.append(
-            AnonymousPassenger(
-                pax_node.find("./PaxID").text,
-                pax_node.find("./PTC").text
-            )
-        )
-
-    orders = []
-    orders_node = resp.findall("./Response/MixOrder/Order")
-    for order_node in orders_node:
-        order_id = order_node.find("./OrderID").text
-        amount = parse_amount(order_node.find("./TotalPrice/TotalAmount"))
-
-        booking_refs = []
-        booking_list_node = order_node.findall("./BookingRef")
-        for booking_node in booking_list_node:
-            booking_id = booking_node.find("./BookingID").text
-            booking_refs.append(Booking(booking_id))
-
-        ttl = order_node.find("./DepositTimeLimitDateTime").text
-        ttl = datetime.datetime.strptime(ttl, "%Y-%m-%dT%H:%M:%S")
-
-        orders.append(Order(order_id, booking_refs, ttl, amount))
-
-    return MixOrder(mix_order_id, orders, total_amount)
+    return OrderViewResponse(mix_order)
 
 
 def parse_amount(elm):

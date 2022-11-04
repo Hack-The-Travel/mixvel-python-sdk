@@ -12,7 +12,10 @@ from .models import (
     FareDetail, IdentityDocument, Individual, Leg,
     MixOrder, Order, OrderItem, Passenger,
     Price, Tax,
-)
+)  # types
+from .models import (
+    OrderViewResponse,
+)  # responses
 
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
