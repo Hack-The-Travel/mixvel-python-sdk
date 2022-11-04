@@ -18,6 +18,46 @@ def is_cancel_success(resp):
     return all([s == "Success" for s in resp.xpath(".//OperationStatus/text()")])
 
 
+def parse_order_view(resp):
+    """Parses order view response.
+    
+    :param resp: text of Mixvel_OrderCancelRS
+    :type resp: lxml.etree._Element
+    :rtype: MixOrder
+    """
+    mix_order_id = resp.find("./Response/MixOrder/MixOrderID").text
+    total_amount = parse_amount(resp.find("./Response/MixOrder/TotalAmount"))
+
+    paxes = []
+    pax_list_node = resp.find("./Response/DataLists/PaxList")
+    for pax_node in pax_list_node:
+        paxes.append(
+            AnonymousPassenger(
+                pax_node.find("./PaxID").text,
+                pax_node.find("./PTC").text
+            )
+        )
+
+    orders = []
+    orders_node = resp.findall("./Response/MixOrder/Order")
+    for order_node in orders_node:
+        order_id = order_node.find("./OrderID").text
+        amount = parse_amount(order_node.find("./TotalPrice/TotalAmount"))
+
+        booking_refs = []
+        booking_list_node = order_node.findall("./BookingRef")
+        for booking_node in booking_list_node:
+            booking_id = booking_node.find("./BookingID").text
+            booking_refs.append(Booking(booking_id))
+
+        ttl = order_node.find("./DepositTimeLimitDateTime").text
+        ttl = datetime.datetime.strptime(ttl, "%Y-%m-%dT%H:%M:%S")
+
+        orders.append(Order(order_id, booking_refs, ttl, amount))
+
+    return MixOrder(mix_order_id, orders, total_amount)
+
+
 def parse_amount(elm):
     """Parses AmountType.
 
@@ -61,46 +101,6 @@ def parse_fare_detail(elm):
     return FareDetail(fare_components, pax_ref_id)
 
 
-def parse_order_view(resp):
-    """Parses order view response.
-    
-    :param resp: text of Mixvel_OrderCancelRS
-    :type resp: lxml.etree._Element
-    :rtype: MixOrder
-    """
-    mix_order_id = resp.find("./Response/MixOrder/MixOrderID").text
-    total_amount = parse_amount(resp.find("./Response/MixOrder/TotalAmount"))
-
-    paxes = []
-    pax_list_node = resp.find("./Response/DataLists/PaxList")
-    for pax_node in pax_list_node:
-        paxes.append(
-            AnonymousPassenger(
-                pax_node.find("./PaxID").text,
-                pax_node.find("./PTC").text
-            )
-        )
-
-    orders = []
-    orders_node = resp.findall("./Response/MixOrder/Order")
-    for order_node in orders_node:
-        order_id = order_node.find("./OrderID").text
-        amount = parse_amount(order_node.find("./TotalPrice/TotalAmount"))
-
-        booking_refs = []
-        booking_list_node = order_node.findall("./BookingRef")
-        for booking_node in booking_list_node:
-            booking_id = booking_node.find("./BookingID").text
-            booking_refs.append(Booking(booking_id))
-
-        ttl = order_node.find("./DepositTimeLimitDateTime").text
-        ttl = datetime.datetime.strptime(ttl, "%Y-%m-%dT%H:%M:%S")
-
-        orders.append(Order(order_id, booking_refs, ttl, amount))
-
-    return MixOrder(mix_order_id, orders, total_amount)
-
-
 def parse_price(elm):
     """Parses PriceType.
 
@@ -108,14 +108,22 @@ def parse_price(elm):
     :type elm: lxml.etree._Element
     :rtype: Price
     """
-    total_amount = parse_amount(elm.find("./TotalAmount"))
     taxes = []
     for tax_node in elm.findall("./TaxSummary/Tax"):
-        taxes.append(
-            Tax(
-                parse_amount(tax_node.find("./Amount")),
-                'tax_node.find("./TaxCode").text'
-            )
-        )
+        taxes.append(parse_tax(tax_node))
+    total_amount = parse_amount(elm.find("./TotalAmount"))
 
     return Price(taxes, total_amount)
+
+
+def parse_tax(elm):
+    """Parses TaxType.
+
+    :param elm: TaxType element
+    :type elm: lxml.etree._Element
+    :rtype: Tax
+    """
+    return Tax(
+        parse_amount(elm.find("./Amount")),
+        elm.find("./TaxCode").text
+    )

@@ -3,9 +3,12 @@ import datetime
 
 from .utils import load_response
 from mixvel._parsers import (
-    parse_amount, parse_fare_component, parse_fare_detail, is_cancel_success,
-    parse_order_view, parse_price,
+    is_cancel_success, parse_order_view,
 )
+from mixvel._parsers import (
+    parse_amount, parse_fare_component, parse_fare_detail, parse_price,
+    parse_tax,
+)  # type parsers
 from mixvel.models import (
     Amount, Booking, FareComponent, FareDetail,
     MixOrder, Order, Price, Tax,
@@ -110,3 +113,16 @@ class TestTypeParsers:
         elm = load_response(model_path, clean_appdata=False)
         got = parse_price(elm)
         assert got.total_amount.amount == want.total_amount.amount
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/tax__zero_amount.xml",
+            Tax(Amount(0, None), "ZZ"),
+        ),
+    ])
+    def test_parse_tax(self, model_path, want):
+        elm = load_response(model_path, clean_appdata=False)
+        got = parse_tax(elm)
+        assert got.amount.amount == want.amount.amount
+        assert got.amount.cur_code == want.amount.cur_code
+        assert got.tax_code == want.tax_code

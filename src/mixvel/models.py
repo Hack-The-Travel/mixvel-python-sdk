@@ -223,13 +223,13 @@ class Price():
 
 
 class Tax():
-    def __init__(self, amount, code):
+    def __init__(self, amount, tax_code):
         """Tax.
         
         :param amount: amount
         :type amount: Amount
-        :param code: tax code
-        :type code: str
+        :param tax_code: tax code
+        :type tax_code: str
         """
         self.amount = amount
-        self.code = code
+        self.tax_code = tax_code
