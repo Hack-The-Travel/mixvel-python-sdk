@@ -3,12 +3,12 @@ import datetime
 
 from .utils import load_response
 from mixvel._parsers import (
-    parse_amount, is_cancel_success, parse_order_view,
-    parse_price,
+    parse_amount, parse_fare_component, parse_fare_detail, is_cancel_success,
+    parse_order_view, parse_price,
 )
 from mixvel.models import (
-    Amount, Booking, MixOrder, Order,
-    Tax,
+    Amount, Booking, FareComponent, FareDetail,
+    MixOrder, Order, Price, Tax,
 )
 
 from lxml import etree
@@ -82,3 +82,26 @@ class TestParsers:
             assert tax.amount.cur_code == first_tax.amount.cur_code
             break
         assert got.total_amount.amount == total_amount.amount
+
+    @pytest.mark.parametrize("xml_data,want", [
+        (
+            '<FareComponent><CabinType><CabinTypeCode>Economy</CabinTypeCode></CabinType><FareBasisCode>RPROWRF</FareBasisCode><FareRule><RuleCode>PRR1</RuleCode></FareRule><PaxSegmentRefID>2b8e572b-f9d5-4045-8986-1ddd88f2bb66</PaxSegmentRefID><Price><TaxSummary><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YR</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YQ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>ZZ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>RI</TaxCode></Tax></TaxSummary><TotalAmount CurCode="RUB">3269.00</TotalAmount></Price><RBD><RBD_Code>R</RBD_Code></RBD></FareComponent>',
+            FareComponent("RPROWRF", Price([], Amount(326900, "RUB"))),
+        ),
+    ])
+    def test_parse_fare_componentl(self, xml_data, want):
+        got = parse_fare_component(etree.fromstring(xml_data))
+        assert got.fare_basis_code == want.fare_basis_code
+        assert isinstance(got.price, Price)
+
+
+    @pytest.mark.parametrize("xml_data,want", [
+        (
+            '<FareDetail><FareComponent><CabinType><CabinTypeCode>Economy</CabinTypeCode></CabinType><FareBasisCode>RPROWRF</FareBasisCode><FareRule><RuleCode>PRR1</RuleCode></FareRule><PaxSegmentRefID>2b8e572b-f9d5-4045-8986-1ddd88f2bb66</PaxSegmentRefID><Price><TaxSummary><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YR</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>YQ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>ZZ</TaxCode></Tax><Tax><Amount>0</Amount><QualifierCode>aircompany</QualifierCode><TaxCode>RI</TaxCode></Tax></TaxSummary><TotalAmount CurCode="RUB">3269.00</TotalAmount></Price><RBD><RBD_Code>R</RBD_Code></RBD></FareComponent><PaxRefID>Pax-1</PaxRefID></FareDetail>',
+            FareDetail([], "Pax-1"),
+        ),
+    ])
+    def test_parse_fare_detail(self, xml_data, want):
+        got = parse_fare_detail(etree.fromstring(xml_data))
+        assert isinstance(got.fare_components[0], FareComponent)
+        assert got.pax_ref_id == want.pax_ref_id

@@ -2,8 +2,9 @@
 import datetime
 
 from .models import (
-    Amount, AnonymousPassenger, Booking, MixOrder,
-    Order, Price, Tax,
+    Amount, AnonymousPassenger, Booking, FareComponent,
+    FareDetail, MixOrder, Order, Price,
+    Tax,
 )
 
 
@@ -28,6 +29,36 @@ def parse_amount(elm):
         int(elm.text.replace(".", "")),
         elm.get("CurCode")
     )
+
+
+def parse_fare_component(elm):
+    """Parses FareComponentType.
+
+    :param elm: FareComponentType element
+    :type elm: lxml.etree._Element
+    :rtype: FareComponent
+    """
+    return FareComponent(
+        elm.find("./FareBasisCode").text,
+        parse_price(elm.find("./Price"))
+    )
+
+
+def parse_fare_detail(elm):
+    """Parses FareDetailType.
+
+    :param elm: FareDetailType element
+    :type elm: lxml.etree._Element
+    :rtype: FareDetail
+    """
+    fare_components = []
+    for fare_component_node in elm.findall("./FareComponent"):
+        fare_components.append(
+            parse_fare_component(fare_component_node)
+        )
+    pax_ref_id = elm.find("./PaxRefID").text
+
+    return FareDetail(fare_components, pax_ref_id)
 
 
 def parse_order_view(resp):

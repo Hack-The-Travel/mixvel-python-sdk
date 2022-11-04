@@ -46,6 +46,31 @@ class Booking:
         self.booking_id = booking_id
 
 
+class FareComponent:
+    """Fare component.
+    :param fare_basis_code: fare basis code
+    :type fare_basis_code: str
+    :param price: price
+    :type price: Price
+    """
+    def __init__(self, fare_basis_code, price):
+        self.fare_basis_code = fare_basis_code
+        self.price = price
+
+
+class FareDetail:
+    def __init__(self, fare_components, pax_ref_id):
+        """Fare.
+
+        :param fare_components: fare components
+        :type fare_components: list[FareComponent]
+        :param pax_ref_id: passenger reference id
+        :type pax_ref_id: str
+        """
+        self.fare_components = fare_components
+        self.pax_ref_id = pax_ref_id
+
+
 class IdentityDocument:
     def __init__(self, doc_id, type_code, issuing_country_code, expiry_date):
         """Identity document.
@@ -141,6 +166,22 @@ class Order:
         self.booking_refs = booking_refs
         self.deposit_timelimit = deposit_timelimit
         self.total_amount = total_amount
+
+
+class OrderItem:
+    def __init__(self, order_item_id, fare_details, price):
+        """Order item.
+
+        :param order_item_id: order item id
+        :type order_item_id: str
+        :param fare_details: fare details
+        :type fare_details: list[FareDetail]
+        :param price: price
+        :type price: Price
+        """
+        self.order_item_id = order_item_id
+        self.fare_details = fare_details
+        self.price = price
 
 
 class Passenger(AnonymousPassenger):

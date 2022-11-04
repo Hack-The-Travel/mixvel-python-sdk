@@ -8,9 +8,10 @@ from . import utils
 from .client import PROD_GATEWAY, TEST_GATEWAY
 from .client import Client
 from .models import (
-    Amount, AnonymousPassenger, Booking, IdentityDocument,
-    Individual, Leg, MixOrder, Order,
-    Passenger, Price, Tax,
+    Amount, AnonymousPassenger, Booking, FareComponent,
+    FareDetail, IdentityDocument, Individual, Leg,
+    MixOrder, Order, OrderItem, Passenger,
+    Price, Tax,
 )
 
 # Set default logging handler to avoid "No handler found" warnings.
