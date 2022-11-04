@@ -6,12 +6,13 @@ from mixvel._parsers import (
     is_cancel_success, parse_order_view,
 )
 from mixvel._parsers import (
-    parse_amount, parse_fare_component, parse_fare_detail, parse_price,
-    parse_tax,
+    parse_amount, parse_fare_component, parse_fare_detail, parse_order_item,
+    parse_price, parse_tax,
 )  # type parsers
 from mixvel.models import (
     Amount, Booking, FareComponent, FareDetail,
-    MixOrder, Order, Price, Tax,
+    MixOrder, Order, OrderItem, Price,
+    Tax,
 )
 
 import pytest
@@ -102,6 +103,23 @@ class TestTypeParsers:
         got = parse_fare_detail(elm)
         assert isinstance(got.fare_components[0], FareComponent)
         assert got.pax_ref_id == want.pax_ref_id
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/order_item.xml",
+            OrderItem(
+                "fa21bac3-6a8c-4066-8477-148bc5f63a31",
+                [],
+                Price([], Amount(653800, "RUB"))
+            ),
+        ),
+    ])
+    def test_parse_order_item(self, model_path, want):
+        elm = load_response(model_path, clean_appdata=False)
+        got = parse_order_item(elm)
+        assert got.order_item_id == want.order_item_id
+        assert isinstance(got.fare_details[0], FareDetail)
+        assert isinstance(got.price, Price)
 
     @pytest.mark.parametrize("model_path,want", [
         (

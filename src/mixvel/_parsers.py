@@ -3,8 +3,8 @@ import datetime
 
 from .models import (
     Amount, AnonymousPassenger, Booking, FareComponent,
-    FareDetail, MixOrder, Order, Price,
-    Tax,
+    FareDetail, MixOrder, Order, OrderItem,
+    Price, Tax,
 )
 
 
@@ -99,6 +99,22 @@ def parse_fare_detail(elm):
     pax_ref_id = elm.find("./PaxRefID").text
 
     return FareDetail(fare_components, pax_ref_id)
+
+
+def parse_order_item(elm):
+    """Parses OrderItemType.
+
+    :param elm: OrderItemType element
+    :type elm: lxml.etree._Element
+    :rtype: OrderItem
+    """
+    order_item_id = elm.find("./OrderItemID").text
+    fare_details = []
+    for fare_detail_node in elm.findall("./FareDetail"):
+        fare_details.append(parse_fare_detail(fare_detail_node))
+    price = parse_price(elm.find("./Price"))
+
+    return OrderItem(order_item_id, fare_details, price)
 
 
 def parse_price(elm):
