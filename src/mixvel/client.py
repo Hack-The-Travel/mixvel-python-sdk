@@ -10,6 +10,9 @@ import uuid
 from mixvel._parsers import (
     is_cancel_success, parse_order_view,
 )
+from mixvel.models import (
+    Passenger, SelectedOffer,
+)
 
 from .endpoint import is_login_endpoint, request_template
 from .utils import lxml_remove_namespaces
@@ -128,14 +131,17 @@ class Client:
 
         return []
 
-    def create_order(self, paxes):
+    def create_order(self, selected_offer, paxes):
         """Creates order.
 
+        :param selected_offer: selected offer
+        :type selected_offer: SelectedOffer
         :param paxes: passengers
         :type paxes: list[Passenger]
         :rtype: OrderViewResponse
         """
         context = {
+            "selected_offer": selected_offer,
             "paxes": paxes,
         }
         resp = self.__request("/api/Order/create", context)
