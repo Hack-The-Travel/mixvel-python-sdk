@@ -5,11 +5,13 @@
     <Request>
         <CreateOrder>
             <SelectedOffer>
-                <OfferRefID>4b238bb3-e98b-43d2-a216-b52daf2c4d68</OfferRefID>
+                <OfferRefID>{{ selected_offer.offer_ref_id }}</OfferRefID>
+                {{ for selected_offer_item in selected_offer.selected_offer_items }}
                 <SelectedOfferItem>
-                    <OfferItemRefID>b767acb7-ab61-4da3-aa4e-b02b87010ddc</OfferItemRefID>
-                    <PaxRefID>Pax-1</PaxRefID>
+                    <OfferItemRefID>{{ selected_offer_item.offer_item_ref_id }}</OfferItemRefID>
+                    <PaxRefID>{{ selected_offer_item.pax_ref_id }}</PaxRefID>
                 </SelectedOfferItem>
+                {{ endfor }}
             </SelectedOffer>
         </CreateOrder>
         <DataLists>

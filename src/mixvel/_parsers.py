@@ -109,14 +109,19 @@ def parse_order(elm):
     :rtype: Order
     """
     order_id = elm.find("./OrderID").text
-    booking_refs = []
-    for booking_ref_node in elm.findall("./BookingRef"):
-        booking_refs.append(parse_booking(booking_ref_node))
+    order_items = map(
+        lambda node: parse_order_item(node),
+        elm.findall("./OrderItem")
+    )
+    booking_refs = map(
+        lambda node: parse_booking(node),
+        elm.findall("./BookingRef")
+    )
     timelimit = elm.find("./DepositTimeLimitDateTime").text
     timelimit = datetime.datetime.strptime(timelimit, "%Y-%m-%dT%H:%M:%S")
     total_price = parse_price(elm.find("./TotalPrice"))
 
-    return Order(order_id, booking_refs, timelimit, total_price)
+    return Order(order_id, order_items, booking_refs, timelimit, total_price)
 
 def parse_order_item(elm):
     """Parses OrderItemType.

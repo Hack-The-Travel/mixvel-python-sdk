@@ -155,11 +155,14 @@ class MixOrder:
 
 
 class Order:
-    def __init__(self, order_id, booking_refs, deposit_timelimit, total_price):
+    def __init__(self, order_id, order_items, booking_refs,
+                 deposit_timelimit, total_price):
         """Order.
         
         :param order_id: order id
         :type order_id: str
+        :param order_items: list of order items
+        :type order_items: list[OrderItem]
         :param booking_refs: lit of bookings
         :type booking_refs: list[Booking]
         :param deposit_timelimit: ticketing time limit
@@ -168,6 +171,7 @@ class Order:
         :type total_price: Amount
         """
         self.order_id = order_id
+        self.order_items = order_items
         self.booking_refs = booking_refs
         self.deposit_timelimit = deposit_timelimit
         self.total_price = total_price
@@ -225,6 +229,32 @@ class Price:
         """
         self.taxes = taxes
         self.total_amount = total_amount
+
+
+class SelectedOffer:
+    def __init__(self, offer_ref_id, selected_offer_items):
+        """Selected offer.
+
+        :param offer_ref_id: offer reference id
+        :type offer_ref_id: str
+        :param selected_offer_items: list of selected offer items
+        :type selected_offer_items: list[SelectedOfferItem]
+        """
+        self.offer_ref_id = offer_ref_id
+        self.selected_offer_items = selected_offer_items
+
+
+class SelectedOfferItem:
+    def __init__(self, offer_item_ref_id, pax_ref_id):
+        """Selected offer item.
+        
+        :param offer_item_ref_id: offer item reference id
+        :type offer_item_ref_id: str
+        :param pax_ref_id: passenger reference id
+        :type pax_ref_id: str
+        """
+        self.offer_item_ref_id = offer_item_ref_id
+        self.pax_ref_id = pax_ref_id
 
 
 class Tax:
