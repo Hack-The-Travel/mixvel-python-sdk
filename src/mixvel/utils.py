@@ -12,7 +12,7 @@ from lxml import etree
 
 
 def lxml_remove_namespaces(root):
-    """Removes all namespaces and prefixes from lxml object.
+    """Remove all namespaces and prefixes from lxml object.
 
     Links:
     * https://stackoverflow.com/a/18160164/7309986

@@ -8,14 +8,15 @@ from lxml import etree
 here = os.path.abspath(os.path.dirname(__file__))
 
 
-def load_response(resp_path,
-                  clean_appdata=True):
-    """Returns a XML response from the given file."""
-    abs_path = os.path.join(here, resp_path)
+def parse_xml(path):
+    """Return an EletementTree object loaded from source path."""
+    abs_path = os.path.join(here, path)
     resp = etree.parse(abs_path)
+    return resp
 
-    if not clean_appdata:
-        return resp
 
+def parse_xml_response(resp_path):
+    """Return a clean XML API response from the given file."""
+    resp = parse_xml(resp_path)
     lxml_remove_namespaces(resp)
     return resp.find('.//Body/AppData/')
