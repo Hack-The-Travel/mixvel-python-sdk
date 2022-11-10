@@ -10,8 +10,8 @@ from mixvel._parsers import (
     parse_fare_component, parse_fare_detail, parse_mix_order, parse_offer,
     parse_offer_item, parse_order_item, parse_order, parse_origin_dest,
     parse_pax_journey, parse_pax_segment, parse_price, parse_rbd_avail,
-    parse_service, parse_service_offer_associations, parse_tax, parse_transport_dep_arrival,
-    parse_validating_party,
+    parse_service, parse_service_offer_associations, parse_tax, parse_tax_summary,
+    parse_transport_dep_arrival, parse_validating_party,
 )
 from mixvel.models import (
     AirShoppingResponse, OrderViewResponse,
@@ -21,8 +21,8 @@ from mixvel.models import (
     FareComponent, FareDetail, MixOrder, Offer,
     OfferItem, Order, OrderItem, OriginDest,
     PaxJourney, PaxSegment, Price, RbdAvail,
-    Service, ServiceOfferAssociations, Tax, TransportDepArrival,
-    ValidatingParty,
+    Service, ServiceOfferAssociations, Tax, TaxSummary,
+    TransportDepArrival, ValidatingParty,
 )
 
 import pytest
@@ -386,6 +386,26 @@ class TestTypeParsers:
         assert got.amount.amount == want.amount.amount
         assert got.amount.cur_code == want.amount.cur_code
         assert got.tax_code == want.tax_code
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/tax_summary.xml",
+            TaxSummary([], Amount(68400, "RUB")),
+        ),
+        (
+            "models/tax_summary__null_total_tax_amount.xml",
+            TaxSummary([], None),
+        ),
+    ])
+    def test_parse_tax(self, model_path, want):
+        elm = parse_xml(model_path)
+        got = parse_tax_summary(elm)
+        assert isinstance(got.taxes[0], Tax)
+        if want.total_tax_amount is not None:
+            assert got.total_tax_amount.amount \
+                == want.total_tax_amount.amount
+        else:
+            assert got.total_tax_amount is None
 
     @pytest.mark.parametrize("model_path,want", [
         (

@@ -1,0 +1,25 @@
+<TaxSummary>
+    <Tax>
+        <Amount CurCode="RUB">180.00</Amount>
+        <TaxCode>YR</TaxCode>
+    </Tax>
+    <Tax>
+        <Amount CurCode="RUB">370.00</Amount>
+        <TaxCode>ZZ</TaxCode>
+    </Tax>
+    <Tax>
+        <Amount CurCode="RUB">30.00</Amount>
+        <QualifierCode>6</QualifierCode>
+        <TaxCode>VAT Fare</TaxCode>
+    </Tax>
+    <Tax>
+        <Amount CurCode="RUB">61.67</Amount>
+        <QualifierCode>6</QualifierCode>
+        <TaxCode>VAT ZZ</TaxCode>
+    </Tax>
+    <Tax>
+        <Amount CurCode="RUB">134.00</Amount>
+        <TaxCode>RI</TaxCode>
+    </Tax>
+    <TotalTaxAmount CurCode="RUB">684.00</TotalTaxAmount>
+</TaxSummary>

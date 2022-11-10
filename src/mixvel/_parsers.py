@@ -7,7 +7,7 @@ from .models import (
     Offer, OfferItem, Order, OrderItem,
     OriginDest, PaxJourney, PaxSegment, Price,
     RbdAvail, Service, ServiceOfferAssociations, Tax,
-    TransportDepArrival, ValidatingParty,
+    TaxSummary, TransportDepArrival, ValidatingParty,
 )
 from .models import (
     AirShoppingResponse, OrderViewResponse,
@@ -348,6 +348,22 @@ def parse_tax(elm):
         parse_amount(elm.find("./Amount")),
         elm.find("./TaxCode").text
     )
+
+def parse_tax_summary(elm):
+    """Parse TaxSummaryType.
+
+    :param elm: TaxSummaryType element
+    :type elm: lxml.etree._Element
+    :rtype: TaxSummary
+    """
+    taxes = map(
+        lambda tax: parse_tax(tax),
+        elm.findall("./Tax")
+    )
+    total_tax_amount = parse_amount(elm.find("./TotalTaxAmount")) \
+        if elm.find("./TotalTaxAmount") is not None else None
+
+    return TaxSummary(taxes, total_tax_amount=total_tax_amount)
 
 def parse_transport_dep_arrival(elm):
     """Parse TransportDepArrivalType.
