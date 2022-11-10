@@ -38,6 +38,7 @@ class TestParsers:
 
     @pytest.mark.parametrize("resp_path", [
         "responses/order/airshopping__RT_2ADT1CNN.xml",
+        "responses/order/airshopping__with_stop.xml",
     ])
     def test_parse_air_shopping_response(self, resp_path):
         resp = parse_xml_response(resp_path)
@@ -260,7 +261,19 @@ class TestTypeParsers:
             "models/pax_journey.xml",
             PaxJourney(
                 "0248fd86-53a1-4eb7-aedb-acb09ad7f38e",  # pax_journey_id
-                "fafd5965-b743-4494-b72b-614c580fc502"  # pax_segment_ref_id
+                [
+                    "fafd5965-b743-4494-b72b-614c580fc502",
+                ]  # pax_segment_ref_ids
+            ),
+        ),
+        (
+            "models/pax_journey__with_stop.xml",
+            PaxJourney(
+                "a973b729-ba9c-40c6-ac0c-cfb63eca682b",  # pax_journey_id
+                [
+                    "a73524fe-e42b-406d-b114-a60745c5a8bf",
+                    "6891d922-b662-4f0b-bbe1-7035c74dec67",
+                ]  # pax_segment_ref_ids
             ),
         ),
     ])
@@ -268,7 +281,9 @@ class TestTypeParsers:
         elm = parse_xml(model_path)
         got = parse_pax_journey(elm)
         assert got.pax_journey_id == want.pax_journey_id
-        assert got.pax_segment_ref_id == want.pax_segment_ref_id
+        assert len(got.pax_segment_ref_ids) == len(want.pax_segment_ref_ids)
+        for i in range(len(got.pax_segment_ref_ids)):
+            assert got.pax_segment_ref_ids[i] == want.pax_segment_ref_ids[i]
 
     @pytest.mark.parametrize("model_path,want", [
         (

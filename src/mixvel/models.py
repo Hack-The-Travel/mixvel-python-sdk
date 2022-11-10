@@ -329,16 +329,16 @@ class Passenger(AnonymousPassenger):
 
 
 class PaxJourney:
-    def __init__(self, pax_journey_id, pax_segment_ref_id):
+    def __init__(self, pax_journey_id, pax_segment_ref_ids):
         """PaxJourney.
         
         :param pax_journey_id: passenger journey id
         :type pax_journey_id: str
-        :param pax_segment_ref_id: passenger segment reference id
-        :type pax_segment_ref_id: str
+        :param pax_segment_ref_ids: list of passenger segment reference ids
+        :type pax_segment_ref_ids: list[str]
         """
         self.pax_journey_id = pax_journey_id
-        self.pax_segment_ref_id = pax_segment_ref_id
+        self.pax_segment_ref_ids = pax_segment_ref_ids
 
 
 class PaxSegment:

@@ -253,9 +253,12 @@ def parse_pax_journey(elm):
     :rtype: PaxJourney
     """
     pax_journey_id = elm.find("./PaxJourneyID").text
-    pax_segment_ref_id = elm.find("./PaxSegmentRefID").text
+    pax_segment_ref_ids = map(
+        lambda ref_id: ref_id.text,
+        elm.findall("./PaxSegmentRefID")
+    )
 
-    return PaxJourney(pax_journey_id, pax_segment_ref_id)
+    return PaxJourney(pax_journey_id, pax_segment_ref_ids)
 
 def parse_pax_segment(elm):
     """Parse PaxSegmentType.
