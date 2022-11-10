@@ -28,7 +28,7 @@ def parse_air_shopping_response(resp):
     
     :rtype: AirShoppingResponse
     """
-    data_lists = DataLists()
+    data_lists = parse_data_lists(resp.find("./Response/DataLists"))
     offers = map(
         lambda offer: parse_offer(offer),
         resp.findall("./Response/OffersGroup/CarrierOffers/Offer")
