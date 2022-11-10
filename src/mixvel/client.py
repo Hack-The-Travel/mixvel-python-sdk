@@ -8,10 +8,13 @@ import requests
 import uuid
 
 from mixvel._parsers import (
-    is_cancel_success, parse_order_view,
+    is_cancel_success, parse_air_shopping_response, parse_order_view,
 )
 from mixvel.models import (
     Passenger, SelectedOffer,
+)
+from mixvel.models import (
+    AirShoppingResponse
 )
 
 from .endpoint import is_login_endpoint, request_template
@@ -122,6 +125,7 @@ class Client:
         :type itinerary: list[Leg]
         :param paxes: paxes
         :type paxes: list[AnonymousPassenger]
+        :rtype: AirShoppingResponse
         """
         context = {
             "itinerary": itinerary,
@@ -129,7 +133,7 @@ class Client:
         }
         resp = self.__request("/api/Order/airshopping", context)
 
-        return []
+        return parse_air_shopping_response(resp)
 
     def create_order(self, selected_offer, paxes):
         """Creates order.

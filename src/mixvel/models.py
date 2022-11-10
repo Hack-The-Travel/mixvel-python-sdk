@@ -10,6 +10,19 @@ This module contains the primary objects.
 import datetime
 
 
+class AirShoppingResponse:
+    def __init__(self, data_lists, offers):
+        """Air Shopping Response
+        
+        :param data_lists: data lists
+        :type data_lists: DataLists
+        :param offers: list of offers
+        :type offers: list[Offer]
+        """
+        self.data_lists = data_lists
+        self.offers = offers
+
+
 class OrderViewResponse:
     def __init__(self, mix_order):
         self.mix_order = mix_order
@@ -51,16 +64,56 @@ class Booking:
         self.booking_id = booking_id
 
 
+class DataLists:
+    def __init__(self, origin_dest_list=None, pax_journey_list=None, pax_segment_list=None,
+        validating_party_list=None):
+        """Data lists.
+        
+        :param origin_dest_list: list of origin destinations
+        :type origin_dest_list: list[OriginDest]
+        :param pax_journey_list: list of passenger journeys
+        :type pax_journey_list: list[PaxJourney]
+        :param pax_segment_list: list of pax segments
+        :type pax_segment_list: list[PaxSegment]
+        :param validating_party_list: (optional) list of validating parties
+        :type validating_party_list: list[ValidatingParty] or None
+        """
+        self.origin_dest_list = origin_dest_list
+        self.pax_journey_list = pax_journey_list
+        self.pax_segment_list = pax_segment_list
+        self.validating_party_list = validating_party_list
+
+
+class DatedMarketingSegment:
+    def __init__(self, carrier_desig_code, marketing_carrier_flight_number_text):
+        """Dated marketing segment.
+        
+        :param carrier_desig_code: carrier designator code
+        :type carrier_desig_code: str
+        :param marketing_carrier_flight_number_text: marketing carrier flight number
+        :type marketing_carrier_flight_number_text: str
+        """
+        self.carrier_desig_code = carrier_desig_code
+        self.marketing_carrier_flight_number_text \
+            = marketing_carrier_flight_number_text
+
+
 class FareComponent:
     """Fare component.
     :param fare_basis_code: fare basis code
     :type fare_basis_code: str
+    :param rbd: RBD
+    :type rbd: RbdAvail
     :param price: price
     :type price: Price
+    :param pax_segment_ref_id: passenger segment reference id
+    :type pax_segment_ref_id: str
     """
-    def __init__(self, fare_basis_code, price):
+    def __init__(self, fare_basis_code, rbd, price, pax_segment_ref_id):
         self.fare_basis_code = fare_basis_code
+        self.rbd = rbd
         self.price = price
+        self.pax_segment_ref_id = pax_segment_ref_id
 
 
 class FareDetail:
@@ -154,6 +207,49 @@ class MixOrder:
         self.total_amount = total_amount
 
 
+class Offer:
+    def __init__(self, offer_id, offer_items, owner_code, offer_expiration_timelimit_datetime,
+        total_price=None):
+        """Offer.
+
+        :param offer_id: offer id
+        :type offer_id: str
+        :param offer_items: list of offer items
+        :type offer_items: list[OfferItem]
+        :param owner_code: owner code
+        :type owner_code: str
+        :param offer_expiration_timelimit_datetime: offer expiration timelimit datetime, in UTC
+        :type offer_expiration_timelimit_datetime: datetime.datetime
+        :param total_price: (optional) total price
+        :type total_price: Price or None
+        """
+        self.offer_id = offer_id
+        self.offer_items = offer_items
+        self.owner_code = owner_code 
+        self.offer_expiration_timelimit_datetime = offer_expiration_timelimit_datetime
+        self.total_price = total_price
+
+
+class OfferItem:
+    def __init__(self, offer_item_id, price, services,
+                 fare_details=None):
+        """Offer item.
+
+        :param offer_item_id: offer item id
+        :type offer_item_id: str
+        :param price: price
+        :type price: Price
+        :param services: list of services
+        :type service: list[Service]
+        :param fare_details: (optional) fare details
+        :type fare_details: list[FareDetail] or None
+        """
+        self.offer_item_id = offer_item_id
+        self.price = price
+        self.services = services
+        self.fare_details = fare_details
+
+
 class Order:
     def __init__(self, order_id, order_items, booking_refs,
                  deposit_timelimit, total_price):
@@ -193,6 +289,26 @@ class OrderItem:
         self.price = price
 
 
+class OriginDest:
+    def __init__(self, origin_code, dest_code,
+        origin_dest_id=None, pax_journey_ref_ids=None):
+        """OriginDest.
+        
+        :param origin_code: origin code
+        :type origin_code: str
+        :param dest_code: destination code
+        :type dest_code: str
+        :param origin_dest_id: (optional) origin destination id
+        :type origin_dest_id: str or None
+        :param pax_journey_ref_ids: (optional) list of passenger journey reference ids
+        :type pax_journey_ref_ids: list[str] or None
+        """
+        self.origin_code = origin_code
+        self.dest_code = dest_code
+        self.origin_dest_id = origin_dest_id
+        self.pax_journey_ref_ids = pax_journey_ref_ids
+
+
 class Passenger(AnonymousPassenger):
     def __init__(self, pax_id, ptc, individual, doc,
                  phone=None, email=None):
@@ -218,17 +334,66 @@ class Passenger(AnonymousPassenger):
         self.email = email
 
 
+class PaxJourney:
+    def __init__(self, pax_journey_id, pax_segment_ref_ids):
+        """PaxJourney.
+        
+        :param pax_journey_id: passenger journey id
+        :type pax_journey_id: str
+        :param pax_segment_ref_ids: list of passenger segment reference ids
+        :type pax_segment_ref_ids: list[str]
+        """
+        self.pax_journey_id = pax_journey_id
+        self.pax_segment_ref_ids = pax_segment_ref_ids
+
+
+class PaxSegment:
+    def __init__(self, pax_segment_id, dep, arrival, marketing_carrier_info,
+        duration=None):
+        """PaxSegment.
+        
+        :param pax_segment_id: passenger segment id
+        :type pax_segment_id: str
+        :param dep: departure
+        :type dep: TransportDepArrival
+        :param arrival: arrival
+        :type arrival: TransportDepArrival
+        :param marketing_carrier_info: marketing carrier info
+        :type marketing_carrier_info: DatedMarketingSegment
+        :param duration: (optional) duration, e.g. "PT1H30M"
+        :type duration: str or None
+        """
+        self.pax_segment_id = pax_segment_id
+        self.dep = dep
+        self.arrival = arrival
+        self.marketing_carrier_info = marketing_carrier_info
+        self.duration = duration  # FIXME: return timdedelta
+
+
 class Price:
-    def __init__(self, taxes, total_amount):
+    def __init__(self, tax_summary, total_amount):
         """Price.
         
-        :param taxes: list of taxes
-        :type taxes: list[Tax]
+        :param tax_summary: tax summary
+        :type tax_summary: TaxSummary
         :param total_amount: total amount
         :type total_amount: Amount
         """
-        self.taxes = taxes
+        self.tax_summary = tax_summary
         self.total_amount = total_amount
+
+
+class RbdAvail:
+    def __init__(self, rbd_code, availability=None):
+        """RBD Availability.
+
+        :param rbd_code: RBD code
+        :type rbd_code: str
+        :param availability: (optional) availability
+        :type availability: int or None
+        """
+        self.rbd_code = rbd_code
+        self.availability = availability
 
 
 class SelectedOffer:
@@ -257,6 +422,42 @@ class SelectedOfferItem:
         self.pax_ref_id = pax_ref_id
 
 
+class Service:
+    def __init__(self, service_id, pax_ref_ids, service_associations,
+                 validating_party_ref_id=None, validating_party_type=None, pax_types=None):
+        """Service.
+        
+        :param service_id: service id
+        :type service_id: str
+        :param pax_ref_ids: list of passenger reference ids
+        :type pax_ref_ids: list[str]
+        :param service_associations: service offer associations
+        :type service_associations: ServiceOfferAssociations
+        :param validating_party_ref_id: (optional) validating party reference id
+        :type validating_party_ref_id: str or None
+        :param validating_party_type: (optional) validating party type
+        :type validating_party_type: ValidatingParty or None
+        :param pax_types: (optional) list of pax types
+        :type pax_types: list[Passenger] or None
+        """
+        self.service_id = service_id
+        self.pax_ref_ids = pax_ref_ids
+        self.service_associations = service_associations
+        self.validating_party_ref_id = validating_party_ref_id
+        self.validating_party_type = validating_party_type
+        self.pax_types = pax_types
+
+
+class ServiceOfferAssociations:
+    def __init__(self, pax_journey_ref_ids=None):
+        """ServiceOfferAssociations.
+
+        :param pax_journey_ref_ids: (optional) pax journey reference ids
+        :type pax_journey_ref_ids: list[str] or None
+        """
+        self.pax_journey_ref_ids = pax_journey_ref_ids
+
+
 class Tax:
     def __init__(self, amount, tax_code):
         """Tax.
@@ -268,3 +469,43 @@ class Tax:
         """
         self.amount = amount
         self.tax_code = tax_code
+
+
+class TaxSummary:
+    def __init__(self, taxes,
+        total_tax_amount=None):
+        """TaxSummary.
+        
+        :param taxes: list of taxes
+        :type taxes: list[Tax]
+        :param total_tax_amount: (optional) total tax amount
+        :type total_tax_amount: Amount or None
+        """
+        self.taxes = taxes
+        self.total_tax_amount = total_tax_amount
+
+
+class TransportDepArrival:
+    def __init__(self, iata_location_code, aircraft_scheduled_datetime):
+        """TransportDepArrival.
+        
+        :param iata_location_code: IATA location code
+        :type iata_location_code: str
+        :param aircraft_scheduled_datetime: aircraft scheduled datetime
+        :type aircraft_scheduled_datetime: datetime.datetime
+        """
+        self.iata_location_code = iata_location_code
+        self.aircraft_scheduled_datetime = aircraft_scheduled_datetime
+
+
+class ValidatingParty:
+    def __init__(self, validating_party_id, validating_party_code):
+        """Validating party.
+        
+        :param validating_party_id: validating party id
+        :type validating_party_id: str
+        :param validating_party_code: validating party code
+        :type validating_party_code: str
+        """
+        self.validating_party_id = validating_party_id
+        self.validating_party_code = validating_party_code

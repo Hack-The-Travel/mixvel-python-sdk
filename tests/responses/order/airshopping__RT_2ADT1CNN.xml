@@ -1,0 +1,1576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MixEnv:Envelope xmlns:MixEnv="https://www.mixvel.com/API/XSD/mixvel_envelope/1_06">
+  <Header />
+  <Body>
+    <MessageInfo MessageId="6a7d5d1e-a5b3-4c07-8849-500867a3a190" ReplyTo="df0b5f76-d0a6-44aa-92cc-315c6325ea9a" TimeSent="2022-11-08T19:05:56.4936263Z" />
+    <AppData>
+      <Shop:Mixvel_AirShoppingRS xmlns:Shop="https://www.mixvel.com/API/XSD/Mixvel_AirShoppingRS/1_00">
+        <Response>
+          <DataLists>
+            <BaggageAllowanceList>
+              <BaggageAllowance>
+                <BaggageAllowanceID>df531162-8e00-4276-b815-6b08f028e1bd</BaggageAllowanceID>
+                <TypeCode>CarryOn</TypeCode>
+                <WeightAllowance>
+                  <MaximumWeightMeasure UnitCode="K">10</MaximumWeightMeasure>
+                </WeightAllowance>
+              </BaggageAllowance>
+              <BaggageAllowance>
+                <BaggageAllowanceID>c1b9942e-c8ff-4900-94d1-1b157b916c6a</BaggageAllowanceID>
+                <PieceAllowance>
+                  <TotalQty>0</TotalQty>
+                </PieceAllowance>
+                <TypeCode>No</TypeCode>
+              </BaggageAllowance>
+            </BaggageAllowanceList>
+            <OriginDestList>
+              <OriginDest>
+                <DestCode>LED</DestCode>
+                <OriginCode>AER</OriginCode>
+                <OriginDestID>1bf06365-48f6-466e-a971-8a3b2a232928</OriginDestID>
+                <PaxJourneyRefID>9f79533d-8366-42b5-8fbe-87a5e249cfce</PaxJourneyRefID>
+                <PaxJourneyRefID>ca76d826-725d-4ae0-a606-053b8a40b5c4</PaxJourneyRefID>
+                <PaxJourneyRefID>94be4cd4-c9b0-42d2-be5b-9775830c668f</PaxJourneyRefID>
+              </OriginDest>
+              <OriginDest>
+                <DestCode>AER</DestCode>
+                <OriginCode>LED</OriginCode>
+                <OriginDestID>526f1672-cc05-4e90-921f-b453a08d782f</OriginDestID>
+                <PaxJourneyRefID>4399df0b-1e67-4f85-957e-103eda94b503</PaxJourneyRefID>
+                <PaxJourneyRefID>0248fd86-53a1-4eb7-aedb-acb09ad7f38e</PaxJourneyRefID>
+                <PaxJourneyRefID>54728d42-73b5-42e9-8fb5-4b7982e294d0</PaxJourneyRefID>
+              </OriginDest>
+            </OriginDestList>
+            <PaxJourneyList>
+              <PaxJourney>
+                <Duration>PT4H55M</Duration>
+                <PaxJourneyID>0248fd86-53a1-4eb7-aedb-acb09ad7f38e</PaxJourneyID>
+                <PaxSegmentRefID>fafd5965-b743-4494-b72b-614c580fc502</PaxSegmentRefID>
+              </PaxJourney>
+              <PaxJourney>
+                <Duration>PT4H30M</Duration>
+                <PaxJourneyID>94be4cd4-c9b0-42d2-be5b-9775830c668f</PaxJourneyID>
+                <PaxSegmentRefID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentRefID>
+              </PaxJourney>
+              <PaxJourney>
+                <Duration>PT4H50M</Duration>
+                <PaxJourneyID>9f79533d-8366-42b5-8fbe-87a5e249cfce</PaxJourneyID>
+                <PaxSegmentRefID>075272fa-3653-4cf3-a680-0d5b032d7ce4</PaxSegmentRefID>
+              </PaxJourney>
+              <PaxJourney>
+                <Duration>PT4H55M</Duration>
+                <PaxJourneyID>54728d42-73b5-42e9-8fb5-4b7982e294d0</PaxJourneyID>
+                <PaxSegmentRefID>4a002f3c-d186-46db-8f6a-f92e7abdb872</PaxSegmentRefID>
+              </PaxJourney>
+              <PaxJourney>
+                <Duration>PT4H30M</Duration>
+                <PaxJourneyID>ca76d826-725d-4ae0-a606-053b8a40b5c4</PaxJourneyID>
+                <PaxSegmentRefID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentRefID>
+              </PaxJourney>
+              <PaxJourney>
+                <Duration>PT4H55M</Duration>
+                <PaxJourneyID>4399df0b-1e67-4f85-957e-103eda94b503</PaxJourneyID>
+                <PaxSegmentRefID>ce6596ac-15e2-4e68-9f6b-d9543db0e067</PaxSegmentRefID>
+              </PaxJourney>
+            </PaxJourneyList>
+            <PaxList>
+              <Pax>
+                <PaxID>Pax-1</PaxID>
+                <PTC>ADT</PTC>
+              </Pax>
+              <Pax>
+                <PaxID>Pax-2</PaxID>
+                <PTC>ADT</PTC>
+              </Pax>
+              <Pax>
+                <PaxID>Pax-3</PaxID>
+                <PTC>CNN</PTC>
+              </Pax>
+            </PaxList>
+            <PaxSegmentList>
+              <PaxSegment>
+                <Arrival>
+                  <AircraftScheduledDateTime>2022-12-03T12:45:00</AircraftScheduledDateTime>
+                  <IATA_LocationCode>AER</IATA_LocationCode>
+                  <StationName>Сочи</StationName>
+                </Arrival>
+                <DatedOperatingLeg>
+                  <Arrival>
+                    <AircraftScheduledDateTime>2022-12-03T12:45:00</AircraftScheduledDateTime>
+                    <IATA_LocationCode>AER</IATA_LocationCode>
+                    <StationName>Сочи</StationName>
+                  </Arrival>
+                  <CarrierAircraftType>
+                    <CarrierAircraftTypeCode>738</CarrierAircraftTypeCode>
+                  </CarrierAircraftType>
+                  <DatedOperatingLegID>37ec7f0a-010b-4173-b657-1e4e1d3c2e00</DatedOperatingLegID>
+                  <Dep>
+                    <AircraftScheduledDateTime>2022-12-03T07:50:00</AircraftScheduledDateTime>
+                    <IATA_LocationCode>LED</IATA_LocationCode>
+                    <StationName>Санкт-Петербург(Пулково)</StationName>
+                    <TerminalName>1</TerminalName>
+                  </Dep>
+                </DatedOperatingLeg>
+                <Dep>
+                  <AircraftScheduledDateTime>2022-12-03T07:50:00</AircraftScheduledDateTime>
+                  <IATA_LocationCode>LED</IATA_LocationCode>
+                  <StationName>Санкт-Петербург(Пулково)</StationName>
+                  <TerminalName>1</TerminalName>
+                </Dep>
+                <Duration>PT4H55M</Duration>
+                <MarketingCarrierInfo>
+                  <CarrierDesigCode>DP</CarrierDesigCode>
+                  <MarketingCarrierFlightNumberText>313</MarketingCarrierFlightNumberText>
+                </MarketingCarrierInfo>
+                <OperatingCarrierInfo>
+                  <CarrierDesigCode>DP</CarrierDesigCode>
+                  <OperatingCarrierFlightNumberText>313</OperatingCarrierFlightNumberText>
+                </OperatingCarrierInfo>
+                <PaxSegmentID>ce6596ac-15e2-4e68-9f6b-d9543db0e067</PaxSegmentID>
+              </PaxSegment>
+              <PaxSegment>
+                <Arrival>
+                  <AircraftScheduledDateTime>2022-12-03T10:45:00</AircraftScheduledDateTime>
+                  <IATA_LocationCode>AER</IATA_LocationCode>
+                  <StationName>Сочи</StationName>
+                </Arrival>
+                <DatedOperatingLeg>
+                  <Arrival>
+                    <AircraftScheduledDateTime>2022-12-03T10:45:00</AircraftScheduledDateTime>
+                    <IATA_LocationCode>AER</IATA_LocationCode>
+                    <StationName>Сочи</StationName>
+                  </Arrival>
+                  <CarrierAircraftType>
+                    <CarrierAircraftTypeCode>32Q</CarrierAircraftTypeCode>
+                  </CarrierAircraftType>
+                  <DatedOperatingLegID>aa3ed38a-41e6-493f-b977-29b8b2aedbbe</DatedOperatingLegID>
+                  <Dep>
+                    <AircraftScheduledDateTime>2022-12-03T05:50:00</AircraftScheduledDateTime>
+                    <IATA_LocationCode>LED</IATA_LocationCode>
+                    <StationName>Санкт-Петербург(Пулково)</StationName>
+                    <TerminalName>1</TerminalName>
+                  </Dep>
+                </DatedOperatingLeg>
+                <Dep>
+                  <AircraftScheduledDateTime>2022-12-03T05:50:00</AircraftScheduledDateTime>
+                  <IATA_LocationCode>LED</IATA_LocationCode>
+                  <StationName>Санкт-Петербург(Пулково)</StationName>
+                  <TerminalName>1</TerminalName>
+                </Dep>
+                <Duration>PT4H55M</Duration>
+                <MarketingCarrierInfo>
+                  <CarrierDesigCode>U6</CarrierDesigCode>
+                  <MarketingCarrierFlightNumberText>123</MarketingCarrierFlightNumberText>
+                </MarketingCarrierInfo>
+                <OperatingCarrierInfo>
+                  <CarrierDesigCode>U6</CarrierDesigCode>
+                  <OperatingCarrierFlightNumberText>123</OperatingCarrierFlightNumberText>
+                </OperatingCarrierInfo>
+                <PaxSegmentID>fafd5965-b743-4494-b72b-614c580fc502</PaxSegmentID>
+              </PaxSegment>
+              <PaxSegment>
+                <Arrival>
+                  <AircraftScheduledDateTime>2022-11-29T22:55:00</AircraftScheduledDateTime>
+                  <IATA_LocationCode>LED</IATA_LocationCode>
+                  <StationName>Санкт-Петербург(Пулково)</StationName>
+                  <TerminalName>1</TerminalName>
+                </Arrival>
+                <DatedOperatingLeg>
+                  <Arrival>
+                    <AircraftScheduledDateTime>2022-11-29T22:55:00</AircraftScheduledDateTime>
+                    <IATA_LocationCode>LED</IATA_LocationCode>
+                    <StationName>Санкт-Петербург(Пулково)</StationName>
+                    <TerminalName>1</TerminalName>
+                  </Arrival>
+                  <CarrierAircraftType>
+                    <CarrierAircraftTypeCode>32Q</CarrierAircraftTypeCode>
+                  </CarrierAircraftType>
+                  <DatedOperatingLegID>9e280b7b-1832-4bac-a808-63437fd99f61</DatedOperatingLegID>
+                  <Dep>
+                    <AircraftScheduledDateTime>2022-11-29T18:25:00</AircraftScheduledDateTime>
+                    <IATA_LocationCode>AER</IATA_LocationCode>
+                    <StationName>Сочи</StationName>
+                  </Dep>
+                </DatedOperatingLeg>
+                <Dep>
+                  <AircraftScheduledDateTime>2022-11-29T18:25:00</AircraftScheduledDateTime>
+                  <IATA_LocationCode>AER</IATA_LocationCode>
+                  <StationName>Сочи</StationName>
+                </Dep>
+                <Duration>PT4H30M</Duration>
+                <MarketingCarrierInfo>
+                  <CarrierDesigCode>U6</CarrierDesigCode>
+                  <MarketingCarrierFlightNumberText>548</MarketingCarrierFlightNumberText>
+                </MarketingCarrierInfo>
+                <OperatingCarrierInfo>
+                  <CarrierDesigCode>U6</CarrierDesigCode>
+                  <OperatingCarrierFlightNumberText>548</OperatingCarrierFlightNumberText>
+                </OperatingCarrierInfo>
+                <PaxSegmentID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentID>
+              </PaxSegment>
+              <PaxSegment>
+                <Arrival>
+                  <AircraftScheduledDateTime>2022-11-29T18:20:00</AircraftScheduledDateTime>
+                  <IATA_LocationCode>LED</IATA_LocationCode>
+                  <StationName>Санкт-Петербург(Пулково)</StationName>
+                  <TerminalName>1</TerminalName>
+                </Arrival>
+                <DatedOperatingLeg>
+                  <Arrival>
+                    <AircraftScheduledDateTime>2022-11-29T18:20:00</AircraftScheduledDateTime>
+                    <IATA_LocationCode>LED</IATA_LocationCode>
+                    <StationName>Санкт-Петербург(Пулково)</StationName>
+                    <TerminalName>1</TerminalName>
+                  </Arrival>
+                  <CarrierAircraftType>
+                    <CarrierAircraftTypeCode>738</CarrierAircraftTypeCode>
+                  </CarrierAircraftType>
+                  <DatedOperatingLegID>8d66007d-5ef8-4cc2-9d0a-1e49a4da6ac6</DatedOperatingLegID>
+                  <Dep>
+                    <AircraftScheduledDateTime>2022-11-29T13:30:00</AircraftScheduledDateTime>
+                    <IATA_LocationCode>AER</IATA_LocationCode>
+                    <StationName>Сочи</StationName>
+                  </Dep>
+                </DatedOperatingLeg>
+                <Dep>
+                  <AircraftScheduledDateTime>2022-11-29T13:30:00</AircraftScheduledDateTime>
+                  <IATA_LocationCode>AER</IATA_LocationCode>
+                  <StationName>Сочи</StationName>
+                </Dep>
+                <Duration>PT4H50M</Duration>
+                <MarketingCarrierInfo>
+                  <CarrierDesigCode>DP</CarrierDesigCode>
+                  <MarketingCarrierFlightNumberText>314</MarketingCarrierFlightNumberText>
+                </MarketingCarrierInfo>
+                <OperatingCarrierInfo>
+                  <CarrierDesigCode>DP</CarrierDesigCode>
+                  <OperatingCarrierFlightNumberText>314</OperatingCarrierFlightNumberText>
+                </OperatingCarrierInfo>
+                <PaxSegmentID>075272fa-3653-4cf3-a680-0d5b032d7ce4</PaxSegmentID>
+              </PaxSegment>
+              <PaxSegment>
+                <Arrival>
+                  <AircraftScheduledDateTime>2022-12-03T17:25:00</AircraftScheduledDateTime>
+                  <IATA_LocationCode>AER</IATA_LocationCode>
+                  <StationName>Сочи</StationName>
+                </Arrival>
+                <DatedOperatingLeg>
+                  <Arrival>
+                    <AircraftScheduledDateTime>2022-12-03T17:25:00</AircraftScheduledDateTime>
+                    <IATA_LocationCode>AER</IATA_LocationCode>
+                    <StationName>Сочи</StationName>
+                  </Arrival>
+                  <CarrierAircraftType>
+                    <CarrierAircraftTypeCode>32Q</CarrierAircraftTypeCode>
+                  </CarrierAircraftType>
+                  <DatedOperatingLegID>86b63fd7-7f3c-42bf-ae6b-00ea8aca1d72</DatedOperatingLegID>
+                  <Dep>
+                    <AircraftScheduledDateTime>2022-12-03T12:30:00</AircraftScheduledDateTime>
+                    <IATA_LocationCode>LED</IATA_LocationCode>
+                    <StationName>Санкт-Петербург(Пулково)</StationName>
+                    <TerminalName>1</TerminalName>
+                  </Dep>
+                </DatedOperatingLeg>
+                <Dep>
+                  <AircraftScheduledDateTime>2022-12-03T12:30:00</AircraftScheduledDateTime>
+                  <IATA_LocationCode>LED</IATA_LocationCode>
+                  <StationName>Санкт-Петербург(Пулково)</StationName>
+                  <TerminalName>1</TerminalName>
+                </Dep>
+                <Duration>PT4H55M</Duration>
+                <MarketingCarrierInfo>
+                  <CarrierDesigCode>U6</CarrierDesigCode>
+                  <MarketingCarrierFlightNumberText>547</MarketingCarrierFlightNumberText>
+                </MarketingCarrierInfo>
+                <OperatingCarrierInfo>
+                  <CarrierDesigCode>U6</CarrierDesigCode>
+                  <OperatingCarrierFlightNumberText>547</OperatingCarrierFlightNumberText>
+                </OperatingCarrierInfo>
+                <PaxSegmentID>4a002f3c-d186-46db-8f6a-f92e7abdb872</PaxSegmentID>
+              </PaxSegment>
+            </PaxSegmentList>
+            <PriceClassList>
+              <PriceClass>
+                <Code>ST</Code>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>БАГАЖ ДО 10 КГ 1 МЕСТО (03C)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С19ПО25РЯДЫBCDE12A (ES2)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С26ПО32РЯДЫ (ES3)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>БАГАЖ ДО 20 КГ 1 МЕСТО (0JH)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>15 И 16РЯДЫ (SE2)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>17 18РЯДЫAF И С12ПО14РЯДЫF (SE3)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С3ПО5РЯДЫ AF И 2A (SE4)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С6ПО10РЯДЫ AF И C12ПО14 РЯДЫ A (SE5)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С3ПО5РЯДЫBCDE И 2РЯДВС (SE6)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С19ПО25РЯДЫAF С12ПО14РЯДЫDE (SE7)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С6ПО14РЯДЫBСC6ПО11РЯДЫDE11РЯД (ES1)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С17ПО18РЯДЫBCDE (ES4)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С19ПО25РЯДЫAF (ES5)</DescText>
+                </Desc>
+                <Name>БАЗОВЫЙ</Name>
+                <PriceClassID>204bebad-eb04-4854-b430-e0f340374936</PriceClassID>
+              </PriceClass>
+              <PriceClass>
+                <Code>PR</Code>
+                <Desc>
+                  <Access>F</Access>
+                  <DescText>ИЗМЕНЕНИЕ ДО ВЫЛЕТА (06I)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>F</Access>
+                  <DescText>ВОЗВРАТ ДО ВЫЛЕТА (06K)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>ИЗМЕНЕНИЕ ПОСЛЕ ВЫЛЕТА (06J)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ВОЗВРАТ ПОСЛЕ ВЫЛЕТА (06L)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>ВЫБОР ПРЕДПОЧТИТЕЛЬНОГО МЕСТА (PRS)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>F</Access>
+                  <DescText>РУЧНАЯ КЛАДЬ ДО10КГ 55Х40Х20СМ (0MJ)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>РУЧНАЯ КЛАДЬ ДО15КГ 55Х40Х20СМ (0MK)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>4Е СВЕРХНОРМАТИВНОЕ МЕСТО (0CF)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>БАГАЖ ДО 22Ф 10КГ (0CZ)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>1Е СВЕРХНОРМАТИВНОЕ МЕСТО (0CC)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>2Е СВЕРХНОРМАТИВНОЕ МЕСТО (0CD)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ПРИОРИТЕТНАЯ РЕГИСТРАЦИЯ (03P)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ПРИОРИТЕТНАЯ ПОСАДКА (0G6)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>БИЗНЕС ЗАЛ (0BX)</DescText>
+                </Desc>
+                <Name>ПРОМО</Name>
+                <PriceClassID>7869eccd-1c6b-4f36-9905-35d68c00ac72</PriceClassID>
+              </PriceClass>
+            </PriceClassList>
+            <ValidatingPartyList>
+              <ValidatingParty>
+                <ValidatingPartyID>7036ae6a-a67e-4986-a6f6-60465a7beadc</ValidatingPartyID>
+                <ValidatingPartyCode>DP</ValidatingPartyCode>
+                <ValidatingPartyName>Победа</ValidatingPartyName>
+                <ValidatingPartyDesigCode>425</ValidatingPartyDesigCode>
+              </ValidatingParty>
+              <ValidatingParty>
+                <ValidatingPartyID>30b905e5-0fb6-4813-9829-e0f2e7db795b</ValidatingPartyID>
+                <ValidatingPartyCode>U6</ValidatingPartyCode>
+                <ValidatingPartyName>Уральские Авиалинии</ValidatingPartyName>
+                <ValidatingPartyDesigCode>262</ValidatingPartyDesigCode>
+              </ValidatingParty>
+            </ValidatingPartyList>
+          </DataLists>
+          <OffersGroup>
+            <CarrierOffers>
+              <Offer>
+                <BaggageAllowance>
+                  <BaggageAllowanceRefID>c1b9942e-c8ff-4900-94d1-1b157b916c6a</BaggageAllowanceRefID>
+                  <BaggageFlightAssociations>
+                    <PaxSegmentRef>
+                      <PaxSegmentRefID>ce6596ac-15e2-4e68-9f6b-d9543db0e067</PaxSegmentRefID>
+                      <PaxSegmentRefID>075272fa-3653-4cf3-a680-0d5b032d7ce4</PaxSegmentRefID>
+                    </PaxSegmentRef>
+                  </BaggageFlightAssociations>
+                  <PaxRefID>Pax-1</PaxRefID>
+                  <PaxRefID>Pax-2</PaxRefID>
+                  <PaxRefID>Pax-3</PaxRefID>
+                </BaggageAllowance>
+                <OfferExpirationTimeLimitDateTime>2022-11-08T19:35:00Z</OfferExpirationTimeLimitDateTime>
+                <OfferID>63ac5143-927c-4b21-8ba5-41061fa5b2c3</OfferID>
+                <OfferItem>
+                  <FareDetail>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>TECONALL</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>0001</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>075272fa-3653-4cf3-a680-0d5b032d7ce4</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">3049.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">90.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">30.00</Amount>
+                            <QualifierCode>6</QualifierCode>
+                            <TaxCode>VAT Fare</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">61.67</Amount>
+                            <QualifierCode>6</QualifierCode>
+                            <TaxCode>VAT ZZ</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">275.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">3324.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>204bebad-eb04-4854-b430-e0f340374936</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>T</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>TECONALL</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>0001</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>ce6596ac-15e2-4e68-9f6b-d9543db0e067</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">3049.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">120.00</Amount>
+                            <TaxCode>RI</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">90.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">395.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">3444.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>204bebad-eb04-4854-b430-e0f340374936</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>T</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <PaxRefID>Pax-1</PaxRefID>
+                    <PaxRefID>Pax-2</PaxRefID>
+                    <Price>
+                      <BaseAmount CurCode="RUB">6098.00</BaseAmount>
+                      <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                      <TaxSummary>
+                        <Tax>
+                          <Amount CurCode="RUB">180.00</Amount>
+                          <TaxCode>YR</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">370.00</Amount>
+                          <TaxCode>ZZ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">30.00</Amount>
+                          <QualifierCode>6</QualifierCode>
+                          <TaxCode>VAT Fare</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">61.67</Amount>
+                          <QualifierCode>6</QualifierCode>
+                          <TaxCode>VAT ZZ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">120.00</Amount>
+                          <TaxCode>RI</TaxCode>
+                        </Tax>
+                        <TotalTaxAmount CurCode="RUB">670.00</TotalTaxAmount>
+                      </TaxSummary>
+                      <TotalAmount CurCode="RUB">6768.00</TotalAmount>
+                    </Price>
+                  </FareDetail>
+                  <MandatoryInd>true</MandatoryInd>
+                  <OfferItemID>ca280e53-1dd1-4d7b-9b57-d1a45b364f29</OfferItemID>
+                  <Price>
+                    <BaseAmount CurCode="RUB">12196.00</BaseAmount>
+                    <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                    <TaxSummary>
+                      <Tax>
+                        <Amount CurCode="RUB">360.00</Amount>
+                        <TaxCode>YR</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">740.00</Amount>
+                        <TaxCode>ZZ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">60.00</Amount>
+                        <QualifierCode>6</QualifierCode>
+                        <TaxCode>VAT Fare</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">123.34</Amount>
+                        <QualifierCode>6</QualifierCode>
+                        <TaxCode>VAT ZZ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">240.00</Amount>
+                        <TaxCode>RI</TaxCode>
+                      </Tax>
+                      <TotalTaxAmount CurCode="RUB">1340.00</TotalTaxAmount>
+                    </TaxSummary>
+                    <TotalAmount CurCode="RUB">13536.00</TotalAmount>
+                  </Price>
+                  <Service>
+                    <PaxRefID>Pax-1</PaxRefID>
+                    <PaxRefID>Pax-2</PaxRefID>
+                    <ValidatingPartyRefID>7036ae6a-a67e-4986-a6f6-60465a7beadc</ValidatingPartyRefID>
+                    <ServiceAssociations>
+                      <PaxJourneyRef>
+                        <PaxJourneyRefID>9f79533d-8366-42b5-8fbe-87a5e249cfce</PaxJourneyRefID>
+                        <PaxJourneyRefID>4399df0b-1e67-4f85-957e-103eda94b503</PaxJourneyRefID>
+                      </PaxJourneyRef>
+                    </ServiceAssociations>
+                    <ServiceID>fd45bc97-0e26-48bd-aa2a-7c49672e604a</ServiceID>
+                  </Service>
+                </OfferItem>
+                <OfferItem>
+                  <FareDetail>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>TECONALL</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>0001</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>075272fa-3653-4cf3-a680-0d5b032d7ce4</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">3049.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">90.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">30.00</Amount>
+                            <QualifierCode>6</QualifierCode>
+                            <TaxCode>VAT Fare</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">61.67</Amount>
+                            <QualifierCode>6</QualifierCode>
+                            <TaxCode>VAT ZZ</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">275.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">3324.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>204bebad-eb04-4854-b430-e0f340374936</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>T</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>TECONALL</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>0001</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>ce6596ac-15e2-4e68-9f6b-d9543db0e067</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">3049.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">60.00</Amount>
+                            <TaxCode>RI</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">90.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">335.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">3384.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>204bebad-eb04-4854-b430-e0f340374936</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>T</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <PaxRefID>Pax-3</PaxRefID>
+                    <Price>
+                      <BaseAmount CurCode="RUB">6098.00</BaseAmount>
+                      <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                      <TaxSummary>
+                        <Tax>
+                          <Amount CurCode="RUB">180.00</Amount>
+                          <TaxCode>YR</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">370.00</Amount>
+                          <TaxCode>ZZ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">30.00</Amount>
+                          <QualifierCode>6</QualifierCode>
+                          <TaxCode>VAT Fare</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">61.67</Amount>
+                          <QualifierCode>6</QualifierCode>
+                          <TaxCode>VAT ZZ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">60.00</Amount>
+                          <TaxCode>RI</TaxCode>
+                        </Tax>
+                        <TotalTaxAmount CurCode="RUB">610.00</TotalTaxAmount>
+                      </TaxSummary>
+                      <TotalAmount CurCode="RUB">6708.00</TotalAmount>
+                    </Price>
+                  </FareDetail>
+                  <MandatoryInd>true</MandatoryInd>
+                  <OfferItemID>fb786228-7f10-4c02-be79-b363173836ee</OfferItemID>
+                  <Price>
+                    <BaseAmount CurCode="RUB">6098.00</BaseAmount>
+                    <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                    <TaxSummary>
+                      <Tax>
+                        <Amount CurCode="RUB">180.00</Amount>
+                        <TaxCode>YR</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">370.00</Amount>
+                        <TaxCode>ZZ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">30.00</Amount>
+                        <QualifierCode>6</QualifierCode>
+                        <TaxCode>VAT Fare</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">61.67</Amount>
+                        <QualifierCode>6</QualifierCode>
+                        <TaxCode>VAT ZZ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">60.00</Amount>
+                        <TaxCode>RI</TaxCode>
+                      </Tax>
+                      <TotalTaxAmount CurCode="RUB">610.00</TotalTaxAmount>
+                    </TaxSummary>
+                    <TotalAmount CurCode="RUB">6708.00</TotalAmount>
+                  </Price>
+                  <Service>
+                    <PaxRefID>Pax-3</PaxRefID>
+                    <ValidatingPartyRefID>7036ae6a-a67e-4986-a6f6-60465a7beadc</ValidatingPartyRefID>
+                    <ServiceAssociations>
+                      <PaxJourneyRef>
+                        <PaxJourneyRefID>9f79533d-8366-42b5-8fbe-87a5e249cfce</PaxJourneyRefID>
+                        <PaxJourneyRefID>4399df0b-1e67-4f85-957e-103eda94b503</PaxJourneyRefID>
+                      </PaxJourneyRef>
+                    </ServiceAssociations>
+                    <ServiceID>a79a3927-71c2-43f2-8d30-3833bf51bc6d</ServiceID>
+                  </Service>
+                </OfferItem>
+                <OfferType>Full</OfferType>
+                <OwnerCode>TCH</OwnerCode>
+                <ReservationGuideline>
+                  <ReservationLang>RU</ReservationLang>
+                </ReservationGuideline>
+                <TotalPrice>
+                  <BaseAmount CurCode="RUB">18294.00</BaseAmount>
+                  <BaseAmountGuaranteeTimeLimitDateTime>2022-11-08T22:34:00</BaseAmountGuaranteeTimeLimitDateTime>
+                  <TaxSummary>
+                    <Tax>
+                      <Amount CurCode="RUB">540.00</Amount>
+                      <TaxCode>YR</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">1110.00</Amount>
+                      <TaxCode>ZZ</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">90.00</Amount>
+                      <QualifierCode>6</QualifierCode>
+                      <TaxCode>VAT Fare</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">185.01</Amount>
+                      <QualifierCode>6</QualifierCode>
+                      <TaxCode>VAT ZZ</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">300.00</Amount>
+                      <TaxCode>RI</TaxCode>
+                    </Tax>
+                    <TotalTaxAmount CurCode="RUB">1950.00</TotalTaxAmount>
+                  </TaxSummary>
+                  <TotalAmount CurCode="RUB">20244.00</TotalAmount>
+                </TotalPrice>
+                <RefundStatus>Unresolved</RefundStatus>
+              </Offer>
+              <Offer>
+                <BaggageAllowance>
+                  <BaggageAllowanceRefID>c1b9942e-c8ff-4900-94d1-1b157b916c6a</BaggageAllowanceRefID>
+                  <BaggageFlightAssociations>
+                    <PaxSegmentRef>
+                      <PaxSegmentRefID>fafd5965-b743-4494-b72b-614c580fc502</PaxSegmentRefID>
+                      <PaxSegmentRefID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentRefID>
+                    </PaxSegmentRef>
+                  </BaggageFlightAssociations>
+                  <PaxRefID>Pax-1</PaxRefID>
+                  <PaxRefID>Pax-2</PaxRefID>
+                  <PaxRefID>Pax-3</PaxRefID>
+                </BaggageAllowance>
+                <BaggageAllowance>
+                  <BaggageAllowanceRefID>df531162-8e00-4276-b815-6b08f028e1bd</BaggageAllowanceRefID>
+                  <BaggageFlightAssociations>
+                    <PaxSegmentRef>
+                      <PaxSegmentRefID>fafd5965-b743-4494-b72b-614c580fc502</PaxSegmentRefID>
+                      <PaxSegmentRefID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentRefID>
+                    </PaxSegmentRef>
+                  </BaggageFlightAssociations>
+                  <PaxRefID>Pax-1</PaxRefID>
+                  <PaxRefID>Pax-2</PaxRefID>
+                  <PaxRefID>Pax-3</PaxRefID>
+                </BaggageAllowance>
+                <OfferExpirationTimeLimitDateTime>2022-11-08T20:35:56.4773609Z</OfferExpirationTimeLimitDateTime>
+                <OfferID>a165cd1a-5efc-46cd-9428-e0740983761d</OfferID>
+                <OfferItem>
+                  <FareDetail>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>WPROW</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>1500</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">1000.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">1565.00</Amount>
+                            <TaxCode>YQ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">400.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">700.00</Amount>
+                            <TaxCode>SA</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">120.00</Amount>
+                            <TaxCode>RI</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">2970.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">3970.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>7869eccd-1c6b-4f36-9905-35d68c00ac72</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>W</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>APROW</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>1500</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>fafd5965-b743-4494-b72b-614c580fc502</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">1750.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">120.00</Amount>
+                            <TaxCode>RI</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">1565.00</Amount>
+                            <TaxCode>YQ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">400.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">2270.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">4020.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>7869eccd-1c6b-4f36-9905-35d68c00ac72</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>A</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <PaxRefID>Pax-1</PaxRefID>
+                    <PaxRefID>Pax-2</PaxRefID>
+                    <Price>
+                      <BaseAmount CurCode="RUB">2750.00</BaseAmount>
+                      <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                      <TaxSummary>
+                        <Tax>
+                          <Amount CurCode="RUB">3130.00</Amount>
+                          <TaxCode>YQ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">800.00</Amount>
+                          <TaxCode>YR</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">370.00</Amount>
+                          <TaxCode>ZZ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">700.00</Amount>
+                          <TaxCode>SA</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">240.00</Amount>
+                          <TaxCode>RI</TaxCode>
+                        </Tax>
+                        <TotalTaxAmount CurCode="RUB">5240.00</TotalTaxAmount>
+                      </TaxSummary>
+                      <TotalAmount CurCode="RUB">7990.00</TotalAmount>
+                    </Price>
+                  </FareDetail>
+                  <MandatoryInd>true</MandatoryInd>
+                  <OfferItemID>bafaed64-1cf7-4e41-bccf-b81e23db416e</OfferItemID>
+                  <Price>
+                    <BaseAmount CurCode="RUB">5500.00</BaseAmount>
+                    <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                    <TaxSummary>
+                      <Tax>
+                        <Amount CurCode="RUB">6260.00</Amount>
+                        <TaxCode>YQ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">1600.00</Amount>
+                        <TaxCode>YR</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">740.00</Amount>
+                        <TaxCode>ZZ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">1400.00</Amount>
+                        <TaxCode>SA</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">480.00</Amount>
+                        <TaxCode>RI</TaxCode>
+                      </Tax>
+                      <TotalTaxAmount CurCode="RUB">10480.00</TotalTaxAmount>
+                    </TaxSummary>
+                    <TotalAmount CurCode="RUB">15980.00</TotalAmount>
+                  </Price>
+                  <Service>
+                    <PaxRefID>Pax-1</PaxRefID>
+                    <PaxRefID>Pax-2</PaxRefID>
+                    <ValidatingPartyRefID>30b905e5-0fb6-4813-9829-e0f2e7db795b</ValidatingPartyRefID>
+                    <ServiceAssociations>
+                      <PaxJourneyRef>
+                        <PaxJourneyRefID>ca76d826-725d-4ae0-a606-053b8a40b5c4</PaxJourneyRefID>
+                        <PaxJourneyRefID>0248fd86-53a1-4eb7-aedb-acb09ad7f38e</PaxJourneyRefID>
+                      </PaxJourneyRef>
+                    </ServiceAssociations>
+                    <ServiceID>e81d6683-4a2f-456b-bbf0-e6edcbf5e835</ServiceID>
+                  </Service>
+                </OfferItem>
+                <OfferItem>
+                  <FareDetail>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>WPROW/CH50</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>1500</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">500.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">1565.00</Amount>
+                            <TaxCode>YQ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">400.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">700.00</Amount>
+                            <TaxCode>SA</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">120.00</Amount>
+                            <TaxCode>RI</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">2970.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">3470.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>7869eccd-1c6b-4f36-9905-35d68c00ac72</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>W</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>APROW/CH50</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>1500</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>fafd5965-b743-4494-b72b-614c580fc502</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">875.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">60.00</Amount>
+                            <TaxCode>RI</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">400.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">1565.00</Amount>
+                            <TaxCode>YQ</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">2210.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">3085.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>7869eccd-1c6b-4f36-9905-35d68c00ac72</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>A</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <PaxRefID>Pax-3</PaxRefID>
+                    <Price>
+                      <BaseAmount CurCode="RUB">1375.00</BaseAmount>
+                      <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                      <TaxSummary>
+                        <Tax>
+                          <Amount CurCode="RUB">3130.00</Amount>
+                          <TaxCode>YQ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">800.00</Amount>
+                          <TaxCode>YR</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">370.00</Amount>
+                          <TaxCode>ZZ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">700.00</Amount>
+                          <TaxCode>SA</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">180.00</Amount>
+                          <TaxCode>RI</TaxCode>
+                        </Tax>
+                        <TotalTaxAmount CurCode="RUB">5180.00</TotalTaxAmount>
+                      </TaxSummary>
+                      <TotalAmount CurCode="RUB">6555.00</TotalAmount>
+                    </Price>
+                  </FareDetail>
+                  <MandatoryInd>true</MandatoryInd>
+                  <OfferItemID>84669cde-6e68-4f66-a778-213a9faba899</OfferItemID>
+                  <Price>
+                    <BaseAmount CurCode="RUB">1375.00</BaseAmount>
+                    <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                    <TaxSummary>
+                      <Tax>
+                        <Amount CurCode="RUB">3130.00</Amount>
+                        <TaxCode>YQ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">800.00</Amount>
+                        <TaxCode>YR</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">370.00</Amount>
+                        <TaxCode>ZZ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">700.00</Amount>
+                        <TaxCode>SA</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">180.00</Amount>
+                        <TaxCode>RI</TaxCode>
+                      </Tax>
+                      <TotalTaxAmount CurCode="RUB">5180.00</TotalTaxAmount>
+                    </TaxSummary>
+                    <TotalAmount CurCode="RUB">6555.00</TotalAmount>
+                  </Price>
+                  <Service>
+                    <PaxRefID>Pax-3</PaxRefID>
+                    <ValidatingPartyRefID>30b905e5-0fb6-4813-9829-e0f2e7db795b</ValidatingPartyRefID>
+                    <ServiceAssociations>
+                      <PaxJourneyRef>
+                        <PaxJourneyRefID>ca76d826-725d-4ae0-a606-053b8a40b5c4</PaxJourneyRefID>
+                        <PaxJourneyRefID>0248fd86-53a1-4eb7-aedb-acb09ad7f38e</PaxJourneyRefID>
+                      </PaxJourneyRef>
+                    </ServiceAssociations>
+                    <ServiceID>48ee16ef-d0cc-40bb-8da0-2eb331a61655</ServiceID>
+                  </Service>
+                </OfferItem>
+                <OfferType>Full</OfferType>
+                <OwnerCode>TCH</OwnerCode>
+                <ReservationGuideline>
+                  <ReservationLang>RU</ReservationLang>
+                </ReservationGuideline>
+                <TotalPrice>
+                  <BaseAmount CurCode="RUB">6875.00</BaseAmount>
+                  <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                  <TaxSummary>
+                    <Tax>
+                      <Amount CurCode="RUB">9390.00</Amount>
+                      <TaxCode>YQ</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">2400.00</Amount>
+                      <TaxCode>YR</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">1110.00</Amount>
+                      <TaxCode>ZZ</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">2100.00</Amount>
+                      <TaxCode>SA</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">660.00</Amount>
+                      <TaxCode>RI</TaxCode>
+                    </Tax>
+                    <TotalTaxAmount CurCode="RUB">15660.00</TotalTaxAmount>
+                  </TaxSummary>
+                  <TotalAmount CurCode="RUB">22535.00</TotalAmount>
+                </TotalPrice>
+                <RefundStatus>Unresolved</RefundStatus>
+              </Offer>
+              <Offer>
+                <BaggageAllowance>
+                  <BaggageAllowanceRefID>c1b9942e-c8ff-4900-94d1-1b157b916c6a</BaggageAllowanceRefID>
+                  <BaggageFlightAssociations>
+                    <PaxSegmentRef>
+                      <PaxSegmentRefID>4a002f3c-d186-46db-8f6a-f92e7abdb872</PaxSegmentRefID>
+                      <PaxSegmentRefID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentRefID>
+                    </PaxSegmentRef>
+                  </BaggageFlightAssociations>
+                  <PaxRefID>Pax-1</PaxRefID>
+                  <PaxRefID>Pax-2</PaxRefID>
+                  <PaxRefID>Pax-3</PaxRefID>
+                </BaggageAllowance>
+                <BaggageAllowance>
+                  <BaggageAllowanceRefID>df531162-8e00-4276-b815-6b08f028e1bd</BaggageAllowanceRefID>
+                  <BaggageFlightAssociations>
+                    <PaxSegmentRef>
+                      <PaxSegmentRefID>4a002f3c-d186-46db-8f6a-f92e7abdb872</PaxSegmentRefID>
+                      <PaxSegmentRefID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentRefID>
+                    </PaxSegmentRef>
+                  </BaggageFlightAssociations>
+                  <PaxRefID>Pax-1</PaxRefID>
+                  <PaxRefID>Pax-2</PaxRefID>
+                  <PaxRefID>Pax-3</PaxRefID>
+                </BaggageAllowance>
+                <OfferExpirationTimeLimitDateTime>2022-11-08T20:35:56.4773882Z</OfferExpirationTimeLimitDateTime>
+                <OfferID>845b3bd4-e1e9-41c6-90e6-774ff8572e76</OfferID>
+                <OfferItem>
+                  <FareDetail>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>WPROW</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>1500</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">1000.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">1565.00</Amount>
+                            <TaxCode>YQ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">400.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">700.00</Amount>
+                            <TaxCode>SA</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">120.00</Amount>
+                            <TaxCode>RI</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">2970.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">3970.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>7869eccd-1c6b-4f36-9905-35d68c00ac72</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>W</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>APROW</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>1500</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>4a002f3c-d186-46db-8f6a-f92e7abdb872</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">1750.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">120.00</Amount>
+                            <TaxCode>RI</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">1565.00</Amount>
+                            <TaxCode>YQ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">400.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">2270.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">4020.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>7869eccd-1c6b-4f36-9905-35d68c00ac72</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>A</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <PaxRefID>Pax-1</PaxRefID>
+                    <PaxRefID>Pax-2</PaxRefID>
+                    <Price>
+                      <BaseAmount CurCode="RUB">2750.00</BaseAmount>
+                      <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                      <TaxSummary>
+                        <Tax>
+                          <Amount CurCode="RUB">3130.00</Amount>
+                          <TaxCode>YQ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">800.00</Amount>
+                          <TaxCode>YR</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">370.00</Amount>
+                          <TaxCode>ZZ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">700.00</Amount>
+                          <TaxCode>SA</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">240.00</Amount>
+                          <TaxCode>RI</TaxCode>
+                        </Tax>
+                        <TotalTaxAmount CurCode="RUB">5240.00</TotalTaxAmount>
+                      </TaxSummary>
+                      <TotalAmount CurCode="RUB">7990.00</TotalAmount>
+                    </Price>
+                  </FareDetail>
+                  <MandatoryInd>true</MandatoryInd>
+                  <OfferItemID>91486c8a-d028-42fc-8400-bb3a122dd54e</OfferItemID>
+                  <Price>
+                    <BaseAmount CurCode="RUB">5500.00</BaseAmount>
+                    <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                    <TaxSummary>
+                      <Tax>
+                        <Amount CurCode="RUB">6260.00</Amount>
+                        <TaxCode>YQ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">1600.00</Amount>
+                        <TaxCode>YR</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">740.00</Amount>
+                        <TaxCode>ZZ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">1400.00</Amount>
+                        <TaxCode>SA</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">480.00</Amount>
+                        <TaxCode>RI</TaxCode>
+                      </Tax>
+                      <TotalTaxAmount CurCode="RUB">10480.00</TotalTaxAmount>
+                    </TaxSummary>
+                    <TotalAmount CurCode="RUB">15980.00</TotalAmount>
+                  </Price>
+                  <Service>
+                    <PaxRefID>Pax-1</PaxRefID>
+                    <PaxRefID>Pax-2</PaxRefID>
+                    <ValidatingPartyRefID>30b905e5-0fb6-4813-9829-e0f2e7db795b</ValidatingPartyRefID>
+                    <ServiceAssociations>
+                      <PaxJourneyRef>
+                        <PaxJourneyRefID>94be4cd4-c9b0-42d2-be5b-9775830c668f</PaxJourneyRefID>
+                        <PaxJourneyRefID>54728d42-73b5-42e9-8fb5-4b7982e294d0</PaxJourneyRefID>
+                      </PaxJourneyRef>
+                    </ServiceAssociations>
+                    <ServiceID>b28f8065-e195-4171-b851-4423ae25e0f1</ServiceID>
+                  </Service>
+                </OfferItem>
+                <OfferItem>
+                  <FareDetail>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>WPROW/CH50</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>1500</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>1206b224-bfab-4e2c-b132-831c91e7aa74</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">500.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">1565.00</Amount>
+                            <TaxCode>YQ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">400.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">700.00</Amount>
+                            <TaxCode>SA</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">120.00</Amount>
+                            <TaxCode>RI</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">2970.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">3470.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>7869eccd-1c6b-4f36-9905-35d68c00ac72</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>W</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <FareComponent>
+                      <CabinType>
+                        <CabinTypeCode>Economy</CabinTypeCode>
+                      </CabinType>
+                      <FareBasisCode>APROW/CH50</FareBasisCode>
+                      <FareRule>
+                        <Remark>
+                          <RemarkText>1500</RemarkText>
+                        </Remark>
+                      </FareRule>
+                      <PaxSegmentRefID>4a002f3c-d186-46db-8f6a-f92e7abdb872</PaxSegmentRefID>
+                      <Price>
+                        <BaseAmount CurCode="RUB">875.00</BaseAmount>
+                        <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                        <TaxSummary>
+                          <Tax>
+                            <Amount CurCode="RUB">60.00</Amount>
+                            <TaxCode>RI</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">185.00</Amount>
+                            <TaxCode>ZZ</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">400.00</Amount>
+                            <TaxCode>YR</TaxCode>
+                          </Tax>
+                          <Tax>
+                            <Amount CurCode="RUB">1565.00</Amount>
+                            <TaxCode>YQ</TaxCode>
+                          </Tax>
+                          <TotalTaxAmount CurCode="RUB">2210.00</TotalTaxAmount>
+                        </TaxSummary>
+                        <TotalAmount CurCode="RUB">3085.00</TotalAmount>
+                      </Price>
+                      <PriceClassRefID>7869eccd-1c6b-4f36-9905-35d68c00ac72</PriceClassRefID>
+                      <RBD>
+                        <RBD_Code>A</RBD_Code>
+                        <Availability>9</Availability>
+                      </RBD>
+                    </FareComponent>
+                    <PaxRefID>Pax-3</PaxRefID>
+                    <Price>
+                      <BaseAmount CurCode="RUB">1375.00</BaseAmount>
+                      <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                      <TaxSummary>
+                        <Tax>
+                          <Amount CurCode="RUB">3130.00</Amount>
+                          <TaxCode>YQ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">800.00</Amount>
+                          <TaxCode>YR</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">370.00</Amount>
+                          <TaxCode>ZZ</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">700.00</Amount>
+                          <TaxCode>SA</TaxCode>
+                        </Tax>
+                        <Tax>
+                          <Amount CurCode="RUB">180.00</Amount>
+                          <TaxCode>RI</TaxCode>
+                        </Tax>
+                        <TotalTaxAmount CurCode="RUB">5180.00</TotalTaxAmount>
+                      </TaxSummary>
+                      <TotalAmount CurCode="RUB">6555.00</TotalAmount>
+                    </Price>
+                  </FareDetail>
+                  <MandatoryInd>true</MandatoryInd>
+                  <OfferItemID>d1e5ab2b-62cd-4954-ae90-1dafb33e41bb</OfferItemID>
+                  <Price>
+                    <BaseAmount CurCode="RUB">1375.00</BaseAmount>
+                    <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                    <TaxSummary>
+                      <Tax>
+                        <Amount CurCode="RUB">3130.00</Amount>
+                        <TaxCode>YQ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">800.00</Amount>
+                        <TaxCode>YR</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">370.00</Amount>
+                        <TaxCode>ZZ</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">700.00</Amount>
+                        <TaxCode>SA</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">180.00</Amount>
+                        <TaxCode>RI</TaxCode>
+                      </Tax>
+                      <TotalTaxAmount CurCode="RUB">5180.00</TotalTaxAmount>
+                    </TaxSummary>
+                    <TotalAmount CurCode="RUB">6555.00</TotalAmount>
+                  </Price>
+                  <Service>
+                    <PaxRefID>Pax-3</PaxRefID>
+                    <ValidatingPartyRefID>30b905e5-0fb6-4813-9829-e0f2e7db795b</ValidatingPartyRefID>
+                    <ServiceAssociations>
+                      <PaxJourneyRef>
+                        <PaxJourneyRefID>94be4cd4-c9b0-42d2-be5b-9775830c668f</PaxJourneyRefID>
+                        <PaxJourneyRefID>54728d42-73b5-42e9-8fb5-4b7982e294d0</PaxJourneyRefID>
+                      </PaxJourneyRef>
+                    </ServiceAssociations>
+                    <ServiceID>ef34ea73-739f-4be6-8767-9c4cd68897b6</ServiceID>
+                  </Service>
+                </OfferItem>
+                <OfferType>Full</OfferType>
+                <OwnerCode>TCH</OwnerCode>
+                <ReservationGuideline>
+                  <ReservationLang>RU</ReservationLang>
+                </ReservationGuideline>
+                <TotalPrice>
+                  <BaseAmount CurCode="RUB">6875.00</BaseAmount>
+                  <BaseAmountGuaranteeTimeLimitDateTime>2022-11-11T23:59:00</BaseAmountGuaranteeTimeLimitDateTime>
+                  <TaxSummary>
+                    <Tax>
+                      <Amount CurCode="RUB">9390.00</Amount>
+                      <TaxCode>YQ</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">2400.00</Amount>
+                      <TaxCode>YR</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">1110.00</Amount>
+                      <TaxCode>ZZ</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">2100.00</Amount>
+                      <TaxCode>SA</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">660.00</Amount>
+                      <TaxCode>RI</TaxCode>
+                    </Tax>
+                    <TotalTaxAmount CurCode="RUB">15660.00</TotalTaxAmount>
+                  </TaxSummary>
+                  <TotalAmount CurCode="RUB">22535.00</TotalAmount>
+                </TotalPrice>
+                <RefundStatus>Unresolved</RefundStatus>
+              </Offer>
+            </CarrierOffers>
+          </OffersGroup>
+          <PaymentFunctions>
+            <OtherPaymentMethod />
+          </PaymentFunctions>
+        </Response>
+      </Shop:Mixvel_AirShoppingRS>
+    </AppData>
+  </Body>
+</MixEnv:Envelope>

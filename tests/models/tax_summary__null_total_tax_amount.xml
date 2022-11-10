@@ -1,0 +1,22 @@
+<TaxSummary>
+    <Tax>
+        <Amount>0</Amount>
+        <QualifierCode>aircompany</QualifierCode>
+        <TaxCode>YR</TaxCode>
+    </Tax>
+    <Tax>
+        <Amount>0</Amount>
+        <QualifierCode>aircompany</QualifierCode>
+        <TaxCode>YQ</TaxCode>
+    </Tax>
+    <Tax>
+        <Amount>0</Amount>
+        <QualifierCode>aircompany</QualifierCode>
+        <TaxCode>ZZ</TaxCode>
+    </Tax>
+    <Tax>
+        <Amount>0</Amount>
+        <QualifierCode>aircompany</QualifierCode>
+        <TaxCode>RI</TaxCode>
+    </Tax>
+</TaxSummary>
