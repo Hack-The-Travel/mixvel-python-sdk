@@ -368,15 +368,15 @@ class PaxSegment:
 
 
 class Price:
-    def __init__(self, taxes, total_amount):
+    def __init__(self, tax_summary, total_amount):
         """Price.
         
-        :param taxes: list of taxes
-        :type taxes: list[Tax]
+        :param tax_summary: tax summary
+        :type tax_summary: TaxSummary
         :param total_amount: total amount
         :type total_amount: Amount
         """
-        self.taxes = taxes
+        self.tax_summary = tax_summary
         self.total_amount = total_amount
 
 

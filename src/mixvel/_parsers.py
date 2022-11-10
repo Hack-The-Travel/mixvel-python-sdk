@@ -279,18 +279,16 @@ def parse_pax_segment(elm):
         duration=duration)
 
 def parse_price(elm):
-    """Parses PriceType.
+    """Parse PriceType.
 
     :param elm: PriceType element
     :type elm: lxml.etree._Element
     :rtype: Price
     """
-    taxes = []
-    for tax_node in elm.findall("./TaxSummary/Tax"):
-        taxes.append(parse_tax(tax_node))
+    tax_summary = parse_tax_summary(elm.find("./TaxSummary"))
     total_amount = parse_amount(elm.find("./TotalAmount"))
 
-    return Price(taxes, total_amount)
+    return Price(tax_summary, total_amount)
 
 def parse_rbd_avail(elm):
     """Parse Rbd_Avail_Type.

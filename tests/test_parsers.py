@@ -317,12 +317,13 @@ class TestTypeParsers:
     @pytest.mark.parametrize("model_path,want", [
         (
             "models/price.xml",
-            Price([], Amount(326900, "RUB")),
+            Price(TaxSummary([]), Amount(326900, "RUB")),
         ),
     ])
     def test_parse_price(self, model_path, want):
         elm = parse_xml(model_path)
         got = parse_price(elm)
+        assert isinstance(got.tax_summary, TaxSummary)
         assert got.total_amount.amount == want.total_amount.amount
 
     @pytest.mark.parametrize("model_path,want", [
