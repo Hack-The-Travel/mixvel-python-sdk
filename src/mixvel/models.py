@@ -468,6 +468,20 @@ class Tax:
         self.tax_code = tax_code
 
 
+class TaxSummary:
+    def __init__(self, taxes,
+        total_tax_amount=None):
+        """TaxSummary.
+        
+        :param taxes: list of taxes
+        :type taxes: list[Tax]
+        :param total_tax_amount: (optional) total tax amount
+        :type total_tax_amount: Amount or None
+        """
+        self.taxes = taxes
+        self.total_tax_amount = total_tax_amount
+
+
 class TransportDepArrival:
     def __init__(self, iata_location_code, aircraft_scheduled_datetime):
         """TransportDepArrival.
