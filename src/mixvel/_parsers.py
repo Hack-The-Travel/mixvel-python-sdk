@@ -165,8 +165,11 @@ def parse_offer(elm):
     timelimit = elm.find("./OfferExpirationTimeLimitDateTime").text
     timelimit = timelimit.split(".")[0].rstrip('Z')
     timelimit = datetime.datetime.strptime(timelimit, "%Y-%m-%dT%H:%M:%S")
+    total_price = parse_price(elm.find("./TotalPrice")) \
+        if elm.find("./TotalPrice") is not None else None
 
-    return Offer(offer_id, offer_items, owner_code, timelimit)
+    return Offer(offer_id, offer_items, owner_code, timelimit,
+        total_price=total_price)
 
 def parse_offer_item(elm):
     """Parse OfferItemType.
