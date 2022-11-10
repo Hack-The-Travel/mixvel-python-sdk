@@ -83,13 +83,19 @@ def parse_data_lists(elm):
         lambda elm: parse_pax_journey(elm),
         elm.findall("./PaxJourneyList/PaxJourney")
     )
+    pax_segment_list = map(
+        lambda elm: parse_pax_segment(elm),
+        elm.findall("./PaxSegmentList/PaxSegment")
+    )
     validating_party_list = map(
         lambda validating_party: parse_validating_party(validating_party),
         elm.findall("./ValidatingPartyList/ValidatingParty")
     )
+
     return DataLists(
         origin_dest_list=origin_dest_list,
         pax_journey_list=pax_journey_list,
+        pax_segment_list=pax_segment_list,
         validating_party_list=validating_party_list
     )
 

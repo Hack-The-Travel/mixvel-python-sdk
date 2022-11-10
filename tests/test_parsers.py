@@ -94,6 +94,9 @@ class TestTypeParsers:
     def test_parse_data_lists(self, model_path, want):
         elm = parse_xml(model_path).getroot()
         got = parse_data_lists(elm)
+        assert isinstance(got.origin_dest_list[0], OriginDest)
+        assert isinstance(got.pax_journey_list[0], PaxJourney)
+        assert isinstance(got.pax_segment_list[0], PaxSegment)
         assert isinstance(got.validating_party_list[0], ValidatingParty)
 
     @pytest.mark.parametrize("model_path,want", [
