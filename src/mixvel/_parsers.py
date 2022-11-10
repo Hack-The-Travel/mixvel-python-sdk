@@ -272,8 +272,11 @@ def parse_pax_segment(elm):
     arrival = parse_transport_dep_arrival(elm.find("./Arrival"))
     marketing_carrier_info = \
         parse_dated_marketing_segment(elm.find("./MarketingCarrierInfo"))
+    duration = elm.find("./Duration").text \
+        if elm.find("./Duration") is not None else None
 
-    return PaxSegment(pax_segment_id, dep, arrival, marketing_carrier_info)
+    return PaxSegment(pax_segment_id, dep, arrival, marketing_carrier_info,
+        duration=duration)
 
 def parse_price(elm):
     """Parses PriceType.

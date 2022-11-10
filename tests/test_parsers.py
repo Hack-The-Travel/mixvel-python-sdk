@@ -299,6 +299,7 @@ class TestTypeParsers:
                     datetime.datetime(2022, 12, 3, 12, 45, 0),
                 ),  # arrival
                 DatedMarketingSegment("DP", "312"),  # marketing_carrier_info
+                duration="PT4H55M"
             ),
         ),
     ])
@@ -309,6 +310,7 @@ class TestTypeParsers:
         assert isinstance(got.dep, TransportDepArrival)
         assert isinstance(got.arrival, TransportDepArrival)
         assert isinstance(got.marketing_carrier_info, DatedMarketingSegment)
+        assert got.duration == want.duration
 
     @pytest.mark.parametrize("model_path,want", [
         (

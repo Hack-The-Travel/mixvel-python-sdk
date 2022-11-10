@@ -342,7 +342,8 @@ class PaxJourney:
 
 
 class PaxSegment:
-    def __init__(self, pax_segment_id, dep, arrival, marketing_carrier_info):
+    def __init__(self, pax_segment_id, dep, arrival, marketing_carrier_info,
+        duration=None):
         """PaxSegment.
         
         :param pax_segment_id: passenger segment id
@@ -353,11 +354,14 @@ class PaxSegment:
         :type arrival: TransportDepArrival
         :param marketing_carrier_info: marketing carrier info
         :type marketing_carrier_info: DatedMarketingSegment
+        :param duration: (optional) duration, e.g. "PT1H30M"
+        :type duration: str or None
         """
         self.pax_segment_id = pax_segment_id
         self.dep = dep
         self.arrival = arrival
         self.marketing_carrier_info = marketing_carrier_info
+        self.duration = duration  # FIXME: return timdedelta
 
 
 class Price:
