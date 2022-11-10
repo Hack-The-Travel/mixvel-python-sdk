@@ -115,21 +115,21 @@ def parse_fare_component(elm):
     fare_basis_code = elm.find("./FareBasisCode").text
     rbd = parse_rbd_avail(elm.find("./RBD"))
     price = parse_price(elm.find("./Price"))
+    pax_segment_ref_id = elm.find("./PaxSegmentRefID").text
 
-    return FareComponent(fare_basis_code, rbd, price)
+    return FareComponent(fare_basis_code, rbd, price, pax_segment_ref_id)
 
 def parse_fare_detail(elm):
-    """Parses FareDetailType.
+    """Parse FareDetailType.
 
     :param elm: FareDetailType element
     :type elm: lxml.etree._Element
     :rtype: FareDetail
     """
-    fare_components = []
-    for fare_component_node in elm.findall("./FareComponent"):
-        fare_components.append(
-            parse_fare_component(fare_component_node)
-        )
+    fare_components = map(
+        lambda fc: parse_fare_component(fc),
+        elm.findall("./FareComponent")
+    )
     pax_ref_id = elm.find("./PaxRefID").text
 
     return FareDetail(fare_components, pax_ref_id)

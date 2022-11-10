@@ -118,7 +118,8 @@ class TestTypeParsers:
             FareComponent(
                 "RPROWRF",  # fare_basis_code
                 RbdAvail("A"),  # rbd
-                Price([], Amount(326900, "RUB"))  # price
+                Price([], Amount(326900, "RUB")),  # price
+                "2b8e572b-f9d5-4045-8986-1ddd88f2bb66"  # pax_segment_ref_id
             ),
         ),
     ])
@@ -128,6 +129,7 @@ class TestTypeParsers:
         assert got.fare_basis_code == want.fare_basis_code
         assert isinstance(got.rbd, RbdAvail)
         assert isinstance(got.price, Price)
+        assert got.pax_segment_ref_id == want.pax_segment_ref_id
 
     @pytest.mark.parametrize("model_path,want", [
         (

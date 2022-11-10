@@ -106,11 +106,14 @@ class FareComponent:
     :type rbd: RbdAvail
     :param price: price
     :type price: Price
+    :param pax_segment_ref_id: passenger segment reference id
+    :type pax_segment_ref_id: str
     """
-    def __init__(self, fare_basis_code, rbd, price):
+    def __init__(self, fare_basis_code, rbd, price, pax_segment_ref_id):
         self.fare_basis_code = fare_basis_code
         self.rbd = rbd
         self.price = price
+        self.pax_segment_ref_id = pax_segment_ref_id
 
 
 class FareDetail:
