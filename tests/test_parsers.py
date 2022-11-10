@@ -118,7 +118,7 @@ class TestTypeParsers:
             FareComponent(
                 "RPROWRF",  # fare_basis_code
                 RbdAvail("A"),  # rbd
-                Price([], Amount(326900, "RUB")),  # price
+                Price(TaxSummary([]), Amount(326900, "RUB")),  # price
                 "2b8e572b-f9d5-4045-8986-1ddd88f2bb66"  # pax_segment_ref_id
             ),
         ),
@@ -181,7 +181,7 @@ class TestTypeParsers:
             "models/offer_item.xml",
             OfferItem(
                 "ca280e53-1dd1-4d7b-9b57-d1a45b364f29",  # offer_item_id
-                Price([], Amount(332400, "RUB")),  # price
+                Price(TaxSummary([]), Amount(332400, "RUB")),  # price
                 [],  # services
                 fare_details=[]  # fare_details
             ),
@@ -203,7 +203,7 @@ class TestTypeParsers:
                 [],  # order_items
                 [],  # booking_refs
                 datetime.datetime(2021, 9, 23, 0, 40, 0),
-                Price([], Amount(653800, "RUB")),
+                Price(TaxSummary([]), Amount(653800, "RUB")),
             ),
         ),
     ])
@@ -222,7 +222,7 @@ class TestTypeParsers:
             OrderItem(
                 "fa21bac3-6a8c-4066-8477-148bc5f63a31",
                 [],
-                Price([], Amount(653800, "RUB"))
+                Price(TaxSummary([]), Amount(653800, "RUB"))
             ),
         ),
     ])
