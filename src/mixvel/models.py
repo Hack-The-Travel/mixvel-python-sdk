@@ -11,16 +11,16 @@ import datetime
 
 
 class AirShoppingResponse:
-    def __init__(self, data_lists, offers):
+    def __init__(self, offers, data_lists):
         """Air Shopping Response
         
-        :param data_lists: data lists
-        :type data_lists: DataLists
         :param offers: list of offers
         :type offers: list[Offer]
+        :param data_lists: data lists
+        :type data_lists: DataLists
         """
-        self.data_lists = data_lists
         self.offers = offers
+        self.data_lists = data_lists
 
 
 class OrderViewResponse:
@@ -387,6 +387,15 @@ class Price:
         :param total_amount: total amount
         :type total_amount: Amount
         """
+        # Note.
+        # Swagger sample contains of Price element
+        # without TaxSummary node
+        # 
+        # <Price>
+		#     <TotalAmount CurCode="RUB">12316</TotalAmount>
+		# </Price>
+        # 
+        # It doesn't conflict with the MixVel openapi specification.
         self.tax_summary = tax_summary
         self.total_amount = total_amount
 

@@ -26,15 +26,17 @@ def is_cancel_success(resp):
 def parse_air_shopping_response(resp):
     """Parse air shopping response.
     
+    :param resp: text of Mixvel_AirShoppingRS
+    :type resp: lxml.etree._Element
     :rtype: AirShoppingResponse
     """
-    data_lists = parse_data_lists(resp.find("./Response/DataLists"))
     offers = map(
         lambda offer: parse_offer(offer),
         resp.findall("./Response/OffersGroup/CarrierOffers/Offer")
     )
+    data_lists = parse_data_lists(resp.find("./Response/DataLists"))
 
-    return AirShoppingResponse(data_lists, offers)
+    return AirShoppingResponse(offers, data_lists)
 
 def parse_order_view_response(resp):
     """Parse order view response.
@@ -295,7 +297,8 @@ def parse_price(elm):
     :type elm: lxml.etree._Element
     :rtype: Price
     """
-    tax_summary = parse_tax_summary(elm.find("./TaxSummary"))
+    tax_summary = parse_tax_summary(elm.find("./TaxSummary")) \
+        if elm.find("./TaxSummary") is not None else TaxSummary([])
     total_amount = parse_amount(elm.find("./TotalAmount"))
 
     return Price(tax_summary, total_amount)
