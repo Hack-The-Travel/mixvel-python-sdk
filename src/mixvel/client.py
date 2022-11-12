@@ -118,7 +118,7 @@ class Client:
 
         return token
 
-    def airshopping(self, itinerary, paxes):
+    def air_shopping(self, itinerary, paxes):
         """Executes air shopping request.
 
         :param itinerary: itinerary
