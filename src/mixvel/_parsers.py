@@ -36,16 +36,17 @@ def parse_air_shopping_response(resp):
 
     return AirShoppingResponse(data_lists, offers)
 
-def parse_order_view(resp):
-    """Parses order view response.
+def parse_order_view_response(resp):
+    """Parse order view response.
     
     :param resp: text of Mixvel_OrderCancelRS
     :type resp: lxml.etree._Element
     :rtype: OrderViewResponse
     """
     mix_order = parse_mix_order(resp.find("./Response/MixOrder"))
+    data_lists = parse_data_lists(resp.find("./Response/DataLists"))
 
-    return OrderViewResponse(mix_order)
+    return OrderViewResponse(mix_order, data_lists)
 
 def parse_amount(elm):
     """Parses AmountType.

@@ -3,7 +3,7 @@ import datetime
 
 from .utils import parse_xml, parse_xml_response
 from mixvel._parsers import (
-    is_cancel_success, parse_air_shopping_response, parse_order_view,
+    is_cancel_success, parse_air_shopping_response, parse_order_view_response,
 )
 from mixvel._parsers import (
     parse_amount, parse_booking, parse_data_lists, parse_dated_marketing_segment,
@@ -50,11 +50,12 @@ class TestParsers:
     @pytest.mark.parametrize("resp_path", [
         "responses/order/view.xml",
     ])
-    def test_parse_order_view(self, resp_path):
+    def test_parse_order_view_response(self, resp_path):
         resp = parse_xml_response(resp_path)
-        got = parse_order_view(resp)
+        got = parse_order_view_response(resp)
         assert isinstance(got, OrderViewResponse)
         assert isinstance(got.mix_order, MixOrder)
+        assert isinstance(got.data_lists, DataLists)
 
 
 class TestTypeParsers:
