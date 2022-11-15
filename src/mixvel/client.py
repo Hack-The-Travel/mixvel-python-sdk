@@ -96,7 +96,7 @@ class Client:
         if err is not None:
             raise IOError("{type}: {code}".format(
                 type=err.find("./ErrorType").text,
-                code=err.find("./Code").text
+                code=err.find("./Code").text if err.find("./Code") is not None else "no code"
             ))
 
         return resp.find(".//Body/AppData/")
