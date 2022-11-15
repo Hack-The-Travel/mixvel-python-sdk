@@ -53,7 +53,9 @@
                         <Birthdate>{{ pax.individual.birthdate }}</Birthdate>
                         <GenderCode>{{ pax.individual.gender }}</GenderCode>
                         <GivenName>{{ pax.individual.given_name }}</GivenName>
+                        {% if pax.individual.middle_name %}
                         <MiddleName>{{ pax.individual.middle_name }}</MiddleName>
+                        {% endif %}
                         <Surname>{{ pax.individual.surname }}</Surname>
                     </Individual>
                     <PaxID>{{ pax.pax_id }}</PaxID>
