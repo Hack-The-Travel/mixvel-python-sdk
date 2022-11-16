@@ -512,7 +512,7 @@ class Ticket:
         :param ticket_number: ticket number
         :type ticket_number: str
         """
-        self.TicketNumber = ticket_number
+        self.ticket_number = ticket_number
 
 
 class TicketDocInfo:
