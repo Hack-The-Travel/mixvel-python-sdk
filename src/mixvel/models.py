@@ -24,16 +24,19 @@ class AirShoppingResponse:
 
 
 class OrderViewResponse:
-    def __init__(self, mix_order, data_lists):
+    def __init__(self, mix_order, data_lists, ticket_doc_info=None):
         """Order View Response.
         
         :param mix_order: mix order
         :type mix_order: MixOrder
         :param data_lists: data lists
         :type data_lists: DataLists
+        :param ticket_doc_info: ticket doc info
+        :type ticket_doc_info: List[TicketDocInfo] or None
         """
         self.mix_order = mix_order
         self.data_lists = data_lists
+        self.ticket_doc_info = ticket_doc_info
 
 
 class Amount:
@@ -500,6 +503,29 @@ class TaxSummary:
         """
         self.taxes = taxes
         self.total_tax_amount = total_tax_amount
+
+
+class TicketDocInfo:
+    def __init__(self, pax_ref_id, tickets):
+        """TicketDocInfo.
+
+        :param pax_ref_id: pax ref ID
+        :type pax_ref_id: str
+        :param tickets: tickets
+        :type tickets: List[Ticket]
+        """
+        self.pax_ref_id = pax_ref_id
+        self.ticket = tickets
+
+
+class Ticket:
+    def __init__(self, ticket_number):
+        """Ticket.
+        
+        :param ticket_number: ticket number
+        :type ticket_number: str
+        """
+        self.TicketNumber = ticket_number
 
 
 class TransportDepArrival:

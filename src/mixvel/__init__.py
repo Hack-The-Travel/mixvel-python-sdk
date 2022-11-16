@@ -14,7 +14,8 @@ from .models import (
     Order, OrderItem, OriginDest, Passenger,
     PaxJourney, PaxSegment, Price, RbdAvail,
     SelectedOffer, SelectedOfferItem, Service, ServiceOfferAssociations,
-    Tax, TaxSummary, TransportDepArrival, ValidatingParty,
+    Tax, TaxSummary, TicketDocInfo, Ticket,
+    TransportDepArrival, ValidatingParty,
 )  # types
 from .models import (
     AirShoppingResponse, OrderViewResponse,
