@@ -19,6 +19,7 @@ from mixvel.models import (
 )
 
 from .endpoint import is_login_endpoint, request_template
+from .exceptions import NoOrdersToCancel
 from .utils import lxml_remove_namespaces
 
 PROD_GATEWAY = "https://api.mixvel.com"
@@ -193,6 +194,12 @@ class Client:
         context = {
             "mix_order_id": mix_order_id,
         }
-        resp = self.__request("/api/Order/cancel", context)
+        try:
+            resp = self.__request("/api/Order/cancel", context)
+        except IOError:
+            err = resp.find(".//Error")
+            code = err.find("./Code").text if err.find("./Code") is not None else ""
+            if code == "MIX-106001":
+                raise NoOrdersToCancel
 
         return is_cancel_success(resp)
