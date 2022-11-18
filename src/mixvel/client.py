@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 import datetime
-from jinja2 import Environment, FileSystemLoader
 import logging
-from lxml import etree
 import os
-import requests
 import uuid
+
+from jinja2 import Environment, FileSystemLoader
+from lxml import etree
+import requests
 
 from mixvel._parsers import (
     is_cancel_success, parse_air_shopping_response, parse_order_view_response,
