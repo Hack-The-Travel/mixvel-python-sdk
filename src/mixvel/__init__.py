@@ -7,6 +7,9 @@ from .__version__ import (
 from . import utils
 from .client import PROD_GATEWAY, TEST_GATEWAY
 from .client import Client
+from .exceptions import (
+    NoOrdersToCancel
+)
 from .models import (
     Amount, AnonymousPassenger, Booking, Coupon,
     DataLists, DatedMarketingSegment, FareComponent, FareDetail,
