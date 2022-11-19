@@ -2,7 +2,8 @@
 import datetime
 
 from .models import (
-    Amount, AnonymousPassenger, Booking, Coupon,
+    Amount, AnonymousPassenger, Booking, BookingEntity,
+    Carrier, Coupon,
     DataLists, DatedMarketingSegment, FareComponent, FareDetail,
     MixOrder, Offer, OfferItem, Order,
     OrderItem, OriginDest, PaxJourney, PaxSegment,
@@ -84,7 +85,12 @@ def parse_booking(elm):
         entity=entity, type_code=type_code)
 
 def parse_booking_entity(elm):
-    return None
+    carrier = parse_carrier(elm.find("./Carrier")) \
+        if elm.find("./Carrier") is not None else None
+    return BookingEntity(carrier=carrier)
+
+def parse_carrier(elm):
+    return Carrier(airline_desig_code=None)
 
 def parse_coupon(elm):
     coupon_number = int(elm.find("./CouponNumber").text)
