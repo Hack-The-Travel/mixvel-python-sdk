@@ -11,14 +11,15 @@ from .exceptions import (
     NoOrdersToCancel
 )
 from .models import (
-    Amount, AnonymousPassenger, Booking, Coupon,
-    DataLists, DatedMarketingSegment, FareComponent, FareDetail,
-    IdentityDocument, Individual, Leg, MixOrder,
-    Offer, OfferItem, Order, OrderItem,
-    OriginDest, Passenger, PaxJourney, PaxSegment,
-    Price, RbdAvail, SelectedOffer, SelectedOfferItem,
-    Service, ServiceOfferAssociations, Tax, TaxSummary,
-    Ticket, TicketDocInfo, TransportDepArrival, ValidatingParty,
+    Amount, AnonymousPassenger, Booking, BookingEntity,
+    Coupon, DataLists, DatedMarketingSegment, FareComponent,
+    FareDetail, IdentityDocument, Individual, Leg,
+    MixOrder, Offer, OfferItem, Order,
+    OrderItem, OriginDest, Passenger, PaxJourney,
+    PaxSegment, Price, RbdAvail, SelectedOffer,
+    SelectedOfferItem, Service, ServiceOfferAssociations, Tax,
+    TaxSummary, Ticket, TicketDocInfo, TransportDepArrival,
+    ValidatingParty,
 )  # types
 from .models import (
     AirShoppingResponse, OrderViewResponse,
