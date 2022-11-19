@@ -75,7 +75,16 @@ def parse_booking(elm):
     :type elm: lxml.etree._Element
     :rtype: Booking
     """
-    return Booking(elm.find("./BookingID").text)
+    booking_id = elm.find("./BookingID").text
+    type_code = elm.find("./BookingRefTypeCode").text \
+        if elm.find("./BookingRefTypeCode") is not None else None
+    entity = parse_booking_entity(elm.find("./BookingRefTypeCode")) \
+        if elm.find("./BookingRefTypeCode") is not None else None
+    return Booking(booking_id,
+        entity=entity, type_code=type_code)
+
+def parse_booking_entity(elm):
+    return None
 
 def parse_coupon(elm):
     coupon_number = int(elm.find("./CouponNumber").text)
