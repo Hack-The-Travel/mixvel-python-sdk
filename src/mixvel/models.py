@@ -93,10 +93,16 @@ class BookingEntity:
 
 
 class Carrier:
-    def __init__(self):
+    def __init__(self, airline_desig_code=None, mixvel_airline_id=None):
         """Carrier.
+
+        :param airline_desig_code: airline desig code
+        :type airline_desig_code: str or None
+        :param mixvel_airline_id: mixvel airline id
+        :type mixvel_airline_id: str or None
         """
-        pass
+        self.airline_desig_code = airline_desig_code
+        self.mixvel_airline_id = mixvel_airline_id
 
 
 class Coupon:
