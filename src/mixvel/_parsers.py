@@ -76,9 +76,9 @@ def parse_booking(elm):
     :rtype: Booking
     """
     booking_id = elm.find("./BookingID").text
+    entity = parse_booking_entity(elm.find("./BookingEntity")) \
+        if elm.find("./BookingEntity") is not None else None
     type_code = elm.find("./BookingRefTypeCode").text \
-        if elm.find("./BookingRefTypeCode") is not None else None
-    entity = parse_booking_entity(elm.find("./BookingRefTypeCode")) \
         if elm.find("./BookingRefTypeCode") is not None else None
     return Booking(booking_id,
         entity=entity, type_code=type_code)
