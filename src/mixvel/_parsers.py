@@ -90,7 +90,13 @@ def parse_booking_entity(elm):
     return BookingEntity(carrier=carrier)
 
 def parse_carrier(elm):
-    return Carrier(airline_desig_code=None)
+    airline_desig_code = elm.find("./AirlineDesigCode").text \
+        if elm.find("./AirlineDesigCode") is not None else None
+    mixvel_airline_id = None  # TODO: implement parser
+    return Carrier(
+        airline_desig_code=airline_desig_code,
+        mixvel_airline_id=mixvel_airline_id
+    )
 
 def parse_coupon(elm):
     coupon_number = int(elm.find("./CouponNumber").text)
