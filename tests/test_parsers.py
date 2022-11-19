@@ -17,7 +17,7 @@ from mixvel.models import (
     AirShoppingResponse, OrderViewResponse,
 )
 from mixvel.models import (
-    Amount, Booking, DataLists, DatedMarketingSegment,
+    Amount, Booking, BookingEntity, DataLists, DatedMarketingSegment,
     FareComponent, FareDetail, MixOrder, Offer,
     OfferItem, Order, OrderItem, OriginDest,
     PaxJourney, PaxSegment, Price, RbdAvail,
@@ -79,7 +79,7 @@ class TestTypeParsers:
     @pytest.mark.parametrize("model_path,want", [
         (
             "models/booking.xml",
-            Booking("04G82X", type_code="PNR"),
+            Booking("MMKW90", type_code="PNR", entity=BookingEntity()),
         ),
     ])
     def test_parse_booking(self, model_path, want):
@@ -87,8 +87,10 @@ class TestTypeParsers:
         got = parse_booking(elm)
         assert got.booking_id == want.booking_id
         assert got.booking_ref_type_code == want.booking_ref_type_code
-        if got.booking_entity is None:
-            assert got.booking_entity == None and got.booking_entity == None
+        if want.booking_entity is None:
+            assert got.booking_entity is None
+        else:
+            assert got.booking_entity is not None
 
     @pytest.mark.parametrize("model_path,want", [
         (
