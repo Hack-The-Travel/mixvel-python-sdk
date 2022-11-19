@@ -17,12 +17,12 @@ from mixvel.models import (
     AirShoppingResponse, OrderViewResponse,
 )
 from mixvel.models import (
-    Amount, Booking, BookingEntity, DataLists, DatedMarketingSegment,
-    FareComponent, FareDetail, MixOrder, Offer,
-    OfferItem, Order, OrderItem, OriginDest,
-    PaxJourney, PaxSegment, Price, RbdAvail,
-    Service, ServiceOfferAssociations, Tax, TaxSummary,
-    TransportDepArrival, ValidatingParty,
+    Amount, Booking, BookingEntity, Carrier,
+    DataLists, DatedMarketingSegment, FareComponent, FareDetail,
+    MixOrder, Offer, OfferItem, Order,
+    OrderItem, OriginDest, PaxJourney, PaxSegment,
+    Price, RbdAvail, Service, ServiceOfferAssociations,
+    Tax, TaxSummary, TransportDepArrival, ValidatingParty,
 )
 
 import pytest
