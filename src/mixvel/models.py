@@ -82,8 +82,22 @@ class Booking:
 
 
 class BookingEntity:
+    def __init__(self, carrier=None):
+        """BookingEntity.
+        
+        :param carrier: carrier
+        "type carrier: Carrier or None
+        """
+        self.carrier = carrier
+        # self.org = org  # Mixvel.Api.Schema.Models.OrgType
+
+
+class Carrier:
     def __init__(self):
+        """Carrier.
+        """
         pass
+
 
 class Coupon:
     def __init__(self, coupon_number,
