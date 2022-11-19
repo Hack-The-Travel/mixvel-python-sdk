@@ -66,13 +66,16 @@ class AnonymousPassenger:
 
 
 class Booking:
-    def __init__(self, booking_id):
+    def __init__(self, booking_id, type_code=None):
         """Booking.
 
         :param booking_id: booking id
         :type booking_id: str
+        :param type_code: type code
+        :type type_code: str or None
         """
         self.booking_id = booking_id
+        self.booking_ref_type_code = type_code
 
 
 class Coupon:
