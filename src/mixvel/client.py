@@ -164,7 +164,7 @@ class Client:
         }
         resp = self.__request("/api/Order/retrieve", context)
 
-        return parse_order_view(resp)
+        return parse_order_view_response(resp)
 
     def change_order(self, mix_order_id, amount):
         """Issues tickets.
@@ -179,6 +179,8 @@ class Client:
             "amount": amount,
         }
         resp = self.__request("/api/Order/change", context)
+
+        return parse_order_view_response(resp)
 
     def cancel_order(self, mix_order_id):
         """Cancels order.
