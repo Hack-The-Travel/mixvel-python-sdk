@@ -180,6 +180,8 @@ class Client:
         }
         resp = self.__request("/api/Order/change", context)
 
+        return parse_order_view_response(resp)
+
     def cancel_order(self, mix_order_id):
         """Cancels order.
 
