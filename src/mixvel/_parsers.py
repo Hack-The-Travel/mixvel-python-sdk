@@ -48,10 +48,11 @@ def parse_order_view_response(resp):
     """
     mix_order = parse_mix_order(resp.find("./Response/MixOrder"))
     data_lists = parse_data_lists(resp.find("./Response/DataLists"))
+    ticket_doc_info_nodes = resp.findall("./Response/TicketDocInfo")
     ticket_doc_info = map(
         lambda doc: parse_ticket_doc_info(doc),
-        resp.findall("./Response/TicketDocInfo")
-    )
+        ticket_doc_info_nodes
+    ) if ticket_doc_info_nodes else None
 
     return OrderViewResponse(mix_order, data_lists, ticket_doc_info=ticket_doc_info)
 
