@@ -217,8 +217,8 @@ def parse_order(elm):
         lambda node: parse_booking(node),
         elm.findall("./BookingRef")
     )
-    timelimit = elm.find("./DepositTimeLimitDateTime").text
-    timelimit = datetime.datetime.strptime(timelimit, "%Y-%m-%dT%H:%M:%S")
+    # FIXME: parse timelimit
+    timelimit = datetime.datetime.now() + datetime.timedelta(hours=1)
     total_price = parse_price(elm.find("./TotalPrice"))
 
     return Order(order_id, order_items, booking_refs, timelimit, total_price)
