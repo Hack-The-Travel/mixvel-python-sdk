@@ -75,6 +75,23 @@ class Booking:
         self.booking_id = booking_id
 
 
+class Coupon:
+    def __init__(self, coupon_number,
+        fare_basis_code=None, pax_segment_ref_ids=None):
+        """Coupon.
+        
+        :param coupon_number: coupon number
+        :type coupon_number: int or None
+        :param fare_basis_code: fare basis code
+        :type fare_basis_code: str or None
+        :param pax_segment_ref_ids: pax segment ref IDs 
+        :type pax_segment_ref_ids: list[str] or None
+        """
+        self.coupon_number = coupon_number
+        self.fare_basis_code = fare_basis_code
+        self.pax_segment_ref_ids = pax_segment_ref_ids
+
+
 class DataLists:
     def __init__(self, origin_dest_list=None, pax_journey_list=None, pax_segment_list=None,
         validating_party_list=None):
@@ -506,12 +523,15 @@ class TaxSummary:
 
 
 class Ticket:
-    def __init__(self, ticket_number):
+    def __init__(self, coupons, ticket_number):
         """Ticket.
         
+        :param coupons: coupons
+        :type coupons: list[Coupon]
         :param ticket_number: ticket number
         :type ticket_number: str
         """
+        self.coupons = coupons
         self.ticket_number = ticket_number
 
 

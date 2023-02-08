@@ -2,13 +2,13 @@
 import datetime
 
 from .models import (
-    Amount, AnonymousPassenger, Booking, DataLists,
-    DatedMarketingSegment, FareComponent, FareDetail, MixOrder,
-    Offer, OfferItem, Order, OrderItem,
-    OriginDest, PaxJourney, PaxSegment, Price,
-    RbdAvail, Service, ServiceOfferAssociations, Tax,
-    TaxSummary, Ticket, TicketDocInfo, TransportDepArrival,
-    ValidatingParty,
+    Amount, AnonymousPassenger, Booking, Coupon,
+    DataLists, DatedMarketingSegment, FareComponent, FareDetail,
+    MixOrder, Offer, OfferItem, Order,
+    OrderItem, OriginDest, PaxJourney, PaxSegment,
+    Price, RbdAvail, Service, ServiceOfferAssociations,
+    Tax, TaxSummary, Ticket, TicketDocInfo,
+    TransportDepArrival, ValidatingParty,
 )
 from .models import (
     AirShoppingResponse, OrderViewResponse,
@@ -76,6 +76,17 @@ def parse_booking(elm):
     :rtype: Booking
     """
     return Booking(elm.find("./BookingID").text)
+
+def parse_coupon(elm):
+    coupon_number = int(elm.find("./CouponNumber").text)
+    fare_basis_code = elm.find("./FareBasisCode").text \
+        if elm.find("./FareBasisCode") is not None else None
+    pax_segment_ref_ids = map(
+        lambda ref_id: ref_id.text,
+        elm.findall("./SoldAirlineInfo/PaxSegmentRefID")
+    )
+    return Coupon(coupon_number,
+        fare_basis_code=fare_basis_code, pax_segment_ref_ids=pax_segment_ref_ids)
 
 def parse_data_lists(elm):
     """Parse DataListsType.
@@ -383,8 +394,12 @@ def parse_tax_summary(elm):
     return TaxSummary(taxes, total_tax_amount=total_tax_amount)
 
 def parse_ticket(elm):
+    coupons = map(
+        lambda coupon: parse_coupon(coupon)
+        elm.findall("./Coupon")
+    )
     ticket_number = elm.find("./TicketNumber").text
-    return Ticket(ticket_number)
+    return Ticket(coupons, ticket_number)
 
 def parse_ticket_doc_info(elm):
     pax_ref_id = elm.find("./PaxRefID").text
