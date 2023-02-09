@@ -395,7 +395,7 @@ def parse_tax_summary(elm):
 
 def parse_ticket(elm):
     coupons = map(
-        lambda coupon: parse_coupon(coupon)
+        lambda coupon: parse_coupon(coupon),
         elm.findall("./Coupon")
     )
     ticket_number = elm.find("./TicketNumber").text
