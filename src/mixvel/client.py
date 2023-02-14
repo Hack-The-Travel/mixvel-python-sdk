@@ -20,7 +20,7 @@ from mixvel.models import (
 from .endpoint import is_login_endpoint, request_template
 from .utils import lxml_remove_namespaces
 
-PROD_GATEWAY = "https://api-test.mixvel.com"
+PROD_GATEWAY = "https://api.mixvel.com"
 TEST_GATEWAY = "https://api-test.mixvel.com"
 
 log = logging.getLogger(__name__)
