@@ -96,10 +96,13 @@ class Client:
         lxml_remove_namespaces(resp)
         err = resp.find(".//Error")
         if err is not None:
-            raise IOError("{type}: {code}".format(
-                type=err.find("./ErrorType").text,
-                code=err.find("./Code").text if err.find("./Code") is not None else "no code"
-            ))
+            typ = err.find("./ErrorType").text
+            code = err.find("./Code").text if err.find("./Code") is not None else ""
+            if code == "MIX-106001":
+                raise NoOrdersToCancel
+            if code == "":
+                code = "UNDEFINED"
+            raise IOError("{code}: {type}".format(code=code, type=typ))
 
         return resp.find(".//Body/AppData/")
 
@@ -194,12 +197,5 @@ class Client:
         context = {
             "mix_order_id": mix_order_id,
         }
-        try:
-            resp = self.__request("/api/Order/cancel", context)
-        except IOError:
-            err = resp.find(".//Error")
-            code = err.find("./Code").text if err.find("./Code") is not None else ""
-            if code == "MIX-106001":
-                raise NoOrdersToCancel
-
+        resp = self.__request("/api/Order/cancel", context)
         return is_cancel_success(resp)
