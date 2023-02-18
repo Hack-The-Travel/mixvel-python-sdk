@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 import datetime
-from jinja2 import Environment, FileSystemLoader
 import logging
-from lxml import etree
 import os
-import requests
 import uuid
+
+from jinja2 import Environment, FileSystemLoader
+from lxml import etree
+import requests
 
 from mixvel._parsers import (
     is_cancel_success, parse_air_shopping_response, parse_order_view_response,
@@ -18,6 +19,7 @@ from mixvel.models import (
 )
 
 from .endpoint import is_login_endpoint, request_template
+from .exceptions import NoOrdersToCancel
 from .utils import lxml_remove_namespaces
 
 PROD_GATEWAY = "https://api.mixvel.com"
@@ -94,10 +96,13 @@ class Client:
         lxml_remove_namespaces(resp)
         err = resp.find(".//Error")
         if err is not None:
-            raise IOError("{type}: {code}".format(
-                type=err.find("./ErrorType").text,
-                code=err.find("./Code").text if err.find("./Code") is not None else "no code"
-            ))
+            typ = err.find("./ErrorType").text
+            code = err.find("./Code").text if err.find("./Code") is not None else ""
+            if code == "MIX-106001":
+                raise NoOrdersToCancel
+            if code == "":
+                code = "UNDEFINED"
+            raise IOError("{code}: {type}".format(code=code, type=typ))
 
         return resp.find(".//Body/AppData/")
 
@@ -193,5 +198,4 @@ class Client:
             "mix_order_id": mix_order_id,
         }
         resp = self.__request("/api/Order/cancel", context)
-
         return is_cancel_success(resp)
