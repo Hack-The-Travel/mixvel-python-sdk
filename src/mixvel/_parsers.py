@@ -3,13 +3,12 @@ import datetime
 
 from .models import (
     Amount, AnonymousPassenger, Booking, BookingEntity,
-    Carrier, Coupon,
-    DataLists, DatedMarketingSegment, FareComponent, FareDetail,
-    MixOrder, Offer, OfferItem, Order,
-    OrderItem, OriginDest, PaxJourney, PaxSegment,
-    Price, RbdAvail, Service, ServiceOfferAssociations,
-    Tax, TaxSummary, Ticket, TicketDocInfo,
-    TransportDepArrival, ValidatingParty,
+    Carrier, Coupon, DataLists, DatedMarketingSegment,
+    FareComponent, FareDetail, MixOrder, Offer,
+    OfferItem, Order, OrderItem, OriginDest,
+    PaxJourney, PaxSegment, Price, RbdAvail,
+    Service, ServiceOfferAssociations, Tax, TaxSummary,
+    Ticket, TicketDocInfo, TransportDepArrival, ValidatingParty,
 )
 from .models import (
     AirShoppingResponse, OrderViewResponse,
