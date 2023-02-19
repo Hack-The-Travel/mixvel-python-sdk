@@ -1,4 +1,9 @@
 <BookingRef>
-    <BookingID>04G82X</BookingID>
+    <BookingEntity>
+        <Carrier>
+            <AirlineDesigCode>1H</AirlineDesigCode>
+        </Carrier>
+    </BookingEntity>
+    <BookingID>MMKW90</BookingID>
     <BookingRefTypeCode>PNR</BookingRefTypeCode>
 </BookingRef>
