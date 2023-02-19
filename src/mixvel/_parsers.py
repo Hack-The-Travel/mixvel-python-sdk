@@ -2,13 +2,13 @@
 import datetime
 
 from .models import (
-    Amount, AnonymousPassenger, Booking, Coupon,
-    DataLists, DatedMarketingSegment, FareComponent, FareDetail,
-    MixOrder, Offer, OfferItem, Order,
-    OrderItem, OriginDest, PaxJourney, PaxSegment,
-    Price, RbdAvail, Service, ServiceOfferAssociations,
-    Tax, TaxSummary, Ticket, TicketDocInfo,
-    TransportDepArrival, ValidatingParty,
+    Amount, AnonymousPassenger, Booking, BookingEntity,
+    Carrier, Coupon, DataLists, DatedMarketingSegment,
+    FareComponent, FareDetail, MixOrder, Offer,
+    OfferItem, Order, OrderItem, OriginDest,
+    PaxJourney, PaxSegment, Price, RbdAvail,
+    Service, ServiceOfferAssociations, Tax, TaxSummary,
+    Ticket, TicketDocInfo, TransportDepArrival, ValidatingParty,
 )
 from .models import (
     AirShoppingResponse, OrderViewResponse,
@@ -75,7 +75,27 @@ def parse_booking(elm):
     :type elm: lxml.etree._Element
     :rtype: Booking
     """
-    return Booking(elm.find("./BookingID").text)
+    booking_id = elm.find("./BookingID").text
+    type_code = elm.find("./BookingRefTypeCode").text \
+        if elm.find("./BookingRefTypeCode") is not None else None
+    entity = parse_booking_entity(elm.find("./BookingRefTypeCode")) \
+        if elm.find("./BookingRefTypeCode") is not None else None
+    return Booking(booking_id,
+        entity=entity, type_code=type_code)
+
+def parse_booking_entity(elm):
+    carrier = parse_carrier(elm.find("./Carrier")) \
+        if elm.find("./Carrier") is not None else None
+    return BookingEntity(carrier=carrier)
+
+def parse_carrier(elm):
+    airline_desig_code = elm.find("./AirlineDesigCode").text \
+        if elm.find("./AirlineDesigCode") is not None else None
+    mixvel_airline_id = None  # TODO: implement parser
+    return Carrier(
+        airline_desig_code=airline_desig_code,
+        mixvel_airline_id=mixvel_airline_id
+    )
 
 def parse_coupon(elm):
     coupon_number = int(elm.find("./CouponNumber").text)

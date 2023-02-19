@@ -79,13 +79,16 @@ class TestTypeParsers:
     @pytest.mark.parametrize("model_path,want", [
         (
             "models/booking.xml",
-            Booking("04G82X"),
+            Booking("04G82X", type_code="PNR"),
         ),
     ])
     def test_parse_booking(self, model_path, want):
         elm = parse_xml(model_path).getroot()
         got = parse_booking(elm)
         assert got.booking_id == want.booking_id
+        assert got.booking_ref_type_code == want.booking_ref_type_code
+        if got.booking_entity is None:
+            assert got.booking_entity == None and got.booking_entity == None
 
     @pytest.mark.parametrize("model_path,want", [
         (

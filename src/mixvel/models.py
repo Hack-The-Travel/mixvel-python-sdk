@@ -66,13 +66,43 @@ class AnonymousPassenger:
 
 
 class Booking:
-    def __init__(self, booking_id):
+    def __init__(self, booking_id, entity=None, type_code=None):
         """Booking.
 
         :param booking_id: booking id
         :type booking_id: str
+        :param entity: booking entity
+        :type entity: BookingEntity or None
+        :param type_code: type code
+        :type type_code: str or None
         """
         self.booking_id = booking_id
+        self.booking_entity = entity
+        self.booking_ref_type_code = type_code
+
+
+class BookingEntity:
+    def __init__(self, carrier=None):
+        """BookingEntity.
+        
+        :param carrier: carrier
+        "type carrier: Carrier or None
+        """
+        self.carrier = carrier
+        # self.org = org  # Mixvel.Api.Schema.Models.OrgType
+
+
+class Carrier:
+    def __init__(self, airline_desig_code=None, mixvel_airline_id=None):
+        """Carrier.
+
+        :param airline_desig_code: airline desig code
+        :type airline_desig_code: str or None
+        :param mixvel_airline_id: mixvel airline id
+        :type mixvel_airline_id: str or None
+        """
+        self.airline_desig_code = airline_desig_code
+        self.mixvel_airline_id = mixvel_airline_id
 
 
 class Coupon:
