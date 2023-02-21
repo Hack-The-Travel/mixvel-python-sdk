@@ -33,6 +33,12 @@
             </Pax>
             {% endfor %}
         </Paxs>
+        <ShoppingCriteria>
+            <PricingMethodCriteria>
+                <BestPricingOptionText>Extended</BestPricingOptionText>
+                <CarrierMixInd>true</CarrierMixInd>
+            </PricingMethodCriteria>
+        </ShoppingCriteria>
     </Request>
 </shop:Mixvel_AirShoppingRQ>
 {% endblock %}
