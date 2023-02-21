@@ -98,7 +98,7 @@ def parse_carrier(elm):
     )
 
 def parse_coupon(elm):
-    coupon_number = int(elm.find("./CouponNumber").text)
+    coupon_number = float(elm.find("./CouponNumber").text)
     fare_basis_code = elm.find("./FareBasisCode").text \
         if elm.find("./FareBasisCode") is not None else None
     pax_segment_ref_ids = map(

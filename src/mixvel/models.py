@@ -111,7 +111,7 @@ class Coupon:
         """Coupon.
         
         :param coupon_number: coupon number
-        :type coupon_number: int or None
+        :type coupon_number: float
         :param fare_basis_code: fare basis code
         :type fare_basis_code: str or None
         :param pax_segment_ref_ids: pax segment ref IDs 
