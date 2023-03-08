@@ -174,6 +174,7 @@ class TestTypeParsers:
                 [],  # offer_items
                 "TCH",  # owner_code
                 datetime.datetime(2022, 11, 8, 19, 35, 0),  # timelimit
+                ticket_docs_count=None,
                 total_price=Price(TaxSummary([]), Amount(2024400, "RUB")),
             ),
         ),
@@ -186,6 +187,7 @@ class TestTypeParsers:
         assert got.owner_code == want.owner_code
         assert got.offer_expiration_timelimit_datetime \
             == want.offer_expiration_timelimit_datetime
+        assert got.ticket_docs_count == want.ticket_docs_count
         assert got.total_price.total_amount.amount \
             == want.total_price.total_amount.amount
 
