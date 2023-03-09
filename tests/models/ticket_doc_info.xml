@@ -1,0 +1,109 @@
+<TicketDocInfo>
+    <BookingRef>
+        <BookingEntity>
+            <Carrier>
+                <AirlineDesigCode>1H</AirlineDesigCode>
+            </Carrier>
+        </BookingEntity>
+        <BookingID>NV0MVD</BookingID>
+        <BookingRefTypeCode>PNR</BookingRefTypeCode>
+    </BookingRef>
+    <BookingRef>
+        <BookingEntity>
+            <Carrier>
+                <AirlineDesigCode>SU</AirlineDesigCode>
+            </Carrier>
+        </BookingEntity>
+        <BookingID>50107K</BookingID>
+        <BookingRefTypeCode>PNR</BookingRefTypeCode>
+    </BookingRef>
+    <FareDetail>
+        <FareComponent>
+            <CabinType>
+                <CabinTypeCode>Economy</CabinTypeCode>
+            </CabinType>
+            <FareBasisCode>RNOR</FareBasisCode>
+            <FareRule>
+                <RuleCode>ENR1</RuleCode>
+            </FareRule>
+            <PaxSegmentRefID>06978790-3b53-425d-837f-93a067e35f1a</PaxSegmentRefID>
+            <Price>
+                <BaseAmount CurCode="RUB">4200.00</BaseAmount>
+                <BaseAmountGuaranteeTimeLimitDateTime>2023-04-15T19:27:00</BaseAmountGuaranteeTimeLimitDateTime>
+                <TaxSummary>
+                    <Tax>
+                        <Amount CurCode="RUB">289.00</Amount>
+                        <QualifierCode>aircompany</QualifierCode>
+                        <TaxCode>RI</TaxCode>
+                    </Tax>
+                    <Tax>
+                        <Amount CurCode="RUB">185.00</Amount>
+                        <QualifierCode>aircompany</QualifierCode>
+                        <TaxCode>ZZ</TaxCode>
+                    </Tax>
+                    <TotalTaxAmount CurCode="RUB">474.00</TotalTaxAmount>
+                </TaxSummary>
+                <TotalAmount CurCode="RUB">4674.00</TotalAmount>
+            </Price>
+            <PriceClassRefID>c6dad1c2-8b89-47d7-bdaa-fe29f6cb75f8</PriceClassRefID>
+            <RBD>
+                <RBD_Code>R</RBD_Code>
+            </RBD>
+        </FareComponent>
+        <FareCalculationInfo>
+            <AddInfoText>MOW SU REN4200RUB4200END RI289РУБ</AddInfoText>
+        </FareCalculationInfo>
+        <FarePriceType>
+            <FarePriceTypeCode>Sell</FarePriceTypeCode>
+            <Price>
+                <BaseAmount CurCode="RUB">4200.00</BaseAmount>
+                <TaxSummary>
+                    <Tax>
+                        <Amount CurCode="RUB">289.00</Amount>
+                        <QualifierCode>aircompany</QualifierCode>
+                        <TaxCode>RI</TaxCode>
+                    </Tax>
+                    <Tax>
+                        <Amount CurCode="RUB">185.00</Amount>
+                        <QualifierCode>aircompany</QualifierCode>
+                        <TaxCode>ZZ</TaxCode>
+                    </Tax>
+                    <Tax>
+                        <Amount CurCode="RUB">381.82</Amount>
+                        <QualifierCode>6</QualifierCode>
+                        <TaxCode>VAT Fare</TaxCode>
+                    </Tax>
+                    <Tax>
+                        <Amount CurCode="RUB">30.83</Amount>
+                        <QualifierCode>6</QualifierCode>
+                        <TaxCode>VAT ZZ</TaxCode>
+                    </Tax>
+                    <TotalTaxAmount CurCode="RUB">474.00</TotalTaxAmount>
+                </TaxSummary>
+                <TotalAmount CurCode="RUB">4674.00</TotalAmount>
+            </Price>
+        </FarePriceType>
+    </FareDetail>
+    <IssueDateTime>2023-04-12T19:27:00</IssueDateTime>
+    <PaxRefID>Pax-1</PaxRefID>
+    <Ticket>
+        <Coupon>
+            <CouponNumber>1</CouponNumber>
+            <CouponStatusCode>O</CouponStatusCode>
+            <FareBasisCode>RNOR</FareBasisCode>
+            <ServiceRefID>18fab54b-a69c-48ee-9e44-d89ae5f15eac</ServiceRefID>
+            <SoldAirlineInfo>
+                <PaxSegmentRefID>06978790-3b53-425d-837f-93a067e35f1a</PaxSegmentRefID>
+            </SoldAirlineInfo>
+        </Coupon>
+        <PrimaryDocNumber />
+        <TicketReceipt>
+            <URL>
+                https://minio.mixvel.com:443/itinerary.receipts/61778-230412-OEE0097.5556127910650.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=minio%2F20230412%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230412T162851Z&amp;X-Amz-Expires=604800&amp;X-Amz-SignedHeaders=host&amp;response-content-type=application%2Fpdf&amp;X-Amz-Signature=ab22fbf716592e1c8e112174ec8678d79faf771ff9942f0ba2b917949a56f081
+            </URL>
+        </TicketReceipt>
+        <ReportingTypeCode>TCH</ReportingTypeCode>
+        <TicketDocTypeCode>T</TicketDocTypeCode>
+        <TicketNumber>5556127910650</TicketNumber>
+    </Ticket>
+</TicketDocInfo>
