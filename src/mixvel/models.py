@@ -516,13 +516,16 @@ class Service:
 
 
 class ServiceOfferAssociations:
-    def __init__(self, pax_journey_ref_ids=None):
+    def __init__(self, pax_journey_ref_ids=None, pax_segment_ref_ids=None):
         """ServiceOfferAssociations.
 
         :param pax_journey_ref_ids: (optional) pax journey reference ids
         :type pax_journey_ref_ids: list[str] or None
+        :param pax_segment_ref_ids: (optional) pax segment reference ids
+        :type pax_segment_ref_ids: list[str] or None
         """
         self.pax_journey_ref_ids = pax_journey_ref_ids
+        self.pax_segment_ref_ids = pax_segment_ref_ids
 
 
 class Tax:

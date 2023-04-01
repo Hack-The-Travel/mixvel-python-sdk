@@ -380,9 +380,14 @@ def parse_service_offer_associations(elm):
         lambda ref_id: ref_id.text,
         elm.findall("./PaxJourneyRef/PaxJourneyRefID")
     )
+    pax_segment_ref_ids = map(
+        lambda ref_id: ref_id.text,
+        elm.findall("./PaxSegmentRef/PaxSegmentRefID")
+    )
 
     return ServiceOfferAssociations(
-        pax_journey_ref_ids=pax_journey_ref_ids
+        pax_journey_ref_ids=pax_journey_ref_ids,
+        pax_segment_ref_ids=pax_segment_ref_ids,
     )
 
 def parse_tax(elm):
