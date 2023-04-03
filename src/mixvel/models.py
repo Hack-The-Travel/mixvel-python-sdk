@@ -267,7 +267,7 @@ class MixOrder:
 
 class Offer:
     def __init__(self, offer_id, offer_items, owner_code, offer_expiration_timelimit_datetime,
-        total_price=None):
+        ticket_docs_count=None, total_price=None):
         """Offer.
 
         :param offer_id: offer id
@@ -278,6 +278,8 @@ class Offer:
         :type owner_code: str
         :param offer_expiration_timelimit_datetime: offer expiration timelimit datetime, in UTC
         :type offer_expiration_timelimit_datetime: datetime.datetime
+        :param ticket_docs_count: ticket docs count
+        :type ticket_docs_count: int or None
         :param total_price: (optional) total price
         :type total_price: Price or None
         """
@@ -285,6 +287,7 @@ class Offer:
         self.offer_items = offer_items
         self.owner_code = owner_code 
         self.offer_expiration_timelimit_datetime = offer_expiration_timelimit_datetime
+        self.ticket_docs_count = ticket_docs_count
         self.total_price = total_price
 
 

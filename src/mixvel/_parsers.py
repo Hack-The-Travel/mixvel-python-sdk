@@ -211,11 +211,13 @@ def parse_offer(elm):
     timelimit = elm.find("./OfferExpirationTimeLimitDateTime").text
     timelimit = timelimit.split(".")[0].rstrip('Z')
     timelimit = datetime.datetime.strptime(timelimit, "%Y-%m-%dT%H:%M:%S")
+    ticket_docs_count = int(elm.find("./TicketDocsCount").text) \
+        if elm.find("./TicketDocsCount") is not None else None
     total_price = parse_price(elm.find("./TotalPrice")) \
         if elm.find("./TotalPrice") is not None else None
 
     return Offer(offer_id, offer_items, owner_code, timelimit,
-        total_price=total_price)
+        ticket_docs_count=ticket_docs_count, total_price=total_price)
 
 def parse_offer_item(elm):
     """Parse OfferItemType.

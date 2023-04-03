@@ -174,6 +174,7 @@ class TestTypeParsers:
                 [],  # offer_items
                 "TCH",  # owner_code
                 datetime.datetime(2022, 11, 8, 19, 35, 0),  # timelimit
+                ticket_docs_count=None,
                 total_price=Price(TaxSummary([]), Amount(2024400, "RUB")),
             ),
         ),
@@ -186,6 +187,7 @@ class TestTypeParsers:
         assert got.owner_code == want.owner_code
         assert got.offer_expiration_timelimit_datetime \
             == want.offer_expiration_timelimit_datetime
+        assert got.ticket_docs_count == want.ticket_docs_count
         assert got.total_price.total_amount.amount \
             == want.total_price.total_amount.amount
 
@@ -375,18 +377,35 @@ class TestTypeParsers:
     @pytest.mark.parametrize("model_path,want", [
         (
             "models/service_offer_associations.xml",
-            ServiceOfferAssociations(pax_journey_ref_ids=[
-                "94be4cd4-c9b0-42d2-be5b-9775830c668f",
-                "54728d42-73b5-42e9-8fb5-4b7982e294d0",
-            ]),
+            ServiceOfferAssociations(
+                pax_journey_ref_ids=[
+                    "94be4cd4-c9b0-42d2-be5b-9775830c668f",
+                    "54728d42-73b5-42e9-8fb5-4b7982e294d0",
+                ],
+                pax_segment_ref_ids=None,
+            ),
+        ),
+        (
+            "models/service_offer_associations_with_segment_ref.xml",
+            ServiceOfferAssociations(
+                pax_journey_ref_ids=None,
+                pax_segment_ref_ids=[
+                    "9222bf7d-79e0-481a-b832-2ea0dac317f0",
+                ],
+            )
         ),
     ])
     def test_parse_service_offer_associations(self, model_path, want):
         elm = parse_xml(model_path)
         got = parse_service_offer_associations(elm)
-        assert len(want.pax_journey_ref_ids) == len(got.pax_journey_ref_ids)
-        for i in range(len(want.pax_journey_ref_ids)):
-            got.pax_journey_ref_ids[i] == want.pax_journey_ref_ids[i]
+        if want.pax_journey_ref_ids:
+            assert len(want.pax_journey_ref_ids) == len(got.pax_journey_ref_ids)
+            for i in range(len(want.pax_journey_ref_ids)):
+                got.pax_journey_ref_ids[i] == want.pax_journey_ref_ids[i]
+        if want.pax_segment_ref_ids:
+            assert len(want.pax_segment_ref_ids) == len(got.pax_segment_ref_ids)
+            for i in range(len(want.pax_segment_ref_ids)):
+                got.pax_segment_ref_ids[i] == want.pax_segment_ref_ids[i]
 
     @pytest.mark.parametrize("model_path,want", [
         (
