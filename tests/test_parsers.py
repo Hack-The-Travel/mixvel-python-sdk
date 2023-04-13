@@ -11,7 +11,7 @@ from mixvel._parsers import (
     parse_offer_item, parse_order_item, parse_order, parse_origin_dest,
     parse_pax_journey, parse_pax_segment, parse_price, parse_rbd_avail,
     parse_service, parse_service_offer_associations, parse_tax, parse_tax_summary,
-    parse_transport_dep_arrival, parse_validating_party,
+    parse_ticket_doc_info, parse_transport_dep_arrival, parse_validating_party,
 )
 from mixvel.models import (
     AirShoppingResponse, OrderViewResponse,
@@ -22,7 +22,8 @@ from mixvel.models import (
     MixOrder, Offer, OfferItem, Order,
     OrderItem, OriginDest, PaxJourney, PaxSegment,
     Price, RbdAvail, Service, ServiceOfferAssociations,
-    Tax, TaxSummary, TransportDepArrival, ValidatingParty,
+    Tax, TaxSummary, Ticket, TicketDocInfo,
+    TransportDepArrival, ValidatingParty,
 )
 
 import pytest
@@ -439,6 +440,23 @@ class TestTypeParsers:
                 == want.total_tax_amount.amount
         else:
             assert got.total_tax_amount is None
+
+    @pytest.mark.parametrize("model_path,want", [
+        (
+            "models/ticket_doc_info.xml",
+            TicketDocInfo(
+                "Pax-1",
+                [
+                    Ticket([], "5556127910650"),
+                ]
+            ),
+        ),
+    ])
+    def test_parse_ticket_doc_info(self, model_path, want):
+        elm = parse_xml(model_path)
+        got = parse_ticket_doc_info(elm)
+        assert got.pax_ref_id == want.pax_ref_id
+        assert len(got.tickets) == len(want.tickets)
 
     @pytest.mark.parametrize("model_path,want", [
         (

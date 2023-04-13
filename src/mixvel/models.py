@@ -581,7 +581,7 @@ class TicketDocInfo:
         :type tickets: list[Ticket]
         """
         self.pax_ref_id = pax_ref_id
-        self.ticket = tickets
+        self.tickets = tickets
 
 
 class TransportDepArrival:
