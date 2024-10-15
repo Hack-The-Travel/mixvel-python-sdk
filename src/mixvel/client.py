@@ -89,6 +89,7 @@ class Client:
             raise ValueError("Unknown endpoint: {}".format(endpoint))
         data = self.__prepare_request(template, context)
         self.sent = data
+        log.info(url)
         log.info(self.sent)
         self.recv = None
         r = requests.post(url, data=data, headers=headers, verify=self.verify_ssl)
