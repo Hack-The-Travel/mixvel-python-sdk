@@ -9,14 +9,15 @@ from lxml import etree
 import requests
 
 from mixvel._parsers import (
-    is_cancel_success, parse_air_shopping_response, parse_order_view_response,
+    is_cancel_success,
+    parse_air_shopping_response,
+    parse_order_view_response,
 )
 from mixvel.models import (
-    Passenger, SelectedOffer,
+    Passenger,
+    SelectedOffer,
 )
-from mixvel.models import (
-    AirShoppingResponse
-)
+from mixvel.models import AirShoppingResponse
 
 from .endpoint import is_login_endpoint, request_template
 from .exceptions import NoOrdersToCancel
@@ -30,8 +31,9 @@ here = os.path.dirname(os.path.abspath(__file__))
 
 
 class Client:
-    def __init__(self, login, password, structure_unit_id,
-                 gateway=PROD_GATEWAY, verify_ssl=True):
+    def __init__(
+        self, login, password, structure_unit_id, gateway=PROD_GATEWAY, verify_ssl=True
+    ):
         """MixVel API Client.
 
         :param gateway: (optional) gateway url, default is `PROD_GATEWAY`
@@ -58,7 +60,9 @@ class Client:
         """
         context["message_id"] = uuid.uuid4()
         context["time_sent"] = datetime.datetime.utcnow()
-        template_env = Environment(loader=FileSystemLoader(os.path.join(here, 'templates')))
+        template_env = Environment(
+            loader=FileSystemLoader(os.path.join(here, "templates"))
+        )
         request_template = template_env.get_template(template)
         return request_template.render(context)
 
@@ -87,8 +91,7 @@ class Client:
         self.sent = data
         log.info(self.sent)
         self.recv = None
-        r = requests.post(url,
-            data=data, headers=headers, verify=self.verify_ssl)
+        r = requests.post(url, data=data, headers=headers, verify=self.verify_ssl)
         self.recv = r.content
         log.info(self.recv)
         r.raise_for_status()
