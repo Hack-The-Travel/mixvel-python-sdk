@@ -140,7 +140,7 @@ class Client:
             "itinerary": itinerary,
             "paxes": paxes,
         }
-        resp = self.__request("/api/Order/airshopping", context)
+        resp = self.__request("/api/Order/AirShopping", context)
 
         return parse_air_shopping_response(resp)
 
