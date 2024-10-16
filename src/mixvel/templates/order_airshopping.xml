@@ -17,8 +17,7 @@
                         <IATA_LocationCode>{{ leg.destination }}</IATA_LocationCode>
                     </DestArrivalCriteria>
                     <OriginDepCriteria>
-                        <DateRangeStart>{{ leg.departure }}</DateRangeStart>
-                        <DateRangeEnd>{{ leg.departure }}</DateRangeEnd>
+                        <Date>{{ leg.departure }}</Date>
                         <IATA_LocationCode>{{ leg.origin }}</IATA_LocationCode>
                     </OriginDepCriteria>
                 </OriginDestCriteria>
