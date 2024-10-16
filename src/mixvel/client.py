@@ -114,7 +114,6 @@ class Client:
             raise IOError(
                 "{code}: {type}: {desc}".format(code=code, type=typ, desc=desc)
             )
-
         return resp.find(".//Body/AppData/")
 
     def auth(self):
@@ -148,7 +147,6 @@ class Client:
             "paxes": paxes,
         }
         resp = self.__request("/api/Order/AirShopping", context)
-
         return parse_air_shopping_response(resp)
 
     def create_order(self, selected_offer, paxes):

@@ -54,12 +54,12 @@ def parse_air_shopping_response(resp):
     :type resp: lxml.etree._Element
     :rtype: AirShoppingResponse
     """
-    offers = map(
-        lambda offer: parse_offer(offer),
-        resp.findall("./Response/OffersGroup/CarrierOffers/Offer"),
-    )
-    data_lists = parse_data_lists(resp.find("./Response/DataLists"))
+    offer_elements = resp.findall("./Response/OffersGroup/CarrierOffers/Offer")
+    if len(offer_elements) == 0:
+        return AirShoppingResponse(offers=[], data_lists=DataLists())
 
+    offers = map(lambda offer: parse_offer(offer), offer_elements)
+    data_lists = parse_data_lists(resp.find("./Response/DataLists"))
     return AirShoppingResponse(offers, data_lists)
 
 
