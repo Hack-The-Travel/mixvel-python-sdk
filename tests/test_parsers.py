@@ -79,7 +79,7 @@ class TestParsers:
         resp = parse_xml_response(resp_path)
         assert is_cancel_success(resp)
 
-    def test_parse_no_offers_response(self):
+    def test_parse_air_shopping_response_no_offers(self):
         resp_path = "responses/order/air-shopping__no-offers.xml"
         resp = parse_xml_response(resp_path)
         got = parse_air_shopping_response(resp)
