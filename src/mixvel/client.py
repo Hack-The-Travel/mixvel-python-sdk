@@ -102,11 +102,18 @@ class Client:
         if err is not None:
             typ = err.find("./ErrorType").text
             code = err.find("./Code").text if err.find("./Code") is not None else ""
+            desc = (
+                err.find("./DescText").text.encode("utf-8")
+                if err.find("./DescText") is not None
+                else ""
+            )
             if code == "MIX-106001":
                 raise NoOrdersToCancel
             if code == "":
                 code = "UNDEFINED"
-            raise IOError("{code}: {type}".format(code=code, type=typ))
+            raise IOError(
+                "{code}: {type}: {desc}".format(code=code, type=typ, desc=desc)
+            )
 
         return resp.find(".//Body/AppData/")
 
