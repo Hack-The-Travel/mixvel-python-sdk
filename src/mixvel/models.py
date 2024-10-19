@@ -585,16 +585,16 @@ class TicketDocInfo:
 
 
 class TransportDepArrival:
-    def __init__(self, iata_location_code, aircraft_scheduled_datetime):
+    def __init__(self, iata_location_code, scheduled_date_time):
         """TransportDepArrival.
         
         :param iata_location_code: IATA location code
         :type iata_location_code: str
-        :param aircraft_scheduled_datetime: aircraft scheduled datetime
-        :type aircraft_scheduled_datetime: datetime.datetime
+        :param scheduled_date_time: scheduled local time of departure/arrival
+        :type scheduled_date_time: datetime.datetime
         """
         self.iata_location_code = iata_location_code
-        self.aircraft_scheduled_datetime = aircraft_scheduled_datetime
+        self.scheduled_date_time = scheduled_date_time
 
 
 class ValidatingParty:
