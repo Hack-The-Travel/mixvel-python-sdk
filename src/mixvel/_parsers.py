@@ -54,10 +54,9 @@ def parse_air_shopping_response(resp):
     :type resp: lxml.etree._Element
     :rtype: AirShoppingResponse
     """
-    offer_elements = resp.findall("./Response/OffersGroup/CarrierOffers/Offer")
-    if len(offer_elements) == 0:
+    offer_elements = resp.findall("./Response/Offer")
+    if not offer_elements:
         return AirShoppingResponse(offers=[], data_lists=DataLists())
-
     offers = map(lambda offer: parse_offer(offer), offer_elements)
     data_lists = parse_data_lists(resp.find("./Response/DataLists"))
     return AirShoppingResponse(offers, data_lists)
@@ -516,11 +515,10 @@ def parse_transport_dep_arrival(elm):
     :type elm: lxml.etree._Element
     :rtype: TransportDepArrival
     """
-    location_code = elm.find("./IATA_LocationCode").text
-    scheduled = elm.find("./AircraftScheduledDateTime").text
-    scheduled = datetime.datetime.strptime(scheduled, "%Y-%m-%dT%H:%M:%S")
-
-    return TransportDepArrival(location_code, scheduled)
+    iata_location_code = elm.find("./IATA_LocationCode").text
+    scheduled_date_time = elm.find("./ScheduledDateTime").text
+    scheduled_date_time = datetime.datetime.strptime(scheduled_date_time, "%Y-%m-%dT%H:%M:%S")
+    return TransportDepArrival(iata_location_code, scheduled_date_time)
 
 
 def parse_validating_party(elm):
