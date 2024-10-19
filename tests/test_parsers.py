@@ -91,7 +91,7 @@ class TestParsers:
         [
             "responses/order/air_shopping__from_swagger.xml",
             "responses/order/air_shopping__RT_2ADT1CNN.xml",
-            "responses/order/air_shopping__with_stop.xml",
+            "responses/order/air-shopping__with-stop.xml",
         ],
     )
     def test_parse_air_shopping_response(self, resp_path):
