@@ -1,6 +1,6 @@
 <Dep>
-    <AircraftScheduledDateTime>2022-12-03T07:50:00</AircraftScheduledDateTime>
-    <IATA_LocationCode>LED</IATA_LocationCode>
-    <StationName>Санкт-Петербург(Пулково)</StationName>
-    <TerminalName>1</TerminalName>
+  <ScheduledDateTime>2025-06-13T19:30:00</ScheduledDateTime>
+  <IATA_LocationCode>SVO</IATA_LocationCode>
+  <StationName>Москва(Шереметьево)</StationName>
+  <TerminalName>D</TerminalName>
 </Dep>

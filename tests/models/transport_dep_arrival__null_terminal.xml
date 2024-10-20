@@ -1,5 +1,5 @@
 <Arrival>
-    <AircraftScheduledDateTime>2022-12-03T12:45:00</AircraftScheduledDateTime>
-    <IATA_LocationCode>AER</IATA_LocationCode>
-    <StationName>Сочи</StationName>
+  <ScheduledDateTime>2025-06-13T21:05:00</ScheduledDateTime>
+  <IATA_LocationCode>KVX</IATA_LocationCode>
+  <StationName>Киров(Победилово)</StationName>
 </Arrival>
