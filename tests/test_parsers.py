@@ -157,7 +157,7 @@ class TestTypeParsers:
         "model_path,want",
         [
             (
-                "models/data_lists.xml",
+                "models/data-lists.xml",
                 DataLists(),
             ),
         ],
