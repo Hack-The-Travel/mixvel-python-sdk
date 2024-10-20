@@ -89,8 +89,7 @@ class TestParsers:
     @pytest.mark.parametrize(
         "resp_path",
         [
-            "responses/order/air_shopping__from_swagger.xml",
-            "responses/order/air_shopping__RT_2ADT1CNN.xml",
+            "responses/order/air-shopping__RT-2ADT1CNN.xml",
             "responses/order/air-shopping__with-stop.xml",
         ],
     )
@@ -403,19 +402,19 @@ class TestTypeParsers:
         "model_path,want",
         [
             (
-                "models/pax_segment.xml",
+                "models/pax-segment.xml",
                 PaxSegment(
-                    "ce6596ac-15e2-4e68-9f6b-d9543db0e067",  # pax_segment_id
+                    "f6669d6f-9172-4f6c-9a4c-4c765f332136",
                     TransportDepArrival(
-                        "LED",
-                        datetime.datetime(2022, 12, 3, 7, 50, 0),
-                    ),  # dep
+                        "OVB",
+                        datetime.datetime(2025, 6, 13, 10, 5, 0),
+                    ),
                     TransportDepArrival(
-                        "AER",
-                        datetime.datetime(2022, 12, 3, 12, 45, 0),
-                    ),  # arrival
-                    DatedMarketingSegment("DP", "312"),  # marketing_carrier_info
-                    duration="PT4H55M",
+                        "SVO",
+                        datetime.datetime(2025, 6, 13, 10, 30, 0),
+                    ),
+                    DatedMarketingSegment("SU", "1307"),
+                    duration="PT4H25M",
                 ),
             ),
         ],
@@ -581,21 +580,21 @@ class TestTypeParsers:
         "model_path,want",
         [
             (
-                "models/transport_dep_arrival.xml",
+                "models/transport-dep-arrival.xml",
                 TransportDepArrival(
-                    "LED",  # iata_location_code
+                    "SVO",
                     datetime.datetime(
-                        2022, 12, 3, 7, 50, 0
-                    ),  # aircraft_scheduled_datetime
+                        2025, 6, 13, 19, 30, 0
+                    ),
                 ),
             ),
             (
-                "models/transport_dep_arrival__null_terminal.xml",
+                "models/transport-dep-arrival__null-terminal.xml",
                 TransportDepArrival(
-                    "AER",  # iata_location_code
+                    "KVX",
                     datetime.datetime(
-                        2022, 12, 3, 12, 45, 0
-                    ),  # aircraft_scheduled_datetime
+                        2025, 6, 13, 21, 5, 0
+                    ),
                 ),
             ),
         ],
@@ -603,8 +602,8 @@ class TestTypeParsers:
     def test_parse_transport_dep_arrival(self, model_path, want):
         elm = parse_xml(model_path)
         got = parse_transport_dep_arrival(elm)
-        got.iata_location_code == want.iata_location_code
-        got.aircraft_scheduled_datetime == want.aircraft_scheduled_datetime
+        assert got.iata_location_code == want.iata_location_code
+        assert got.scheduled_date_time == want.scheduled_date_time
 
     @pytest.mark.parametrize(
         "model_path,want",
