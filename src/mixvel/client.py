@@ -162,8 +162,7 @@ class Client:
             "selected_offer": selected_offer,
             "paxes": paxes,
         }
-        resp = self.__request("/api/Order/create", context)
-
+        resp = self.__request("/api/Order/Create", context)
         return parse_order_view_response(resp)
 
     def retrieve_order(self, mix_order_id):
