@@ -480,16 +480,16 @@ class SelectedOffer:
 
 
 class SelectedOfferItem:
-    def __init__(self, offer_item_ref_id, pax_ref_id):
+    def __init__(self, offer_item_ref_id, pax_ref_ids):
         """Selected offer item.
         
         :param offer_item_ref_id: offer item reference id
         :type offer_item_ref_id: str
-        :param pax_ref_id: passenger reference id
-        :type pax_ref_id: str
+        :param pax_ref_ids: list of passenger reference ids
+        :type pax_ref_ids: list[str]
         """
         self.offer_item_ref_id = offer_item_ref_id
-        self.pax_ref_id = pax_ref_id
+        self.pax_ref_ids = pax_ref_ids
 
 
 class Service:

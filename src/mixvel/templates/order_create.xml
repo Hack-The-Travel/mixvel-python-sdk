@@ -9,7 +9,9 @@
                 {% for selected_offer_item in selected_offer.selected_offer_items %}
                 <SelectedOfferItem>
                     <OfferItemRefID>{{ selected_offer_item.offer_item_ref_id }}</OfferItemRefID>
-                    <PaxRefID>{{ selected_offer_item.pax_ref_id }}</PaxRefID>
+                    {% for pax_ref_id in selected_offer_item.pax_ref_ids %}
+                    <PaxRefID>{{ pax_ref_id }}</PaxRefID>
+                    {% endfor %}
                 </SelectedOfferItem>
                 {% endfor %}
             </SelectedOffer>
