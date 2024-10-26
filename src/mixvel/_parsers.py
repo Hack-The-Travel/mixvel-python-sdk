@@ -301,11 +301,9 @@ def parse_order(elm):
     order_id = elm.find("./OrderID").text
     order_items = map(lambda node: parse_order_item(node), elm.findall("./OrderItem"))
     booking_refs = map(lambda node: parse_booking(node), elm.findall("./BookingRef"))
-    # FIXME: parse timelimit
-    timelimit = datetime.datetime.now() + datetime.timedelta(hours=1)
     total_price = parse_price(elm.find("./TotalPrice"))
 
-    return Order(order_id, order_items, booking_refs, timelimit, total_price)
+    return Order(order_id, booking_refs, order_items, total_price)
 
 
 def parse_order_item(elm):

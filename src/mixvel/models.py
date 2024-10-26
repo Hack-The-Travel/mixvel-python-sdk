@@ -312,8 +312,7 @@ class OfferItem:
 
 
 class Order:
-    def __init__(self, order_id, order_items, booking_refs,
-                 deposit_timelimit, total_price):
+    def __init__(self, order_id, booking_refs, order_items, total_price):
         """Order.
         
         :param order_id: order id
@@ -322,15 +321,12 @@ class Order:
         :type order_items: list[OrderItem]
         :param booking_refs: lit of bookings
         :type booking_refs: list[Booking]
-        :param deposit_timelimit: ticketing time limit
-        :type deposit_timelimit: datetime.datetime
         :param total_price: total price
         :type total_price: Amount
         """
         self.order_id = order_id
-        self.order_items = order_items
         self.booking_refs = booking_refs
-        self.deposit_timelimit = deposit_timelimit
+        self.order_items = order_items
         self.total_price = total_price
 
 
