@@ -322,7 +322,7 @@ class Order:
         :param booking_refs: lit of bookings
         :type booking_refs: list[Booking]
         :param total_price: total price
-        :type total_price: Amount
+        :type total_price: Price
         """
         self.order_id = order_id
         self.booking_refs = booking_refs
