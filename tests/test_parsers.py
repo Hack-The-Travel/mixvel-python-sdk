@@ -560,9 +560,9 @@ class TestTypeParsers:
             (
                 "models/ticket_doc_info.xml",
                 TicketDocInfo(
-                    "Pax-1",
+                    "Pax-3",
                     [
-                        Ticket([], "5556127910650"),
+                        Ticket([], "7706102021825"),
                     ],
                 ),
             ),
