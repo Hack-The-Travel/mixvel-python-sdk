@@ -229,8 +229,8 @@ class TestTypeParsers:
         "model_path,want",
         [
             (
-                "models/mix_order.xml",
-                MixOrder("00999-210624-MEE0458", [], Amount(653800, "RUB")),
+                "models/mix-order.xml",
+                MixOrder("01138-250530-MHY6279", [], Amount(486300, "RUB")),
             ),
         ],
     )
@@ -300,11 +300,10 @@ class TestTypeParsers:
             (
                 "models/order.xml",
                 Order(
-                    "00999-210624-OEE0459",
-                    [],  # order_items
+                    "01138-250530-OHY6280",
                     [],  # booking_refs
-                    datetime.datetime(2021, 9, 23, 0, 40, 0),
-                    Price(TaxSummary([]), Amount(653800, "RUB")),
+                    [],  # order_items
+                    Price(TaxSummary([]), Amount(486300, "RUB")),
                 ),
             ),
         ],
@@ -313,9 +312,8 @@ class TestTypeParsers:
         elm = parse_xml(model_path)
         got = parse_order(elm)
         assert got.order_id == want.order_id
-        assert isinstance(got.order_items[0], OrderItem)
         assert isinstance(got.booking_refs[0], Booking)
-        assert got.deposit_timelimit == want.deposit_timelimit
+        assert isinstance(got.order_items[0], OrderItem)
         assert isinstance(got.total_price, Price)
 
     @pytest.mark.parametrize(
