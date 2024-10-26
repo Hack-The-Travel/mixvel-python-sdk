@@ -29,6 +29,6 @@ def request_template(endpoint):
         "/api/Order/AirShopping": "order_airshopping.xml",
         "/api/Order/Create": "order_create.xml",
         "/api/Order/Retrieve": "order_retrieve.xml",
-        "/api/Order/change": "order_change.xml",
+        "/api/Order/Change": "order_change.xml",
         "/api/Order/cancel": "order_cancel.xml",
     }.get(endpoint, None)

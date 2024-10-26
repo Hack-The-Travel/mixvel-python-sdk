@@ -191,7 +191,7 @@ class Client:
             "mix_order_id": mix_order_id,
             "amount": amount,
         }
-        resp = self.__request("/api/Order/change", context)
+        resp = self.__request("/api/Order/Change", context)
 
         return parse_order_view_response(resp)
 
