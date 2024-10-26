@@ -175,7 +175,7 @@ class Client:
         context = {
             "mix_order_id": mix_order_id,
         }
-        resp = self.__request("/api/Order/retrieve", context)
+        resp = self.__request("/api/Order/Retrieve", context)
 
         return parse_order_view_response(resp)
 
