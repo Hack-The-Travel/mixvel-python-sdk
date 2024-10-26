@@ -1,166 +1,624 @@
 <Order>
-    <BookingRef>
-        <BookingID>04G82X</BookingID>
-        <BookingRefTypeCode>PNR</BookingRefTypeCode>
-    </BookingRef>
-    <DepositTimeLimitDateTime>2021-09-23T00:40:00</DepositTimeLimitDateTime>
-    <OrderID>00999-210624-OEE0459</OrderID>
-    <OrderItem>
-        <FareDetail>
-            <FareComponent>
-                <CabinType>
-                    <CabinTypeCode>Economy</CabinTypeCode>
-                </CabinType>
-                <FareBasisCode>RPROWRF</FareBasisCode>
-                <FareRule>
-                    <RuleCode>PRR1</RuleCode>
-                </FareRule>
-                <PaxSegmentRefID>2b8e572b-f9d5-4045-8986-1ddd88f2bb66</PaxSegmentRefID>
-                <Price>
-                    <TaxSummary>
-                        <Tax>
-                            <Amount>0</Amount>
-                            <QualifierCode>aircompany</QualifierCode>
-                            <TaxCode>YR</TaxCode>
-                        </Tax>
-                        <Tax>
-                            <Amount>0</Amount>
-                            <QualifierCode>aircompany</QualifierCode>
-                            <TaxCode>YQ</TaxCode>
-                        </Tax>
-                        <Tax>
-                            <Amount>0</Amount>
-                            <QualifierCode>aircompany</QualifierCode>
-                            <TaxCode>ZZ</TaxCode>
-                        </Tax>
-                        <Tax>
-                            <Amount>0</Amount>
-                            <QualifierCode>aircompany</QualifierCode>
-                            <TaxCode>RI</TaxCode>
-                        </Tax>
-                    </TaxSummary>
-                    <TotalAmount CurCode="RUB">3269.00</TotalAmount>
-                </Price>
-                <RBD>
-                    <RBD_Code>R</RBD_Code>
-                </RBD>
-            </FareComponent>
-            <PaxRefID>Pax-1</PaxRefID>
-        </FareDetail>
-        <FareDetail>
-            <FareComponent>
-                <CabinType>
-                    <CabinTypeCode>Economy</CabinTypeCode>
-                </CabinType>
-                <FareBasisCode>RPROWRF</FareBasisCode>
-                <FareRule>
-                    <RuleCode>PRR1</RuleCode>
-                </FareRule>
-                <PaxSegmentRefID>2b8e572b-f9d5-4045-8986-1ddd88f2bb66</PaxSegmentRefID>
-                <Price>
-                    <TaxSummary>
-                        <Tax>
-                            <Amount>0</Amount>
-                            <QualifierCode>aircompany</QualifierCode>
-                            <TaxCode>RI</TaxCode>
-                        </Tax>
-                        <Tax>
-                            <Amount>0</Amount>
-                            <QualifierCode>aircompany</QualifierCode>
-                            <TaxCode>YR</TaxCode>
-                        </Tax>
-                        <Tax>
-                            <Amount>0</Amount>
-                            <QualifierCode>aircompany</QualifierCode>
-                            <TaxCode>YQ</TaxCode>
-                        </Tax>
-                        <Tax>
-                            <Amount>0</Amount>
-                            <QualifierCode>aircompany</QualifierCode>
-                            <TaxCode>ZZ</TaxCode>
-                        </Tax>
-                    </TaxSummary>
-                    <TotalAmount CurCode="RUB">3269.00</TotalAmount>
-                </Price>
-                <RBD>
-                    <RBD_Code>R</RBD_Code>
-                </RBD>
-            </FareComponent>
-            <PaxRefID>Pax-2</PaxRefID>
-        </FareDetail>
-        <OrderItemID>fa21bac3-6a8c-4066-8477-148bc5f63a31</OrderItemID>
-        <OwnerCode>TCH</OwnerCode>
+  <BookingRef>
+    <BookingEntity>
+      <Carrier>
+        <AirlineDesigCode>1H</AirlineDesigCode>
+      </Carrier>
+    </BookingEntity>
+    <BookingID>27ZRDD</BookingID>
+    <BookingRefTypeCode>PNR</BookingRefTypeCode>
+  </BookingRef>
+  <BookingRef>
+    <BookingEntity>
+      <Carrier>
+        <AirlineDesigCode>EO</AirlineDesigCode>
+      </Carrier>
+    </BookingEntity>
+    <BookingID>1K5RMM</BookingID>
+    <BookingRefTypeCode>PNR</BookingRefTypeCode>
+  </BookingRef>
+  <CreationDateTime>2025-05-30T15:49:00</CreationDateTime>
+  <TicketDocsCount TicketCount="3" EMDCount="0">3</TicketDocsCount>
+  <OrderID>01138-250530-OHY6280</OrderID>
+  <OrderItem>
+    <FareDetail>
+      <ClosedFare>false</ClosedFare>
+      <FareComponent>
+        <CabinType>
+          <CabinTypeCode>Economy</CabinTypeCode>
+          <BookingCabinTypeCode>Economy</BookingCabinTypeCode>
+        </CabinType>
+        <FareBasisAppCode>ELTRT</FareBasisAppCode>
+        <TicketCoupon>1</TicketCoupon>
+        <FareBasisCode>ELTRT</FareBasisCode>
+        <FareRule>
+          <RuleCode>0201</RuleCode>
+        </FareRule>
+        <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
         <Price>
-            <TaxSummary>
-                <Tax>
-                    <Amount>0</Amount>
-                    <QualifierCode>aircompany</QualifierCode>
-                    <TaxCode>YR</TaxCode>
-                </Tax>
-                <Tax>
-                    <Amount>0</Amount>
-                    <QualifierCode>aircompany</QualifierCode>
-                    <TaxCode>YQ</TaxCode>
-                </Tax>
-                <Tax>
-                    <Amount>0</Amount>
-                    <QualifierCode>aircompany</QualifierCode>
-                    <TaxCode>ZZ</TaxCode>
-                </Tax>
-                <Tax>
-                    <Amount>0</Amount>
-                    <QualifierCode>aircompany</QualifierCode>
-                    <TaxCode>RI</TaxCode>
-                </Tax>
-                <TotalTaxAmount>0</TotalTaxAmount>
-            </TaxSummary>
-            <TotalAmount CurCode="RUB">6538.00</TotalAmount>
+          <BaseAmount CurCode="RUB">420.00</BaseAmount>
+          <BaseAmountGuaranteeTimeLimitDateTime>2025-05-30T16:19:00</BaseAmountGuaranteeTimeLimitDateTime>
+          <TaxSummary>
+            <Tax>
+              <Amount CurCode="RUB">140.00</Amount>
+              <QualifierCode>aircompany</QualifierCode>
+              <CurConversion>
+                <Amount CurCode="RUB">140.00</Amount>
+              </CurConversion>
+              <TaxCode>Q</TaxCode>
+            </Tax>
+            <Tax>
+              <Amount CurCode="RUB">350.00</Amount>
+              <QualifierCode>aircompany</QualifierCode>
+              <TaxCode>RI</TaxCode>
+            </Tax>
+            <TotalTaxAmount CurCode="RUB">490.00</TotalTaxAmount>
+          </TaxSummary>
+          <TotalAmount CurCode="RUB">910.00</TotalAmount>
         </Price>
-        <Service>
-            <PaxRefID>Pax-1</PaxRefID>
-            <ServiceAssociations>
-                <PaxSegmentRef>
-                    <PaxSegmentRefID>2b8e572b-f9d5-4045-8986-1ddd88f2bb66</PaxSegmentRefID>
-                </PaxSegmentRef>
-            </ServiceAssociations>
-            <ServiceID>4c227e56-627c-4272-ae2f-f472eacebcab</ServiceID>
-        </Service>
-        <Service>
-            <PaxRefID>Pax-2</PaxRefID>
-            <ServiceAssociations>
-                <PaxSegmentRef>
-                    <PaxSegmentRefID>2b8e572b-f9d5-4045-8986-1ddd88f2bb66</PaxSegmentRefID>
-                </PaxSegmentRef>
-            </ServiceAssociations>
-            <ServiceID>628fb5a5-eb13-4bdb-a6c9-30b4cfb9a23e</ServiceID>
-        </Service>
-    </OrderItem>
-    <OwnerCode>TCH</OwnerCode>
-    <StatusCode>OPENED</StatusCode>
-    <TotalPrice>
+        <PriceClassRefID>686a7e16-d22c-4a6e-8ae4-622d8d8ce3cd</PriceClassRefID>
+        <RBD>
+          <RBD_Code>E</RBD_Code>
+        </RBD>
+      </FareComponent>
+      <FareComponent>
+        <CabinType>
+          <CabinTypeCode>Economy</CabinTypeCode>
+          <BookingCabinTypeCode>Economy</BookingCabinTypeCode>
+        </CabinType>
+        <FareBasisAppCode>ELTRT</FareBasisAppCode>
+        <TicketCoupon>2</TicketCoupon>
+        <FareBasisCode>ELTRT</FareBasisCode>
+        <FareRule>
+          <RuleCode>0201</RuleCode>
+        </FareRule>
+        <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+        <Price>
+          <BaseAmount CurCode="RUB">420.00</BaseAmount>
+          <BaseAmountGuaranteeTimeLimitDateTime>2025-05-30T16:19:00</BaseAmountGuaranteeTimeLimitDateTime>
+          <TaxSummary>
+            <Tax>
+              <Amount CurCode="RUB">477.00</Amount>
+              <QualifierCode>aircompany</QualifierCode>
+              <TaxCode>RI</TaxCode>
+            </Tax>
+            <TotalTaxAmount CurCode="RUB">477.00</TotalTaxAmount>
+          </TaxSummary>
+          <TotalAmount CurCode="RUB">897.00</TotalAmount>
+        </Price>
+        <PriceClassRefID>686a7e16-d22c-4a6e-8ae4-622d8d8ce3cd</PriceClassRefID>
+        <RBD>
+          <RBD_Code>E</RBD_Code>
+        </RBD>
+      </FareComponent>
+      <PaxRefID>Pax-1</PaxRefID>
+      <Price>
+        <BaseAmount CurCode="RUB">840.00</BaseAmount>
         <TaxSummary>
-            <Tax>
-                <Amount>0</Amount>
-                <QualifierCode>aircompany</QualifierCode>
-                <TaxCode>YR</TaxCode>
-            </Tax>
-            <Tax>
-                <Amount>0</Amount>
-                <QualifierCode>aircompany</QualifierCode>
-                <TaxCode>YQ</TaxCode>
-            </Tax>
-            <Tax>
-                <Amount>0</Amount>
-                <QualifierCode>aircompany</QualifierCode>
-                <TaxCode>ZZ</TaxCode>
-            </Tax>
-            <Tax>
-                <Amount>0</Amount>
-                <QualifierCode>aircompany</QualifierCode>
-                <TaxCode>RI</TaxCode>
-            </Tax>
-            <TotalTaxAmount>0</TotalTaxAmount>
+          <Tax>
+            <Amount CurCode="RUB">140.00</Amount>
+            <QualifierCode>aircompany</QualifierCode>
+            <TaxCode>Q</TaxCode>
+          </Tax>
+          <Tax>
+            <Amount CurCode="RUB">827.00</Amount>
+            <QualifierCode>aircompany</QualifierCode>
+            <TaxCode>RI</TaxCode>
+          </Tax>
+          <TotalTaxAmount CurCode="RUB">967.00</TotalTaxAmount>
         </TaxSummary>
-        <TotalAmount CurCode="RUB">6538.00</TotalAmount>
-    </TotalPrice>
+        <TotalAmount CurCode="RUB">1807.00</TotalAmount>
+      </Price>
+    </FareDetail>
+    <OrderItemID>aec9dca5-14b0-4540-9e57-bd8208cd31be</OrderItemID>
+    <OwnerCode>TCH</OwnerCode>
+    <PaymentTimeLimitDateTime>2025-06-04T12:50:00Z</PaymentTimeLimitDateTime>
+    <Price>
+      <BaseAmount CurCode="RUB">840.00</BaseAmount>
+      <TaxSummary>
+        <Tax>
+          <Amount CurCode="RUB">140.00</Amount>
+          <QualifierCode>aircompany</QualifierCode>
+          <TaxCode>Q</TaxCode>
+        </Tax>
+        <Tax>
+          <Amount CurCode="RUB">827.00</Amount>
+          <QualifierCode>aircompany</QualifierCode>
+          <TaxCode>RI</TaxCode>
+        </Tax>
+        <TotalTaxAmount CurCode="RUB">967.00</TotalTaxAmount>
+      </TaxSummary>
+      <TotalAmount CurCode="RUB">1807.00</TotalAmount>
+    </Price>
+    <Service>
+      <PaxRefID OriginRef="12">Pax-1</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+      </ServiceAssociations>
+      <ServiceID>53a9e38e-e80b-4eb5-acbd-accbef361e48</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="12">Pax-1</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>3ae7e644-0f62-4496-8dc4-2e3cb8676384</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>4c1f7480-2735-4b14-8968-d83e0a1aa0a6</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="12">Pax-1</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>a62ea2a2-29b7-454f-b757-24cd7b9d24f7</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>71729390-606d-4fe1-b2c3-57afcb15fe62</ServiceID>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="12">Pax-1</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+      </ServiceAssociations>
+      <ServiceID>da639efd-0f82-48a8-a82a-25098e02a231</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="12">Pax-1</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>3ae7e644-0f62-4496-8dc4-2e3cb8676384</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>13af329f-4fc3-45a7-a153-57dbab4dcfc5</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="12">Pax-1</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>a62ea2a2-29b7-454f-b757-24cd7b9d24f7</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>b8df77b5-5842-40a9-a8c9-0eadd1d9f332</ServiceID>
+    </Service>
+  </OrderItem>
+  <OrderItem>
+    <FareDetail>
+      <ClosedFare>false</ClosedFare>
+      <FareComponent>
+        <CabinType>
+          <CabinTypeCode>Economy</CabinTypeCode>
+          <BookingCabinTypeCode>Economy</BookingCabinTypeCode>
+        </CabinType>
+        <FareBasisAppCode>ELTRT</FareBasisAppCode>
+        <TicketCoupon>1</TicketCoupon>
+        <FareBasisCode>ELTRT</FareBasisCode>
+        <FareRule>
+          <RuleCode>0201</RuleCode>
+        </FareRule>
+        <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+        <Price>
+          <BaseAmount CurCode="RUB">420.00</BaseAmount>
+          <BaseAmountGuaranteeTimeLimitDateTime>2025-05-30T16:19:00</BaseAmountGuaranteeTimeLimitDateTime>
+          <TaxSummary>
+            <Tax>
+              <Amount CurCode="RUB">140.00</Amount>
+              <QualifierCode>aircompany</QualifierCode>
+              <CurConversion>
+                <Amount CurCode="RUB">140.00</Amount>
+              </CurConversion>
+              <TaxCode>Q</TaxCode>
+            </Tax>
+            <Tax>
+              <Amount CurCode="RUB">350.00</Amount>
+              <QualifierCode>aircompany</QualifierCode>
+              <TaxCode>RI</TaxCode>
+            </Tax>
+            <TotalTaxAmount CurCode="RUB">490.00</TotalTaxAmount>
+          </TaxSummary>
+          <TotalAmount CurCode="RUB">910.00</TotalAmount>
+        </Price>
+        <PriceClassRefID>686a7e16-d22c-4a6e-8ae4-622d8d8ce3cd</PriceClassRefID>
+        <RBD>
+          <RBD_Code>E</RBD_Code>
+        </RBD>
+      </FareComponent>
+      <FareComponent>
+        <CabinType>
+          <CabinTypeCode>Economy</CabinTypeCode>
+          <BookingCabinTypeCode>Economy</BookingCabinTypeCode>
+        </CabinType>
+        <FareBasisAppCode>ELTRT</FareBasisAppCode>
+        <TicketCoupon>2</TicketCoupon>
+        <FareBasisCode>ELTRT</FareBasisCode>
+        <FareRule>
+          <RuleCode>0201</RuleCode>
+        </FareRule>
+        <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+        <Price>
+          <BaseAmount CurCode="RUB">420.00</BaseAmount>
+          <BaseAmountGuaranteeTimeLimitDateTime>2025-05-30T16:19:00</BaseAmountGuaranteeTimeLimitDateTime>
+          <TaxSummary>
+            <Tax>
+              <Amount CurCode="RUB">477.00</Amount>
+              <QualifierCode>aircompany</QualifierCode>
+              <TaxCode>RI</TaxCode>
+            </Tax>
+            <TotalTaxAmount CurCode="RUB">477.00</TotalTaxAmount>
+          </TaxSummary>
+          <TotalAmount CurCode="RUB">897.00</TotalAmount>
+        </Price>
+        <PriceClassRefID>686a7e16-d22c-4a6e-8ae4-622d8d8ce3cd</PriceClassRefID>
+        <RBD>
+          <RBD_Code>E</RBD_Code>
+        </RBD>
+      </FareComponent>
+      <PaxRefID>Pax-2</PaxRefID>
+      <Price>
+        <BaseAmount CurCode="RUB">840.00</BaseAmount>
+        <TaxSummary>
+          <Tax>
+            <Amount CurCode="RUB">140.00</Amount>
+            <QualifierCode>aircompany</QualifierCode>
+            <TaxCode>Q</TaxCode>
+          </Tax>
+          <Tax>
+            <Amount CurCode="RUB">827.00</Amount>
+            <QualifierCode>aircompany</QualifierCode>
+            <TaxCode>RI</TaxCode>
+          </Tax>
+          <TotalTaxAmount CurCode="RUB">967.00</TotalTaxAmount>
+        </TaxSummary>
+        <TotalAmount CurCode="RUB">1807.00</TotalAmount>
+      </Price>
+    </FareDetail>
+    <OrderItemID>0bdbd0af-db65-4641-807d-96df1dd88d6c</OrderItemID>
+    <OwnerCode>TCH</OwnerCode>
+    <PaymentTimeLimitDateTime>2025-06-04T12:50:00Z</PaymentTimeLimitDateTime>
+    <Price>
+      <BaseAmount CurCode="RUB">840.00</BaseAmount>
+      <TaxSummary>
+        <Tax>
+          <Amount CurCode="RUB">140.00</Amount>
+          <QualifierCode>aircompany</QualifierCode>
+          <TaxCode>Q</TaxCode>
+        </Tax>
+        <Tax>
+          <Amount CurCode="RUB">827.00</Amount>
+          <QualifierCode>aircompany</QualifierCode>
+          <TaxCode>RI</TaxCode>
+        </Tax>
+        <TotalTaxAmount CurCode="RUB">967.00</TotalTaxAmount>
+      </TaxSummary>
+      <TotalAmount CurCode="RUB">1807.00</TotalAmount>
+    </Price>
+    <Service>
+      <PaxRefID OriginRef="14">Pax-2</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+      </ServiceAssociations>
+      <ServiceID>ab2592e0-bb9b-47e5-a214-4913994e7a26</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="14">Pax-2</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>3ae7e644-0f62-4496-8dc4-2e3cb8676384</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>bf9317d6-b2b1-47db-83d7-2081f7c816d7</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="14">Pax-2</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>a62ea2a2-29b7-454f-b757-24cd7b9d24f7</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>473624f6-0ff5-485f-9c5c-d25f37da86ac</ServiceID>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="14">Pax-2</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+      </ServiceAssociations>
+      <ServiceID>eaec26ef-ccd1-4673-8f68-d6f15d69bf4c</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="14">Pax-2</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>3ae7e644-0f62-4496-8dc4-2e3cb8676384</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>cc5b3049-f032-40b8-ae24-28d4e542f1ba</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="14">Pax-2</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>a62ea2a2-29b7-454f-b757-24cd7b9d24f7</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>f2273d20-c7e8-4924-a2f4-53433e20aacc</ServiceID>
+    </Service>
+  </OrderItem>
+  <OrderItem>
+    <FareDetail>
+      <ClosedFare>false</ClosedFare>
+      <FareComponent>
+        <CabinType>
+          <CabinTypeCode>Economy</CabinTypeCode>
+          <BookingCabinTypeCode>Economy</BookingCabinTypeCode>
+        </CabinType>
+        <FareBasisAppCode>ELTRT</FareBasisAppCode>
+        <TicketCoupon>1</TicketCoupon>
+        <FareBasisCode>ELTRT/CN15</FareBasisCode>
+        <FareRule>
+          <RuleCode>0201</RuleCode>
+        </FareRule>
+        <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+        <Price>
+          <BaseAmount CurCode="RUB">357.00</BaseAmount>
+          <BaseAmountGuaranteeTimeLimitDateTime>2025-05-30T16:19:00</BaseAmountGuaranteeTimeLimitDateTime>
+          <EquivAmount CurCode="RUB">357.50</EquivAmount>
+          <TaxSummary>
+            <Tax>
+              <Amount CurCode="RUB">120.00</Amount>
+              <QualifierCode>aircompany</QualifierCode>
+              <CurConversion>
+                <Amount CurCode="RUB">121.00</Amount>
+              </CurConversion>
+              <TaxCode>Q</TaxCode>
+            </Tax>
+            <Tax>
+              <Amount CurCode="RUB">175.00</Amount>
+              <QualifierCode>aircompany</QualifierCode>
+              <TaxCode>RI</TaxCode>
+            </Tax>
+            <TotalTaxAmount CurCode="RUB">295.00</TotalTaxAmount>
+          </TaxSummary>
+          <TotalAmount CurCode="RUB">652.50</TotalAmount>
+        </Price>
+        <PriceClassRefID>686a7e16-d22c-4a6e-8ae4-622d8d8ce3cd</PriceClassRefID>
+        <RBD>
+          <RBD_Code>E</RBD_Code>
+        </RBD>
+        <TicketDesigCode>CN15</TicketDesigCode>
+      </FareComponent>
+      <FareComponent>
+        <CabinType>
+          <CabinTypeCode>Economy</CabinTypeCode>
+          <BookingCabinTypeCode>Economy</BookingCabinTypeCode>
+        </CabinType>
+        <FareBasisAppCode>ELTRT</FareBasisAppCode>
+        <TicketCoupon>2</TicketCoupon>
+        <FareBasisCode>ELTRT/CN15</FareBasisCode>
+        <FareRule>
+          <RuleCode>0201</RuleCode>
+        </FareRule>
+        <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+        <Price>
+          <BaseAmount CurCode="RUB">357.00</BaseAmount>
+          <BaseAmountGuaranteeTimeLimitDateTime>2025-05-30T16:19:00</BaseAmountGuaranteeTimeLimitDateTime>
+          <EquivAmount CurCode="RUB">357.50</EquivAmount>
+          <TaxSummary>
+            <Tax>
+              <Amount CurCode="RUB">239.00</Amount>
+              <QualifierCode>aircompany</QualifierCode>
+              <TaxCode>RI</TaxCode>
+            </Tax>
+            <TotalTaxAmount CurCode="RUB">239.00</TotalTaxAmount>
+          </TaxSummary>
+          <TotalAmount CurCode="RUB">596.50</TotalAmount>
+        </Price>
+        <PriceClassRefID>686a7e16-d22c-4a6e-8ae4-622d8d8ce3cd</PriceClassRefID>
+        <RBD>
+          <RBD_Code>E</RBD_Code>
+        </RBD>
+        <TicketDesigCode>CN15</TicketDesigCode>
+      </FareComponent>
+      <PaxRefID>Pax-3</PaxRefID>
+      <Price>
+        <BaseAmount CurCode="RUB">714.00</BaseAmount>
+        <EquivAmount CurCode="RUB">715.00</EquivAmount>
+        <TaxSummary>
+          <Tax>
+            <Amount CurCode="RUB">120.00</Amount>
+            <QualifierCode>aircompany</QualifierCode>
+            <TaxCode>Q</TaxCode>
+          </Tax>
+          <Tax>
+            <Amount CurCode="RUB">414.00</Amount>
+            <QualifierCode>aircompany</QualifierCode>
+            <TaxCode>RI</TaxCode>
+          </Tax>
+          <TotalTaxAmount CurCode="RUB">534.00</TotalTaxAmount>
+        </TaxSummary>
+        <TotalAmount CurCode="RUB">1249.00</TotalAmount>
+      </Price>
+    </FareDetail>
+    <OrderItemID>b00c92f3-044e-4d67-96e8-501a3dc9ea1e</OrderItemID>
+    <OwnerCode>TCH</OwnerCode>
+    <PaymentTimeLimitDateTime>2025-06-04T12:50:00Z</PaymentTimeLimitDateTime>
+    <Price>
+      <BaseAmount CurCode="RUB">714.00</BaseAmount>
+      <EquivAmount CurCode="RUB">715.00</EquivAmount>
+      <TaxSummary>
+        <Tax>
+          <Amount CurCode="RUB">120.00</Amount>
+          <QualifierCode>aircompany</QualifierCode>
+          <TaxCode>Q</TaxCode>
+        </Tax>
+        <Tax>
+          <Amount CurCode="RUB">414.00</Amount>
+          <QualifierCode>aircompany</QualifierCode>
+          <TaxCode>RI</TaxCode>
+        </Tax>
+        <TotalTaxAmount CurCode="RUB">534.00</TotalTaxAmount>
+      </TaxSummary>
+      <TotalAmount CurCode="RUB">1249.00</TotalAmount>
+    </Price>
+    <Service>
+      <PaxRefID OriginRef="16">Pax-3</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+      </ServiceAssociations>
+      <ServiceID>6e201b9f-2476-4ac2-8833-8147bb131fc2</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="16">Pax-3</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>3ae7e644-0f62-4496-8dc4-2e3cb8676384</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>1761a752-43ed-41df-84be-4086e4062b1b</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="16">Pax-3</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>9b4e06a5-5010-4d0d-8204-6593cd88d953</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>a62ea2a2-29b7-454f-b757-24cd7b9d24f7</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>facea633-1ea7-4442-97e7-dff84fbc0c3c</ServiceID>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="16">Pax-3</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+      </ServiceAssociations>
+      <ServiceID>4d75b2d3-d245-4646-896d-86be38ab5b01</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="16">Pax-3</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>3ae7e644-0f62-4496-8dc4-2e3cb8676384</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>425b1704-4f58-489c-baae-c050fd626ab9</ServiceID>
+      <StatusCode>HK</StatusCode>
+    </Service>
+    <Service>
+      <PaxRefID OriginRef="16">Pax-3</PaxRefID>
+      <ValidatingPartyRefID>364619e5-0c20-47c1-812c-b6d4a0a6a26c</ValidatingPartyRefID>
+      <ServiceAssociations>
+        <ServiceDefinitionRef>
+          <ServiceDefinitionRefFlightAssociations>
+            <PaxSegmentRef>
+              <PaxSegmentRefID>33ff59c2-aa1b-4cdc-b5c4-637456adee24</PaxSegmentRefID>
+            </PaxSegmentRef>
+          </ServiceDefinitionRefFlightAssociations>
+          <ServiceDefinitionRefID>a62ea2a2-29b7-454f-b757-24cd7b9d24f7</ServiceDefinitionRefID>
+        </ServiceDefinitionRef>
+      </ServiceAssociations>
+      <ServiceID>3fd2e504-8d77-4b63-9fc1-86c92d2e888a</ServiceID>
+    </Service>
+  </OrderItem>
+  <OriginDestRefID>527f1923-b1d2-403a-b6d6-b845179a7586</OriginDestRefID>
+  <OriginDestRefID>b473bdf4-c19c-4df5-bd5a-28ef0e5c72b6</OriginDestRefID>
+  <OwnerCode>TCH</OwnerCode>
+  <RelevanceDateTime>2025-05-30T12:49:06.3733079Z</RelevanceDateTime>
+  <StatusCode>OPENED</StatusCode>
+  <TotalPrice>
+    <EquivAmount CurCode="RUB">2395.00</EquivAmount>
+    <TaxSummary>
+      <Tax>
+        <Amount CurCode="RUB">400.00</Amount>
+        <QualifierCode>aircompany</QualifierCode>
+        <TaxCode>Q</TaxCode>
+      </Tax>
+      <Tax>
+        <Amount CurCode="RUB">2068.00</Amount>
+        <QualifierCode>aircompany</QualifierCode>
+        <TaxCode>RI</TaxCode>
+      </Tax>
+      <TotalTaxAmount CurCode="RUB">2468.00</TotalTaxAmount>
+    </TaxSummary>
+    <TotalAmount CurCode="RUB">4863.00</TotalAmount>
+  </TotalPrice>
 </Order>
