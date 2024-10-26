@@ -30,5 +30,5 @@ def request_template(endpoint):
         "/api/Order/Create": "order_create.xml",
         "/api/Order/Retrieve": "order_retrieve.xml",
         "/api/Order/Change": "order_change.xml",
-        "/api/Order/cancel": "order_cancel.xml",
+        "/api/Order/Cancel": "order_cancel.xml",
     }.get(endpoint, None)

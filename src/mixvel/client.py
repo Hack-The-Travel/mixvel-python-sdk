@@ -205,5 +205,5 @@ class Client:
         context = {
             "mix_order_id": mix_order_id,
         }
-        resp = self.__request("/api/Order/cancel", context)
+        resp = self.__request("/api/Order/Cancel", context)
         return is_cancel_success(resp)
