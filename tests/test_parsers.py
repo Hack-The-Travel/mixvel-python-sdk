@@ -558,7 +558,7 @@ class TestTypeParsers:
         "model_path,want",
         [
             (
-                "models/ticket_doc_info.xml",
+                "models/ticket-doc-info.xml",
                 TicketDocInfo(
                     "Pax-3",
                     [
