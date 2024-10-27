@@ -26,7 +26,7 @@ def request_template(endpoint):
     """
     return {
         "/api/Accounts/login": "accounts_login.xml",
-        "/api/Order/AirShopping": "order_airshopping.xml",
+        "/api/Order/AirShopping": "order_air-shopping.xml",
         "/api/Order/Create": "order_create.xml",
         "/api/Order/Retrieve": "order_retrieve.xml",
         "/api/Order/Change": "order_change.xml",
