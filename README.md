@@ -16,3 +16,7 @@ docker run -t \
   -e MIXVEL_STRUCTURE_ID="12036_ALPHA" \
   mixvel-sdk
 ```
+
+**Note**: For integration tests to work, provide valid `MIXVEL_LOGIN`, `MIXVEL_PASSWORD`,
+and `MIXVEL_STRUCTURE_ID` as env vars.
+To get these values, contact MixVel support at [support@mixvel.com](mailto:support@mixvel.com).
