@@ -10,5 +10,9 @@ To run tests in a Docker container, use:
 
 ```sh
 docker build -t mixvel-sdk .
-docker run -t mixvel-sdk
+docker run -t \
+  -e MIXVEL_LOGIN="testUser.auth@mixvel.com" \
+  -e MIXVEL_PASSWORD="passWord1!" \
+  -e MIXVEL_STRUCTURE_ID="12036_ALPHA" \
+  mixvel-sdk
 ```
