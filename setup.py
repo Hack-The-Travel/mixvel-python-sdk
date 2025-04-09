@@ -2,6 +2,7 @@
 from setuptools import setup
 import os
 import sys
+
 if sys.version_info[0] < 3:
     from io import open
 
@@ -10,9 +11,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 packages = ["mixvel"]
 
 requires = [
-    "jinja2>=2.9.0, <=2.10",
+    "jinja2==2.10",
     "lxml==3.7.2",
-    "requests>=2.21.0, <3",
+    "requests==2.25.1",
 ]
 
 test_requirements = [
@@ -49,5 +50,7 @@ setup(
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
     ],
-    tests_require=test_requirements,
+    extras_require={
+        "test": test_requirements,
+    },
 )
