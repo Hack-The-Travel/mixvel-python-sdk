@@ -15,7 +15,6 @@ importlib-resources==1.4.0
 Jinja2==2.10
 lxml==3.7.2
 MarkupSafe==1.1.1
-mixvel==0.16.2
 more-itertools==5.0.0
 packaging==20.9
 pathlib2==2.3.5

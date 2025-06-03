@@ -1,0 +1,174 @@
+<TicketDocInfo>
+  <BookingRef>
+    <BookingEntity>
+      <Carrier>
+        <AirlineDesigCode>15</AirlineDesigCode>
+      </Carrier>
+    </BookingEntity>
+    <BookingID>27W5B2</BookingID>
+    <BookingRefTypeCode>PNR</BookingRefTypeCode>
+  </BookingRef>
+  <BookingRef>
+    <BookingEntity>
+      <Carrier>
+        <AirlineDesigCode>EO</AirlineDesigCode>
+      </Carrier>
+    </BookingEntity>
+    <BookingID>1K5V9K</BookingID>
+    <BookingRefTypeCode>PNR</BookingRefTypeCode>
+  </BookingRef>
+  <EndorsementText>NDSA/K109.00/VOZVRAT ZAPRESHCHEN/PITANIE NE PREDOSTAVLIAETSIA/RUCH KL
+    1M 40X
+    30X20SM DO 10KG / BAGAZH-0</EndorsementText>
+  <FareDetail>
+    <FareComponent>
+      <CabinType>
+        <CabinTypeCode>Economy</CabinTypeCode>
+        <BookingCabinTypeCode>Economy</BookingCabinTypeCode>
+      </CabinType>
+      <FareBasisAppCode>ELTRT</FareBasisAppCode>
+      <TicketCoupon>1</TicketCoupon>
+      <FareBasisCode>ELTRT/CN15</FareBasisCode>
+      <FareRule>
+        <RuleCode>0201</RuleCode>
+      </FareRule>
+      <PaxSegmentRefID>8ef7ced2-7b05-41c2-b965-98e092be8b21</PaxSegmentRefID>
+      <Price>
+        <BaseAmount CurCode="RUB">357.00</BaseAmount>
+        <BaseAmountGuaranteeTimeLimitDateTime>2025-06-03T12:10:00</BaseAmountGuaranteeTimeLimitDateTime>
+        <EquivAmount CurCode="RUB">357.50</EquivAmount>
+        <TaxSummary>
+          <Tax>
+            <Amount CurCode="RUB">70.00</Amount>
+            <QualifierCode>aircompany</QualifierCode>
+            <CurConversion>
+              <Amount CurCode="RUB">70.00</Amount>
+            </CurConversion>
+            <TaxCode>Q</TaxCode>
+          </Tax>
+          <Tax>
+            <Amount CurCode="RUB">175.00</Amount>
+            <QualifierCode>aircompany</QualifierCode>
+            <TaxCode>RI</TaxCode>
+          </Tax>
+          <TotalTaxAmount CurCode="RUB">245.00</TotalTaxAmount>
+        </TaxSummary>
+        <TotalAmount CurCode="RUB">602.50</TotalAmount>
+      </Price>
+      <PriceClassRefID>aac227ad-7582-4d90-930d-b3231937b534</PriceClassRefID>
+      <RBD>
+        <RBD_Code>E</RBD_Code>
+      </RBD>
+      <TicketDesigCode>CN15</TicketDesigCode>
+    </FareComponent>
+    <FareComponent>
+      <CabinType>
+        <CabinTypeCode>Economy</CabinTypeCode>
+        <BookingCabinTypeCode>Economy</BookingCabinTypeCode>
+      </CabinType>
+      <FareBasisAppCode>ELTRT</FareBasisAppCode>
+      <TicketCoupon>2</TicketCoupon>
+      <FareBasisCode>ELTRT/CN15</FareBasisCode>
+      <FareRule>
+        <RuleCode>0201</RuleCode>
+      </FareRule>
+      <PaxSegmentRefID>be5b1bde-d139-4362-8299-d775ef1cfe0c</PaxSegmentRefID>
+      <Price>
+        <BaseAmount CurCode="RUB">357.00</BaseAmount>
+        <BaseAmountGuaranteeTimeLimitDateTime>2025-06-03T12:10:00</BaseAmountGuaranteeTimeLimitDateTime>
+        <EquivAmount CurCode="RUB">357.50</EquivAmount>
+        <TaxSummary>
+          <Tax>
+            <Amount CurCode="RUB">239.00</Amount>
+            <QualifierCode>aircompany</QualifierCode>
+            <TaxCode>RI</TaxCode>
+          </Tax>
+          <TotalTaxAmount CurCode="RUB">239.00</TotalTaxAmount>
+        </TaxSummary>
+        <TotalAmount CurCode="RUB">596.50</TotalAmount>
+      </Price>
+      <PriceClassRefID>aac227ad-7582-4d90-930d-b3231937b534</PriceClassRefID>
+      <RBD>
+        <RBD_Code>E</RBD_Code>
+      </RBD>
+      <TicketDesigCode>CN15</TicketDesigCode>
+    </FareComponent>
+    <FareCalculationInfo>
+      <AddInfoText>MOW EO AER Q70 357EO MOW357RUB784END</AddInfoText>
+    </FareCalculationInfo>
+    <FarePriceType>
+      <FarePriceTypeCode>Sell</FarePriceTypeCode>
+      <Price>
+        <BaseAmount CurCode="RUB">785.00</BaseAmount>
+        <TaxSummary>
+          <Tax>
+            <Amount CurCode="RUB">414.00</Amount>
+            <QualifierCode>700</QualifierCode>
+            <TaxCode>RI</TaxCode>
+          </Tax>
+          <Tax>
+            <Amount CurCode="RUB">426.64</Amount>
+            <QualifierCode>6</QualifierCode>
+            <TaxCode>VAT Fare</TaxCode>
+          </Tax>
+          <TotalTaxAmount CurCode="RUB">414.00</TotalTaxAmount>
+        </TaxSummary>
+        <TotalAmount CurCode="RUB">1199.00</TotalAmount>
+      </Price>
+    </FarePriceType>
+  </FareDetail>
+  <OrderRef>
+    <OrderID>01138-250603-OHY8066</OrderID>
+    <OrderItemID>d4dd3b31-e950-4924-9fc6-b2768d26fe8c</OrderItemID>
+    <OwnerCode>TCH</OwnerCode>
+  </OrderRef>
+  <IssueDateTime>2025-06-03T11:41:00</IssueDateTime>
+  <PaxRefID>Pax-3</PaxRefID>
+  <ServicingAgency>
+    <AgencyID>99GRS</AgencyID>
+    <Name>MOSKVA
+      AO SIRENA TREVEL</Name>
+  </ServicingAgency>
+  <Ticket>
+    <Coupon>
+      <BaggageAllowanceRefID>7f4688d4-77d0-4b17-9b5f-9bf56a67fc69</BaggageAllowanceRefID>
+      <CouponNumber>1</CouponNumber>
+      <CouponStatusCode>O</CouponStatusCode>
+      <CouponValidityPeriod>
+        <EffectiveDate>2025-06-17</EffectiveDate>
+        <ExpirationDate>2025-06-17</ExpirationDate>
+      </CouponValidityPeriod>
+      <FareBasisCode>ELTRT/CN15</FareBasisCode>
+      <ServiceRefID>b6bf87da-8074-412e-88f8-0748f5573471</ServiceRefID>
+      <SoldAirlineInfo>
+        <PaxSegmentRefID>8ef7ced2-7b05-41c2-b965-98e092be8b21</PaxSegmentRefID>
+      </SoldAirlineInfo>
+    </Coupon>
+    <Coupon>
+      <BaggageAllowanceRefID>7f4688d4-77d0-4b17-9b5f-9bf56a67fc69</BaggageAllowanceRefID>
+      <CouponNumber>2</CouponNumber>
+      <CouponStatusCode>O</CouponStatusCode>
+      <CouponValidityPeriod>
+        <EffectiveDate>2025-06-25</EffectiveDate>
+        <ExpirationDate>2025-06-25</ExpirationDate>
+      </CouponValidityPeriod>
+      <FareBasisCode>ELTRT/CN15</FareBasisCode>
+      <ServiceRefID>0932ff08-8442-42cb-8d69-1f2e9a478fa4</ServiceRefID>
+      <SoldAirlineInfo>
+        <PaxSegmentRefID>be5b1bde-d139-4362-8299-d775ef1cfe0c</PaxSegmentRefID>
+      </SoldAirlineInfo>
+    </Coupon>
+    <TicketReceipt>
+      <URL>
+        https://minio-test.mixvel.com/itinerary.receipts.demo/01138-250603-OHY8066.7706102021823.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=minio%2F20250603%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20250603T084108Z&amp;X-Amz-Expires=604800&amp;X-Amz-SignedHeaders=host&amp;response-content-type=application%2Fpdf&amp;X-Amz-Signature=3ea328886baf468045d6df3c13d6744d97999320608c2803da8f80ce9a5d92be
+      </URL>
+    </TicketReceipt>
+    <RemarkText>PP 4509511003 RU</RemarkText>
+    <ReportingTypeCode>TCH</ReportingTypeCode>
+    <TicketSalesPoint>00118580</TicketSalesPoint>
+    <TicketDocTypeCode>T</TicketDocTypeCode>
+    <TicketNumber>7706102021825</TicketNumber>
+    <InvoluntaryRefundAvailable>false</InvoluntaryRefundAvailable>
+  </Ticket>
+  <PaymentInfoRefID>4dd5d02a-99b5-4e6b-be75-1d6ee17d6354</PaymentInfoRefID>
+</TicketDocInfo>

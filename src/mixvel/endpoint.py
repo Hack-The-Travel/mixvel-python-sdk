@@ -6,9 +6,10 @@ mixvel.endpoint
 Provides internal functions for working with MixVel API endpoints.
 """
 
+
 def is_login_endpoint(endpoint):
     """Determines if the given endpoint is the login endpoint.
-    
+
     :param endpoint: endpoint
     :type endpoint: str
     :rtype: bool
@@ -25,9 +26,9 @@ def request_template(endpoint):
     """
     return {
         "/api/Accounts/login": "accounts_login.xml",
-        "/api/Order/airshopping": "order_airshopping.xml",
-        "/api/Order/create": "order_create.xml",
-        "/api/Order/retrieve": "order_retrieve.xml",
-        "/api/Order/change": "order_change.xml",
-        "/api/Order/cancel": "order_cancel.xml",
+        "/api/Order/AirShopping": "order_air-shopping.xml",
+        "/api/Order/Create": "order_create.xml",
+        "/api/Order/Retrieve": "order_retrieve.xml",
+        "/api/Order/Change": "order_change.xml",
+        "/api/Order/Cancel": "order_cancel.xml",
     }.get(endpoint, None)

@@ -1,0 +1,658 @@
+<MixEnv:Envelope xmlns:MixEnv="https://www.mixvel.com/API/XSD/mixvel_envelope/1_06">
+  <Header />
+  <Body>
+    <MessageInfo MessageId="d93c7556-0028-4608-b7f9-1e8f604634cb" ReplyTo="bd8bff5c-af81-492d-bcd7-f6cc513ba074" TimeSent="2025-05-28T09:30:59.9855817Z" />
+    <AppData>
+      <Shop:Mixvel_AirShoppingRS xmlns:Shop="https://www.mixvel.com/API/XSD/Mixvel_AirShoppingRS/1_00">
+        <Response>
+          <DataLists>
+            <BaggageAllowanceList>
+              <BaggageAllowance>
+                <BaggageAllowanceID>40b4cb3d-8b35-4fa7-845d-e873f67bd5b7</BaggageAllowanceID>
+                <DescText>No</DescText>
+                <TypeCode>Checked</TypeCode>
+              </BaggageAllowance>
+              <BaggageAllowance>
+                <BaggageAllowanceID>3dcfb253-1cab-405a-b02f-d2008c84249c</BaggageAllowanceID>
+                <CommentText>НЕ ПРЕВЫШАЕТ 36СМ Х 30СМ Х 27СМ </CommentText>
+                <TypeCode>CarryOn</TypeCode>
+              </BaggageAllowance>
+              <BaggageAllowance>
+                <BaggageAllowanceID>d1d6686f-cb71-45b3-ace3-140af222d988</BaggageAllowanceID>
+                <DescText>PC</DescText>
+                <CommentText>SU WILL ACCEPT ONE PIECE OF CARRY ON BAGGAGE UP TO 10 KG/33LB NOT EXCEEDING 55 CM IN LENGTH 40 CM IN WIDTH AND 25 CM IN HEIGHT. PLEASE VISIT WWW.AEROFLOT.RU FOR FULL DETAILS OF SU HAND BAGGAGE POLICY. </CommentText>
+                <PieceAllowance>
+                  <TotalQty>1</TotalQty>
+                </PieceAllowance>
+                <TypeCode>CarryOn</TypeCode>
+                <Allowed>
+                  <Name>CARRY10KG 22LB 55L X 40W X 25H (08A)</Name>
+                  <LimitValue>1</LimitValue>
+                  <DimensionAllowance>
+                    <BaggageDimensionCategory>Length</BaggageDimensionCategory>
+                    <MaxMeasure UnitCode="Centimetre">55</MaxMeasure>
+                  </DimensionAllowance>
+                  <DimensionAllowance>
+                    <BaggageDimensionCategory>Width</BaggageDimensionCategory>
+                    <MaxMeasure UnitCode="Centimetre">40</MaxMeasure>
+                  </DimensionAllowance>
+                  <DimensionAllowance>
+                    <BaggageDimensionCategory>Height</BaggageDimensionCategory>
+                    <MaxMeasure UnitCode="Centimetre">25</MaxMeasure>
+                  </DimensionAllowance>
+                  <WeightAllowance>
+                    <MaximumWeightMeasure UnitCode="Kilogram">10</MaximumWeightMeasure>
+                  </WeightAllowance>
+                  <WeightAllowance>
+                    <MaximumWeightMeasure UnitCode="Pound">22</MaximumWeightMeasure>
+                  </WeightAllowance>
+                </Allowed>
+              </BaggageAllowance>
+            </BaggageAllowanceList>
+            <OriginDestList>
+              <OriginDest>
+                <DestCode>KVX</DestCode>
+                <OriginCode>OVB</OriginCode>
+                <OriginDestID>9bdbb5bb-49fb-4bdd-a13e-16a4e8334f2a</OriginDestID>
+                <PaxJourneyRefID>eb1eb9b9-b975-4cec-9124-1ae35de03a1f</PaxJourneyRefID>
+              </OriginDest>
+            </OriginDestList>
+            <PaxJourneyList>
+              <PaxJourney>
+                <Duration>PT15H</Duration>
+                <PaxJourneyID>eb1eb9b9-b975-4cec-9124-1ae35de03a1f</PaxJourneyID>
+                <PaxSegmentRefID>26e64313-026c-4be2-90cc-7603389ab120</PaxSegmentRefID>
+                <PaxSegmentRefID>dadc06be-2fad-4c7b-aa29-be3e9b2a2ef5</PaxSegmentRefID>
+              </PaxJourney>
+            </PaxJourneyList>
+            <PaxList>
+              <Pax>
+                <PaxID>Pax-1</PaxID>
+                <PTC>ADT</PTC>
+              </Pax>
+            </PaxList>
+            <PaxSegmentList>
+              <PaxSegment>
+                <Arrival>
+                  <ScheduledDateTime>2025-06-12T10:30:00</ScheduledDateTime>
+                  <IATA_LocationCode>SVO</IATA_LocationCode>
+                  <StationName>Москва(Шереметьево)</StationName>
+                  <TerminalName>B</TerminalName>
+                </Arrival>
+                <DatedOperatingLeg>
+                  <Arrival>
+                    <ScheduledDateTime>2025-06-12T10:30:00</ScheduledDateTime>
+                    <IATA_LocationCode>SVO</IATA_LocationCode>
+                    <StationName>Москва(Шереметьево)</StationName>
+                    <TerminalName>B</TerminalName>
+                  </Arrival>
+                  <CarrierType>
+                    <CarrierTypeCode>32B</CarrierTypeCode>
+                  </CarrierType>
+                  <DatedOperatingLegID>4d28f04b-7ec4-4c7b-b56a-586f6816d7c0</DatedOperatingLegID>
+                  <Dep>
+                    <ScheduledDateTime>2025-06-12T10:05:00</ScheduledDateTime>
+                    <IATA_LocationCode>OVB</IATA_LocationCode>
+                    <StationName>Новосибирск(Толмачево)</StationName>
+                  </Dep>
+                </DatedOperatingLeg>
+                <Dep>
+                  <ScheduledDateTime>2025-06-12T10:05:00</ScheduledDateTime>
+                  <IATA_LocationCode>OVB</IATA_LocationCode>
+                  <StationName>Новосибирск(Толмачево)</StationName>
+                </Dep>
+                <Duration>PT4H25M</Duration>
+                <Distance UnitCode="Mileage">1743</Distance>
+                <MarketingCarrierInfo>
+                  <CarrierDesigCode>SU</CarrierDesigCode>
+                  <MarketingCarrierFlightNumberText>1307</MarketingCarrierFlightNumberText>
+                </MarketingCarrierInfo>
+                <OperatingCarrierInfo>
+                  <CarrierDesigCode>SU</CarrierDesigCode>
+                  <OperatingCarrierFlightNumberText>1307</OperatingCarrierFlightNumberText>
+                </OperatingCarrierInfo>
+                <SegmentType>Aircraft</SegmentType>
+                <PaxSegmentID>26e64313-026c-4be2-90cc-7603389ab120</PaxSegmentID>
+              </PaxSegment>
+              <PaxSegment>
+                <Arrival>
+                  <ScheduledDateTime>2025-06-12T21:05:00</ScheduledDateTime>
+                  <IATA_LocationCode>KVX</IATA_LocationCode>
+                  <StationName>Киров(Победилово)</StationName>
+                </Arrival>
+                <DatedOperatingLeg>
+                  <Arrival>
+                    <ScheduledDateTime>2025-06-12T21:05:00</ScheduledDateTime>
+                    <IATA_LocationCode>KVX</IATA_LocationCode>
+                    <StationName>Киров(Победилово)</StationName>
+                  </Arrival>
+                  <CarrierType>
+                    <CarrierTypeCode>73H</CarrierTypeCode>
+                  </CarrierType>
+                  <DatedOperatingLegID>73b811fd-ea02-41fc-b951-5af3ffc92e6e</DatedOperatingLegID>
+                  <Dep>
+                    <ScheduledDateTime>2025-06-12T19:30:00</ScheduledDateTime>
+                    <IATA_LocationCode>SVO</IATA_LocationCode>
+                    <StationName>Москва(Шереметьево)</StationName>
+                    <TerminalName>D</TerminalName>
+                  </Dep>
+                </DatedOperatingLeg>
+                <Dep>
+                  <ScheduledDateTime>2025-06-12T19:30:00</ScheduledDateTime>
+                  <IATA_LocationCode>SVO</IATA_LocationCode>
+                  <StationName>Москва(Шереметьево)</StationName>
+                  <TerminalName>D</TerminalName>
+                </Dep>
+                <Duration>PT1H35M</Duration>
+                <Distance UnitCode="Mileage">480</Distance>
+                <MarketingCarrierInfo>
+                  <CarrierDesigCode>DP</CarrierDesigCode>
+                  <MarketingCarrierFlightNumberText>6819</MarketingCarrierFlightNumberText>
+                </MarketingCarrierInfo>
+                <OperatingCarrierInfo>
+                  <CarrierDesigCode>DP</CarrierDesigCode>
+                  <OperatingCarrierFlightNumberText>6819</OperatingCarrierFlightNumberText>
+                </OperatingCarrierInfo>
+                <SegmentType>Aircraft</SegmentType>
+                <PaxSegmentID>dadc06be-2fad-4c7b-aa29-be3e9b2a2ef5</PaxSegmentID>
+              </PaxSegment>
+            </PaxSegmentList>
+            <PriceClassList>
+              <PriceClass>
+                <Code>NB</Code>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>25 PCT MILES FOR FARES BPX SOC (06A)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>50 75 ПРОЦ ЗАРАБОТАННЫХ МИЛЬ (ME5)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>75 100 ПРОЦ ЗАРАБОТАННЫХ МИЛЬ (ME7)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>F</Access>
+                  <DescText>ОТ 75 ДО 125 ПРЦН ЗАРАБОТ МИЛ (ME1)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>FM 100 TO 125 PCT MILES EARNED (M10)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ОТ 100 ДО 150 ПРЦН ЗАРАБОТ МИЛ (ME2)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>FM 125 TO 150 PCT MILES EARNED (M12)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ОТ 150 ДО 200 ПРЦН ЗАРАБОТ МИЛ (ME3)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>НАЧИСЛЕНИЕ 125 МИЛЬ (06Y)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>НАЧИСЛЕНИЕ 150 ПРОЦ МИЛЬ (06M)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>175 PERCENT MILES EARNED (M17)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>FM 200 TO 225 PCT MILES EARNED (M20)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>FM 250 TO 300 PCT MILES EARNED (M25)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>F</Access>
+                  <DescText>CARRY10KG 22LBUPTO 55X40X25CM (0MJ)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>CARRY15KG 33LBUPTO 55X40X25CM (0MK)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>ДО 50Ф 23КГ И ДО 80Д 203СМ (0GP)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ДО 70Ф 32КГ И ДО 80Д 203СМ (0FN)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>2Е СВЕРХНОРМАТИВНОЕ МЕСТО (0CD)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>ИЗМЕНЯЕМЫЙ БИЛЕТ (059)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ИЗМЕНЕНИЕ ПРИ НЕЯВКЕ НА РЕЙС (CNS)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ВОЗВРАТ ДО ЗАКРЫТ РЕГИСТРАЦИИ (RBC)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ВОЗВРАТ ПОСЛЕ ЗАКРЫТ РЕГИСТРАЦ (RBA)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ОТКРЫТАЯ ДАТА ОБРАТНО (ORD)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>ПОВЫШ ДО КОМФОРТ ПРИ РЕГИСТР (UT2)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ПРИОРИТЕТНАЯ ПОСАДКА (0G6)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ПРИОРИТЕТНЫЙ БАГАЖ (0LF)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ПРИОРИТЕТНАЯ РЕГИСТРАЦИЯ (03P)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ДОСТУП В ЗАЛ ОЖИДАНИЯ ШРМ (SVO)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>БИЗНЕС ЗАЛ (0BX)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ПОВЫШ КЛАССА ОБСЛ С МИЛ БОНУС (0NI)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>F</Access>
+                  <DescText>ОСТАНОВКА (STO)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>ДОСТУП В ИНТЕРНЕТ (0CL)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>ОСНОВНОЕ МЕСТО (050)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>ПОВЫШ ДО БИЗНЕС ПРИ РЕГИСТР (UPF)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>РУЧКЛАДЬ ДО 36Х30Х27 (098)</DescText>
+                </Desc>
+                <Name>ECONOMY LITE</Name>
+                <PriceClassID>a3acd422-2213-4c03-a7eb-43e974be1745</PriceClassID>
+              </PriceClass>
+              <PriceClass>
+                <Code>ST</Code>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>ИЗМЕНЕНИЕ ДО ВЫЛЕТА (06I)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>D</Access>
+                  <DescText>ИЗМЕНЕНИЕ ПОСЛЕ ВЫЛЕТА (06J)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>D</Access>
+                  <DescText>ВОЗВРАТ ДО ВЫЛЕТА (06K)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>D</Access>
+                  <DescText>ВОЗВРАТ ПОСЛЕ ВЫЛЕТА (06L)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>F</Access>
+                  <DescText>НОРМА РУЧНОЙ КЛАДИ (0LN)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ДО 10КГ 203СМ (O10)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>N</Access>
+                  <DescText>ДО 20КГ 203СМ (O20)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С26ПО32РЯДЫ (ES3)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С19ПО25РЯДЫBCDE12A (ES2)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>15 И 16РЯДЫ (SE2)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>17 18РЯДЫAF И С12ПО14РЯДЫF (SE3)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С3ПО5РЯДЫ AF И 2A (SE4)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С6ПО10РЯДЫ AF И C12ПО14 РЯДЫ A (SE5)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С3ПО5РЯДЫBCDE И 2РЯДВС (SE6)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С19ПО25РЯДЫAF С12ПО14РЯДЫDE (SE7)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С6ПО14РЯДЫBСC6ПО11РЯДЫDE11РЯД (ES1)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С17ПО18РЯДЫBCDE (ES4)</DescText>
+                </Desc>
+                <Desc>
+                  <Access>C</Access>
+                  <DescText>С19ПО25РЯДЫAF (ES5)</DescText>
+                </Desc>
+                <Name>БАЗОВЫЙ</Name>
+                <PriceClassID>4bda669f-7f12-4f91-91e9-ccb00de534ab</PriceClassID>
+              </PriceClass>
+            </PriceClassList>
+            <ValidatingPartyList>
+              <ValidatingParty>
+                <ValidatingPartyID>01ad394c-af62-49cf-b4e2-1607721eef27</ValidatingPartyID>
+                <ValidatingPartyCode>DP</ValidatingPartyCode>
+                <ValidatingPartyName>Победа</ValidatingPartyName>
+                <ValidatingPartyDesigCode>425</ValidatingPartyDesigCode>
+              </ValidatingParty>
+              <ValidatingParty>
+                <ValidatingPartyID>e6cd0503-9df0-42b0-ade6-a7c67514ba41</ValidatingPartyID>
+                <ValidatingPartyCode>SU</ValidatingPartyCode>
+                <ValidatingPartyName>Аэрофлот - российские авиалинии</ValidatingPartyName>
+                <ValidatingPartyDesigCode>555</ValidatingPartyDesigCode>
+              </ValidatingParty>
+            </ValidatingPartyList>
+          </DataLists>
+          <Offer>
+            <BaggageAllowance>
+              <BaggageAllowanceRefID>40b4cb3d-8b35-4fa7-845d-e873f67bd5b7</BaggageAllowanceRefID>
+              <BaggageFlightAssociations>
+                <PaxSegmentRef>
+                  <PaxSegmentRefID>26e64313-026c-4be2-90cc-7603389ab120</PaxSegmentRefID>
+                  <PaxSegmentRefID>dadc06be-2fad-4c7b-aa29-be3e9b2a2ef5</PaxSegmentRefID>
+                </PaxSegmentRef>
+              </BaggageFlightAssociations>
+              <PaxRefID>Pax-1</PaxRefID>
+            </BaggageAllowance>
+            <BaggageAllowance>
+              <BaggageAllowanceRefID>d1d6686f-cb71-45b3-ace3-140af222d988</BaggageAllowanceRefID>
+              <BaggageFlightAssociations>
+                <PaxSegmentRef>
+                  <PaxSegmentRefID>26e64313-026c-4be2-90cc-7603389ab120</PaxSegmentRefID>
+                </PaxSegmentRef>
+              </BaggageFlightAssociations>
+              <PaxRefID>Pax-1</PaxRefID>
+            </BaggageAllowance>
+            <BaggageAllowance>
+              <BaggageAllowanceRefID>3dcfb253-1cab-405a-b02f-d2008c84249c</BaggageAllowanceRefID>
+              <BaggageFlightAssociations>
+                <PaxSegmentRef>
+                  <PaxSegmentRefID>dadc06be-2fad-4c7b-aa29-be3e9b2a2ef5</PaxSegmentRefID>
+                </PaxSegmentRef>
+              </BaggageFlightAssociations>
+              <PaxRefID>Pax-1</PaxRefID>
+            </BaggageAllowance>
+            <TicketDocsCount>2</TicketDocsCount>
+            <OfferExpirationTimeLimitDateTime>2025-05-28T09:46:00Z</OfferExpirationTimeLimitDateTime>
+            <OfferID>b0805f9d-bd58-48b1-93c6-3fa48f8fdc92</OfferID>
+            <OfferItem>
+              <FareDetail>
+                <ClosedFare>false</ClosedFare>
+                <FareComponent>
+                  <CabinType>
+                    <CabinTypeCode>Economy</CabinTypeCode>
+                  </CabinType>
+                  <FareBasisAppCode>RNOR</FareBasisAppCode>
+                  <TicketCoupon>1</TicketCoupon>
+                  <FareBasisCode>RNOR</FareBasisCode>
+                  <FareRule>
+                    <RuleCode>ENR1</RuleCode>
+                    <FareType>OW</FareType>
+                  </FareRule>
+                  <PaxSegmentRefID>26e64313-026c-4be2-90cc-7603389ab120</PaxSegmentRefID>
+                  <Price>
+                    <BaseAmount CurCode="RUB">11700.00</BaseAmount>
+                    <BaseAmountGuaranteeTimeLimitDateTime>2025-05-30T12:30:00</BaseAmountGuaranteeTimeLimitDateTime>
+                    <TaxSummary>
+                      <Tax>
+                        <Amount CurCode="RUB">120.00</Amount>
+                        <TaxCode>YR</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">357.00</Amount>
+                        <TaxCode>RI</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">134.00</Amount>
+                        <TaxCode>RI</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">1083.64</Amount>
+                        <QualifierCode>6</QualifierCode>
+                        <TaxCode>VAT Fare</TaxCode>
+                      </Tax>
+                      <TotalTaxAmount CurCode="RUB">611.00</TotalTaxAmount>
+                    </TaxSummary>
+                    <TotalAmount CurCode="RUB">12311.00</TotalAmount>
+                  </Price>
+                  <PriceClassRefID>a3acd422-2213-4c03-a7eb-43e974be1745</PriceClassRefID>
+                  <RBD>
+                    <RBD_Code>R</RBD_Code>
+                    <Availability>9</Availability>
+                  </RBD>
+                </FareComponent>
+                <PaxRefID>Pax-1</PaxRefID>
+                <Price>
+                  <BaseAmount CurCode="RUB">11700.00</BaseAmount>
+                  <BaseAmountGuaranteeTimeLimitDateTime>2025-05-30T12:30:00</BaseAmountGuaranteeTimeLimitDateTime>
+                  <TaxSummary>
+                    <Tax>
+                      <Amount CurCode="RUB">120.00</Amount>
+                      <TaxCode>YR</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">491.00</Amount>
+                      <TaxCode>RI</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">1083.64</Amount>
+                      <QualifierCode>6</QualifierCode>
+                      <TaxCode>VAT Fare</TaxCode>
+                    </Tax>
+                    <TotalTaxAmount CurCode="RUB">611.00</TotalTaxAmount>
+                  </TaxSummary>
+                  <TotalAmount CurCode="RUB">12311.00</TotalAmount>
+                </Price>
+              </FareDetail>
+              <MandatoryInd>true</MandatoryInd>
+              <OfferItemID>10aaea98-bd1c-4f56-afcc-85fbb4d7c9e8</OfferItemID>
+              <PaymentTimeLimitDateTime>2025-05-28T09:46:00Z</PaymentTimeLimitDateTime>
+              <Price>
+                <BaseAmount CurCode="RUB">11700.00</BaseAmount>
+                <BaseAmountGuaranteeTimeLimitDateTime>2025-05-30T12:30:00</BaseAmountGuaranteeTimeLimitDateTime>
+                <TaxSummary>
+                  <Tax>
+                    <Amount CurCode="RUB">120.00</Amount>
+                    <TaxCode>YR</TaxCode>
+                  </Tax>
+                  <Tax>
+                    <Amount CurCode="RUB">491.00</Amount>
+                    <TaxCode>RI</TaxCode>
+                  </Tax>
+                  <Tax>
+                    <Amount CurCode="RUB">1083.64</Amount>
+                    <QualifierCode>6</QualifierCode>
+                    <TaxCode>VAT Fare</TaxCode>
+                  </Tax>
+                  <TotalTaxAmount CurCode="RUB">611.00</TotalTaxAmount>
+                </TaxSummary>
+                <TotalAmount CurCode="RUB">12311.00</TotalAmount>
+              </Price>
+              <Service>
+                <PaxRefID>Pax-1</PaxRefID>
+                <ValidatingPartyRefID>e6cd0503-9df0-42b0-ade6-a7c67514ba41</ValidatingPartyRefID>
+                <ServiceAssociations>
+                  <PaxSegmentRef>
+                    <PaxSegmentRefID>26e64313-026c-4be2-90cc-7603389ab120</PaxSegmentRefID>
+                  </PaxSegmentRef>
+                </ServiceAssociations>
+                <ServiceID>8beb5819-a32f-4494-b0f8-c6d1d4f5895e</ServiceID>
+              </Service>
+              <RefundStatus>Unresolved</RefundStatus>
+            </OfferItem>
+            <OfferItem>
+              <FareDetail>
+                <ClosedFare>false</ClosedFare>
+                <FareComponent>
+                  <CabinType>
+                    <CabinTypeCode>Economy</CabinTypeCode>
+                  </CabinType>
+                  <FareBasisAppCode>PROMOALL</FareBasisAppCode>
+                  <TicketCoupon>1</TicketCoupon>
+                  <FareBasisCode>PROMOALL</FareBasisCode>
+                  <FareRule>
+                    <RuleCode>0001</RuleCode>
+                    <FareType>OW</FareType>
+                  </FareRule>
+                  <PaxSegmentRefID>dadc06be-2fad-4c7b-aa29-be3e9b2a2ef5</PaxSegmentRefID>
+                  <Price>
+                    <BaseAmount CurCode="RUB">1999.00</BaseAmount>
+                    <BaseAmountGuaranteeTimeLimitDateTime>2025-05-28T12:45:00</BaseAmountGuaranteeTimeLimitDateTime>
+                    <TaxSummary>
+                      <Tax>
+                        <Amount CurCode="RUB">100.00</Amount>
+                        <TaxCode>YR</TaxCode>
+                      </Tax>
+                      <Tax>
+                        <Amount CurCode="RUB">198.40</Amount>
+                        <QualifierCode>6</QualifierCode>
+                        <TaxCode>VAT Fare</TaxCode>
+                      </Tax>
+                      <TotalTaxAmount CurCode="RUB">100.00</TotalTaxAmount>
+                    </TaxSummary>
+                    <TotalAmount CurCode="RUB">2099.00</TotalAmount>
+                  </Price>
+                  <PriceClassRefID>4bda669f-7f12-4f91-91e9-ccb00de534ab</PriceClassRefID>
+                  <RBD>
+                    <RBD_Code>P</RBD_Code>
+                    <Availability>5</Availability>
+                  </RBD>
+                </FareComponent>
+                <PaxRefID>Pax-1</PaxRefID>
+                <Price>
+                  <BaseAmount CurCode="RUB">1999.00</BaseAmount>
+                  <BaseAmountGuaranteeTimeLimitDateTime>2025-05-28T12:45:00</BaseAmountGuaranteeTimeLimitDateTime>
+                  <TaxSummary>
+                    <Tax>
+                      <Amount CurCode="RUB">100.00</Amount>
+                      <TaxCode>YR</TaxCode>
+                    </Tax>
+                    <Tax>
+                      <Amount CurCode="RUB">198.40</Amount>
+                      <QualifierCode>6</QualifierCode>
+                      <TaxCode>VAT Fare</TaxCode>
+                    </Tax>
+                    <TotalTaxAmount CurCode="RUB">100.00</TotalTaxAmount>
+                  </TaxSummary>
+                  <TotalAmount CurCode="RUB">2099.00</TotalAmount>
+                </Price>
+              </FareDetail>
+              <MandatoryInd>true</MandatoryInd>
+              <OfferItemID>734d2e77-78ea-4bf8-be2d-6d91b1d94adc</OfferItemID>
+              <PaymentTimeLimitDateTime>2025-05-28T09:46:00Z</PaymentTimeLimitDateTime>
+              <Price>
+                <BaseAmount CurCode="RUB">1999.00</BaseAmount>
+                <BaseAmountGuaranteeTimeLimitDateTime>2025-05-28T12:45:00</BaseAmountGuaranteeTimeLimitDateTime>
+                <TaxSummary>
+                  <Tax>
+                    <Amount CurCode="RUB">100.00</Amount>
+                    <TaxCode>YR</TaxCode>
+                  </Tax>
+                  <Tax>
+                    <Amount CurCode="RUB">198.40</Amount>
+                    <QualifierCode>6</QualifierCode>
+                    <TaxCode>VAT Fare</TaxCode>
+                  </Tax>
+                  <TotalTaxAmount CurCode="RUB">100.00</TotalTaxAmount>
+                </TaxSummary>
+                <TotalAmount CurCode="RUB">2099.00</TotalAmount>
+              </Price>
+              <Service>
+                <PaxRefID>Pax-1</PaxRefID>
+                <ValidatingPartyRefID>01ad394c-af62-49cf-b4e2-1607721eef27</ValidatingPartyRefID>
+                <ServiceAssociations>
+                  <PaxSegmentRef>
+                    <PaxSegmentRefID>dadc06be-2fad-4c7b-aa29-be3e9b2a2ef5</PaxSegmentRefID>
+                  </PaxSegmentRef>
+                </ServiceAssociations>
+                <ServiceID>525dbae1-4397-492a-9f48-1698b4bef361</ServiceID>
+              </Service>
+              <RefundStatus>Unresolved</RefundStatus>
+            </OfferItem>
+            <OwnerCode>TCH</OwnerCode>
+            <ReservationGuideline>
+              <ReservationLang>EN</ReservationLang>
+            </ReservationGuideline>
+            <TotalPrice>
+              <BaseAmount CurCode="RUB">13699.00</BaseAmount>
+              <BaseAmountGuaranteeTimeLimitDateTime>2025-05-28T12:45:00</BaseAmountGuaranteeTimeLimitDateTime>
+              <TaxSummary>
+                <Tax>
+                  <Amount CurCode="RUB">220.00</Amount>
+                  <TaxCode>YR</TaxCode>
+                </Tax>
+                <Tax>
+                  <Amount CurCode="RUB">491.00</Amount>
+                  <TaxCode>RI</TaxCode>
+                </Tax>
+                <Tax>
+                  <Amount CurCode="RUB">1282.04</Amount>
+                  <QualifierCode>6</QualifierCode>
+                  <TaxCode>VAT Fare</TaxCode>
+                </Tax>
+                <TotalTaxAmount CurCode="RUB">711.00</TotalTaxAmount>
+              </TaxSummary>
+              <TotalAmount CurCode="RUB">14410.00</TotalAmount>
+            </TotalPrice>
+          </Offer>
+          <PaymentFunctions>
+            <OtherPaymentMethod />
+          </PaymentFunctions>
+        </Response>
+      </Shop:Mixvel_AirShoppingRS>
+    </AppData>
+  </Body>
+</MixEnv:Envelope>

@@ -312,8 +312,7 @@ class OfferItem:
 
 
 class Order:
-    def __init__(self, order_id, order_items, booking_refs,
-                 deposit_timelimit, total_price):
+    def __init__(self, order_id, booking_refs, order_items, total_price):
         """Order.
         
         :param order_id: order id
@@ -322,15 +321,12 @@ class Order:
         :type order_items: list[OrderItem]
         :param booking_refs: lit of bookings
         :type booking_refs: list[Booking]
-        :param deposit_timelimit: ticketing time limit
-        :type deposit_timelimit: datetime.datetime
         :param total_price: total price
-        :type total_price: Amount
+        :type total_price: Price
         """
         self.order_id = order_id
-        self.order_items = order_items
         self.booking_refs = booking_refs
-        self.deposit_timelimit = deposit_timelimit
+        self.order_items = order_items
         self.total_price = total_price
 
 
@@ -480,16 +476,16 @@ class SelectedOffer:
 
 
 class SelectedOfferItem:
-    def __init__(self, offer_item_ref_id, pax_ref_id):
+    def __init__(self, offer_item_ref_id, pax_ref_ids):
         """Selected offer item.
         
         :param offer_item_ref_id: offer item reference id
         :type offer_item_ref_id: str
-        :param pax_ref_id: passenger reference id
-        :type pax_ref_id: str
+        :param pax_ref_ids: list of passenger reference ids
+        :type pax_ref_ids: list[str]
         """
         self.offer_item_ref_id = offer_item_ref_id
-        self.pax_ref_id = pax_ref_id
+        self.pax_ref_ids = pax_ref_ids
 
 
 class Service:
@@ -585,16 +581,16 @@ class TicketDocInfo:
 
 
 class TransportDepArrival:
-    def __init__(self, iata_location_code, aircraft_scheduled_datetime):
+    def __init__(self, iata_location_code, scheduled_date_time):
         """TransportDepArrival.
         
         :param iata_location_code: IATA location code
         :type iata_location_code: str
-        :param aircraft_scheduled_datetime: aircraft scheduled datetime
-        :type aircraft_scheduled_datetime: datetime.datetime
+        :param scheduled_date_time: scheduled local time of departure/arrival
+        :type scheduled_date_time: datetime.datetime
         """
         self.iata_location_code = iata_location_code
-        self.aircraft_scheduled_datetime = aircraft_scheduled_datetime
+        self.scheduled_date_time = scheduled_date_time
 
 
 class ValidatingParty:

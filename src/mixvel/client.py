@@ -102,12 +102,18 @@ class Client:
         if err is not None:
             typ = err.find("./ErrorType").text
             code = err.find("./Code").text if err.find("./Code") is not None else ""
+            desc = (
+                err.find("./DescText").text.encode("utf-8")
+                if err.find("./DescText") is not None
+                else ""
+            )
             if code == "MIX-106001":
                 raise NoOrdersToCancel
             if code == "":
                 code = "UNDEFINED"
-            raise IOError("{code}: {type}".format(code=code, type=typ))
-
+            raise IOError(
+                "{code}: {type}: {desc}".format(code=code, type=typ, desc=desc)
+            )
         return resp.find(".//Body/AppData/")
 
     def auth(self):
@@ -140,8 +146,7 @@ class Client:
             "itinerary": itinerary,
             "paxes": paxes,
         }
-        resp = self.__request("/api/Order/airshopping", context)
-
+        resp = self.__request("/api/Order/AirShopping", context)
         return parse_air_shopping_response(resp)
 
     def create_order(self, selected_offer, paxes):
@@ -157,8 +162,7 @@ class Client:
             "selected_offer": selected_offer,
             "paxes": paxes,
         }
-        resp = self.__request("/api/Order/create", context)
-
+        resp = self.__request("/api/Order/Create", context)
         return parse_order_view_response(resp)
 
     def retrieve_order(self, mix_order_id):
@@ -171,7 +175,7 @@ class Client:
         context = {
             "mix_order_id": mix_order_id,
         }
-        resp = self.__request("/api/Order/retrieve", context)
+        resp = self.__request("/api/Order/Retrieve", context)
 
         return parse_order_view_response(resp)
 
@@ -187,7 +191,7 @@ class Client:
             "mix_order_id": mix_order_id,
             "amount": amount,
         }
-        resp = self.__request("/api/Order/change", context)
+        resp = self.__request("/api/Order/Change", context)
 
         return parse_order_view_response(resp)
 
@@ -201,5 +205,5 @@ class Client:
         context = {
             "mix_order_id": mix_order_id,
         }
-        resp = self.__request("/api/Order/cancel", context)
+        resp = self.__request("/api/Order/Cancel", context)
         return is_cancel_success(resp)

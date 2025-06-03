@@ -1,0 +1,42 @@
+<PaxSegment>
+  <Arrival>
+    <ScheduledDateTime>2025-06-13T10:30:00</ScheduledDateTime>
+    <IATA_LocationCode>SVO</IATA_LocationCode>
+    <StationName>Москва(Шереметьево)</StationName>
+    <TerminalName>B</TerminalName>
+  </Arrival>
+  <DatedOperatingLeg>
+    <Arrival>
+      <ScheduledDateTime>2025-06-13T10:30:00</ScheduledDateTime>
+      <IATA_LocationCode>SVO</IATA_LocationCode>
+      <StationName>Москва(Шереметьево)</StationName>
+      <TerminalName>B</TerminalName>
+    </Arrival>
+    <CarrierType>
+      <CarrierTypeCode>32B</CarrierTypeCode>
+    </CarrierType>
+    <DatedOperatingLegID>a54238b0-56d2-4114-922e-076721d0ec14</DatedOperatingLegID>
+    <Dep>
+      <ScheduledDateTime>2025-06-13T10:05:00</ScheduledDateTime>
+      <IATA_LocationCode>OVB</IATA_LocationCode>
+      <StationName>Новосибирск(Толмачево)</StationName>
+    </Dep>
+  </DatedOperatingLeg>
+  <Dep>
+    <ScheduledDateTime>2025-06-13T10:05:00</ScheduledDateTime>
+    <IATA_LocationCode>OVB</IATA_LocationCode>
+    <StationName>Новосибирск(Толмачево)</StationName>
+  </Dep>
+  <Duration>PT4H25M</Duration>
+  <Distance UnitCode="Mileage">1743</Distance>
+  <MarketingCarrierInfo>
+    <CarrierDesigCode>SU</CarrierDesigCode>
+    <MarketingCarrierFlightNumberText>1307</MarketingCarrierFlightNumberText>
+  </MarketingCarrierInfo>
+  <OperatingCarrierInfo>
+    <CarrierDesigCode>SU</CarrierDesigCode>
+    <OperatingCarrierFlightNumberText>1307</OperatingCarrierFlightNumberText>
+  </OperatingCarrierInfo>
+  <SegmentType>Aircraft</SegmentType>
+  <PaxSegmentID>f6669d6f-9172-4f6c-9a4c-4c765f332136</PaxSegmentID>
+</PaxSegment>
